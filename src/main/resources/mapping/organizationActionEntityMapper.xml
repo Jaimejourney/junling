@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.organizationActionEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.organizationActionEntity" >
+    <id column="organization_action_id" property="organizationActionId" jdbcType="VARCHAR" />
+    <result column="organization_id" property="organizationId" jdbcType="VARCHAR" />
+    <result column="action_type" property="actionType" jdbcType="VARCHAR" />
+    <result column="action_object" property="actionObject" jdbcType="VARCHAR" />
+    <result column="action_start_time" property="actionStartTime" jdbcType="TIMESTAMP" />
+    <result column="action_end_time" property="actionEndTime" jdbcType="TIMESTAMP" />
+    <result column="action_place" property="actionPlace" jdbcType="VARCHAR" />
+    <result column="action_des" property="actionDes" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    organization_action_id, organization_id, action_type, action_object, action_start_time, 
+    action_end_time, action_place, action_des, created_by, created_time, updated_by, 
+    updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from organization_action
+    where organization_action_id = #{organizationActionId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from organization_action
+    where organization_action_id = #{organizationActionId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.organizationActionEntity" >
+    insert into organization_action (organization_action_id, organization_id, 
+      action_type, action_object, action_start_time, 
+      action_end_time, action_place, action_des, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{organizationActionId,jdbcType=VARCHAR}, #{organizationId,jdbcType=VARCHAR}, 
+      #{actionType,jdbcType=VARCHAR}, #{actionObject,jdbcType=VARCHAR}, #{actionStartTime,jdbcType=TIMESTAMP}, 
+      #{actionEndTime,jdbcType=TIMESTAMP}, #{actionPlace,jdbcType=VARCHAR}, #{actionDes,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.organizationActionEntity" >
+    insert into organization_action
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="organizationActionId != null" >
+        organization_action_id,
+      </if>
+      <if test="organizationId != null" >
+        organization_id,
+      </if>
+      <if test="actionType != null" >
+        action_type,
+      </if>
+      <if test="actionObject != null" >
+        action_object,
+      </if>
+      <if test="actionStartTime != null" >
+        action_start_time,
+      </if>
+      <if test="actionEndTime != null" >
+        action_end_time,
+      </if>
+      <if test="actionPlace != null" >
+        action_place,
+      </if>
+      <if test="actionDes != null" >
+        action_des,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="organizationActionId != null" >
+        #{organizationActionId,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null" >
+        #{organizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="actionType != null" >
+        #{actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="actionObject != null" >
+        #{actionObject,jdbcType=VARCHAR},
+      </if>
+      <if test="actionStartTime != null" >
+        #{actionStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actionEndTime != null" >
+        #{actionEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actionPlace != null" >
+        #{actionPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="actionDes != null" >
+        #{actionDes,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.organizationActionEntity" >
+    update organization_action
+    <set >
+      <if test="organizationId != null" >
+        organization_id = #{organizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="actionType != null" >
+        action_type = #{actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="actionObject != null" >
+        action_object = #{actionObject,jdbcType=VARCHAR},
+      </if>
+      <if test="actionStartTime != null" >
+        action_start_time = #{actionStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actionEndTime != null" >
+        action_end_time = #{actionEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actionPlace != null" >
+        action_place = #{actionPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="actionDes != null" >
+        action_des = #{actionDes,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where organization_action_id = #{organizationActionId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.organizationActionEntity" >
+    update organization_action
+    set organization_id = #{organizationId,jdbcType=VARCHAR},
+      action_type = #{actionType,jdbcType=VARCHAR},
+      action_object = #{actionObject,jdbcType=VARCHAR},
+      action_start_time = #{actionStartTime,jdbcType=TIMESTAMP},
+      action_end_time = #{actionEndTime,jdbcType=TIMESTAMP},
+      action_place = #{actionPlace,jdbcType=VARCHAR},
+      action_des = #{actionDes,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where organization_action_id = #{organizationActionId,jdbcType=VARCHAR}
+  </update>
+</mapper>

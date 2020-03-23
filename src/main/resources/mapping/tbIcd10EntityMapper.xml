@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.tbIcd10EntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.tbIcd10Entity" >
+    <id column="icd" property="icd" jdbcType="VARCHAR" />
+    <result column="icd_name" property="icdName" jdbcType="VARCHAR" />
+    <result column="icd_parent" property="icdParent" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    icd, icd_name, icd_parent, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_icd10
+    where icd = #{icd,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_icd10
+    where icd = #{icd,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.tbIcd10Entity" >
+    insert into tb_icd10 (icd, icd_name, icd_parent, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{icd,jdbcType=VARCHAR}, #{icdName,jdbcType=VARCHAR}, #{icdParent,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.tbIcd10Entity" >
+    insert into tb_icd10
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="icd != null" >
+        icd,
+      </if>
+      <if test="icdName != null" >
+        icd_name,
+      </if>
+      <if test="icdParent != null" >
+        icd_parent,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="icd != null" >
+        #{icd,jdbcType=VARCHAR},
+      </if>
+      <if test="icdName != null" >
+        #{icdName,jdbcType=VARCHAR},
+      </if>
+      <if test="icdParent != null" >
+        #{icdParent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.tbIcd10Entity" >
+    update tb_icd10
+    <set >
+      <if test="icdName != null" >
+        icd_name = #{icdName,jdbcType=VARCHAR},
+      </if>
+      <if test="icdParent != null" >
+        icd_parent = #{icdParent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where icd = #{icd,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.tbIcd10Entity" >
+    update tb_icd10
+    set icd_name = #{icdName,jdbcType=VARCHAR},
+      icd_parent = #{icdParent,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where icd = #{icd,jdbcType=VARCHAR}
+  </update>
+</mapper>

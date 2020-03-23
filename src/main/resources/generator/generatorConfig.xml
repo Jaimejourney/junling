@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包-->
+    <classPathEntry  location="/Users/yikaizhu/Downloads/projects/mybatis-gen/mysql-connector-java-5.1.47.jar"/>
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://mysql-cn-east-2-f43e7113127c454a.public.jcloud.com:3306/junling_mis_test?useSSL=true" userId="junlinghealth" password="Jlhealth123">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.junling.mis.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成EntityMapper的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.junling.mis.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <table tableName="claim_account_info" domainObjectName="claimAccountInfoEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="claim_bill" domainObjectName="claimBillEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="claim_bill_detail" domainObjectName="claimBillDetailEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="claim_doc" domainObjectName="claimDocEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="claim_info" domainObjectName="claimInfoEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="claim_work_flow" domainObjectName="claimWorkFlowEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="clause_info" domainObjectName="clauseInfoEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="customer_action" domainObjectName="customerActionEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="customer_info" domainObjectName="customerInfoEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="customer_relation" domainObjectName="customerRelationEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drug_data" domainObjectName="drugDataEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drug_data_copy" domainObjectName="drugDataCopyEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs" domainObjectName="drugsEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_anhui" domainObjectName="drugsAnhuiEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_anhui_chinese" domainObjectName="drugsAnhuiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_beijing" domainObjectName="drugsBeijingEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_beijing_chinese" domainObjectName="drugsBeijingChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_chongqing" domainObjectName="drugsChongqingEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_chongqing_chinese" domainObjectName="drugsChongqingChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_copy" domainObjectName="drugsCopyEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_fujian" domainObjectName="drugsFujianEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_fujian_chinese" domainObjectName="drugsFujianChineseEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_gansu" domainObjectName="drugsGansuEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_gansu_chinese" domainObjectName="drugsGansuChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_guangdong" domainObjectName="drugsGuangdongEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_guangdong_chinese" domainObjectName="drugsGuangdongChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_guangxi" domainObjectName="drugsGuangxiEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_guangxi_chinese" domainObjectName="drugsGuangxiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_guizhou" domainObjectName="drugsGuizhouEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_guizhou_chinese" domainObjectName="drugsGuizhouChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hainan" domainObjectName="drugsHainanEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hebei" domainObjectName="drugsHebeiEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hebei_chinese" domainObjectName="drugsHebeiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_heilongjiang" domainObjectName="drugsHeilongjiangEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_heilongjiang_chinese" domainObjectName="drugsHeilongjiangChineseEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_henan" domainObjectName="drugsHenanEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_henan_chinese" domainObjectName="drugsHenanChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hubei" domainObjectName="drugsHubeiEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hubei_chinese" domainObjectName="drugsHubeiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hunan" domainObjectName="drugsHunanEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_hunan_chinese" domainObjectName="drugsHunanChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_jiangsu" domainObjectName="drugsJiangsuEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_jiangsu_chinese" domainObjectName="drugsJiangsuChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_jiangxi" domainObjectName="drugsJiangxiEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_jiangxi_chinese" domainObjectName="drugsJiangxiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_jilin" domainObjectName="drugsJilinEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_jilin_chinese" domainObjectName="drugsJilinChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_liaoning" domainObjectName="drugsLiaoningEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_liaoning_chinese" domainObjectName="drugsLiaoningChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_neimenggu" domainObjectName="drugsNeimengguEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_neimenggu_chinese" domainObjectName="drugsNeimengguChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_ningxia" domainObjectName="drugsNingxiaEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_ningxia_chinese" domainObjectName="drugsNingxiaChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_qinghai" domainObjectName="drugsQinghaiEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_qinghai_chinese" domainObjectName="drugsQinghaiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_shandong" domainObjectName="drugsShandongEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_shanghai" domainObjectName="drugsShanghaiEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_shanghai_chinese" domainObjectName="drugsShanghaiChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_shanxi" domainObjectName="drugsShanxiEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_shanxi_1" domainObjectName="drugsShanxi1Entity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_shanxi_1_chinese" domainObjectName="drugsShanxi1ChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_sichuan" domainObjectName="drugsSichuanEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_sichuan_chinese" domainObjectName="drugsSichuanChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_tianjin" domainObjectName="drugsTianjinEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_tianjin_chinese" domainObjectName="drugsTianjinChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_xinjiang" domainObjectName="drugsXinjiangEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_xinjiang_chinese" domainObjectName="drugsXinjiangChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_xizang" domainObjectName="drugsXizangEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_xizang_chinese" domainObjectName="drugsXizangChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_yunnan" domainObjectName="drugsYunnanEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_yunnan_chinese" domainObjectName="drugsYunnanChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_zhejiang" domainObjectName="drugsZhejiangEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="drugs_zhejiang_chinese" domainObjectName="drugsZhejiangChineseEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="duty_info" domainObjectName="dutyInfoEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="duty_sub_info" domainObjectName="dutySubInfoEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="grade_level" domainObjectName="gradeLevelEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="grade_level_product" domainObjectName="gradeLevelProductEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="imported_medicine" domainObjectName="importedMedicineEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="imported_medicine_copy" domainObjectName="importedMedicineCopyEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="organization_action" domainObjectName="organizationActionEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="organization_info" domainObjectName="organizationInfoEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="payment_item" domainObjectName="paymentItemEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="payment_item_relation" domainObjectName="paymentItemRelationEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="pgl_product_duty" domainObjectName="pglProductDutyEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="pgl_product_duty_claim_rate" domainObjectName="pglProductDutyClaimRateEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="pgl_product_sub_duty" domainObjectName="pglProductSubDutyEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="pgl_product_sub_duty_claim_rate" domainObjectName="pglProductSubDutyClaimRateEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_beneficiary" domainObjectName="policyBeneficiaryEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_benefit" domainObjectName="policyBenefitEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_grade_level" domainObjectName="policyGradeLevelEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_grade_level_product" domainObjectName="policyGradeLevelProductEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_health_note" domainObjectName="policyHealthNoteEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_info" domainObjectName="policyInfoEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_insured" domainObjectName="policyInsuredEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_insured_service" domainObjectName="policyInsuredServiceEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_public_coverage" domainObjectName="policyPublicCoverageEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_reinsurance" domainObjectName="policyReinsuranceEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="policy_share_coverage" domainObjectName="policyShareCoverageEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="product_duty" domainObjectName="productDutyEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="product_info" domainObjectName="productInfoEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="reject_cause" domainObjectName="rejectCauseEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="sync_log" domainObjectName="syncLogEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_accident_type" domainObjectName="tbAccidentTypeEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_bank" domainObjectName="tbBankEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_base_hospital" domainObjectName="tbBaseHospitalEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_base_hospital_copy" domainObjectName="tbBaseHospitalCopyEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_base_hospital_yaofang" domainObjectName="tbBaseHospitalYaofangEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_claim_result" domainObjectName="tbClaimResultEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_claim_source_type" domainObjectName="tbClaimSourceTypeEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_claim_status" domainObjectName="tbClaimStatusEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_company_nature" domainObjectName="tbCompanyNatureEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_customer_level" domainObjectName="tbCustomerLevelEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_cwf_node" domainObjectName="tbCwfNodeEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_department_hospital" domainObjectName="tbDepartmentHospitalEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_district" domainObjectName="tbDistrictEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_education" domainObjectName="tbEducationEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_gender" domainObjectName="tbGenderEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_hd_relation" domainObjectName="tbHdRelationEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_hospital_department" domainObjectName="tbHospitalDepartmentEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_icd10" domainObjectName="tbIcd10Entity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_id_type" domainObjectName="tbIdTypeEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_image_type" domainObjectName="tbImageTypeEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_industrys" domainObjectName="tbIndustrysEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_job" domainObjectName="tbJobEntity" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_relation" domainObjectName="tbRelationEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_relation_hospital" domainObjectName="tbRelationHospitalEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="tb_report_type" domainObjectName="tbReportTypeEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+        <table tableName="third_party_payment" domainObjectName="thirdPartyPaymentEntity"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
+        </table>
+    </context>
+</generatorConfiguration>

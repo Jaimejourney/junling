@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.pglProductDutyClaimRateEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.pglProductDutyClaimRateEntity" >
+    <id column="pglpd_claim_rate_id" property="pglpdClaimRateId" jdbcType="VARCHAR" />
+    <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
+    <result column="policy_grade_level_no" property="policyGradeLevelNo" jdbcType="DECIMAL" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="duty_id" property="dutyId" jdbcType="VARCHAR" />
+    <result column="pglpd_start_claim_amount" property="pglpdStartClaimAmount" jdbcType="DECIMAL" />
+    <result column="pglpd_next_claim_amount" property="pglpdNextClaimAmount" jdbcType="DECIMAL" />
+    <result column="pglpd_calim_rate" property="pglpdCalimRate" jdbcType="DECIMAL" />
+    <result column="pglpd_special_hos_rate" property="pglpdSpecialHosRate" jdbcType="DECIMAL" />
+    <result column="pglpd_medical_unused" property="pglpdMedicalUnused" jdbcType="DECIMAL" />
+    <result column="pglpd_ex_payment_rate" property="pglpdExPaymentRate" jdbcType="DECIMAL" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pglpd_claim_rate_id, policy_no, policy_grade_level_no, product_id, duty_id, pglpd_start_claim_amount, 
+    pglpd_next_claim_amount, pglpd_calim_rate, pglpd_special_hos_rate, pglpd_medical_unused, 
+    pglpd_ex_payment_rate, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pgl_product_duty_claim_rate
+    where pglpd_claim_rate_id = #{pglpdClaimRateId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pgl_product_duty_claim_rate
+    where pglpd_claim_rate_id = #{pglpdClaimRateId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.pglProductDutyClaimRateEntity" >
+    insert into pgl_product_duty_claim_rate (pglpd_claim_rate_id, policy_no, policy_grade_level_no, 
+      product_id, duty_id, pglpd_start_claim_amount, 
+      pglpd_next_claim_amount, pglpd_calim_rate, pglpd_special_hos_rate, 
+      pglpd_medical_unused, pglpd_ex_payment_rate, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{pglpdClaimRateId,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{policyGradeLevelNo,jdbcType=DECIMAL}, 
+      #{productId,jdbcType=VARCHAR}, #{dutyId,jdbcType=VARCHAR}, #{pglpdStartClaimAmount,jdbcType=DECIMAL}, 
+      #{pglpdNextClaimAmount,jdbcType=DECIMAL}, #{pglpdCalimRate,jdbcType=DECIMAL}, #{pglpdSpecialHosRate,jdbcType=DECIMAL}, 
+      #{pglpdMedicalUnused,jdbcType=DECIMAL}, #{pglpdExPaymentRate,jdbcType=DECIMAL}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.pglProductDutyClaimRateEntity" >
+    insert into pgl_product_duty_claim_rate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pglpdClaimRateId != null" >
+        pglpd_claim_rate_id,
+      </if>
+      <if test="policyNo != null" >
+        policy_no,
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        policy_grade_level_no,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="dutyId != null" >
+        duty_id,
+      </if>
+      <if test="pglpdStartClaimAmount != null" >
+        pglpd_start_claim_amount,
+      </if>
+      <if test="pglpdNextClaimAmount != null" >
+        pglpd_next_claim_amount,
+      </if>
+      <if test="pglpdCalimRate != null" >
+        pglpd_calim_rate,
+      </if>
+      <if test="pglpdSpecialHosRate != null" >
+        pglpd_special_hos_rate,
+      </if>
+      <if test="pglpdMedicalUnused != null" >
+        pglpd_medical_unused,
+      </if>
+      <if test="pglpdExPaymentRate != null" >
+        pglpd_ex_payment_rate,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pglpdClaimRateId != null" >
+        #{pglpdClaimRateId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        #{policyGradeLevelNo,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyId != null" >
+        #{dutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpdStartClaimAmount != null" >
+        #{pglpdStartClaimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdNextClaimAmount != null" >
+        #{pglpdNextClaimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdCalimRate != null" >
+        #{pglpdCalimRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdSpecialHosRate != null" >
+        #{pglpdSpecialHosRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdMedicalUnused != null" >
+        #{pglpdMedicalUnused,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdExPaymentRate != null" >
+        #{pglpdExPaymentRate,jdbcType=DECIMAL},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.pglProductDutyClaimRateEntity" >
+    update pgl_product_duty_claim_rate
+    <set >
+      <if test="policyNo != null" >
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        policy_grade_level_no = #{policyGradeLevelNo,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyId != null" >
+        duty_id = #{dutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpdStartClaimAmount != null" >
+        pglpd_start_claim_amount = #{pglpdStartClaimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdNextClaimAmount != null" >
+        pglpd_next_claim_amount = #{pglpdNextClaimAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdCalimRate != null" >
+        pglpd_calim_rate = #{pglpdCalimRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdSpecialHosRate != null" >
+        pglpd_special_hos_rate = #{pglpdSpecialHosRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdMedicalUnused != null" >
+        pglpd_medical_unused = #{pglpdMedicalUnused,jdbcType=DECIMAL},
+      </if>
+      <if test="pglpdExPaymentRate != null" >
+        pglpd_ex_payment_rate = #{pglpdExPaymentRate,jdbcType=DECIMAL},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pglpd_claim_rate_id = #{pglpdClaimRateId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.pglProductDutyClaimRateEntity" >
+    update pgl_product_duty_claim_rate
+    set policy_no = #{policyNo,jdbcType=VARCHAR},
+      policy_grade_level_no = #{policyGradeLevelNo,jdbcType=DECIMAL},
+      product_id = #{productId,jdbcType=VARCHAR},
+      duty_id = #{dutyId,jdbcType=VARCHAR},
+      pglpd_start_claim_amount = #{pglpdStartClaimAmount,jdbcType=DECIMAL},
+      pglpd_next_claim_amount = #{pglpdNextClaimAmount,jdbcType=DECIMAL},
+      pglpd_calim_rate = #{pglpdCalimRate,jdbcType=DECIMAL},
+      pglpd_special_hos_rate = #{pglpdSpecialHosRate,jdbcType=DECIMAL},
+      pglpd_medical_unused = #{pglpdMedicalUnused,jdbcType=DECIMAL},
+      pglpd_ex_payment_rate = #{pglpdExPaymentRate,jdbcType=DECIMAL},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where pglpd_claim_rate_id = #{pglpdClaimRateId,jdbcType=VARCHAR}
+  </update>
+</mapper>

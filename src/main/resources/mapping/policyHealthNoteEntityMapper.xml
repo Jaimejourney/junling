@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.policyHealthNoteEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.policyHealthNoteEntity" >
+    <id column="health_note_id" property="healthNoteId" jdbcType="VARCHAR" />
+    <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
+    <result column="policy_reinsurance_no" property="policyReinsuranceNo" jdbcType="VARCHAR" />
+    <result column="br_no" property="brNo" jdbcType="DECIMAL" />
+    <result column="insure_id" property="insureId" jdbcType="VARCHAR" />
+    <result column="health_note_code" property="healthNoteCode" jdbcType="VARCHAR" />
+    <result column="health_note_result" property="healthNoteResult" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    health_note_id, policy_no, policy_reinsurance_no, br_no, insure_id, health_note_code, 
+    health_note_result, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from policy_health_note
+    where health_note_id = #{healthNoteId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from policy_health_note
+    where health_note_id = #{healthNoteId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.policyHealthNoteEntity" >
+    insert into policy_health_note (health_note_id, policy_no, policy_reinsurance_no, 
+      br_no, insure_id, health_note_code, 
+      health_note_result, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{healthNoteId,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{policyReinsuranceNo,jdbcType=VARCHAR}, 
+      #{brNo,jdbcType=DECIMAL}, #{insureId,jdbcType=VARCHAR}, #{healthNoteCode,jdbcType=VARCHAR}, 
+      #{healthNoteResult,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.policyHealthNoteEntity" >
+    insert into policy_health_note
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="healthNoteId != null" >
+        health_note_id,
+      </if>
+      <if test="policyNo != null" >
+        policy_no,
+      </if>
+      <if test="policyReinsuranceNo != null" >
+        policy_reinsurance_no,
+      </if>
+      <if test="brNo != null" >
+        br_no,
+      </if>
+      <if test="insureId != null" >
+        insure_id,
+      </if>
+      <if test="healthNoteCode != null" >
+        health_note_code,
+      </if>
+      <if test="healthNoteResult != null" >
+        health_note_result,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="healthNoteId != null" >
+        #{healthNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyReinsuranceNo != null" >
+        #{policyReinsuranceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="brNo != null" >
+        #{brNo,jdbcType=DECIMAL},
+      </if>
+      <if test="insureId != null" >
+        #{insureId,jdbcType=VARCHAR},
+      </if>
+      <if test="healthNoteCode != null" >
+        #{healthNoteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="healthNoteResult != null" >
+        #{healthNoteResult,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.policyHealthNoteEntity" >
+    update policy_health_note
+    <set >
+      <if test="policyNo != null" >
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyReinsuranceNo != null" >
+        policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="brNo != null" >
+        br_no = #{brNo,jdbcType=DECIMAL},
+      </if>
+      <if test="insureId != null" >
+        insure_id = #{insureId,jdbcType=VARCHAR},
+      </if>
+      <if test="healthNoteCode != null" >
+        health_note_code = #{healthNoteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="healthNoteResult != null" >
+        health_note_result = #{healthNoteResult,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where health_note_id = #{healthNoteId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.policyHealthNoteEntity" >
+    update policy_health_note
+    set policy_no = #{policyNo,jdbcType=VARCHAR},
+      policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},
+      br_no = #{brNo,jdbcType=DECIMAL},
+      insure_id = #{insureId,jdbcType=VARCHAR},
+      health_note_code = #{healthNoteCode,jdbcType=VARCHAR},
+      health_note_result = #{healthNoteResult,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where health_note_id = #{healthNoteId,jdbcType=VARCHAR}
+  </update>
+</mapper>

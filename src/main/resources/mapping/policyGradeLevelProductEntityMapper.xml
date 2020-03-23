@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.policyGradeLevelProductEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.policyGradeLevelProductEntity" >
+    <id column="pgl_product_id" property="pglProductId" jdbcType="VARCHAR" />
+    <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
+    <result column="policy_grade_level_no" property="policyGradeLevelNo" jdbcType="DECIMAL" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="pgl_product_total_prem" property="pglProductTotalPrem" jdbcType="DECIMAL" />
+    <result column="pgl_product_base_coverage" property="pglProductBaseCoverage" jdbcType="DECIMAL" />
+    <result column="pgl_product_des" property="pglProductDes" jdbcType="VARCHAR" />
+    <result column="pgl_product_special_contract" property="pglProductSpecialContract" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pgl_product_id, policy_no, policy_grade_level_no, product_id, pgl_product_total_prem, 
+    pgl_product_base_coverage, pgl_product_des, pgl_product_special_contract, created_by, 
+    created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from policy_grade_level_product
+    where pgl_product_id = #{pglProductId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from policy_grade_level_product
+    where pgl_product_id = #{pglProductId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.policyGradeLevelProductEntity" >
+    insert into policy_grade_level_product (pgl_product_id, policy_no, policy_grade_level_no, 
+      product_id, pgl_product_total_prem, pgl_product_base_coverage, 
+      pgl_product_des, pgl_product_special_contract, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{pglProductId,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{policyGradeLevelNo,jdbcType=DECIMAL}, 
+      #{productId,jdbcType=VARCHAR}, #{pglProductTotalPrem,jdbcType=DECIMAL}, #{pglProductBaseCoverage,jdbcType=DECIMAL}, 
+      #{pglProductDes,jdbcType=VARCHAR}, #{pglProductSpecialContract,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.policyGradeLevelProductEntity" >
+    insert into policy_grade_level_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pglProductId != null" >
+        pgl_product_id,
+      </if>
+      <if test="policyNo != null" >
+        policy_no,
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        policy_grade_level_no,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="pglProductTotalPrem != null" >
+        pgl_product_total_prem,
+      </if>
+      <if test="pglProductBaseCoverage != null" >
+        pgl_product_base_coverage,
+      </if>
+      <if test="pglProductDes != null" >
+        pgl_product_des,
+      </if>
+      <if test="pglProductSpecialContract != null" >
+        pgl_product_special_contract,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pglProductId != null" >
+        #{pglProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        #{policyGradeLevelNo,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="pglProductTotalPrem != null" >
+        #{pglProductTotalPrem,jdbcType=DECIMAL},
+      </if>
+      <if test="pglProductBaseCoverage != null" >
+        #{pglProductBaseCoverage,jdbcType=DECIMAL},
+      </if>
+      <if test="pglProductDes != null" >
+        #{pglProductDes,jdbcType=VARCHAR},
+      </if>
+      <if test="pglProductSpecialContract != null" >
+        #{pglProductSpecialContract,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.policyGradeLevelProductEntity" >
+    update policy_grade_level_product
+    <set >
+      <if test="policyNo != null" >
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        policy_grade_level_no = #{policyGradeLevelNo,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="pglProductTotalPrem != null" >
+        pgl_product_total_prem = #{pglProductTotalPrem,jdbcType=DECIMAL},
+      </if>
+      <if test="pglProductBaseCoverage != null" >
+        pgl_product_base_coverage = #{pglProductBaseCoverage,jdbcType=DECIMAL},
+      </if>
+      <if test="pglProductDes != null" >
+        pgl_product_des = #{pglProductDes,jdbcType=VARCHAR},
+      </if>
+      <if test="pglProductSpecialContract != null" >
+        pgl_product_special_contract = #{pglProductSpecialContract,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pgl_product_id = #{pglProductId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.policyGradeLevelProductEntity" >
+    update policy_grade_level_product
+    set policy_no = #{policyNo,jdbcType=VARCHAR},
+      policy_grade_level_no = #{policyGradeLevelNo,jdbcType=DECIMAL},
+      product_id = #{productId,jdbcType=VARCHAR},
+      pgl_product_total_prem = #{pglProductTotalPrem,jdbcType=DECIMAL},
+      pgl_product_base_coverage = #{pglProductBaseCoverage,jdbcType=DECIMAL},
+      pgl_product_des = #{pglProductDes,jdbcType=VARCHAR},
+      pgl_product_special_contract = #{pglProductSpecialContract,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where pgl_product_id = #{pglProductId,jdbcType=VARCHAR}
+  </update>
+</mapper>

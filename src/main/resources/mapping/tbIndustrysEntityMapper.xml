@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.tbIndustrysEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.tbIndustrysEntity" >
+    <id column="industry_type_code" property="industryTypeCode" jdbcType="VARCHAR" />
+    <result column="industry_type_name" property="industryTypeName" jdbcType="VARCHAR" />
+    <result column="industry_type_parent" property="industryTypeParent" jdbcType="VARCHAR" />
+    <result column="industry_type_level" property="industryTypeLevel" jdbcType="VARCHAR" />
+    <result column="industry_type_remark" property="industryTypeRemark" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    industry_type_code, industry_type_name, industry_type_parent, industry_type_level, 
+    industry_type_remark, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_industrys
+    where industry_type_code = #{industryTypeCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_industrys
+    where industry_type_code = #{industryTypeCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.tbIndustrysEntity" >
+    insert into tb_industrys (industry_type_code, industry_type_name, 
+      industry_type_parent, industry_type_level, 
+      industry_type_remark, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{industryTypeCode,jdbcType=VARCHAR}, #{industryTypeName,jdbcType=VARCHAR}, 
+      #{industryTypeParent,jdbcType=VARCHAR}, #{industryTypeLevel,jdbcType=VARCHAR}, 
+      #{industryTypeRemark,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.tbIndustrysEntity" >
+    insert into tb_industrys
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="industryTypeCode != null" >
+        industry_type_code,
+      </if>
+      <if test="industryTypeName != null" >
+        industry_type_name,
+      </if>
+      <if test="industryTypeParent != null" >
+        industry_type_parent,
+      </if>
+      <if test="industryTypeLevel != null" >
+        industry_type_level,
+      </if>
+      <if test="industryTypeRemark != null" >
+        industry_type_remark,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="industryTypeCode != null" >
+        #{industryTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeName != null" >
+        #{industryTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeParent != null" >
+        #{industryTypeParent,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeLevel != null" >
+        #{industryTypeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeRemark != null" >
+        #{industryTypeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.tbIndustrysEntity" >
+    update tb_industrys
+    <set >
+      <if test="industryTypeName != null" >
+        industry_type_name = #{industryTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeParent != null" >
+        industry_type_parent = #{industryTypeParent,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeLevel != null" >
+        industry_type_level = #{industryTypeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="industryTypeRemark != null" >
+        industry_type_remark = #{industryTypeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where industry_type_code = #{industryTypeCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.tbIndustrysEntity" >
+    update tb_industrys
+    set industry_type_name = #{industryTypeName,jdbcType=VARCHAR},
+      industry_type_parent = #{industryTypeParent,jdbcType=VARCHAR},
+      industry_type_level = #{industryTypeLevel,jdbcType=VARCHAR},
+      industry_type_remark = #{industryTypeRemark,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where industry_type_code = #{industryTypeCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

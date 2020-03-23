@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.organizagionInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.organizationInfoEntity" >
+    <id column="organization_id" property="organizationId" jdbcType="VARCHAR" />
+    <result column="organization_no" property="organizationNo" jdbcType="VARCHAR" />
+    <result column="organization_name" property="organizationName" jdbcType="VARCHAR" />
+    <result column="organization_status" property="organizationStatus" jdbcType="VARCHAR" />
+    <result column="organization_industry_type" property="organizationIndustryType" jdbcType="VARCHAR" />
+    <result column="district_code" property="districtCode" jdbcType="VARCHAR" />
+    <result column="organization_code" property="organizationCode" jdbcType="VARCHAR" />
+    <result column="tax_no" property="taxNo" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="contact_phone_no" property="contactPhoneNo" jdbcType="VARCHAR" />
+    <result column="contact_email" property="contactEmail" jdbcType="VARCHAR" />
+    <result column="contact_person_name" property="contactPersonName" jdbcType="VARCHAR" />
+    <result column="employees_number" property="employeesNumber" jdbcType="DECIMAL" />
+    <result column="industry_ranking" property="industryRanking" jdbcType="DECIMAL" />
+    <result column="creation_time" property="creationTime" jdbcType="DATE" />
+    <result column="creation_person" property="creationPerson" jdbcType="VARCHAR" />
+    <result column="chairman" property="chairman" jdbcType="VARCHAR" />
+    <result column="ceo" property="ceo" jdbcType="VARCHAR" />
+    <result column="company_mission" property="companyMission" jdbcType="VARCHAR" />
+    <result column="operation_scope" property="operationScope" jdbcType="VARCHAR" />
+    <result column="registration_number" property="registrationNumber" jdbcType="VARCHAR" />
+    <result column="registered_capital" property="registeredCapital" jdbcType="DECIMAL" />
+    <result column="company_nature" property="companyNature" jdbcType="VARCHAR" />
+    <result column="registration_authority" property="registrationAuthority" jdbcType="VARCHAR" />
+    <result column="official_network" property="officialNetwork" jdbcType="VARCHAR" />
+    <result column="annual_turnover" property="annualTurnover" jdbcType="DECIMAL" />
+    <result column="development_history" property="developmentHistory" jdbcType="VARCHAR" />
+    <result column="parent_organization_id" property="parentOrganizationId" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    organization_id, organization_no, organization_name, organization_status, organization_industry_type, 
+    district_code, organization_code, tax_no, address, contact_phone_no, contact_email, 
+    contact_person_name, employees_number, industry_ranking, creation_time, creation_person, 
+    chairman, ceo, company_mission, operation_scope, registration_number, registered_capital, 
+    company_nature, registration_authority, official_network, annual_turnover, development_history, 
+    parent_organization_id, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from organization_info
+    where organization_id = #{organizationId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from organization_info
+    where organization_id = #{organizationId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.organizationInfoEntity" >
+    insert into organization_info (organization_id, organization_no, organization_name, 
+      organization_status, organization_industry_type, 
+      district_code, organization_code, tax_no, 
+      address, contact_phone_no, contact_email, 
+      contact_person_name, employees_number, industry_ranking, 
+      creation_time, creation_person, chairman, 
+      ceo, company_mission, operation_scope, 
+      registration_number, registered_capital, 
+      company_nature, registration_authority, official_network, 
+      annual_turnover, development_history, parent_organization_id, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{organizationId,jdbcType=VARCHAR}, #{organizationNo,jdbcType=VARCHAR}, #{organizationName,jdbcType=VARCHAR}, 
+      #{organizationStatus,jdbcType=VARCHAR}, #{organizationIndustryType,jdbcType=VARCHAR}, 
+      #{districtCode,jdbcType=VARCHAR}, #{organizationCode,jdbcType=VARCHAR}, #{taxNo,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{contactPhoneNo,jdbcType=VARCHAR}, #{contactEmail,jdbcType=VARCHAR}, 
+      #{contactPersonName,jdbcType=VARCHAR}, #{employeesNumber,jdbcType=DECIMAL}, #{industryRanking,jdbcType=DECIMAL}, 
+      #{creationTime,jdbcType=DATE}, #{creationPerson,jdbcType=VARCHAR}, #{chairman,jdbcType=VARCHAR}, 
+      #{ceo,jdbcType=VARCHAR}, #{companyMission,jdbcType=VARCHAR}, #{operationScope,jdbcType=VARCHAR}, 
+      #{registrationNumber,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=DECIMAL}, 
+      #{companyNature,jdbcType=VARCHAR}, #{registrationAuthority,jdbcType=VARCHAR}, #{officialNetwork,jdbcType=VARCHAR}, 
+      #{annualTurnover,jdbcType=DECIMAL}, #{developmentHistory,jdbcType=VARCHAR}, #{parentOrganizationId,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.organizationInfoEntity" >
+    insert into organization_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="organizationId != null" >
+        organization_id,
+      </if>
+      <if test="organizationNo != null" >
+        organization_no,
+      </if>
+      <if test="organizationName != null" >
+        organization_name,
+      </if>
+      <if test="organizationStatus != null" >
+        organization_status,
+      </if>
+      <if test="organizationIndustryType != null" >
+        organization_industry_type,
+      </if>
+      <if test="districtCode != null" >
+        district_code,
+      </if>
+      <if test="organizationCode != null" >
+        organization_code,
+      </if>
+      <if test="taxNo != null" >
+        tax_no,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="contactPhoneNo != null" >
+        contact_phone_no,
+      </if>
+      <if test="contactEmail != null" >
+        contact_email,
+      </if>
+      <if test="contactPersonName != null" >
+        contact_person_name,
+      </if>
+      <if test="employeesNumber != null" >
+        employees_number,
+      </if>
+      <if test="industryRanking != null" >
+        industry_ranking,
+      </if>
+      <if test="creationTime != null" >
+        creation_time,
+      </if>
+      <if test="creationPerson != null" >
+        creation_person,
+      </if>
+      <if test="chairman != null" >
+        chairman,
+      </if>
+      <if test="ceo != null" >
+        ceo,
+      </if>
+      <if test="companyMission != null" >
+        company_mission,
+      </if>
+      <if test="operationScope != null" >
+        operation_scope,
+      </if>
+      <if test="registrationNumber != null" >
+        registration_number,
+      </if>
+      <if test="registeredCapital != null" >
+        registered_capital,
+      </if>
+      <if test="companyNature != null" >
+        company_nature,
+      </if>
+      <if test="registrationAuthority != null" >
+        registration_authority,
+      </if>
+      <if test="officialNetwork != null" >
+        official_network,
+      </if>
+      <if test="annualTurnover != null" >
+        annual_turnover,
+      </if>
+      <if test="developmentHistory != null" >
+        development_history,
+      </if>
+      <if test="parentOrganizationId != null" >
+        parent_organization_id,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="organizationId != null" >
+        #{organizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationNo != null" >
+        #{organizationNo,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationName != null" >
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationStatus != null" >
+        #{organizationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationIndustryType != null" >
+        #{organizationIndustryType,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null" >
+        #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNo != null" >
+        #{taxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhoneNo != null" >
+        #{contactPhoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPersonName != null" >
+        #{contactPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesNumber != null" >
+        #{employeesNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="industryRanking != null" >
+        #{industryRanking,jdbcType=DECIMAL},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=DATE},
+      </if>
+      <if test="creationPerson != null" >
+        #{creationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="chairman != null" >
+        #{chairman,jdbcType=VARCHAR},
+      </if>
+      <if test="ceo != null" >
+        #{ceo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyMission != null" >
+        #{companyMission,jdbcType=VARCHAR},
+      </if>
+      <if test="operationScope != null" >
+        #{operationScope,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationNumber != null" >
+        #{registrationNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null" >
+        #{registeredCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="companyNature != null" >
+        #{companyNature,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAuthority != null" >
+        #{registrationAuthority,jdbcType=VARCHAR},
+      </if>
+      <if test="officialNetwork != null" >
+        #{officialNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="annualTurnover != null" >
+        #{annualTurnover,jdbcType=DECIMAL},
+      </if>
+      <if test="developmentHistory != null" >
+        #{developmentHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrganizationId != null" >
+        #{parentOrganizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.organizationInfoEntity" >
+    update organization_info
+    <set >
+      <if test="organizationNo != null" >
+        organization_no = #{organizationNo,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationName != null" >
+        organization_name = #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationStatus != null" >
+        organization_status = #{organizationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationIndustryType != null" >
+        organization_industry_type = #{organizationIndustryType,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        district_code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null" >
+        organization_code = #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNo != null" >
+        tax_no = #{taxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhoneNo != null" >
+        contact_phone_no = #{contactPhoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        contact_email = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPersonName != null" >
+        contact_person_name = #{contactPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesNumber != null" >
+        employees_number = #{employeesNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="industryRanking != null" >
+        industry_ranking = #{industryRanking,jdbcType=DECIMAL},
+      </if>
+      <if test="creationTime != null" >
+        creation_time = #{creationTime,jdbcType=DATE},
+      </if>
+      <if test="creationPerson != null" >
+        creation_person = #{creationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="chairman != null" >
+        chairman = #{chairman,jdbcType=VARCHAR},
+      </if>
+      <if test="ceo != null" >
+        ceo = #{ceo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyMission != null" >
+        company_mission = #{companyMission,jdbcType=VARCHAR},
+      </if>
+      <if test="operationScope != null" >
+        operation_scope = #{operationScope,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationNumber != null" >
+        registration_number = #{registrationNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null" >
+        registered_capital = #{registeredCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="companyNature != null" >
+        company_nature = #{companyNature,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationAuthority != null" >
+        registration_authority = #{registrationAuthority,jdbcType=VARCHAR},
+      </if>
+      <if test="officialNetwork != null" >
+        official_network = #{officialNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="annualTurnover != null" >
+        annual_turnover = #{annualTurnover,jdbcType=DECIMAL},
+      </if>
+      <if test="developmentHistory != null" >
+        development_history = #{developmentHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrganizationId != null" >
+        parent_organization_id = #{parentOrganizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where organization_id = #{organizationId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.organizationInfoEntity" >
+    update organization_info
+    set organization_no = #{organizationNo,jdbcType=VARCHAR},
+      organization_name = #{organizationName,jdbcType=VARCHAR},
+      organization_status = #{organizationStatus,jdbcType=VARCHAR},
+      organization_industry_type = #{organizationIndustryType,jdbcType=VARCHAR},
+      district_code = #{districtCode,jdbcType=VARCHAR},
+      organization_code = #{organizationCode,jdbcType=VARCHAR},
+      tax_no = #{taxNo,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      contact_phone_no = #{contactPhoneNo,jdbcType=VARCHAR},
+      contact_email = #{contactEmail,jdbcType=VARCHAR},
+      contact_person_name = #{contactPersonName,jdbcType=VARCHAR},
+      employees_number = #{employeesNumber,jdbcType=DECIMAL},
+      industry_ranking = #{industryRanking,jdbcType=DECIMAL},
+      creation_time = #{creationTime,jdbcType=DATE},
+      creation_person = #{creationPerson,jdbcType=VARCHAR},
+      chairman = #{chairman,jdbcType=VARCHAR},
+      ceo = #{ceo,jdbcType=VARCHAR},
+      company_mission = #{companyMission,jdbcType=VARCHAR},
+      operation_scope = #{operationScope,jdbcType=VARCHAR},
+      registration_number = #{registrationNumber,jdbcType=VARCHAR},
+      registered_capital = #{registeredCapital,jdbcType=DECIMAL},
+      company_nature = #{companyNature,jdbcType=VARCHAR},
+      registration_authority = #{registrationAuthority,jdbcType=VARCHAR},
+      official_network = #{officialNetwork,jdbcType=VARCHAR},
+      annual_turnover = #{annualTurnover,jdbcType=DECIMAL},
+      development_history = #{developmentHistory,jdbcType=VARCHAR},
+      parent_organization_id = #{parentOrganizationId,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where organization_id = #{organizationId,jdbcType=VARCHAR}
+  </update>
+</mapper>

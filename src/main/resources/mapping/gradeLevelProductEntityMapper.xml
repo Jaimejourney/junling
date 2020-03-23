@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.gradeLevelProductEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.gradeLevelProductEntity" >
+    <id column="grade_level_product_id" property="gradeLevelProductId" jdbcType="VARCHAR" />
+    <result column="grade_level_id" property="gradeLevelId" jdbcType="VARCHAR" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="glp_period" property="glpPeriod" jdbcType="DECIMAL" />
+    <result column="glp_total_prem" property="glpTotalPrem" jdbcType="DECIMAL" />
+    <result column="glp_total_coverage" property="glpTotalCoverage" jdbcType="DECIMAL" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.gradeLevelProductEntity" extends="BaseResultMap" >
+    <result column="glp_special_contract" property="glpSpecialContract" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    grade_level_product_id, grade_level_id, product_id, glp_period, glp_total_prem, glp_total_coverage, 
+    created_by, created_time, updated_by, updated_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    glp_special_contract
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from grade_level_product
+    where grade_level_product_id = #{gradeLevelProductId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from grade_level_product
+    where grade_level_product_id = #{gradeLevelProductId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.gradeLevelProductEntity" >
+    insert into grade_level_product (grade_level_product_id, grade_level_id, 
+      product_id, glp_period, glp_total_prem, 
+      glp_total_coverage, created_by, created_time, 
+      updated_by, updated_time, glp_special_contract
+      )
+    values (#{gradeLevelProductId,jdbcType=VARCHAR}, #{gradeLevelId,jdbcType=VARCHAR}, 
+      #{productId,jdbcType=VARCHAR}, #{glpPeriod,jdbcType=DECIMAL}, #{glpTotalPrem,jdbcType=DECIMAL}, 
+      #{glpTotalCoverage,jdbcType=DECIMAL}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{glpSpecialContract,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.gradeLevelProductEntity" >
+    insert into grade_level_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gradeLevelProductId != null" >
+        grade_level_product_id,
+      </if>
+      <if test="gradeLevelId != null" >
+        grade_level_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="glpPeriod != null" >
+        glp_period,
+      </if>
+      <if test="glpTotalPrem != null" >
+        glp_total_prem,
+      </if>
+      <if test="glpTotalCoverage != null" >
+        glp_total_coverage,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+      <if test="glpSpecialContract != null" >
+        glp_special_contract,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gradeLevelProductId != null" >
+        #{gradeLevelProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevelId != null" >
+        #{gradeLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="glpPeriod != null" >
+        #{glpPeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="glpTotalPrem != null" >
+        #{glpTotalPrem,jdbcType=DECIMAL},
+      </if>
+      <if test="glpTotalCoverage != null" >
+        #{glpTotalCoverage,jdbcType=DECIMAL},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glpSpecialContract != null" >
+        #{glpSpecialContract,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.gradeLevelProductEntity" >
+    update grade_level_product
+    <set >
+      <if test="gradeLevelId != null" >
+        grade_level_id = #{gradeLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="glpPeriod != null" >
+        glp_period = #{glpPeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="glpTotalPrem != null" >
+        glp_total_prem = #{glpTotalPrem,jdbcType=DECIMAL},
+      </if>
+      <if test="glpTotalCoverage != null" >
+        glp_total_coverage = #{glpTotalCoverage,jdbcType=DECIMAL},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glpSpecialContract != null" >
+        glp_special_contract = #{glpSpecialContract,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where grade_level_product_id = #{gradeLevelProductId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.gradeLevelProductEntity" >
+    update grade_level_product
+    set grade_level_id = #{gradeLevelId,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=VARCHAR},
+      glp_period = #{glpPeriod,jdbcType=DECIMAL},
+      glp_total_prem = #{glpTotalPrem,jdbcType=DECIMAL},
+      glp_total_coverage = #{glpTotalCoverage,jdbcType=DECIMAL},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      glp_special_contract = #{glpSpecialContract,jdbcType=LONGVARCHAR}
+    where grade_level_product_id = #{gradeLevelProductId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.gradeLevelProductEntity" >
+    update grade_level_product
+    set grade_level_id = #{gradeLevelId,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=VARCHAR},
+      glp_period = #{glpPeriod,jdbcType=DECIMAL},
+      glp_total_prem = #{glpTotalPrem,jdbcType=DECIMAL},
+      glp_total_coverage = #{glpTotalCoverage,jdbcType=DECIMAL},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where grade_level_product_id = #{gradeLevelProductId,jdbcType=VARCHAR}
+  </update>
+</mapper>
