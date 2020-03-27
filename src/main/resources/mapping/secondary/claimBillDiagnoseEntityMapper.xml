@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBillDiagnoseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="seqno" property="seqno" jdbcType="VARCHAR" />
+    <result column="diagnose_code" property="diagnoseCode" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="diagnose_name" property="diagnoseName" jdbcType="VARCHAR" />
+    <result column="receiptNo" property="receiptno" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, seqno, diagnose_code, update_poson, update_time, is_delete, diagnose_name, receiptNo, 
+    accno, docuno
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_bill_diagnose
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from claim_bill_diagnose
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+    insert into claim_bill_diagnose (id, seqno, diagnose_code, 
+      update_poson, update_time, is_delete, 
+      diagnose_name, receiptNo, accno, 
+      docuno)
+    values (#{id,jdbcType=VARCHAR}, #{seqno,jdbcType=VARCHAR}, #{diagnoseCode,jdbcType=VARCHAR}, 
+      #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, 
+      #{diagnoseName,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
+      #{docuno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+    insert into claim_bill_diagnose
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="seqno != null" >
+        seqno,
+      </if>
+      <if test="diagnoseCode != null" >
+        diagnose_code,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="diagnoseName != null" >
+        diagnose_name,
+      </if>
+      <if test="receiptno != null" >
+        receiptNo,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null" >
+        #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnoseCode != null" >
+        #{diagnoseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="diagnoseName != null" >
+        #{diagnoseName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+    update claim_bill_diagnose
+    <set >
+      <if test="seqno != null" >
+        seqno = #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnoseCode != null" >
+        diagnose_code = #{diagnoseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="diagnoseName != null" >
+        diagnose_name = #{diagnoseName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptNo = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+    update claim_bill_diagnose
+    set seqno = #{seqno,jdbcType=VARCHAR},
+      diagnose_code = #{diagnoseCode,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      diagnose_name = #{diagnoseName,jdbcType=VARCHAR},
+      receiptNo = #{receiptno,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      docuno = #{docuno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.returnClaimDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="visit_id" property="visitId" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="return_claim_data" property="returnClaimData" jdbcType="VARCHAR" />
+    <result column="partner_code" property="partnerCode" jdbcType="VARCHAR" />
+    <result column="data_applicant" property="dataApplicant" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, visit_id, docuno, return_claim_data, partner_code, data_applicant
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from return_claim_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from return_claim_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+    insert into return_claim_detail (id, visit_id, docuno, 
+      return_claim_data, partner_code, data_applicant
+      )
+    values (#{id,jdbcType=INTEGER}, #{visitId,jdbcType=VARCHAR}, #{docuno,jdbcType=VARCHAR}, 
+      #{returnClaimData,jdbcType=VARCHAR}, #{partnerCode,jdbcType=VARCHAR}, #{dataApplicant,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+    insert into return_claim_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="visitId != null" >
+        visit_id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="returnClaimData != null" >
+        return_claim_data,
+      </if>
+      <if test="partnerCode != null" >
+        partner_code,
+      </if>
+      <if test="dataApplicant != null" >
+        data_applicant,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="visitId != null" >
+        #{visitId,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="returnClaimData != null" >
+        #{returnClaimData,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCode != null" >
+        #{partnerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataApplicant != null" >
+        #{dataApplicant,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+    update return_claim_detail
+    <set >
+      <if test="visitId != null" >
+        visit_id = #{visitId,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="returnClaimData != null" >
+        return_claim_data = #{returnClaimData,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCode != null" >
+        partner_code = #{partnerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataApplicant != null" >
+        data_applicant = #{dataApplicant,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+    update return_claim_detail
+    set visit_id = #{visitId,jdbcType=VARCHAR},
+      docuno = #{docuno,jdbcType=VARCHAR},
+      return_claim_data = #{returnClaimData,jdbcType=VARCHAR},
+      partner_code = #{partnerCode,jdbcType=VARCHAR},
+      data_applicant = #{dataApplicant,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

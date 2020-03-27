@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaHisrReceiptInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
+    <result column="CReceiptNo" property="creceiptno" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="inhospitaldate" property="inhospitaldate" jdbcType="VARCHAR" />
+    <result column="outhospitaldate" property="outhospitaldate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, polno, insured_id, CReceiptNo, created_by, created_date, updated_by, 
+    updated_date, inhospitaldate, outhospitaldate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_hisr_receipt_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tpa_hisr_receipt_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+    insert into tpa_hisr_receipt_info (id, docuno, polno, 
+      insured_id, CReceiptNo, created_by, 
+      created_date, updated_by, updated_date, 
+      inhospitaldate, outhospitaldate)
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{polno,jdbcType=VARCHAR}, 
+      #{insuredId,jdbcType=VARCHAR}, #{creceiptno,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{inhospitaldate,jdbcType=VARCHAR}, #{outhospitaldate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+    insert into tpa_hisr_receipt_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="creceiptno != null" >
+        CReceiptNo,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="inhospitaldate != null" >
+        inhospitaldate,
+      </if>
+      <if test="outhospitaldate != null" >
+        outhospitaldate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="creceiptno != null" >
+        #{creceiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inhospitaldate != null" >
+        #{inhospitaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="outhospitaldate != null" >
+        #{outhospitaldate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+    update tpa_hisr_receipt_info
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="creceiptno != null" >
+        CReceiptNo = #{creceiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inhospitaldate != null" >
+        inhospitaldate = #{inhospitaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="outhospitaldate != null" >
+        outhospitaldate = #{outhospitaldate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+    update tpa_hisr_receipt_info
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      polno = #{polno,jdbcType=VARCHAR},
+      insured_id = #{insuredId,jdbcType=VARCHAR},
+      CReceiptNo = #{creceiptno,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      inhospitaldate = #{inhospitaldate,jdbcType=VARCHAR},
+      outhospitaldate = #{outhospitaldate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.invoiceProblemEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.invoiceProblemEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="invoiceNO" property="invoiceno" jdbcType="VARCHAR" />
+    <result column="sign_back_type" property="signBackType" jdbcType="VARCHAR" />
+    <result column="sign_back_desc" property="signBackDesc" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sendTradeNum, docuno, invoiceNO, sign_back_type, sign_back_desc, created_by, 
+    created_date, updated_by, updated_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from invoice_problem
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from invoice_problem
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+    insert into invoice_problem (id, sendTradeNum, docuno, 
+      invoiceNO, sign_back_type, sign_back_desc, 
+      created_by, created_date, updated_by, 
+      updated_date)
+    values (#{id,jdbcType=INTEGER}, #{sendtradenum,jdbcType=VARCHAR}, #{docuno,jdbcType=VARCHAR}, 
+      #{invoiceno,jdbcType=VARCHAR}, #{signBackType,jdbcType=VARCHAR}, #{signBackDesc,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+    insert into invoice_problem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO,
+      </if>
+      <if test="signBackType != null" >
+        sign_back_type,
+      </if>
+      <if test="signBackDesc != null" >
+        sign_back_desc,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sendtradenum != null" >
+        #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="signBackType != null" >
+        #{signBackType,jdbcType=VARCHAR},
+      </if>
+      <if test="signBackDesc != null" >
+        #{signBackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+    update invoice_problem
+    <set >
+      <if test="sendtradenum != null" >
+        sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="signBackType != null" >
+        sign_back_type = #{signBackType,jdbcType=VARCHAR},
+      </if>
+      <if test="signBackDesc != null" >
+        sign_back_desc = #{signBackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+    update invoice_problem
+    set sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      docuno = #{docuno,jdbcType=VARCHAR},
+      invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      sign_back_type = #{signBackType,jdbcType=VARCHAR},
+      sign_back_desc = #{signBackDesc,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

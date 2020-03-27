@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.tbBaseHospitalCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbBaseHospitalCopyEntity" >
+    <id column="hospital_id" property="hospitalId" jdbcType="INTEGER" />
+    <result column="province_or_state" property="provinceOrState" jdbcType="VARCHAR" />
+    <result column="city_or_district" property="cityOrDistrict" jdbcType="VARCHAR" />
+    <result column="county_or_district" property="countyOrDistrict" jdbcType="VARCHAR" />
+    <result column="district_code" property="districtCode" jdbcType="VARCHAR" />
+    <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
+    <result column="another_name" property="anotherName" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="nature" property="nature" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="contact_number" property="contactNumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hospital_id, province_or_state, city_or_district, county_or_district, district_code, 
+    hospital_name, another_name, address, nature, grade, contact_number
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_base_hospital_copy
+    where hospital_id = #{hospitalId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_base_hospital_copy
+    where hospital_id = #{hospitalId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.tbBaseHospitalCopyEntity" >
+    insert into tb_base_hospital_copy (hospital_id, province_or_state, city_or_district, 
+      county_or_district, district_code, hospital_name, 
+      another_name, address, nature, 
+      grade, contact_number)
+    values (#{hospitalId,jdbcType=INTEGER}, #{provinceOrState,jdbcType=VARCHAR}, #{cityOrDistrict,jdbcType=VARCHAR}, 
+      #{countyOrDistrict,jdbcType=VARCHAR}, #{districtCode,jdbcType=VARCHAR}, #{hospitalName,jdbcType=VARCHAR}, 
+      #{anotherName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{nature,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR}, #{contactNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbBaseHospitalCopyEntity" >
+    insert into tb_base_hospital_copy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hospitalId != null" >
+        hospital_id,
+      </if>
+      <if test="provinceOrState != null" >
+        province_or_state,
+      </if>
+      <if test="cityOrDistrict != null" >
+        city_or_district,
+      </if>
+      <if test="countyOrDistrict != null" >
+        county_or_district,
+      </if>
+      <if test="districtCode != null" >
+        district_code,
+      </if>
+      <if test="hospitalName != null" >
+        hospital_name,
+      </if>
+      <if test="anotherName != null" >
+        another_name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="nature != null" >
+        nature,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="contactNumber != null" >
+        contact_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hospitalId != null" >
+        #{hospitalId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceOrState != null" >
+        #{provinceOrState,jdbcType=VARCHAR},
+      </if>
+      <if test="cityOrDistrict != null" >
+        #{cityOrDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="countyOrDistrict != null" >
+        #{countyOrDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="anotherName != null" >
+        #{anotherName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="nature != null" >
+        #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null" >
+        #{contactNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbBaseHospitalCopyEntity" >
+    update tb_base_hospital_copy
+    <set >
+      <if test="provinceOrState != null" >
+        province_or_state = #{provinceOrState,jdbcType=VARCHAR},
+      </if>
+      <if test="cityOrDistrict != null" >
+        city_or_district = #{cityOrDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="countyOrDistrict != null" >
+        county_or_district = #{countyOrDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        district_code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="anotherName != null" >
+        another_name = #{anotherName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="nature != null" >
+        nature = #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null" >
+        contact_number = #{contactNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hospital_id = #{hospitalId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbBaseHospitalCopyEntity" >
+    update tb_base_hospital_copy
+    set province_or_state = #{provinceOrState,jdbcType=VARCHAR},
+      city_or_district = #{cityOrDistrict,jdbcType=VARCHAR},
+      county_or_district = #{countyOrDistrict,jdbcType=VARCHAR},
+      district_code = #{districtCode,jdbcType=VARCHAR},
+      hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      another_name = #{anotherName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      nature = #{nature,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      contact_number = #{contactNumber,jdbcType=VARCHAR}
+    where hospital_id = #{hospitalId,jdbcType=INTEGER}
+  </update>
+</mapper>

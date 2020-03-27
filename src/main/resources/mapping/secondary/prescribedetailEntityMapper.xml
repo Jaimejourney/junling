@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.prescribedetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.prescribedetailEntity" >
+    <id column="prescribedetail_id" property="prescribedetailId" jdbcType="BIGINT" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
+    <result column="listCat" property="listcat" jdbcType="VARCHAR" />
+    <result column="medicalItemCat" property="medicalitemcat" jdbcType="VARCHAR" />
+    <result column="itemLevel" property="itemlevel" jdbcType="VARCHAR" />
+    <result column="recipeNum" property="recipenum" jdbcType="VARCHAR" />
+    <result column="recipeSerialNum" property="recipeserialnum" jdbcType="VARCHAR" />
+    <result column="recipeDate" property="recipedate" jdbcType="VARCHAR" />
+    <result column="hospitalChargeCode" property="hospitalchargecode" jdbcType="VARCHAR" />
+    <result column="hospitalChargeName" property="hospitalchargename" jdbcType="VARCHAR" />
+    <result column="productName" property="productname" jdbcType="VARCHAR" />
+    <result column="englishName" property="englishname" jdbcType="VARCHAR" />
+    <result column="centreChargeCode" property="centrechargecode" jdbcType="VARCHAR" />
+    <result column="medicareFeeitemName" property="medicarefeeitemname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="quantity" property="quantity" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="hosBearMoney" property="hosbearmoney" jdbcType="VARCHAR" />
+    <result column="formulation" property="formulation" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="standardUnit" property="standardunit" jdbcType="VARCHAR" />
+    <result column="herbFuFangSign" property="herbfufangsign" jdbcType="VARCHAR" />
+    <result column="totalSelfFundFlg" property="totalselffundflg" jdbcType="VARCHAR" />
+    <result column="extraRecipeFlg" property="extrarecipeflg" jdbcType="VARCHAR" />
+    <result column="usage" property="usage" jdbcType="VARCHAR" />
+    <result column="perQuantity" property="perquantity" jdbcType="VARCHAR" />
+    <result column="frequency" property="frequency" jdbcType="VARCHAR" />
+    <result column="exeDays" property="exedays" jdbcType="VARCHAR" />
+    <result column="combination" property="combination" jdbcType="VARCHAR" />
+    <result column="functions" property="functions" jdbcType="VARCHAR" />
+    <result column="packetNum" property="packetnum" jdbcType="VARCHAR" />
+    <result column="contraindication" property="contraindication" jdbcType="VARCHAR" />
+    <result column="is_restricted" property="isRestricted" jdbcType="VARCHAR" />
+    <result column="restrictions" property="restrictions" jdbcType="VARCHAR" />
+    <result column="isBasicMedicine" property="isbasicmedicine" jdbcType="VARCHAR" />
+    <result column="nationalMedicineId" property="nationalmedicineid" jdbcType="VARCHAR" />
+    <result column="regId" property="regid" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="origion" property="origion" jdbcType="VARCHAR" />
+    <result column="manufacturer" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="deptNum" property="deptnum" jdbcType="VARCHAR" />
+    <result column="deptName" property="deptname" jdbcType="VARCHAR" />
+    <result column="doctorCode" property="doctorcode" jdbcType="VARCHAR" />
+    <result column="doctorName" property="doctorname" jdbcType="VARCHAR" />
+    <result column="orderDate" property="orderdate" jdbcType="VARCHAR" />
+    <result column="orderExecutedDate" property="orderexecuteddate" jdbcType="VARCHAR" />
+    <result column="selfPayRatio" property="selfpayratio" jdbcType="VARCHAR" />
+    <result column="orderType" property="ordertype" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="uniItemName" property="uniitemname" jdbcType="VARCHAR" />
+    <result column="uniItemClassName" property="uniitemclassname" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+    <result column="invoicetotality_id" property="invoicetotalityId" jdbcType="BIGINT" />
+    <result column="hospitalCode" property="hospitalcode" jdbcType="VARCHAR" />
+    <result column="hospitalName" property="hospitalname" jdbcType="VARCHAR" />
+    <result column="invoiceNO" property="invoiceno" jdbcType="VARCHAR" />
+    <result column="billNum" property="billnum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    prescribedetail_id, card_id, sendTradeNum, listCat, medicalItemCat, itemLevel, recipeNum, 
+    recipeSerialNum, recipeDate, hospitalChargeCode, hospitalChargeName, productName, 
+    englishName, centreChargeCode, medicareFeeitemName, price, quantity, money, hosBearMoney, 
+    formulation, spec, standardUnit, herbFuFangSign, totalSelfFundFlg, extraRecipeFlg, 
+    usage, perQuantity, frequency, exeDays, combination, functions, packetNum, contraindication, 
+    is_restricted, restrictions, isBasicMedicine, nationalMedicineId, regId, brand, origion, 
+    manufacturer, deptNum, deptName, doctorCode, doctorName, orderDate, orderExecutedDate, 
+    selfPayRatio, orderType, pid, uniItemName, uniItemClassName, created_time, updated_time, 
+    invoicetotality_id, hospitalCode, hospitalName, invoiceNO, billNum
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from prescribedetail
+    where prescribedetail_id = #{prescribedetailId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prescribedetail
+    where prescribedetail_id = #{prescribedetailId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+    insert into prescribedetail (prescribedetail_id, card_id, sendTradeNum, 
+      listCat, medicalItemCat, itemLevel, 
+      recipeNum, recipeSerialNum, recipeDate, 
+      hospitalChargeCode, hospitalChargeName, 
+      productName, englishName, centreChargeCode, 
+      medicareFeeitemName, price, quantity, 
+      money, hosBearMoney, formulation, 
+      spec, standardUnit, herbFuFangSign, 
+      totalSelfFundFlg, extraRecipeFlg, usage, 
+      perQuantity, frequency, exeDays, 
+      combination, functions, packetNum, 
+      contraindication, is_restricted, restrictions, 
+      isBasicMedicine, nationalMedicineId, regId, 
+      brand, origion, manufacturer, 
+      deptNum, deptName, doctorCode, 
+      doctorName, orderDate, orderExecutedDate, 
+      selfPayRatio, orderType, pid, 
+      uniItemName, uniItemClassName, created_time, 
+      updated_time, invoicetotality_id, hospitalCode, 
+      hospitalName, invoiceNO, billNum
+      )
+    values (#{prescribedetailId,jdbcType=BIGINT}, #{cardId,jdbcType=VARCHAR}, #{sendtradenum,jdbcType=VARCHAR}, 
+      #{listcat,jdbcType=VARCHAR}, #{medicalitemcat,jdbcType=VARCHAR}, #{itemlevel,jdbcType=VARCHAR}, 
+      #{recipenum,jdbcType=VARCHAR}, #{recipeserialnum,jdbcType=VARCHAR}, #{recipedate,jdbcType=VARCHAR}, 
+      #{hospitalchargecode,jdbcType=VARCHAR}, #{hospitalchargename,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{englishname,jdbcType=VARCHAR}, #{centrechargecode,jdbcType=VARCHAR}, 
+      #{medicarefeeitemname,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{quantity,jdbcType=VARCHAR}, 
+      #{money,jdbcType=DECIMAL}, #{hosbearmoney,jdbcType=VARCHAR}, #{formulation,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{standardunit,jdbcType=VARCHAR}, #{herbfufangsign,jdbcType=VARCHAR}, 
+      #{totalselffundflg,jdbcType=VARCHAR}, #{extrarecipeflg,jdbcType=VARCHAR}, #{usage,jdbcType=VARCHAR}, 
+      #{perquantity,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, #{exedays,jdbcType=VARCHAR}, 
+      #{combination,jdbcType=VARCHAR}, #{functions,jdbcType=VARCHAR}, #{packetnum,jdbcType=VARCHAR}, 
+      #{contraindication,jdbcType=VARCHAR}, #{isRestricted,jdbcType=VARCHAR}, #{restrictions,jdbcType=VARCHAR}, 
+      #{isbasicmedicine,jdbcType=VARCHAR}, #{nationalmedicineid,jdbcType=VARCHAR}, #{regid,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{origion,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{deptnum,jdbcType=VARCHAR}, #{deptname,jdbcType=VARCHAR}, #{doctorcode,jdbcType=VARCHAR}, 
+      #{doctorname,jdbcType=VARCHAR}, #{orderdate,jdbcType=VARCHAR}, #{orderexecuteddate,jdbcType=VARCHAR}, 
+      #{selfpayratio,jdbcType=VARCHAR}, #{ordertype,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, 
+      #{uniitemname,jdbcType=VARCHAR}, #{uniitemclassname,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{invoicetotalityId,jdbcType=BIGINT}, #{hospitalcode,jdbcType=VARCHAR}, 
+      #{hospitalname,jdbcType=VARCHAR}, #{invoiceno,jdbcType=VARCHAR}, #{billnum,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+    insert into prescribedetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="prescribedetailId != null" >
+        prescribedetail_id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum,
+      </if>
+      <if test="listcat != null" >
+        listCat,
+      </if>
+      <if test="medicalitemcat != null" >
+        medicalItemCat,
+      </if>
+      <if test="itemlevel != null" >
+        itemLevel,
+      </if>
+      <if test="recipenum != null" >
+        recipeNum,
+      </if>
+      <if test="recipeserialnum != null" >
+        recipeSerialNum,
+      </if>
+      <if test="recipedate != null" >
+        recipeDate,
+      </if>
+      <if test="hospitalchargecode != null" >
+        hospitalChargeCode,
+      </if>
+      <if test="hospitalchargename != null" >
+        hospitalChargeName,
+      </if>
+      <if test="productname != null" >
+        productName,
+      </if>
+      <if test="englishname != null" >
+        englishName,
+      </if>
+      <if test="centrechargecode != null" >
+        centreChargeCode,
+      </if>
+      <if test="medicarefeeitemname != null" >
+        medicareFeeitemName,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="quantity != null" >
+        quantity,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="hosbearmoney != null" >
+        hosBearMoney,
+      </if>
+      <if test="formulation != null" >
+        formulation,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="standardunit != null" >
+        standardUnit,
+      </if>
+      <if test="herbfufangsign != null" >
+        herbFuFangSign,
+      </if>
+      <if test="totalselffundflg != null" >
+        totalSelfFundFlg,
+      </if>
+      <if test="extrarecipeflg != null" >
+        extraRecipeFlg,
+      </if>
+      <if test="usage != null" >
+        usage,
+      </if>
+      <if test="perquantity != null" >
+        perQuantity,
+      </if>
+      <if test="frequency != null" >
+        frequency,
+      </if>
+      <if test="exedays != null" >
+        exeDays,
+      </if>
+      <if test="combination != null" >
+        combination,
+      </if>
+      <if test="functions != null" >
+        functions,
+      </if>
+      <if test="packetnum != null" >
+        packetNum,
+      </if>
+      <if test="contraindication != null" >
+        contraindication,
+      </if>
+      <if test="isRestricted != null" >
+        is_restricted,
+      </if>
+      <if test="restrictions != null" >
+        restrictions,
+      </if>
+      <if test="isbasicmedicine != null" >
+        isBasicMedicine,
+      </if>
+      <if test="nationalmedicineid != null" >
+        nationalMedicineId,
+      </if>
+      <if test="regid != null" >
+        regId,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="origion != null" >
+        origion,
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer,
+      </if>
+      <if test="deptnum != null" >
+        deptNum,
+      </if>
+      <if test="deptname != null" >
+        deptName,
+      </if>
+      <if test="doctorcode != null" >
+        doctorCode,
+      </if>
+      <if test="doctorname != null" >
+        doctorName,
+      </if>
+      <if test="orderdate != null" >
+        orderDate,
+      </if>
+      <if test="orderexecuteddate != null" >
+        orderExecutedDate,
+      </if>
+      <if test="selfpayratio != null" >
+        selfPayRatio,
+      </if>
+      <if test="ordertype != null" >
+        orderType,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="uniitemname != null" >
+        uniItemName,
+      </if>
+      <if test="uniitemclassname != null" >
+        uniItemClassName,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id,
+      </if>
+      <if test="hospitalcode != null" >
+        hospitalCode,
+      </if>
+      <if test="hospitalname != null" >
+        hospitalName,
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO,
+      </if>
+      <if test="billnum != null" >
+        billNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="prescribedetailId != null" >
+        #{prescribedetailId,jdbcType=BIGINT},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtradenum != null" >
+        #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="listcat != null" >
+        #{listcat,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalitemcat != null" >
+        #{medicalitemcat,jdbcType=VARCHAR},
+      </if>
+      <if test="itemlevel != null" >
+        #{itemlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="recipenum != null" >
+        #{recipenum,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeserialnum != null" >
+        #{recipeserialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="recipedate != null" >
+        #{recipedate,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalchargecode != null" >
+        #{hospitalchargecode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalchargename != null" >
+        #{hospitalchargename,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null" >
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="englishname != null" >
+        #{englishname,jdbcType=VARCHAR},
+      </if>
+      <if test="centrechargecode != null" >
+        #{centrechargecode,jdbcType=VARCHAR},
+      </if>
+      <if test="medicarefeeitemname != null" >
+        #{medicarefeeitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="hosbearmoney != null" >
+        #{hosbearmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="formulation != null" >
+        #{formulation,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="standardunit != null" >
+        #{standardunit,jdbcType=VARCHAR},
+      </if>
+      <if test="herbfufangsign != null" >
+        #{herbfufangsign,jdbcType=VARCHAR},
+      </if>
+      <if test="totalselffundflg != null" >
+        #{totalselffundflg,jdbcType=VARCHAR},
+      </if>
+      <if test="extrarecipeflg != null" >
+        #{extrarecipeflg,jdbcType=VARCHAR},
+      </if>
+      <if test="usage != null" >
+        #{usage,jdbcType=VARCHAR},
+      </if>
+      <if test="perquantity != null" >
+        #{perquantity,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null" >
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="exedays != null" >
+        #{exedays,jdbcType=VARCHAR},
+      </if>
+      <if test="combination != null" >
+        #{combination,jdbcType=VARCHAR},
+      </if>
+      <if test="functions != null" >
+        #{functions,jdbcType=VARCHAR},
+      </if>
+      <if test="packetnum != null" >
+        #{packetnum,jdbcType=VARCHAR},
+      </if>
+      <if test="contraindication != null" >
+        #{contraindication,jdbcType=VARCHAR},
+      </if>
+      <if test="isRestricted != null" >
+        #{isRestricted,jdbcType=VARCHAR},
+      </if>
+      <if test="restrictions != null" >
+        #{restrictions,jdbcType=VARCHAR},
+      </if>
+      <if test="isbasicmedicine != null" >
+        #{isbasicmedicine,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalmedicineid != null" >
+        #{nationalmedicineid,jdbcType=VARCHAR},
+      </if>
+      <if test="regid != null" >
+        #{regid,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="origion != null" >
+        #{origion,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="deptnum != null" >
+        #{deptnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorcode != null" >
+        #{doctorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorname != null" >
+        #{doctorname,jdbcType=VARCHAR},
+      </if>
+      <if test="orderdate != null" >
+        #{orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderexecuteddate != null" >
+        #{orderexecuteddate,jdbcType=VARCHAR},
+      </if>
+      <if test="selfpayratio != null" >
+        #{selfpayratio,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null" >
+        #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="uniitemname != null" >
+        #{uniitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="uniitemclassname != null" >
+        #{uniitemclassname,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invoicetotalityId != null" >
+        #{invoicetotalityId,jdbcType=BIGINT},
+      </if>
+      <if test="hospitalcode != null" >
+        #{hospitalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="billnum != null" >
+        #{billnum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+    update prescribedetail
+    <set >
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="listcat != null" >
+        listCat = #{listcat,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalitemcat != null" >
+        medicalItemCat = #{medicalitemcat,jdbcType=VARCHAR},
+      </if>
+      <if test="itemlevel != null" >
+        itemLevel = #{itemlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="recipenum != null" >
+        recipeNum = #{recipenum,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeserialnum != null" >
+        recipeSerialNum = #{recipeserialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="recipedate != null" >
+        recipeDate = #{recipedate,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalchargecode != null" >
+        hospitalChargeCode = #{hospitalchargecode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalchargename != null" >
+        hospitalChargeName = #{hospitalchargename,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null" >
+        productName = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="englishname != null" >
+        englishName = #{englishname,jdbcType=VARCHAR},
+      </if>
+      <if test="centrechargecode != null" >
+        centreChargeCode = #{centrechargecode,jdbcType=VARCHAR},
+      </if>
+      <if test="medicarefeeitemname != null" >
+        medicareFeeitemName = #{medicarefeeitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null" >
+        quantity = #{quantity,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="hosbearmoney != null" >
+        hosBearMoney = #{hosbearmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="formulation != null" >
+        formulation = #{formulation,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="standardunit != null" >
+        standardUnit = #{standardunit,jdbcType=VARCHAR},
+      </if>
+      <if test="herbfufangsign != null" >
+        herbFuFangSign = #{herbfufangsign,jdbcType=VARCHAR},
+      </if>
+      <if test="totalselffundflg != null" >
+        totalSelfFundFlg = #{totalselffundflg,jdbcType=VARCHAR},
+      </if>
+      <if test="extrarecipeflg != null" >
+        extraRecipeFlg = #{extrarecipeflg,jdbcType=VARCHAR},
+      </if>
+      <if test="usage != null" >
+        usage = #{usage,jdbcType=VARCHAR},
+      </if>
+      <if test="perquantity != null" >
+        perQuantity = #{perquantity,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null" >
+        frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="exedays != null" >
+        exeDays = #{exedays,jdbcType=VARCHAR},
+      </if>
+      <if test="combination != null" >
+        combination = #{combination,jdbcType=VARCHAR},
+      </if>
+      <if test="functions != null" >
+        functions = #{functions,jdbcType=VARCHAR},
+      </if>
+      <if test="packetnum != null" >
+        packetNum = #{packetnum,jdbcType=VARCHAR},
+      </if>
+      <if test="contraindication != null" >
+        contraindication = #{contraindication,jdbcType=VARCHAR},
+      </if>
+      <if test="isRestricted != null" >
+        is_restricted = #{isRestricted,jdbcType=VARCHAR},
+      </if>
+      <if test="restrictions != null" >
+        restrictions = #{restrictions,jdbcType=VARCHAR},
+      </if>
+      <if test="isbasicmedicine != null" >
+        isBasicMedicine = #{isbasicmedicine,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalmedicineid != null" >
+        nationalMedicineId = #{nationalmedicineid,jdbcType=VARCHAR},
+      </if>
+      <if test="regid != null" >
+        regId = #{regid,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="origion != null" >
+        origion = #{origion,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="deptnum != null" >
+        deptNum = #{deptnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        deptName = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorcode != null" >
+        doctorCode = #{doctorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorname != null" >
+        doctorName = #{doctorname,jdbcType=VARCHAR},
+      </if>
+      <if test="orderdate != null" >
+        orderDate = #{orderdate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderexecuteddate != null" >
+        orderExecutedDate = #{orderexecuteddate,jdbcType=VARCHAR},
+      </if>
+      <if test="selfpayratio != null" >
+        selfPayRatio = #{selfpayratio,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null" >
+        orderType = #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="uniitemname != null" >
+        uniItemName = #{uniitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="uniitemclassname != null" >
+        uniItemClassName = #{uniitemclassname,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT},
+      </if>
+      <if test="hospitalcode != null" >
+        hospitalCode = #{hospitalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        hospitalName = #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="billnum != null" >
+        billNum = #{billnum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where prescribedetail_id = #{prescribedetailId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+    update prescribedetail
+    set card_id = #{cardId,jdbcType=VARCHAR},
+      sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      listCat = #{listcat,jdbcType=VARCHAR},
+      medicalItemCat = #{medicalitemcat,jdbcType=VARCHAR},
+      itemLevel = #{itemlevel,jdbcType=VARCHAR},
+      recipeNum = #{recipenum,jdbcType=VARCHAR},
+      recipeSerialNum = #{recipeserialnum,jdbcType=VARCHAR},
+      recipeDate = #{recipedate,jdbcType=VARCHAR},
+      hospitalChargeCode = #{hospitalchargecode,jdbcType=VARCHAR},
+      hospitalChargeName = #{hospitalchargename,jdbcType=VARCHAR},
+      productName = #{productname,jdbcType=VARCHAR},
+      englishName = #{englishname,jdbcType=VARCHAR},
+      centreChargeCode = #{centrechargecode,jdbcType=VARCHAR},
+      medicareFeeitemName = #{medicarefeeitemname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      quantity = #{quantity,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL},
+      hosBearMoney = #{hosbearmoney,jdbcType=VARCHAR},
+      formulation = #{formulation,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      standardUnit = #{standardunit,jdbcType=VARCHAR},
+      herbFuFangSign = #{herbfufangsign,jdbcType=VARCHAR},
+      totalSelfFundFlg = #{totalselffundflg,jdbcType=VARCHAR},
+      extraRecipeFlg = #{extrarecipeflg,jdbcType=VARCHAR},
+      usage = #{usage,jdbcType=VARCHAR},
+      perQuantity = #{perquantity,jdbcType=VARCHAR},
+      frequency = #{frequency,jdbcType=VARCHAR},
+      exeDays = #{exedays,jdbcType=VARCHAR},
+      combination = #{combination,jdbcType=VARCHAR},
+      functions = #{functions,jdbcType=VARCHAR},
+      packetNum = #{packetnum,jdbcType=VARCHAR},
+      contraindication = #{contraindication,jdbcType=VARCHAR},
+      is_restricted = #{isRestricted,jdbcType=VARCHAR},
+      restrictions = #{restrictions,jdbcType=VARCHAR},
+      isBasicMedicine = #{isbasicmedicine,jdbcType=VARCHAR},
+      nationalMedicineId = #{nationalmedicineid,jdbcType=VARCHAR},
+      regId = #{regid,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      origion = #{origion,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      deptNum = #{deptnum,jdbcType=VARCHAR},
+      deptName = #{deptname,jdbcType=VARCHAR},
+      doctorCode = #{doctorcode,jdbcType=VARCHAR},
+      doctorName = #{doctorname,jdbcType=VARCHAR},
+      orderDate = #{orderdate,jdbcType=VARCHAR},
+      orderExecutedDate = #{orderexecuteddate,jdbcType=VARCHAR},
+      selfPayRatio = #{selfpayratio,jdbcType=VARCHAR},
+      orderType = #{ordertype,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR},
+      uniItemName = #{uniitemname,jdbcType=VARCHAR},
+      uniItemClassName = #{uniitemclassname,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT},
+      hospitalCode = #{hospitalcode,jdbcType=VARCHAR},
+      hospitalName = #{hospitalname,jdbcType=VARCHAR},
+      invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      billNum = #{billnum,jdbcType=VARCHAR}
+    where prescribedetail_id = #{prescribedetailId,jdbcType=BIGINT}
+  </update>
+</mapper>

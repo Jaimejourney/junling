@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.claimDocEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimDocEntity" >
+    <id column="doc_id" property="docId" jdbcType="INTEGER" />
+    <result column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
+    <result column="claim_no" property="claimNo" jdbcType="VARCHAR" />
+    <result column="doc_type_code" property="docTypeCode" jdbcType="VARCHAR" />
+    <result column="doc_sub_type_code" property="docSubTypeCode" jdbcType="VARCHAR" />
+    <result column="doc_url" property="docUrl" jdbcType="VARCHAR" />
+    <result column="doc_no" property="docNo" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    doc_id, claim_info_id, claim_no, doc_type_code, doc_sub_type_code, doc_url, doc_no, 
+    created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_doc
+    where doc_id = #{docId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_doc
+    where doc_id = #{docId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.claimDocEntity" >
+    insert into claim_doc (doc_id, claim_info_id, claim_no, 
+      doc_type_code, doc_sub_type_code, doc_url, 
+      doc_no, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{docId,jdbcType=INTEGER}, #{claimInfoId,jdbcType=VARCHAR}, #{claimNo,jdbcType=VARCHAR}, 
+      #{docTypeCode,jdbcType=VARCHAR}, #{docSubTypeCode,jdbcType=VARCHAR}, #{docUrl,jdbcType=VARCHAR}, 
+      #{docNo,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimDocEntity" >
+    insert into claim_doc
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="docId != null" >
+        doc_id,
+      </if>
+      <if test="claimInfoId != null" >
+        claim_info_id,
+      </if>
+      <if test="claimNo != null" >
+        claim_no,
+      </if>
+      <if test="docTypeCode != null" >
+        doc_type_code,
+      </if>
+      <if test="docSubTypeCode != null" >
+        doc_sub_type_code,
+      </if>
+      <if test="docUrl != null" >
+        doc_url,
+      </if>
+      <if test="docNo != null" >
+        doc_no,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="docId != null" >
+        #{docId,jdbcType=INTEGER},
+      </if>
+      <if test="claimInfoId != null" >
+        #{claimInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="docTypeCode != null" >
+        #{docTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docSubTypeCode != null" >
+        #{docSubTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docUrl != null" >
+        #{docUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="docNo != null" >
+        #{docNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimDocEntity" >
+    update claim_doc
+    <set >
+      <if test="claimInfoId != null" >
+        claim_info_id = #{claimInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        claim_no = #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="docTypeCode != null" >
+        doc_type_code = #{docTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docSubTypeCode != null" >
+        doc_sub_type_code = #{docSubTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docUrl != null" >
+        doc_url = #{docUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="docNo != null" >
+        doc_no = #{docNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where doc_id = #{docId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimDocEntity" >
+    update claim_doc
+    set claim_info_id = #{claimInfoId,jdbcType=VARCHAR},
+      claim_no = #{claimNo,jdbcType=VARCHAR},
+      doc_type_code = #{docTypeCode,jdbcType=VARCHAR},
+      doc_sub_type_code = #{docSubTypeCode,jdbcType=VARCHAR},
+      doc_url = #{docUrl,jdbcType=VARCHAR},
+      doc_no = #{docNo,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where doc_id = #{docId,jdbcType=INTEGER}
+  </update>
+</mapper>

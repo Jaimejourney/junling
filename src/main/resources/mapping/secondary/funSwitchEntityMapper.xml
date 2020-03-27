@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.funSwitchEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.funSwitchEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="funName" property="funname" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="createdBy" property="createdby" jdbcType="VARCHAR" />
+    <result column="updatedBy" property="updatedby" jdbcType="VARCHAR" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, funName, version, createdBy, updatedBy, createdDate, updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from fun_switch
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fun_switch
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+    insert into fun_switch (id, funName, version, 
+      createdBy, updatedBy, createdDate, 
+      updatedDate)
+    values (#{id,jdbcType=INTEGER}, #{funname,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{createdby,jdbcType=VARCHAR}, #{updatedby,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, 
+      #{updateddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+    insert into fun_switch
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="funname != null" >
+        funName,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="createdby != null" >
+        createdBy,
+      </if>
+      <if test="updatedby != null" >
+        updatedBy,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="funname != null" >
+        #{funname,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="createdby != null" >
+        #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedby != null" >
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+    update fun_switch
+    <set >
+      <if test="funname != null" >
+        funName = #{funname,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="createdby != null" >
+        createdBy = #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedby != null" >
+        updatedBy = #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+    update fun_switch
+    set funName = #{funname,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      createdBy = #{createdby,jdbcType=VARCHAR},
+      updatedBy = #{updatedby,jdbcType=VARCHAR},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.labReportTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.labReportTblEntity" >
+    <id column="labFlow" property="labflow" jdbcType="VARCHAR" />
+    <result column="recordFlow" property="recordflow" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="labRepName" property="labrepname" jdbcType="VARCHAR" />
+    <result column="labApplyTime" property="labapplytime" jdbcType="TIMESTAMP" />
+    <result column="labApplierCode" property="labappliercode" jdbcType="VARCHAR" />
+    <result column="labApplierName" property="labappliername" jdbcType="VARCHAR" />
+    <result column="applierDeptCode" property="applierdeptcode" jdbcType="VARCHAR" />
+    <result column="applierDept" property="applierdept" jdbcType="VARCHAR" />
+    <result column="sample" property="sample" jdbcType="VARCHAR" />
+    <result column="labTime" property="labtime" jdbcType="TIMESTAMP" />
+    <result column="labRecorderId" property="labrecorderid" jdbcType="VARCHAR" />
+    <result column="labRecorder" property="labrecorder" jdbcType="VARCHAR" />
+    <result column="auditUserId" property="audituserid" jdbcType="VARCHAR" />
+    <result column="auditUserName" property="auditusername" jdbcType="VARCHAR" />
+    <result column="labInstrument" property="labinstrument" jdbcType="VARCHAR" />
+    <result column="bedNo" property="bedno" jdbcType="VARCHAR" />
+    <result column="isBacilli" property="isbacilli" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="inOutFlag" property="inoutflag" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    labFlow, recordFlow, pid, labRepName, labApplyTime, labApplierCode, labApplierName, 
+    applierDeptCode, applierDept, sample, labTime, labRecorderId, labRecorder, auditUserId, 
+    auditUserName, labInstrument, bedNo, isBacilli, remark, inOutFlag, update_poson, 
+    update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from lab_report_tbl
+    where labFlow = #{labflow,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from lab_report_tbl
+    where labFlow = #{labflow,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+    insert into lab_report_tbl (labFlow, recordFlow, pid, 
+      labRepName, labApplyTime, labApplierCode, 
+      labApplierName, applierDeptCode, applierDept, 
+      sample, labTime, labRecorderId, 
+      labRecorder, auditUserId, auditUserName, 
+      labInstrument, bedNo, isBacilli, 
+      remark, inOutFlag, update_poson, 
+      update_time, is_delete)
+    values (#{labflow,jdbcType=VARCHAR}, #{recordflow,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, 
+      #{labrepname,jdbcType=VARCHAR}, #{labapplytime,jdbcType=TIMESTAMP}, #{labappliercode,jdbcType=VARCHAR}, 
+      #{labappliername,jdbcType=VARCHAR}, #{applierdeptcode,jdbcType=VARCHAR}, #{applierdept,jdbcType=VARCHAR}, 
+      #{sample,jdbcType=VARCHAR}, #{labtime,jdbcType=TIMESTAMP}, #{labrecorderid,jdbcType=VARCHAR}, 
+      #{labrecorder,jdbcType=VARCHAR}, #{audituserid,jdbcType=VARCHAR}, #{auditusername,jdbcType=VARCHAR}, 
+      #{labinstrument,jdbcType=VARCHAR}, #{bedno,jdbcType=VARCHAR}, #{isbacilli,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{inoutflag,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+    insert into lab_report_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="labflow != null" >
+        labFlow,
+      </if>
+      <if test="recordflow != null" >
+        recordFlow,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="labrepname != null" >
+        labRepName,
+      </if>
+      <if test="labapplytime != null" >
+        labApplyTime,
+      </if>
+      <if test="labappliercode != null" >
+        labApplierCode,
+      </if>
+      <if test="labappliername != null" >
+        labApplierName,
+      </if>
+      <if test="applierdeptcode != null" >
+        applierDeptCode,
+      </if>
+      <if test="applierdept != null" >
+        applierDept,
+      </if>
+      <if test="sample != null" >
+        sample,
+      </if>
+      <if test="labtime != null" >
+        labTime,
+      </if>
+      <if test="labrecorderid != null" >
+        labRecorderId,
+      </if>
+      <if test="labrecorder != null" >
+        labRecorder,
+      </if>
+      <if test="audituserid != null" >
+        auditUserId,
+      </if>
+      <if test="auditusername != null" >
+        auditUserName,
+      </if>
+      <if test="labinstrument != null" >
+        labInstrument,
+      </if>
+      <if test="bedno != null" >
+        bedNo,
+      </if>
+      <if test="isbacilli != null" >
+        isBacilli,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="inoutflag != null" >
+        inOutFlag,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="labflow != null" >
+        #{labflow,jdbcType=VARCHAR},
+      </if>
+      <if test="recordflow != null" >
+        #{recordflow,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepname != null" >
+        #{labrepname,jdbcType=VARCHAR},
+      </if>
+      <if test="labapplytime != null" >
+        #{labapplytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labappliercode != null" >
+        #{labappliercode,jdbcType=VARCHAR},
+      </if>
+      <if test="labappliername != null" >
+        #{labappliername,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdeptcode != null" >
+        #{applierdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdept != null" >
+        #{applierdept,jdbcType=VARCHAR},
+      </if>
+      <if test="sample != null" >
+        #{sample,jdbcType=VARCHAR},
+      </if>
+      <if test="labtime != null" >
+        #{labtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labrecorderid != null" >
+        #{labrecorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="labrecorder != null" >
+        #{labrecorder,jdbcType=VARCHAR},
+      </if>
+      <if test="audituserid != null" >
+        #{audituserid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditusername != null" >
+        #{auditusername,jdbcType=VARCHAR},
+      </if>
+      <if test="labinstrument != null" >
+        #{labinstrument,jdbcType=VARCHAR},
+      </if>
+      <if test="bedno != null" >
+        #{bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="isbacilli != null" >
+        #{isbacilli,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="inoutflag != null" >
+        #{inoutflag,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+    update lab_report_tbl
+    <set >
+      <if test="recordflow != null" >
+        recordFlow = #{recordflow,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepname != null" >
+        labRepName = #{labrepname,jdbcType=VARCHAR},
+      </if>
+      <if test="labapplytime != null" >
+        labApplyTime = #{labapplytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labappliercode != null" >
+        labApplierCode = #{labappliercode,jdbcType=VARCHAR},
+      </if>
+      <if test="labappliername != null" >
+        labApplierName = #{labappliername,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdeptcode != null" >
+        applierDeptCode = #{applierdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdept != null" >
+        applierDept = #{applierdept,jdbcType=VARCHAR},
+      </if>
+      <if test="sample != null" >
+        sample = #{sample,jdbcType=VARCHAR},
+      </if>
+      <if test="labtime != null" >
+        labTime = #{labtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labrecorderid != null" >
+        labRecorderId = #{labrecorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="labrecorder != null" >
+        labRecorder = #{labrecorder,jdbcType=VARCHAR},
+      </if>
+      <if test="audituserid != null" >
+        auditUserId = #{audituserid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditusername != null" >
+        auditUserName = #{auditusername,jdbcType=VARCHAR},
+      </if>
+      <if test="labinstrument != null" >
+        labInstrument = #{labinstrument,jdbcType=VARCHAR},
+      </if>
+      <if test="bedno != null" >
+        bedNo = #{bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="isbacilli != null" >
+        isBacilli = #{isbacilli,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="inoutflag != null" >
+        inOutFlag = #{inoutflag,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where labFlow = #{labflow,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+    update lab_report_tbl
+    set recordFlow = #{recordflow,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR},
+      labRepName = #{labrepname,jdbcType=VARCHAR},
+      labApplyTime = #{labapplytime,jdbcType=TIMESTAMP},
+      labApplierCode = #{labappliercode,jdbcType=VARCHAR},
+      labApplierName = #{labappliername,jdbcType=VARCHAR},
+      applierDeptCode = #{applierdeptcode,jdbcType=VARCHAR},
+      applierDept = #{applierdept,jdbcType=VARCHAR},
+      sample = #{sample,jdbcType=VARCHAR},
+      labTime = #{labtime,jdbcType=TIMESTAMP},
+      labRecorderId = #{labrecorderid,jdbcType=VARCHAR},
+      labRecorder = #{labrecorder,jdbcType=VARCHAR},
+      auditUserId = #{audituserid,jdbcType=VARCHAR},
+      auditUserName = #{auditusername,jdbcType=VARCHAR},
+      labInstrument = #{labinstrument,jdbcType=VARCHAR},
+      bedNo = #{bedno,jdbcType=VARCHAR},
+      isBacilli = #{isbacilli,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      inOutFlag = #{inoutflag,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where labFlow = #{labflow,jdbcType=VARCHAR}
+  </update>
+</mapper>

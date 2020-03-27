@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.inspectionReportEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.inspectionReportEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
+    <result column="recordFlow" property="recordflow" jdbcType="VARCHAR" />
+    <result column="examRptFlow" property="examrptflow" jdbcType="VARCHAR" />
+    <result column="examName" property="examname" jdbcType="VARCHAR" />
+    <result column="examDiagnose" property="examdiagnose" jdbcType="VARCHAR" />
+    <result column="examReporterCode" property="examreportercode" jdbcType="VARCHAR" />
+    <result column="examReporter" property="examreporter" jdbcType="VARCHAR" />
+    <result column="examTime" property="examtime" jdbcType="TIMESTAMP" />
+    <result column="auditUserID" property="audituserid" jdbcType="VARCHAR" />
+    <result column="auditUserName" property="auditusername" jdbcType="VARCHAR" />
+    <result column="auditTime" property="audittime" jdbcType="TIMESTAMP" />
+    <result column="applierID" property="applierid" jdbcType="VARCHAR" />
+    <result column="applier" property="applier" jdbcType="VARCHAR" />
+    <result column="applyTime" property="applytime" jdbcType="TIMESTAMP" />
+    <result column="findings" property="findings" jdbcType="VARCHAR" />
+    <result column="result" property="result" jdbcType="VARCHAR" />
+    <result column="examinationCode" property="examinationcode" jdbcType="VARCHAR" />
+    <result column="examinationName" property="examinationname" jdbcType="VARCHAR" />
+    <result column="examinationValue" property="examinationvalue" jdbcType="VARCHAR" />
+    <result column="inOutFlag" property="inoutflag" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isdelete" jdbcType="VARCHAR" />
+    <result column="applierDeptCode" property="applierdeptcode" jdbcType="VARCHAR" />
+    <result column="applierDept" property="applierdept" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, flow_id, recordFlow, examRptFlow, examName, examDiagnose, examReporterCode, examReporter, 
+    examTime, auditUserID, auditUserName, auditTime, applierID, applier, applyTime, findings, 
+    result, examinationCode, examinationName, examinationValue, inOutFlag, isDelete, 
+    applierDeptCode, applierDept, create_time, update_poson, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from inspection_report
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from inspection_report
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+    insert into inspection_report (id, flow_id, recordFlow, 
+      examRptFlow, examName, examDiagnose, 
+      examReporterCode, examReporter, examTime, 
+      auditUserID, auditUserName, auditTime, 
+      applierID, applier, applyTime, 
+      findings, result, examinationCode, 
+      examinationName, examinationValue, inOutFlag, 
+      isDelete, applierDeptCode, applierDept, 
+      create_time, update_poson, update_time, 
+      is_delete)
+    values (#{id,jdbcType=VARCHAR}, #{flowId,jdbcType=VARCHAR}, #{recordflow,jdbcType=VARCHAR}, 
+      #{examrptflow,jdbcType=VARCHAR}, #{examname,jdbcType=VARCHAR}, #{examdiagnose,jdbcType=VARCHAR}, 
+      #{examreportercode,jdbcType=VARCHAR}, #{examreporter,jdbcType=VARCHAR}, #{examtime,jdbcType=TIMESTAMP}, 
+      #{audituserid,jdbcType=VARCHAR}, #{auditusername,jdbcType=VARCHAR}, #{audittime,jdbcType=TIMESTAMP}, 
+      #{applierid,jdbcType=VARCHAR}, #{applier,jdbcType=VARCHAR}, #{applytime,jdbcType=TIMESTAMP}, 
+      #{findings,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{examinationcode,jdbcType=VARCHAR}, 
+      #{examinationname,jdbcType=VARCHAR}, #{examinationvalue,jdbcType=VARCHAR}, #{inoutflag,jdbcType=VARCHAR}, 
+      #{isdelete,jdbcType=VARCHAR}, #{applierdeptcode,jdbcType=VARCHAR}, #{applierdept,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+    insert into inspection_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="flowId != null" >
+        flow_id,
+      </if>
+      <if test="recordflow != null" >
+        recordFlow,
+      </if>
+      <if test="examrptflow != null" >
+        examRptFlow,
+      </if>
+      <if test="examname != null" >
+        examName,
+      </if>
+      <if test="examdiagnose != null" >
+        examDiagnose,
+      </if>
+      <if test="examreportercode != null" >
+        examReporterCode,
+      </if>
+      <if test="examreporter != null" >
+        examReporter,
+      </if>
+      <if test="examtime != null" >
+        examTime,
+      </if>
+      <if test="audituserid != null" >
+        auditUserID,
+      </if>
+      <if test="auditusername != null" >
+        auditUserName,
+      </if>
+      <if test="audittime != null" >
+        auditTime,
+      </if>
+      <if test="applierid != null" >
+        applierID,
+      </if>
+      <if test="applier != null" >
+        applier,
+      </if>
+      <if test="applytime != null" >
+        applyTime,
+      </if>
+      <if test="findings != null" >
+        findings,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+      <if test="examinationcode != null" >
+        examinationCode,
+      </if>
+      <if test="examinationname != null" >
+        examinationName,
+      </if>
+      <if test="examinationvalue != null" >
+        examinationValue,
+      </if>
+      <if test="inoutflag != null" >
+        inOutFlag,
+      </if>
+      <if test="isdelete != null" >
+        isDelete,
+      </if>
+      <if test="applierdeptcode != null" >
+        applierDeptCode,
+      </if>
+      <if test="applierdept != null" >
+        applierDept,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordflow != null" >
+        #{recordflow,jdbcType=VARCHAR},
+      </if>
+      <if test="examrptflow != null" >
+        #{examrptflow,jdbcType=VARCHAR},
+      </if>
+      <if test="examname != null" >
+        #{examname,jdbcType=VARCHAR},
+      </if>
+      <if test="examdiagnose != null" >
+        #{examdiagnose,jdbcType=VARCHAR},
+      </if>
+      <if test="examreportercode != null" >
+        #{examreportercode,jdbcType=VARCHAR},
+      </if>
+      <if test="examreporter != null" >
+        #{examreporter,jdbcType=VARCHAR},
+      </if>
+      <if test="examtime != null" >
+        #{examtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="audituserid != null" >
+        #{audituserid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditusername != null" >
+        #{auditusername,jdbcType=VARCHAR},
+      </if>
+      <if test="audittime != null" >
+        #{audittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applierid != null" >
+        #{applierid,jdbcType=VARCHAR},
+      </if>
+      <if test="applier != null" >
+        #{applier,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null" >
+        #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="findings != null" >
+        #{findings,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationcode != null" >
+        #{examinationcode,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationname != null" >
+        #{examinationname,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationvalue != null" >
+        #{examinationvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="inoutflag != null" >
+        #{inoutflag,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null" >
+        #{isdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdeptcode != null" >
+        #{applierdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdept != null" >
+        #{applierdept,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+    update inspection_report
+    <set >
+      <if test="flowId != null" >
+        flow_id = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordflow != null" >
+        recordFlow = #{recordflow,jdbcType=VARCHAR},
+      </if>
+      <if test="examrptflow != null" >
+        examRptFlow = #{examrptflow,jdbcType=VARCHAR},
+      </if>
+      <if test="examname != null" >
+        examName = #{examname,jdbcType=VARCHAR},
+      </if>
+      <if test="examdiagnose != null" >
+        examDiagnose = #{examdiagnose,jdbcType=VARCHAR},
+      </if>
+      <if test="examreportercode != null" >
+        examReporterCode = #{examreportercode,jdbcType=VARCHAR},
+      </if>
+      <if test="examreporter != null" >
+        examReporter = #{examreporter,jdbcType=VARCHAR},
+      </if>
+      <if test="examtime != null" >
+        examTime = #{examtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="audituserid != null" >
+        auditUserID = #{audituserid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditusername != null" >
+        auditUserName = #{auditusername,jdbcType=VARCHAR},
+      </if>
+      <if test="audittime != null" >
+        auditTime = #{audittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applierid != null" >
+        applierID = #{applierid,jdbcType=VARCHAR},
+      </if>
+      <if test="applier != null" >
+        applier = #{applier,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null" >
+        applyTime = #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="findings != null" >
+        findings = #{findings,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationcode != null" >
+        examinationCode = #{examinationcode,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationname != null" >
+        examinationName = #{examinationname,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationvalue != null" >
+        examinationValue = #{examinationvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="inoutflag != null" >
+        inOutFlag = #{inoutflag,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null" >
+        isDelete = #{isdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdeptcode != null" >
+        applierDeptCode = #{applierdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="applierdept != null" >
+        applierDept = #{applierdept,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+    update inspection_report
+    set flow_id = #{flowId,jdbcType=VARCHAR},
+      recordFlow = #{recordflow,jdbcType=VARCHAR},
+      examRptFlow = #{examrptflow,jdbcType=VARCHAR},
+      examName = #{examname,jdbcType=VARCHAR},
+      examDiagnose = #{examdiagnose,jdbcType=VARCHAR},
+      examReporterCode = #{examreportercode,jdbcType=VARCHAR},
+      examReporter = #{examreporter,jdbcType=VARCHAR},
+      examTime = #{examtime,jdbcType=TIMESTAMP},
+      auditUserID = #{audituserid,jdbcType=VARCHAR},
+      auditUserName = #{auditusername,jdbcType=VARCHAR},
+      auditTime = #{audittime,jdbcType=TIMESTAMP},
+      applierID = #{applierid,jdbcType=VARCHAR},
+      applier = #{applier,jdbcType=VARCHAR},
+      applyTime = #{applytime,jdbcType=TIMESTAMP},
+      findings = #{findings,jdbcType=VARCHAR},
+      result = #{result,jdbcType=VARCHAR},
+      examinationCode = #{examinationcode,jdbcType=VARCHAR},
+      examinationName = #{examinationname,jdbcType=VARCHAR},
+      examinationValue = #{examinationvalue,jdbcType=VARCHAR},
+      inOutFlag = #{inoutflag,jdbcType=VARCHAR},
+      isDelete = #{isdelete,jdbcType=VARCHAR},
+      applierDeptCode = #{applierdeptcode,jdbcType=VARCHAR},
+      applierDept = #{applierdept,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

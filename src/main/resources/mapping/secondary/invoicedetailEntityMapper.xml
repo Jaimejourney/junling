@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.invoicedetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.invoicedetailEntity" >
+    <id column="invoicedetail_id" property="invoicedetailId" jdbcType="BIGINT" />
+    <result column="invoicetotality_id" property="invoicetotalityId" jdbcType="BIGINT" />
+    <result column="insurDictionaryCode" property="insurdictionarycode" jdbcType="VARCHAR" />
+    <result column="dictionaryName" property="dictionaryname" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+    <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
+    <result column="invoiceNO" property="invoiceno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    invoicedetail_id, invoicetotality_id, insurDictionaryCode, dictionaryName, money, 
+    created_time, updated_time, sendTradeNum, invoiceNO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from invoicedetail
+    where invoicedetail_id = #{invoicedetailId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from invoicedetail
+    where invoicedetail_id = #{invoicedetailId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+    insert into invoicedetail (invoicedetail_id, invoicetotality_id, 
+      insurDictionaryCode, dictionaryName, money, 
+      created_time, updated_time, sendTradeNum, 
+      invoiceNO)
+    values (#{invoicedetailId,jdbcType=BIGINT}, #{invoicetotalityId,jdbcType=BIGINT}, 
+      #{insurdictionarycode,jdbcType=VARCHAR}, #{dictionaryname,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP}, #{sendtradenum,jdbcType=VARCHAR}, 
+      #{invoiceno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+    insert into invoicedetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="invoicedetailId != null" >
+        invoicedetail_id,
+      </if>
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id,
+      </if>
+      <if test="insurdictionarycode != null" >
+        insurDictionaryCode,
+      </if>
+      <if test="dictionaryname != null" >
+        dictionaryName,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum,
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="invoicedetailId != null" >
+        #{invoicedetailId,jdbcType=BIGINT},
+      </if>
+      <if test="invoicetotalityId != null" >
+        #{invoicetotalityId,jdbcType=BIGINT},
+      </if>
+      <if test="insurdictionarycode != null" >
+        #{insurdictionarycode,jdbcType=VARCHAR},
+      </if>
+      <if test="dictionaryname != null" >
+        #{dictionaryname,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtradenum != null" >
+        #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+    update invoicedetail
+    <set >
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT},
+      </if>
+      <if test="insurdictionarycode != null" >
+        insurDictionaryCode = #{insurdictionarycode,jdbcType=VARCHAR},
+      </if>
+      <if test="dictionaryname != null" >
+        dictionaryName = #{dictionaryname,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where invoicedetail_id = #{invoicedetailId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+    update invoicedetail
+    set invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT},
+      insurDictionaryCode = #{insurdictionarycode,jdbcType=VARCHAR},
+      dictionaryName = #{dictionaryname,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      invoiceNO = #{invoiceno,jdbcType=VARCHAR}
+    where invoicedetail_id = #{invoicedetailId,jdbcType=BIGINT}
+  </update>
+</mapper>

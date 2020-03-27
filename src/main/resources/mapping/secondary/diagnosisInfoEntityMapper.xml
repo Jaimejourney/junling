@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.diagnosisInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cardId" property="cardid" jdbcType="VARCHAR" />
+    <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
+    <result column="diagnosisType" property="diagnosistype" jdbcType="VARCHAR" />
+    <result column="uniDiagnosisType" property="unidiagnosistype" jdbcType="VARCHAR" />
+    <result column="diagnosisNo" property="diagnosisno" jdbcType="VARCHAR" />
+    <result column="uniDiagnosisCode" property="unidiagnosiscode" jdbcType="VARCHAR" />
+    <result column="diagnosisName" property="diagnosisname" jdbcType="VARCHAR" />
+    <result column="uniDiagnosisName" property="unidiagnosisname" jdbcType="VARCHAR" />
+    <result column="insureDiagnosisCode" property="insurediagnosiscode" jdbcType="VARCHAR" />
+    <result column="uniInsureDiagnosisCode" property="uniinsurediagnosiscode" jdbcType="VARCHAR" />
+    <result column="insureDiagnosisName" property="insurediagnosisname" jdbcType="VARCHAR" />
+    <result column="uniInsureDiagnosisName" property="uniinsurediagnosisname" jdbcType="VARCHAR" />
+    <result column="diagnosisLevel" property="diagnosislevel" jdbcType="VARCHAR" />
+    <result column="treatResult" property="treatresult" jdbcType="VARCHAR" />
+    <result column="invoicetotality_id" property="invoicetotalityId" jdbcType="VARCHAR" />
+    <result column="dischDiagnosisCode" property="dischdiagnosiscode" jdbcType="VARCHAR" />
+    <result column="dischDiagnosisName" property="dischdiagnosisname" jdbcType="VARCHAR" />
+    <result column="inHosDiagnosis" property="inhosdiagnosis" jdbcType="VARCHAR" />
+    <result column="invoiceNO" property="invoiceno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cardId, sendTradeNum, diagnosisType, uniDiagnosisType, diagnosisNo, uniDiagnosisCode, 
+    diagnosisName, uniDiagnosisName, insureDiagnosisCode, uniInsureDiagnosisCode, insureDiagnosisName, 
+    uniInsureDiagnosisName, diagnosisLevel, treatResult, invoicetotality_id, dischDiagnosisCode, 
+    dischDiagnosisName, inHosDiagnosis, invoiceNO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from diagnosis_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from diagnosis_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+    insert into diagnosis_info (id, cardId, sendTradeNum, 
+      diagnosisType, uniDiagnosisType, diagnosisNo, 
+      uniDiagnosisCode, diagnosisName, uniDiagnosisName, 
+      insureDiagnosisCode, uniInsureDiagnosisCode, 
+      insureDiagnosisName, uniInsureDiagnosisName, 
+      diagnosisLevel, treatResult, invoicetotality_id, 
+      dischDiagnosisCode, dischDiagnosisName, 
+      inHosDiagnosis, invoiceNO)
+    values (#{id,jdbcType=INTEGER}, #{cardid,jdbcType=VARCHAR}, #{sendtradenum,jdbcType=VARCHAR}, 
+      #{diagnosistype,jdbcType=VARCHAR}, #{unidiagnosistype,jdbcType=VARCHAR}, #{diagnosisno,jdbcType=VARCHAR}, 
+      #{unidiagnosiscode,jdbcType=VARCHAR}, #{diagnosisname,jdbcType=VARCHAR}, #{unidiagnosisname,jdbcType=VARCHAR}, 
+      #{insurediagnosiscode,jdbcType=VARCHAR}, #{uniinsurediagnosiscode,jdbcType=VARCHAR}, 
+      #{insurediagnosisname,jdbcType=VARCHAR}, #{uniinsurediagnosisname,jdbcType=VARCHAR}, 
+      #{diagnosislevel,jdbcType=VARCHAR}, #{treatresult,jdbcType=VARCHAR}, #{invoicetotalityId,jdbcType=VARCHAR}, 
+      #{dischdiagnosiscode,jdbcType=VARCHAR}, #{dischdiagnosisname,jdbcType=VARCHAR}, 
+      #{inhosdiagnosis,jdbcType=VARCHAR}, #{invoiceno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+    insert into diagnosis_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardid != null" >
+        cardId,
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum,
+      </if>
+      <if test="diagnosistype != null" >
+        diagnosisType,
+      </if>
+      <if test="unidiagnosistype != null" >
+        uniDiagnosisType,
+      </if>
+      <if test="diagnosisno != null" >
+        diagnosisNo,
+      </if>
+      <if test="unidiagnosiscode != null" >
+        uniDiagnosisCode,
+      </if>
+      <if test="diagnosisname != null" >
+        diagnosisName,
+      </if>
+      <if test="unidiagnosisname != null" >
+        uniDiagnosisName,
+      </if>
+      <if test="insurediagnosiscode != null" >
+        insureDiagnosisCode,
+      </if>
+      <if test="uniinsurediagnosiscode != null" >
+        uniInsureDiagnosisCode,
+      </if>
+      <if test="insurediagnosisname != null" >
+        insureDiagnosisName,
+      </if>
+      <if test="uniinsurediagnosisname != null" >
+        uniInsureDiagnosisName,
+      </if>
+      <if test="diagnosislevel != null" >
+        diagnosisLevel,
+      </if>
+      <if test="treatresult != null" >
+        treatResult,
+      </if>
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id,
+      </if>
+      <if test="dischdiagnosiscode != null" >
+        dischDiagnosisCode,
+      </if>
+      <if test="dischdiagnosisname != null" >
+        dischDiagnosisName,
+      </if>
+      <if test="inhosdiagnosis != null" >
+        inHosDiagnosis,
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtradenum != null" >
+        #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistype != null" >
+        #{diagnosistype,jdbcType=VARCHAR},
+      </if>
+      <if test="unidiagnosistype != null" >
+        #{unidiagnosistype,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisno != null" >
+        #{diagnosisno,jdbcType=VARCHAR},
+      </if>
+      <if test="unidiagnosiscode != null" >
+        #{unidiagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisname != null" >
+        #{diagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="unidiagnosisname != null" >
+        #{unidiagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="insurediagnosiscode != null" >
+        #{insurediagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="uniinsurediagnosiscode != null" >
+        #{uniinsurediagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="insurediagnosisname != null" >
+        #{insurediagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="uniinsurediagnosisname != null" >
+        #{uniinsurediagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosislevel != null" >
+        #{diagnosislevel,jdbcType=VARCHAR},
+      </if>
+      <if test="treatresult != null" >
+        #{treatresult,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetotalityId != null" >
+        #{invoicetotalityId,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosiscode != null" >
+        #{dischdiagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosisname != null" >
+        #{dischdiagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="inhosdiagnosis != null" >
+        #{inhosdiagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+    update diagnosis_info
+    <set >
+      <if test="cardid != null" >
+        cardId = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistype != null" >
+        diagnosisType = #{diagnosistype,jdbcType=VARCHAR},
+      </if>
+      <if test="unidiagnosistype != null" >
+        uniDiagnosisType = #{unidiagnosistype,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisno != null" >
+        diagnosisNo = #{diagnosisno,jdbcType=VARCHAR},
+      </if>
+      <if test="unidiagnosiscode != null" >
+        uniDiagnosisCode = #{unidiagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisname != null" >
+        diagnosisName = #{diagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="unidiagnosisname != null" >
+        uniDiagnosisName = #{unidiagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="insurediagnosiscode != null" >
+        insureDiagnosisCode = #{insurediagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="uniinsurediagnosiscode != null" >
+        uniInsureDiagnosisCode = #{uniinsurediagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="insurediagnosisname != null" >
+        insureDiagnosisName = #{insurediagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="uniinsurediagnosisname != null" >
+        uniInsureDiagnosisName = #{uniinsurediagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosislevel != null" >
+        diagnosisLevel = #{diagnosislevel,jdbcType=VARCHAR},
+      </if>
+      <if test="treatresult != null" >
+        treatResult = #{treatresult,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id = #{invoicetotalityId,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosiscode != null" >
+        dischDiagnosisCode = #{dischdiagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosisname != null" >
+        dischDiagnosisName = #{dischdiagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="inhosdiagnosis != null" >
+        inHosDiagnosis = #{inhosdiagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+    update diagnosis_info
+    set cardId = #{cardid,jdbcType=VARCHAR},
+      sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      diagnosisType = #{diagnosistype,jdbcType=VARCHAR},
+      uniDiagnosisType = #{unidiagnosistype,jdbcType=VARCHAR},
+      diagnosisNo = #{diagnosisno,jdbcType=VARCHAR},
+      uniDiagnosisCode = #{unidiagnosiscode,jdbcType=VARCHAR},
+      diagnosisName = #{diagnosisname,jdbcType=VARCHAR},
+      uniDiagnosisName = #{unidiagnosisname,jdbcType=VARCHAR},
+      insureDiagnosisCode = #{insurediagnosiscode,jdbcType=VARCHAR},
+      uniInsureDiagnosisCode = #{uniinsurediagnosiscode,jdbcType=VARCHAR},
+      insureDiagnosisName = #{insurediagnosisname,jdbcType=VARCHAR},
+      uniInsureDiagnosisName = #{uniinsurediagnosisname,jdbcType=VARCHAR},
+      diagnosisLevel = #{diagnosislevel,jdbcType=VARCHAR},
+      treatResult = #{treatresult,jdbcType=VARCHAR},
+      invoicetotality_id = #{invoicetotalityId,jdbcType=VARCHAR},
+      dischDiagnosisCode = #{dischdiagnosiscode,jdbcType=VARCHAR},
+      dischDiagnosisName = #{dischdiagnosisname,jdbcType=VARCHAR},
+      inHosDiagnosis = #{inhosdiagnosis,jdbcType=VARCHAR},
+      invoiceNO = #{invoiceno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

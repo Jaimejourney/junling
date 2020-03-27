@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.docunoChangeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.docunoChangeEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="old_docuno" property="oldDocuno" jdbcType="VARCHAR" />
+    <result column="new_docuno" property="newDocuno" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, old_docuno, new_docuno, created_date, updated_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from docuno_change
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from docuno_change
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.docunoChangeEntity" >
+    insert into docuno_change (id, old_docuno, new_docuno, 
+      created_date, updated_date)
+    values (#{id,jdbcType=INTEGER}, #{oldDocuno,jdbcType=VARCHAR}, #{newDocuno,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.docunoChangeEntity" >
+    insert into docuno_change
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="oldDocuno != null" >
+        old_docuno,
+      </if>
+      <if test="newDocuno != null" >
+        new_docuno,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="oldDocuno != null" >
+        #{oldDocuno,jdbcType=VARCHAR},
+      </if>
+      <if test="newDocuno != null" >
+        #{newDocuno,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.docunoChangeEntity" >
+    update docuno_change
+    <set >
+      <if test="oldDocuno != null" >
+        old_docuno = #{oldDocuno,jdbcType=VARCHAR},
+      </if>
+      <if test="newDocuno != null" >
+        new_docuno = #{newDocuno,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.docunoChangeEntity" >
+    update docuno_change
+    set old_docuno = #{oldDocuno,jdbcType=VARCHAR},
+      new_docuno = #{newDocuno,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.visitImgAnXinEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="image_id" property="imageId" jdbcType="BIGINT" />
+    <result column="pic_key" property="picKey" jdbcType="VARCHAR" />
+    <result column="image_type" property="imageType" jdbcType="VARCHAR" />
+    <result column="image_status" property="imageStatus" jdbcType="VARCHAR" />
+    <result column="from_img_url" property="fromImgUrl" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="fasd_img_url" property="fasdImgUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, image_id, pic_key, image_type, image_status, from_img_url, image_url, create_time, 
+    update_time, user_id, fasd_img_url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from visit_img_an_xin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from visit_img_an_xin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+    insert into visit_img_an_xin (id, image_id, pic_key, 
+      image_type, image_status, from_img_url, 
+      image_url, create_time, update_time, 
+      user_id, fasd_img_url)
+    values (#{id,jdbcType=INTEGER}, #{imageId,jdbcType=BIGINT}, #{picKey,jdbcType=VARCHAR}, 
+      #{imageType,jdbcType=VARCHAR}, #{imageStatus,jdbcType=VARCHAR}, #{fromImgUrl,jdbcType=VARCHAR}, 
+      #{imageUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{userId,jdbcType=VARCHAR}, #{fasdImgUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+    insert into visit_img_an_xin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="imageId != null" >
+        image_id,
+      </if>
+      <if test="picKey != null" >
+        pic_key,
+      </if>
+      <if test="imageType != null" >
+        image_type,
+      </if>
+      <if test="imageStatus != null" >
+        image_status,
+      </if>
+      <if test="fromImgUrl != null" >
+        from_img_url,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="fasdImgUrl != null" >
+        fasd_img_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="imageId != null" >
+        #{imageId,jdbcType=BIGINT},
+      </if>
+      <if test="picKey != null" >
+        #{picKey,jdbcType=VARCHAR},
+      </if>
+      <if test="imageType != null" >
+        #{imageType,jdbcType=VARCHAR},
+      </if>
+      <if test="imageStatus != null" >
+        #{imageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fromImgUrl != null" >
+        #{fromImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="fasdImgUrl != null" >
+        #{fasdImgUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+    update visit_img_an_xin
+    <set >
+      <if test="imageId != null" >
+        image_id = #{imageId,jdbcType=BIGINT},
+      </if>
+      <if test="picKey != null" >
+        pic_key = #{picKey,jdbcType=VARCHAR},
+      </if>
+      <if test="imageType != null" >
+        image_type = #{imageType,jdbcType=VARCHAR},
+      </if>
+      <if test="imageStatus != null" >
+        image_status = #{imageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fromImgUrl != null" >
+        from_img_url = #{fromImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="fasdImgUrl != null" >
+        fasd_img_url = #{fasdImgUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+    update visit_img_an_xin
+    set image_id = #{imageId,jdbcType=BIGINT},
+      pic_key = #{picKey,jdbcType=VARCHAR},
+      image_type = #{imageType,jdbcType=VARCHAR},
+      image_status = #{imageStatus,jdbcType=VARCHAR},
+      from_img_url = #{fromImgUrl,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=VARCHAR},
+      fasd_img_url = #{fasdImgUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

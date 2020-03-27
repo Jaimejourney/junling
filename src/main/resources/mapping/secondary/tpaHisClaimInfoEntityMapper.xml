@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaHisClaimInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
+    <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
+    <result column="benefit_code" property="benefitCode" jdbcType="VARCHAR" />
+    <result column="exam_amt" property="examAmt" jdbcType="VARCHAR" />
+    <result column="deductible_amt" property="deductibleAmt" jdbcType="VARCHAR" />
+    <result column="hospital_days" property="hospitalDays" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="risk_code" property="riskCode" jdbcType="VARCHAR" />
+    <result column="getdutykind" property="getdutykind" jdbcType="VARCHAR" />
+    <result column="getdutykindname" property="getdutykindname" jdbcType="VARCHAR" />
+    <result column="getdutycdename" property="getdutycdename" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="idtype" property="idtype" jdbcType="VARCHAR" />
+    <result column="idno" property="idno" jdbcType="VARCHAR" />
+    <result column="accdate" property="accdate" jdbcType="TIMESTAMP" />
+    <result column="riskname" property="riskname" jdbcType="VARCHAR" />
+    <result column="diseasecode" property="diseasecode" jdbcType="VARCHAR" />
+    <result column="diseasename" property="diseasename" jdbcType="VARCHAR" />
+    <result column="givetype" property="givetype" jdbcType="VARCHAR" />
+    <result column="givetypename" property="givetypename" jdbcType="VARCHAR" />
+    <result column="endcasedate" property="endcasedate" jdbcType="TIMESTAMP" />
+    <result column="plan_name" property="planName" jdbcType="VARCHAR" />
+    <result column="givereasondesc" property="givereasondesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, insured_id, polno, grade_level, plan_code, benefit_code, exam_amt, deductible_amt, 
+    hospital_days, created_date, updated_date, risk_code, getdutykind, getdutykindname, 
+    getdutycdename, name, idtype, idno, accdate, riskname, diseasecode, diseasename, 
+    givetype, givetypename, endcasedate, plan_name, givereasondesc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_his_claim_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tpa_his_claim_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+    insert into tpa_his_claim_info (id, docuno, insured_id, 
+      polno, grade_level, plan_code, 
+      benefit_code, exam_amt, deductible_amt, 
+      hospital_days, created_date, updated_date, 
+      risk_code, getdutykind, getdutykindname, 
+      getdutycdename, name, idtype, 
+      idno, accdate, riskname, 
+      diseasecode, diseasename, givetype, 
+      givetypename, endcasedate, plan_name, 
+      givereasondesc)
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{insuredId,jdbcType=VARCHAR}, 
+      #{polno,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=VARCHAR}, #{planCode,jdbcType=VARCHAR}, 
+      #{benefitCode,jdbcType=VARCHAR}, #{examAmt,jdbcType=VARCHAR}, #{deductibleAmt,jdbcType=VARCHAR}, 
+      #{hospitalDays,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{riskCode,jdbcType=VARCHAR}, #{getdutykind,jdbcType=VARCHAR}, #{getdutykindname,jdbcType=VARCHAR}, 
+      #{getdutycdename,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{idtype,jdbcType=VARCHAR}, 
+      #{idno,jdbcType=VARCHAR}, #{accdate,jdbcType=TIMESTAMP}, #{riskname,jdbcType=VARCHAR}, 
+      #{diseasecode,jdbcType=VARCHAR}, #{diseasename,jdbcType=VARCHAR}, #{givetype,jdbcType=VARCHAR}, 
+      #{givetypename,jdbcType=VARCHAR}, #{endcasedate,jdbcType=TIMESTAMP}, #{planName,jdbcType=VARCHAR}, 
+      #{givereasondesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+    insert into tpa_his_claim_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="planCode != null" >
+        plan_code,
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code,
+      </if>
+      <if test="examAmt != null" >
+        exam_amt,
+      </if>
+      <if test="deductibleAmt != null" >
+        deductible_amt,
+      </if>
+      <if test="hospitalDays != null" >
+        hospital_days,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="riskCode != null" >
+        risk_code,
+      </if>
+      <if test="getdutykind != null" >
+        getdutykind,
+      </if>
+      <if test="getdutykindname != null" >
+        getdutykindname,
+      </if>
+      <if test="getdutycdename != null" >
+        getdutycdename,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="idtype != null" >
+        idtype,
+      </if>
+      <if test="idno != null" >
+        idno,
+      </if>
+      <if test="accdate != null" >
+        accdate,
+      </if>
+      <if test="riskname != null" >
+        riskname,
+      </if>
+      <if test="diseasecode != null" >
+        diseasecode,
+      </if>
+      <if test="diseasename != null" >
+        diseasename,
+      </if>
+      <if test="givetype != null" >
+        givetype,
+      </if>
+      <if test="givetypename != null" >
+        givetypename,
+      </if>
+      <if test="endcasedate != null" >
+        endcasedate,
+      </if>
+      <if test="planName != null" >
+        plan_name,
+      </if>
+      <if test="givereasondesc != null" >
+        givereasondesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="examAmt != null" >
+        #{examAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleAmt != null" >
+        #{deductibleAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalDays != null" >
+        #{hospitalDays,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="riskCode != null" >
+        #{riskCode,jdbcType=VARCHAR},
+      </if>
+      <if test="getdutykind != null" >
+        #{getdutykind,jdbcType=VARCHAR},
+      </if>
+      <if test="getdutykindname != null" >
+        #{getdutykindname,jdbcType=VARCHAR},
+      </if>
+      <if test="getdutycdename != null" >
+        #{getdutycdename,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idtype != null" >
+        #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="accdate != null" >
+        #{accdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="riskname != null" >
+        #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="diseasecode != null" >
+        #{diseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="diseasename != null" >
+        #{diseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="givetype != null" >
+        #{givetype,jdbcType=VARCHAR},
+      </if>
+      <if test="givetypename != null" >
+        #{givetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="endcasedate != null" >
+        #{endcasedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planName != null" >
+        #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="givereasondesc != null" >
+        #{givereasondesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+    update tpa_his_claim_info
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        plan_code = #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="examAmt != null" >
+        exam_amt = #{examAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleAmt != null" >
+        deductible_amt = #{deductibleAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalDays != null" >
+        hospital_days = #{hospitalDays,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="riskCode != null" >
+        risk_code = #{riskCode,jdbcType=VARCHAR},
+      </if>
+      <if test="getdutykind != null" >
+        getdutykind = #{getdutykind,jdbcType=VARCHAR},
+      </if>
+      <if test="getdutykindname != null" >
+        getdutykindname = #{getdutykindname,jdbcType=VARCHAR},
+      </if>
+      <if test="getdutycdename != null" >
+        getdutycdename = #{getdutycdename,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idtype != null" >
+        idtype = #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        idno = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="accdate != null" >
+        accdate = #{accdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="riskname != null" >
+        riskname = #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="diseasecode != null" >
+        diseasecode = #{diseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="diseasename != null" >
+        diseasename = #{diseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="givetype != null" >
+        givetype = #{givetype,jdbcType=VARCHAR},
+      </if>
+      <if test="givetypename != null" >
+        givetypename = #{givetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="endcasedate != null" >
+        endcasedate = #{endcasedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planName != null" >
+        plan_name = #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="givereasondesc != null" >
+        givereasondesc = #{givereasondesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+    update tpa_his_claim_info
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      insured_id = #{insuredId,jdbcType=VARCHAR},
+      polno = #{polno,jdbcType=VARCHAR},
+      grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      plan_code = #{planCode,jdbcType=VARCHAR},
+      benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      exam_amt = #{examAmt,jdbcType=VARCHAR},
+      deductible_amt = #{deductibleAmt,jdbcType=VARCHAR},
+      hospital_days = #{hospitalDays,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      risk_code = #{riskCode,jdbcType=VARCHAR},
+      getdutykind = #{getdutykind,jdbcType=VARCHAR},
+      getdutykindname = #{getdutykindname,jdbcType=VARCHAR},
+      getdutycdename = #{getdutycdename,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      idtype = #{idtype,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      accdate = #{accdate,jdbcType=TIMESTAMP},
+      riskname = #{riskname,jdbcType=VARCHAR},
+      diseasecode = #{diseasecode,jdbcType=VARCHAR},
+      diseasename = #{diseasename,jdbcType=VARCHAR},
+      givetype = #{givetype,jdbcType=VARCHAR},
+      givetypename = #{givetypename,jdbcType=VARCHAR},
+      endcasedate = #{endcasedate,jdbcType=TIMESTAMP},
+      plan_name = #{planName,jdbcType=VARCHAR},
+      givereasondesc = #{givereasondesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

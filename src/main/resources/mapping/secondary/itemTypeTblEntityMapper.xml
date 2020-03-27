@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.itemTypeTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.itemTypeTblEntity" >
+    <id column="item_type_code" property="itemTypeCode" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    item_type_code, description, update_poson, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from item_type_tbl
+    where item_type_code = #{itemTypeCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from item_type_tbl
+    where item_type_code = #{itemTypeCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+    insert into item_type_tbl (item_type_code, description, update_poson, 
+      update_time, is_delete)
+    values (#{itemTypeCode,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+    insert into item_type_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemTypeCode != null" >
+        item_type_code,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemTypeCode != null" >
+        #{itemTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+    update item_type_tbl
+    <set >
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where item_type_code = #{itemTypeCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+    update item_type_tbl
+    set description = #{description,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where item_type_code = #{itemTypeCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

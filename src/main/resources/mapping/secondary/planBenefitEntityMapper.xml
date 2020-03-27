@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.planBenefitEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.planBenefitEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
+    <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
+    <result column="benefit_code" property="benefitCode" jdbcType="VARCHAR" />
+    <result column="deductible_amout" property="deductibleAmout" jdbcType="BIGINT" />
+    <result column="deductible_type" property="deductibleType" jdbcType="VARCHAR" />
+    <result column="pay_rate" property="payRate" jdbcType="VARCHAR" />
+    <result column="max_amount" property="maxAmount" jdbcType="BIGINT" />
+    <result column="waiting_period" property="waitingPeriod" jdbcType="BIGINT" />
+    <result column="accident_waiting_period" property="accidentWaitingPeriod" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="punish_pay_rate" property="punishPayRate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, plan_code, grade_level, benefit_code, deductible_amout, deductible_type, pay_rate, 
+    max_amount, waiting_period, accident_waiting_period, status, punish_pay_rate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from plan_benefit
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from plan_benefit
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+    insert into plan_benefit (id, plan_code, grade_level, 
+      benefit_code, deductible_amout, deductible_type, 
+      pay_rate, max_amount, waiting_period, 
+      accident_waiting_period, status, punish_pay_rate
+      )
+    values (#{id,jdbcType=VARCHAR}, #{planCode,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=VARCHAR}, 
+      #{benefitCode,jdbcType=VARCHAR}, #{deductibleAmout,jdbcType=BIGINT}, #{deductibleType,jdbcType=VARCHAR}, 
+      #{payRate,jdbcType=VARCHAR}, #{maxAmount,jdbcType=BIGINT}, #{waitingPeriod,jdbcType=BIGINT}, 
+      #{accidentWaitingPeriod,jdbcType=BIGINT}, #{status,jdbcType=VARCHAR}, #{punishPayRate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+    insert into plan_benefit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="planCode != null" >
+        plan_code,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code,
+      </if>
+      <if test="deductibleAmout != null" >
+        deductible_amout,
+      </if>
+      <if test="deductibleType != null" >
+        deductible_type,
+      </if>
+      <if test="payRate != null" >
+        pay_rate,
+      </if>
+      <if test="maxAmount != null" >
+        max_amount,
+      </if>
+      <if test="waitingPeriod != null" >
+        waiting_period,
+      </if>
+      <if test="accidentWaitingPeriod != null" >
+        accident_waiting_period,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="punishPayRate != null" >
+        punish_pay_rate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleAmout != null" >
+        #{deductibleAmout,jdbcType=BIGINT},
+      </if>
+      <if test="deductibleType != null" >
+        #{deductibleType,jdbcType=VARCHAR},
+      </if>
+      <if test="payRate != null" >
+        #{payRate,jdbcType=VARCHAR},
+      </if>
+      <if test="maxAmount != null" >
+        #{maxAmount,jdbcType=BIGINT},
+      </if>
+      <if test="waitingPeriod != null" >
+        #{waitingPeriod,jdbcType=BIGINT},
+      </if>
+      <if test="accidentWaitingPeriod != null" >
+        #{accidentWaitingPeriod,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="punishPayRate != null" >
+        #{punishPayRate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+    update plan_benefit
+    <set >
+      <if test="planCode != null" >
+        plan_code = #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleAmout != null" >
+        deductible_amout = #{deductibleAmout,jdbcType=BIGINT},
+      </if>
+      <if test="deductibleType != null" >
+        deductible_type = #{deductibleType,jdbcType=VARCHAR},
+      </if>
+      <if test="payRate != null" >
+        pay_rate = #{payRate,jdbcType=VARCHAR},
+      </if>
+      <if test="maxAmount != null" >
+        max_amount = #{maxAmount,jdbcType=BIGINT},
+      </if>
+      <if test="waitingPeriod != null" >
+        waiting_period = #{waitingPeriod,jdbcType=BIGINT},
+      </if>
+      <if test="accidentWaitingPeriod != null" >
+        accident_waiting_period = #{accidentWaitingPeriod,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="punishPayRate != null" >
+        punish_pay_rate = #{punishPayRate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+    update plan_benefit
+    set plan_code = #{planCode,jdbcType=VARCHAR},
+      grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      deductible_amout = #{deductibleAmout,jdbcType=BIGINT},
+      deductible_type = #{deductibleType,jdbcType=VARCHAR},
+      pay_rate = #{payRate,jdbcType=VARCHAR},
+      max_amount = #{maxAmount,jdbcType=BIGINT},
+      waiting_period = #{waitingPeriod,jdbcType=BIGINT},
+      accident_waiting_period = #{accidentWaitingPeriod,jdbcType=BIGINT},
+      status = #{status,jdbcType=VARCHAR},
+      punish_pay_rate = #{punishPayRate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

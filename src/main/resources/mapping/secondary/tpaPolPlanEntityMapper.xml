@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaPolPlanEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
+    <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="sum_ins" property="sumIns" jdbcType="VARCHAR" />
+    <result column="single_disease_ins" property="singleDiseaseIns" jdbcType="VARCHAR" />
+    <result column="all_life_ins" property="allLifeIns" jdbcType="VARCHAR" />
+    <result column="plan_status" property="planStatus" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="product_code" property="productCode" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="risk_code" property="riskCode" jdbcType="VARCHAR" />
+    <result column="risk_name" property="riskName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, polno, grade_level, plan_code, description, sum_ins, single_disease_ins, all_life_ins, 
+    plan_status, created_by, created_date, updated_by, updated_date, product_code, product_name, 
+    risk_code, risk_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_pol_plan
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tpa_pol_plan
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+    insert into tpa_pol_plan (id, polno, grade_level, 
+      plan_code, description, sum_ins, 
+      single_disease_ins, all_life_ins, plan_status, 
+      created_by, created_date, updated_by, 
+      updated_date, product_code, product_name, 
+      risk_code, risk_name)
+    values (#{id,jdbcType=INTEGER}, #{polno,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=VARCHAR}, 
+      #{planCode,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{sumIns,jdbcType=VARCHAR}, 
+      #{singleDiseaseIns,jdbcType=VARCHAR}, #{allLifeIns,jdbcType=VARCHAR}, #{planStatus,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedDate,jdbcType=TIMESTAMP}, #{productCode,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{riskCode,jdbcType=VARCHAR}, #{riskName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+    insert into tpa_pol_plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="planCode != null" >
+        plan_code,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="sumIns != null" >
+        sum_ins,
+      </if>
+      <if test="singleDiseaseIns != null" >
+        single_disease_ins,
+      </if>
+      <if test="allLifeIns != null" >
+        all_life_ins,
+      </if>
+      <if test="planStatus != null" >
+        plan_status,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="productCode != null" >
+        product_code,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="riskCode != null" >
+        risk_code,
+      </if>
+      <if test="riskName != null" >
+        risk_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="sumIns != null" >
+        #{sumIns,jdbcType=VARCHAR},
+      </if>
+      <if test="singleDiseaseIns != null" >
+        #{singleDiseaseIns,jdbcType=VARCHAR},
+      </if>
+      <if test="allLifeIns != null" >
+        #{allLifeIns,jdbcType=VARCHAR},
+      </if>
+      <if test="planStatus != null" >
+        #{planStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskCode != null" >
+        #{riskCode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskName != null" >
+        #{riskName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+    update tpa_pol_plan
+    <set >
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        plan_code = #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="sumIns != null" >
+        sum_ins = #{sumIns,jdbcType=VARCHAR},
+      </if>
+      <if test="singleDiseaseIns != null" >
+        single_disease_ins = #{singleDiseaseIns,jdbcType=VARCHAR},
+      </if>
+      <if test="allLifeIns != null" >
+        all_life_ins = #{allLifeIns,jdbcType=VARCHAR},
+      </if>
+      <if test="planStatus != null" >
+        plan_status = #{planStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productCode != null" >
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskCode != null" >
+        risk_code = #{riskCode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskName != null" >
+        risk_name = #{riskName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+    update tpa_pol_plan
+    set polno = #{polno,jdbcType=VARCHAR},
+      grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      plan_code = #{planCode,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      sum_ins = #{sumIns,jdbcType=VARCHAR},
+      single_disease_ins = #{singleDiseaseIns,jdbcType=VARCHAR},
+      all_life_ins = #{allLifeIns,jdbcType=VARCHAR},
+      plan_status = #{planStatus,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      risk_code = #{riskCode,jdbcType=VARCHAR},
+      risk_name = #{riskName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBillDetailEntity1Mapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillDetailEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="seqno" property="seqno" jdbcType="VARCHAR" />
+    <result column="item_id" property="itemId" jdbcType="VARCHAR" />
+    <result column="fee_type" property="feeType" jdbcType="VARCHAR" />
+    <result column="item_type" property="itemType" jdbcType="VARCHAR" />
+    <result column="item_code" property="itemCode" jdbcType="VARCHAR" />
+    <result column="item_level_code" property="itemLevelCode" jdbcType="VARCHAR" />
+    <result column="zf_ratio" property="zfRatio" jdbcType="VARCHAR" />
+    <result column="item_amt" property="itemAmt" jdbcType="BIGINT" />
+    <result column="all_own_amt" property="allOwnAmt" jdbcType="BIGINT" />
+    <result column="sub_own_amt" property="subOwnAmt" jdbcType="BIGINT" />
+    <result column="yb_lookup_amt" property="ybLookupAmt" jdbcType="BIGINT" />
+    <result column="prescription_id" property="prescriptionId" jdbcType="VARCHAR" />
+    <result column="prescription_date" property="prescriptionDate" jdbcType="TIMESTAMP" />
+    <result column="doctor_reg_id" property="doctorRegId" jdbcType="VARCHAR" />
+    <result column="doctor_name" property="doctorName" jdbcType="VARCHAR" />
+    <result column="depart_code_hb" property="departCodeHb" jdbcType="VARCHAR" />
+    <result column="depart_name_hb" property="departNameHb" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
+    <result column="hospital_code" property="hospitalCode" jdbcType="VARCHAR" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="receiptno" property="receiptno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, seqno, item_id, fee_type, item_type, item_code, item_level_code, zf_ratio, item_amt, 
+    all_own_amt, sub_own_amt, yb_lookup_amt, prescription_id, prescription_date, doctor_reg_id, 
+    doctor_name, depart_code_hb, depart_name_hb, update_poson, update_time, is_delete, 
+    docuno, hospital_name, hospital_code, item_name, receiptno
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_bill_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from claim_bill_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillDetailEntity" >
+    insert into claim_bill_detail (id, seqno, item_id, 
+      fee_type, item_type, item_code, 
+      item_level_code, zf_ratio, item_amt, 
+      all_own_amt, sub_own_amt, yb_lookup_amt, 
+      prescription_id, prescription_date, doctor_reg_id, 
+      doctor_name, depart_code_hb, depart_name_hb, 
+      update_poson, update_time, is_delete, 
+      docuno, hospital_name, hospital_code, 
+      item_name, receiptno)
+    values (#{id,jdbcType=VARCHAR}, #{seqno,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR}, 
+      #{feeType,jdbcType=VARCHAR}, #{itemType,jdbcType=VARCHAR}, #{itemCode,jdbcType=VARCHAR}, 
+      #{itemLevelCode,jdbcType=VARCHAR}, #{zfRatio,jdbcType=VARCHAR}, #{itemAmt,jdbcType=BIGINT}, 
+      #{allOwnAmt,jdbcType=BIGINT}, #{subOwnAmt,jdbcType=BIGINT}, #{ybLookupAmt,jdbcType=BIGINT}, 
+      #{prescriptionId,jdbcType=VARCHAR}, #{prescriptionDate,jdbcType=TIMESTAMP}, #{doctorRegId,jdbcType=VARCHAR}, 
+      #{doctorName,jdbcType=VARCHAR}, #{departCodeHb,jdbcType=VARCHAR}, #{departNameHb,jdbcType=VARCHAR}, 
+      #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, 
+      #{docuno,jdbcType=VARCHAR}, #{hospitalName,jdbcType=VARCHAR}, #{hospitalCode,jdbcType=VARCHAR}, 
+      #{itemName,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillDetailEntity" >
+    insert into claim_bill_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="seqno != null" >
+        seqno,
+      </if>
+      <if test="itemId != null" >
+        item_id,
+      </if>
+      <if test="feeType != null" >
+        fee_type,
+      </if>
+      <if test="itemType != null" >
+        item_type,
+      </if>
+      <if test="itemCode != null" >
+        item_code,
+      </if>
+      <if test="itemLevelCode != null" >
+        item_level_code,
+      </if>
+      <if test="zfRatio != null" >
+        zf_ratio,
+      </if>
+      <if test="itemAmt != null" >
+        item_amt,
+      </if>
+      <if test="allOwnAmt != null" >
+        all_own_amt,
+      </if>
+      <if test="subOwnAmt != null" >
+        sub_own_amt,
+      </if>
+      <if test="ybLookupAmt != null" >
+        yb_lookup_amt,
+      </if>
+      <if test="prescriptionId != null" >
+        prescription_id,
+      </if>
+      <if test="prescriptionDate != null" >
+        prescription_date,
+      </if>
+      <if test="doctorRegId != null" >
+        doctor_reg_id,
+      </if>
+      <if test="doctorName != null" >
+        doctor_name,
+      </if>
+      <if test="departCodeHb != null" >
+        depart_code_hb,
+      </if>
+      <if test="departNameHb != null" >
+        depart_name_hb,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="hospitalName != null" >
+        hospital_name,
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code,
+      </if>
+      <if test="itemName != null" >
+        item_name,
+      </if>
+      <if test="receiptno != null" >
+        receiptno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null" >
+        #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null" >
+        #{feeType,jdbcType=VARCHAR},
+      </if>
+      <if test="itemType != null" >
+        #{itemType,jdbcType=VARCHAR},
+      </if>
+      <if test="itemCode != null" >
+        #{itemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemLevelCode != null" >
+        #{itemLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zfRatio != null" >
+        #{zfRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="itemAmt != null" >
+        #{itemAmt,jdbcType=BIGINT},
+      </if>
+      <if test="allOwnAmt != null" >
+        #{allOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="subOwnAmt != null" >
+        #{subOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="ybLookupAmt != null" >
+        #{ybLookupAmt,jdbcType=BIGINT},
+      </if>
+      <if test="prescriptionId != null" >
+        #{prescriptionId,jdbcType=VARCHAR},
+      </if>
+      <if test="prescriptionDate != null" >
+        #{prescriptionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doctorRegId != null" >
+        #{doctorRegId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="departCodeHb != null" >
+        #{departCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="departNameHb != null" >
+        #{departNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null" >
+        #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemName != null" >
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillDetailEntity" >
+    update claim_bill_detail
+    <set >
+      <if test="seqno != null" >
+        seqno = #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        item_id = #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null" >
+        fee_type = #{feeType,jdbcType=VARCHAR},
+      </if>
+      <if test="itemType != null" >
+        item_type = #{itemType,jdbcType=VARCHAR},
+      </if>
+      <if test="itemCode != null" >
+        item_code = #{itemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemLevelCode != null" >
+        item_level_code = #{itemLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zfRatio != null" >
+        zf_ratio = #{zfRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="itemAmt != null" >
+        item_amt = #{itemAmt,jdbcType=BIGINT},
+      </if>
+      <if test="allOwnAmt != null" >
+        all_own_amt = #{allOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="subOwnAmt != null" >
+        sub_own_amt = #{subOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="ybLookupAmt != null" >
+        yb_lookup_amt = #{ybLookupAmt,jdbcType=BIGINT},
+      </if>
+      <if test="prescriptionId != null" >
+        prescription_id = #{prescriptionId,jdbcType=VARCHAR},
+      </if>
+      <if test="prescriptionDate != null" >
+        prescription_date = #{prescriptionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doctorRegId != null" >
+        doctor_reg_id = #{doctorRegId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        doctor_name = #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="departCodeHb != null" >
+        depart_code_hb = #{departCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="departNameHb != null" >
+        depart_name_hb = #{departNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemName != null" >
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptno = #{receiptno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillDetailEntity" >
+    update claim_bill_detail
+    set seqno = #{seqno,jdbcType=VARCHAR},
+      item_id = #{itemId,jdbcType=VARCHAR},
+      fee_type = #{feeType,jdbcType=VARCHAR},
+      item_type = #{itemType,jdbcType=VARCHAR},
+      item_code = #{itemCode,jdbcType=VARCHAR},
+      item_level_code = #{itemLevelCode,jdbcType=VARCHAR},
+      zf_ratio = #{zfRatio,jdbcType=VARCHAR},
+      item_amt = #{itemAmt,jdbcType=BIGINT},
+      all_own_amt = #{allOwnAmt,jdbcType=BIGINT},
+      sub_own_amt = #{subOwnAmt,jdbcType=BIGINT},
+      yb_lookup_amt = #{ybLookupAmt,jdbcType=BIGINT},
+      prescription_id = #{prescriptionId,jdbcType=VARCHAR},
+      prescription_date = #{prescriptionDate,jdbcType=TIMESTAMP},
+      doctor_reg_id = #{doctorRegId,jdbcType=VARCHAR},
+      doctor_name = #{doctorName,jdbcType=VARCHAR},
+      depart_code_hb = #{departCodeHb,jdbcType=VARCHAR},
+      depart_name_hb = #{departNameHb,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      docuno = #{docuno,jdbcType=VARCHAR},
+      hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      item_name = #{itemName,jdbcType=VARCHAR},
+      receiptno = #{receiptno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaPolBeneficiaryEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolBeneficiaryEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
+    <result column="pol_relation" property="polRelation" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="idno" property="idno" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="open_bank_code" property="openBankCode" jdbcType="VARCHAR" />
+    <result column="payno" property="payno" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="beneficiary_type" property="beneficiaryType" jdbcType="CHAR" />
+    <result column="beneficiary_rate" property="beneficiaryRate" jdbcType="VARCHAR" />
+    <result column="is_legal_beneficiary" property="isLegalBeneficiary" jdbcType="CHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, polno, insured_id, pol_relation, name, id_type, idno, gender, address, open_bank_code, 
+    payno, mobile, email, beneficiary_type, beneficiary_rate, is_legal_beneficiary, created_by, 
+    created_date, updated_by, updated_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_pol_beneficiary
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tpa_pol_beneficiary
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolBeneficiaryEntity" >
+    insert into tpa_pol_beneficiary (id, polno, insured_id, 
+      pol_relation, name, id_type, 
+      idno, gender, address, 
+      open_bank_code, payno, mobile, 
+      email, beneficiary_type, beneficiary_rate, 
+      is_legal_beneficiary, created_by, created_date, 
+      updated_by, updated_date)
+    values (#{id,jdbcType=INTEGER}, #{polno,jdbcType=VARCHAR}, #{insuredId,jdbcType=VARCHAR}, 
+      #{polRelation,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, 
+      #{idno,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, 
+      #{openBankCode,jdbcType=VARCHAR}, #{payno,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{beneficiaryType,jdbcType=CHAR}, #{beneficiaryRate,jdbcType=VARCHAR}, 
+      #{isLegalBeneficiary,jdbcType=CHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolBeneficiaryEntity" >
+    insert into tpa_pol_beneficiary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="polRelation != null" >
+        pol_relation,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idno != null" >
+        idno,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="openBankCode != null" >
+        open_bank_code,
+      </if>
+      <if test="payno != null" >
+        payno,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="beneficiaryType != null" >
+        beneficiary_type,
+      </if>
+      <if test="beneficiaryRate != null" >
+        beneficiary_rate,
+      </if>
+      <if test="isLegalBeneficiary != null" >
+        is_legal_beneficiary,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="polRelation != null" >
+        #{polRelation,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="openBankCode != null" >
+        #{openBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payno != null" >
+        #{payno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficiaryType != null" >
+        #{beneficiaryType,jdbcType=CHAR},
+      </if>
+      <if test="beneficiaryRate != null" >
+        #{beneficiaryRate,jdbcType=VARCHAR},
+      </if>
+      <if test="isLegalBeneficiary != null" >
+        #{isLegalBeneficiary,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolBeneficiaryEntity" >
+    update tpa_pol_beneficiary
+    <set >
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="polRelation != null" >
+        pol_relation = #{polRelation,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        idno = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="openBankCode != null" >
+        open_bank_code = #{openBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payno != null" >
+        payno = #{payno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficiaryType != null" >
+        beneficiary_type = #{beneficiaryType,jdbcType=CHAR},
+      </if>
+      <if test="beneficiaryRate != null" >
+        beneficiary_rate = #{beneficiaryRate,jdbcType=VARCHAR},
+      </if>
+      <if test="isLegalBeneficiary != null" >
+        is_legal_beneficiary = #{isLegalBeneficiary,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolBeneficiaryEntity" >
+    update tpa_pol_beneficiary
+    set polno = #{polno,jdbcType=VARCHAR},
+      insured_id = #{insuredId,jdbcType=VARCHAR},
+      pol_relation = #{polRelation,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR},
+      open_bank_code = #{openBankCode,jdbcType=VARCHAR},
+      payno = #{payno,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      beneficiary_type = #{beneficiaryType,jdbcType=CHAR},
+      beneficiary_rate = #{beneficiaryRate,jdbcType=VARCHAR},
+      is_legal_beneficiary = #{isLegalBeneficiary,jdbcType=CHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

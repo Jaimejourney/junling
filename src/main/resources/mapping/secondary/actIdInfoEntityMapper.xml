@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.actIdInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdInfoEntity" >
+    <id column="ID_" property="id" jdbcType="VARCHAR" />
+    <result column="REV_" property="rev" jdbcType="INTEGER" />
+    <result column="USER_ID_" property="userId" jdbcType="VARCHAR" />
+    <result column="TYPE_" property="type" jdbcType="VARCHAR" />
+    <result column="KEY_" property="key" jdbcType="VARCHAR" />
+    <result column="VALUE_" property="value" jdbcType="VARCHAR" />
+    <result column="PARENT_ID_" property="parentId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.actIdInfoEntity" extends="BaseResultMap" >
+    <result column="PASSWORD_" property="password" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID_, REV_, USER_ID_, TYPE_, KEY_, VALUE_, PARENT_ID_
+  </sql>
+  <sql id="Blob_Column_List" >
+    PASSWORD_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from act_id_info
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from act_id_info
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+    insert into act_id_info (ID_, REV_, USER_ID_, 
+      TYPE_, KEY_, VALUE_, PARENT_ID_, 
+      PASSWORD_)
+    values (#{id,jdbcType=VARCHAR}, #{rev,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
+      #{password,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+    insert into act_id_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID_,
+      </if>
+      <if test="rev != null" >
+        REV_,
+      </if>
+      <if test="userId != null" >
+        USER_ID_,
+      </if>
+      <if test="type != null" >
+        TYPE_,
+      </if>
+      <if test="key != null" >
+        KEY_,
+      </if>
+      <if test="value != null" >
+        VALUE_,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID_,
+      </if>
+      <if test="password != null" >
+        PASSWORD_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null" >
+        #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+    update act_id_info
+    <set >
+      <if test="rev != null" >
+        REV_ = #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID_ = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE_ = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        KEY_ = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        VALUE_ = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID_ = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD_ = #{password,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+    update act_id_info
+    set REV_ = #{rev,jdbcType=INTEGER},
+      USER_ID_ = #{userId,jdbcType=VARCHAR},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      KEY_ = #{key,jdbcType=VARCHAR},
+      VALUE_ = #{value,jdbcType=VARCHAR},
+      PARENT_ID_ = #{parentId,jdbcType=VARCHAR},
+      PASSWORD_ = #{password,jdbcType=LONGVARBINARY}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+    update act_id_info
+    set REV_ = #{rev,jdbcType=INTEGER},
+      USER_ID_ = #{userId,jdbcType=VARCHAR},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      KEY_ = #{key,jdbcType=VARCHAR},
+      VALUE_ = #{value,jdbcType=VARCHAR},
+      PARENT_ID_ = #{parentId,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

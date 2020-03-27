@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBillEntity1Mapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillEntity" >
+    <id column="seqno" property="seqno" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="billId" property="billid" jdbcType="VARCHAR" />
+    <result column="hospital_code" property="hospitalCode" jdbcType="VARCHAR" />
+    <result column="bill_amt" property="billAmt" jdbcType="BIGINT" />
+    <result column="bill_type" property="billType" jdbcType="VARCHAR" />
+    <result column="admission_date" property="admissionDate" jdbcType="DATE" />
+    <result column="discharge_date" property="dischargeDate" jdbcType="DATE" />
+    <result column="hospital_days" property="hospitalDays" jdbcType="INTEGER" />
+    <result column="hospital_department" property="hospitalDepartment" jdbcType="VARCHAR" />
+    <result column="all_own_amt" property="allOwnAmt" jdbcType="BIGINT" />
+    <result column="sub_own_amt" property="subOwnAmt" jdbcType="BIGINT" />
+    <result column="yb_look_up_amt" property="ybLookUpAmt" jdbcType="BIGINT" />
+    <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
+    <result column="doctor_name" property="doctorName" jdbcType="VARCHAR" />
+    <result column="settle_id" property="settleId" jdbcType="VARCHAR" />
+    <result column="adjustment_date" property="adjustmentDate" jdbcType="DATE" />
+    <result column="is_yb_bill" property="isYbBill" jdbcType="VARCHAR" />
+    <result column="institutional_id" property="institutionalId" jdbcType="VARCHAR" />
+    <result column="partner_id" property="partnerId" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="receipt_type" property="receiptType" jdbcType="VARCHAR" />
+    <result column="receiptno" property="receiptno" jdbcType="VARCHAR" />
+    <result column="clinic_date" property="clinicDate" jdbcType="DATE" />
+    <result column="special_payment" property="specialPayment" jdbcType="BIGINT" />
+    <result column="hospital_money" property="hospitalMoney" jdbcType="BIGINT" />
+    <result column="fee_mmount" property="feeMmount" jdbcType="BIGINT" />
+    <result column="fee_deductible" property="feeDeductible" jdbcType="BIGINT" />
+    <result column="wipeout_amount" property="wipeoutAmount" jdbcType="BIGINT" />
+    <result column="cash_payment" property="cashPayment" jdbcType="BIGINT" />
+    <result column="account_payment" property="accountPayment" jdbcType="BIGINT" />
+    <result column="account_balance" property="accountBalance" jdbcType="BIGINT" />
+    <result column="medical_payment" property="medicalPayment" jdbcType="BIGINT" />
+    <result column="total_medical_payment" property="totalMedicalPayment" jdbcType="BIGINT" />
+    <result column="besideinsurance_money" property="besideinsuranceMoney" jdbcType="BIGINT" />
+    <result column="totalAnnual_payment" property="totalannualPayment" jdbcType="BIGINT" />
+    <result column="insyrance_payment" property="insyrancePayment" jdbcType="BIGINT" />
+    <result column="co_odtnfd" property="coOdtnfd" jdbcType="BIGINT" />
+    <result column="clinicLarge_payment" property="cliniclargePayment" jdbcType="BIGINT" />
+    <result column="retirement_payment" property="retirementPayment" jdbcType="BIGINT" />
+    <result column="disabilitysoldier_payment" property="disabilitysoldierPayment" jdbcType="BIGINT" />
+    <result column="civilservants_payment" property="civilservantsPayment" jdbcType="BIGINT" />
+    <result column="hospital_mutual_payment" property="hospitalMutualPayment" jdbcType="BIGINT" />
+    <result column="clinic_mutual_payment" property="clinicMutualPayment" jdbcType="BIGINT" />
+    <result column="total_clinic_mutual_payment" property="totalClinicMutualPayment" jdbcType="BIGINT" />
+    <result column="annual_Balance" property="annualBalance" jdbcType="BIGINT" />
+    <result column="annual_co_odtnfd" property="annualCoOdtnfd" jdbcType="BIGINT" />
+    <result column="annual_mutual_payment" property="annualMutualPayment" jdbcType="BIGINT" />
+    <result column="individual_payment" property="individualPayment" jdbcType="BIGINT" />
+    <result column="paymentA" property="paymenta" jdbcType="BIGINT" />
+    <result column="paymentB" property="paymentb" jdbcType="BIGINT" />
+    <result column="payment_from" property="paymentFrom" jdbcType="BIGINT" />
+    <result column="payment_cap" property="paymentCap" jdbcType="BIGINT" />
+    <result column="own_expense" property="ownExpense" jdbcType="BIGINT" />
+    <result column="total_individual_payment" property="totalIndividualPayment" jdbcType="BIGINT" />
+    <result column="receipt_clain_amount" property="receiptClainAmount" jdbcType="BIGINT" />
+    <result column="operation_flr" property="operationFlr" jdbcType="CHAR" />
+    <result column="clinic_money" property="clinicMoney" jdbcType="BIGINT" />
+    <result column="yb_type" property="ybType" jdbcType="VARCHAR" />
+    <result column="feeattic" property="feeattic" jdbcType="VARCHAR" />
+    <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="pay_rate" property="payRate" jdbcType="BIGINT" />
+    <result column="deductible_amount" property="deductibleAmount" jdbcType="BIGINT" />
+    <result column="refuseAmt" property="refuseamt" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seqno, docuno, billId, hospital_code, bill_amt, bill_type, admission_date, discharge_date, 
+    hospital_days, hospital_department, all_own_amt, sub_own_amt, yb_look_up_amt, flow_id, 
+    doctor_name, settle_id, adjustment_date, is_yb_bill, institutional_id, partner_id, 
+    update_poson, update_time, is_delete, receipt_type, receiptno, clinic_date, special_payment, 
+    hospital_money, fee_mmount, fee_deductible, wipeout_amount, cash_payment, account_payment, 
+    account_balance, medical_payment, total_medical_payment, besideinsurance_money, totalAnnual_payment, 
+    insyrance_payment, co_odtnfd, clinicLarge_payment, retirement_payment, disabilitysoldier_payment, 
+    civilservants_payment, hospital_mutual_payment, clinic_mutual_payment, total_clinic_mutual_payment, 
+    annual_Balance, annual_co_odtnfd, annual_mutual_payment, individual_payment, paymentA, 
+    paymentB, payment_from, payment_cap, own_expense, total_individual_payment, receipt_clain_amount, 
+    operation_flr, clinic_money, yb_type, feeattic, hospital_name, accno, create_time, 
+    pay_rate, deductible_amount, refuseAmt
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_bill
+    where seqno = #{seqno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from claim_bill
+    where seqno = #{seqno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+    insert into claim_bill (seqno, docuno, billId, 
+      hospital_code, bill_amt, bill_type, 
+      admission_date, discharge_date, hospital_days, 
+      hospital_department, all_own_amt, sub_own_amt, 
+      yb_look_up_amt, flow_id, doctor_name, 
+      settle_id, adjustment_date, is_yb_bill, 
+      institutional_id, partner_id, update_poson, 
+      update_time, is_delete, receipt_type, 
+      receiptno, clinic_date, special_payment, 
+      hospital_money, fee_mmount, fee_deductible, 
+      wipeout_amount, cash_payment, account_payment, 
+      account_balance, medical_payment, total_medical_payment, 
+      besideinsurance_money, totalAnnual_payment, 
+      insyrance_payment, co_odtnfd, clinicLarge_payment, 
+      retirement_payment, disabilitysoldier_payment, 
+      civilservants_payment, hospital_mutual_payment, 
+      clinic_mutual_payment, total_clinic_mutual_payment, 
+      annual_Balance, annual_co_odtnfd, annual_mutual_payment, 
+      individual_payment, paymentA, paymentB, 
+      payment_from, payment_cap, own_expense, 
+      total_individual_payment, receipt_clain_amount, 
+      operation_flr, clinic_money, yb_type, 
+      feeattic, hospital_name, accno, 
+      create_time, pay_rate, deductible_amount, 
+      refuseAmt)
+    values (#{seqno,jdbcType=VARCHAR}, #{docuno,jdbcType=VARCHAR}, #{billid,jdbcType=VARCHAR}, 
+      #{hospitalCode,jdbcType=VARCHAR}, #{billAmt,jdbcType=BIGINT}, #{billType,jdbcType=VARCHAR}, 
+      #{admissionDate,jdbcType=DATE}, #{dischargeDate,jdbcType=DATE}, #{hospitalDays,jdbcType=INTEGER}, 
+      #{hospitalDepartment,jdbcType=VARCHAR}, #{allOwnAmt,jdbcType=BIGINT}, #{subOwnAmt,jdbcType=BIGINT}, 
+      #{ybLookUpAmt,jdbcType=BIGINT}, #{flowId,jdbcType=VARCHAR}, #{doctorName,jdbcType=VARCHAR}, 
+      #{settleId,jdbcType=VARCHAR}, #{adjustmentDate,jdbcType=DATE}, #{isYbBill,jdbcType=VARCHAR}, 
+      #{institutionalId,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, #{receiptType,jdbcType=VARCHAR}, 
+      #{receiptno,jdbcType=VARCHAR}, #{clinicDate,jdbcType=DATE}, #{specialPayment,jdbcType=BIGINT}, 
+      #{hospitalMoney,jdbcType=BIGINT}, #{feeMmount,jdbcType=BIGINT}, #{feeDeductible,jdbcType=BIGINT}, 
+      #{wipeoutAmount,jdbcType=BIGINT}, #{cashPayment,jdbcType=BIGINT}, #{accountPayment,jdbcType=BIGINT}, 
+      #{accountBalance,jdbcType=BIGINT}, #{medicalPayment,jdbcType=BIGINT}, #{totalMedicalPayment,jdbcType=BIGINT}, 
+      #{besideinsuranceMoney,jdbcType=BIGINT}, #{totalannualPayment,jdbcType=BIGINT}, 
+      #{insyrancePayment,jdbcType=BIGINT}, #{coOdtnfd,jdbcType=BIGINT}, #{cliniclargePayment,jdbcType=BIGINT}, 
+      #{retirementPayment,jdbcType=BIGINT}, #{disabilitysoldierPayment,jdbcType=BIGINT}, 
+      #{civilservantsPayment,jdbcType=BIGINT}, #{hospitalMutualPayment,jdbcType=BIGINT}, 
+      #{clinicMutualPayment,jdbcType=BIGINT}, #{totalClinicMutualPayment,jdbcType=BIGINT}, 
+      #{annualBalance,jdbcType=BIGINT}, #{annualCoOdtnfd,jdbcType=BIGINT}, #{annualMutualPayment,jdbcType=BIGINT}, 
+      #{individualPayment,jdbcType=BIGINT}, #{paymenta,jdbcType=BIGINT}, #{paymentb,jdbcType=BIGINT}, 
+      #{paymentFrom,jdbcType=BIGINT}, #{paymentCap,jdbcType=BIGINT}, #{ownExpense,jdbcType=BIGINT}, 
+      #{totalIndividualPayment,jdbcType=BIGINT}, #{receiptClainAmount,jdbcType=BIGINT}, 
+      #{operationFlr,jdbcType=CHAR}, #{clinicMoney,jdbcType=BIGINT}, #{ybType,jdbcType=VARCHAR}, 
+      #{feeattic,jdbcType=VARCHAR}, #{hospitalName,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{payRate,jdbcType=BIGINT}, #{deductibleAmount,jdbcType=BIGINT}, 
+      #{refuseamt,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+    insert into claim_bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqno != null" >
+        seqno,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="billid != null" >
+        billId,
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code,
+      </if>
+      <if test="billAmt != null" >
+        bill_amt,
+      </if>
+      <if test="billType != null" >
+        bill_type,
+      </if>
+      <if test="admissionDate != null" >
+        admission_date,
+      </if>
+      <if test="dischargeDate != null" >
+        discharge_date,
+      </if>
+      <if test="hospitalDays != null" >
+        hospital_days,
+      </if>
+      <if test="hospitalDepartment != null" >
+        hospital_department,
+      </if>
+      <if test="allOwnAmt != null" >
+        all_own_amt,
+      </if>
+      <if test="subOwnAmt != null" >
+        sub_own_amt,
+      </if>
+      <if test="ybLookUpAmt != null" >
+        yb_look_up_amt,
+      </if>
+      <if test="flowId != null" >
+        flow_id,
+      </if>
+      <if test="doctorName != null" >
+        doctor_name,
+      </if>
+      <if test="settleId != null" >
+        settle_id,
+      </if>
+      <if test="adjustmentDate != null" >
+        adjustment_date,
+      </if>
+      <if test="isYbBill != null" >
+        is_yb_bill,
+      </if>
+      <if test="institutionalId != null" >
+        institutional_id,
+      </if>
+      <if test="partnerId != null" >
+        partner_id,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="receiptType != null" >
+        receipt_type,
+      </if>
+      <if test="receiptno != null" >
+        receiptno,
+      </if>
+      <if test="clinicDate != null" >
+        clinic_date,
+      </if>
+      <if test="specialPayment != null" >
+        special_payment,
+      </if>
+      <if test="hospitalMoney != null" >
+        hospital_money,
+      </if>
+      <if test="feeMmount != null" >
+        fee_mmount,
+      </if>
+      <if test="feeDeductible != null" >
+        fee_deductible,
+      </if>
+      <if test="wipeoutAmount != null" >
+        wipeout_amount,
+      </if>
+      <if test="cashPayment != null" >
+        cash_payment,
+      </if>
+      <if test="accountPayment != null" >
+        account_payment,
+      </if>
+      <if test="accountBalance != null" >
+        account_balance,
+      </if>
+      <if test="medicalPayment != null" >
+        medical_payment,
+      </if>
+      <if test="totalMedicalPayment != null" >
+        total_medical_payment,
+      </if>
+      <if test="besideinsuranceMoney != null" >
+        besideinsurance_money,
+      </if>
+      <if test="totalannualPayment != null" >
+        totalAnnual_payment,
+      </if>
+      <if test="insyrancePayment != null" >
+        insyrance_payment,
+      </if>
+      <if test="coOdtnfd != null" >
+        co_odtnfd,
+      </if>
+      <if test="cliniclargePayment != null" >
+        clinicLarge_payment,
+      </if>
+      <if test="retirementPayment != null" >
+        retirement_payment,
+      </if>
+      <if test="disabilitysoldierPayment != null" >
+        disabilitysoldier_payment,
+      </if>
+      <if test="civilservantsPayment != null" >
+        civilservants_payment,
+      </if>
+      <if test="hospitalMutualPayment != null" >
+        hospital_mutual_payment,
+      </if>
+      <if test="clinicMutualPayment != null" >
+        clinic_mutual_payment,
+      </if>
+      <if test="totalClinicMutualPayment != null" >
+        total_clinic_mutual_payment,
+      </if>
+      <if test="annualBalance != null" >
+        annual_Balance,
+      </if>
+      <if test="annualCoOdtnfd != null" >
+        annual_co_odtnfd,
+      </if>
+      <if test="annualMutualPayment != null" >
+        annual_mutual_payment,
+      </if>
+      <if test="individualPayment != null" >
+        individual_payment,
+      </if>
+      <if test="paymenta != null" >
+        paymentA,
+      </if>
+      <if test="paymentb != null" >
+        paymentB,
+      </if>
+      <if test="paymentFrom != null" >
+        payment_from,
+      </if>
+      <if test="paymentCap != null" >
+        payment_cap,
+      </if>
+      <if test="ownExpense != null" >
+        own_expense,
+      </if>
+      <if test="totalIndividualPayment != null" >
+        total_individual_payment,
+      </if>
+      <if test="receiptClainAmount != null" >
+        receipt_clain_amount,
+      </if>
+      <if test="operationFlr != null" >
+        operation_flr,
+      </if>
+      <if test="clinicMoney != null" >
+        clinic_money,
+      </if>
+      <if test="ybType != null" >
+        yb_type,
+      </if>
+      <if test="feeattic != null" >
+        feeattic,
+      </if>
+      <if test="hospitalName != null" >
+        hospital_name,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="payRate != null" >
+        pay_rate,
+      </if>
+      <if test="deductibleAmount != null" >
+        deductible_amount,
+      </if>
+      <if test="refuseamt != null" >
+        refuseAmt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqno != null" >
+        #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="billid != null" >
+        #{billid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null" >
+        #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="billAmt != null" >
+        #{billAmt,jdbcType=BIGINT},
+      </if>
+      <if test="billType != null" >
+        #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDate != null" >
+        #{admissionDate,jdbcType=DATE},
+      </if>
+      <if test="dischargeDate != null" >
+        #{dischargeDate,jdbcType=DATE},
+      </if>
+      <if test="hospitalDays != null" >
+        #{hospitalDays,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalDepartment != null" >
+        #{hospitalDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="allOwnAmt != null" >
+        #{allOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="subOwnAmt != null" >
+        #{subOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="ybLookUpAmt != null" >
+        #{ybLookUpAmt,jdbcType=BIGINT},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleId != null" >
+        #{settleId,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustmentDate != null" >
+        #{adjustmentDate,jdbcType=DATE},
+      </if>
+      <if test="isYbBill != null" >
+        #{isYbBill,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionalId != null" >
+        #{institutionalId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null" >
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="receiptType != null" >
+        #{receiptType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicDate != null" >
+        #{clinicDate,jdbcType=DATE},
+      </if>
+      <if test="specialPayment != null" >
+        #{specialPayment,jdbcType=BIGINT},
+      </if>
+      <if test="hospitalMoney != null" >
+        #{hospitalMoney,jdbcType=BIGINT},
+      </if>
+      <if test="feeMmount != null" >
+        #{feeMmount,jdbcType=BIGINT},
+      </if>
+      <if test="feeDeductible != null" >
+        #{feeDeductible,jdbcType=BIGINT},
+      </if>
+      <if test="wipeoutAmount != null" >
+        #{wipeoutAmount,jdbcType=BIGINT},
+      </if>
+      <if test="cashPayment != null" >
+        #{cashPayment,jdbcType=BIGINT},
+      </if>
+      <if test="accountPayment != null" >
+        #{accountPayment,jdbcType=BIGINT},
+      </if>
+      <if test="accountBalance != null" >
+        #{accountBalance,jdbcType=BIGINT},
+      </if>
+      <if test="medicalPayment != null" >
+        #{medicalPayment,jdbcType=BIGINT},
+      </if>
+      <if test="totalMedicalPayment != null" >
+        #{totalMedicalPayment,jdbcType=BIGINT},
+      </if>
+      <if test="besideinsuranceMoney != null" >
+        #{besideinsuranceMoney,jdbcType=BIGINT},
+      </if>
+      <if test="totalannualPayment != null" >
+        #{totalannualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="insyrancePayment != null" >
+        #{insyrancePayment,jdbcType=BIGINT},
+      </if>
+      <if test="coOdtnfd != null" >
+        #{coOdtnfd,jdbcType=BIGINT},
+      </if>
+      <if test="cliniclargePayment != null" >
+        #{cliniclargePayment,jdbcType=BIGINT},
+      </if>
+      <if test="retirementPayment != null" >
+        #{retirementPayment,jdbcType=BIGINT},
+      </if>
+      <if test="disabilitysoldierPayment != null" >
+        #{disabilitysoldierPayment,jdbcType=BIGINT},
+      </if>
+      <if test="civilservantsPayment != null" >
+        #{civilservantsPayment,jdbcType=BIGINT},
+      </if>
+      <if test="hospitalMutualPayment != null" >
+        #{hospitalMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="clinicMutualPayment != null" >
+        #{clinicMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="totalClinicMutualPayment != null" >
+        #{totalClinicMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="annualBalance != null" >
+        #{annualBalance,jdbcType=BIGINT},
+      </if>
+      <if test="annualCoOdtnfd != null" >
+        #{annualCoOdtnfd,jdbcType=BIGINT},
+      </if>
+      <if test="annualMutualPayment != null" >
+        #{annualMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="individualPayment != null" >
+        #{individualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="paymenta != null" >
+        #{paymenta,jdbcType=BIGINT},
+      </if>
+      <if test="paymentb != null" >
+        #{paymentb,jdbcType=BIGINT},
+      </if>
+      <if test="paymentFrom != null" >
+        #{paymentFrom,jdbcType=BIGINT},
+      </if>
+      <if test="paymentCap != null" >
+        #{paymentCap,jdbcType=BIGINT},
+      </if>
+      <if test="ownExpense != null" >
+        #{ownExpense,jdbcType=BIGINT},
+      </if>
+      <if test="totalIndividualPayment != null" >
+        #{totalIndividualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="receiptClainAmount != null" >
+        #{receiptClainAmount,jdbcType=BIGINT},
+      </if>
+      <if test="operationFlr != null" >
+        #{operationFlr,jdbcType=CHAR},
+      </if>
+      <if test="clinicMoney != null" >
+        #{clinicMoney,jdbcType=BIGINT},
+      </if>
+      <if test="ybType != null" >
+        #{ybType,jdbcType=VARCHAR},
+      </if>
+      <if test="feeattic != null" >
+        #{feeattic,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payRate != null" >
+        #{payRate,jdbcType=BIGINT},
+      </if>
+      <if test="deductibleAmount != null" >
+        #{deductibleAmount,jdbcType=BIGINT},
+      </if>
+      <if test="refuseamt != null" >
+        #{refuseamt,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+    update claim_bill
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="billid != null" >
+        billId = #{billid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="billAmt != null" >
+        bill_amt = #{billAmt,jdbcType=BIGINT},
+      </if>
+      <if test="billType != null" >
+        bill_type = #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDate != null" >
+        admission_date = #{admissionDate,jdbcType=DATE},
+      </if>
+      <if test="dischargeDate != null" >
+        discharge_date = #{dischargeDate,jdbcType=DATE},
+      </if>
+      <if test="hospitalDays != null" >
+        hospital_days = #{hospitalDays,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalDepartment != null" >
+        hospital_department = #{hospitalDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="allOwnAmt != null" >
+        all_own_amt = #{allOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="subOwnAmt != null" >
+        sub_own_amt = #{subOwnAmt,jdbcType=BIGINT},
+      </if>
+      <if test="ybLookUpAmt != null" >
+        yb_look_up_amt = #{ybLookUpAmt,jdbcType=BIGINT},
+      </if>
+      <if test="flowId != null" >
+        flow_id = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        doctor_name = #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="settleId != null" >
+        settle_id = #{settleId,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustmentDate != null" >
+        adjustment_date = #{adjustmentDate,jdbcType=DATE},
+      </if>
+      <if test="isYbBill != null" >
+        is_yb_bill = #{isYbBill,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionalId != null" >
+        institutional_id = #{institutionalId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null" >
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="receiptType != null" >
+        receipt_type = #{receiptType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptno = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicDate != null" >
+        clinic_date = #{clinicDate,jdbcType=DATE},
+      </if>
+      <if test="specialPayment != null" >
+        special_payment = #{specialPayment,jdbcType=BIGINT},
+      </if>
+      <if test="hospitalMoney != null" >
+        hospital_money = #{hospitalMoney,jdbcType=BIGINT},
+      </if>
+      <if test="feeMmount != null" >
+        fee_mmount = #{feeMmount,jdbcType=BIGINT},
+      </if>
+      <if test="feeDeductible != null" >
+        fee_deductible = #{feeDeductible,jdbcType=BIGINT},
+      </if>
+      <if test="wipeoutAmount != null" >
+        wipeout_amount = #{wipeoutAmount,jdbcType=BIGINT},
+      </if>
+      <if test="cashPayment != null" >
+        cash_payment = #{cashPayment,jdbcType=BIGINT},
+      </if>
+      <if test="accountPayment != null" >
+        account_payment = #{accountPayment,jdbcType=BIGINT},
+      </if>
+      <if test="accountBalance != null" >
+        account_balance = #{accountBalance,jdbcType=BIGINT},
+      </if>
+      <if test="medicalPayment != null" >
+        medical_payment = #{medicalPayment,jdbcType=BIGINT},
+      </if>
+      <if test="totalMedicalPayment != null" >
+        total_medical_payment = #{totalMedicalPayment,jdbcType=BIGINT},
+      </if>
+      <if test="besideinsuranceMoney != null" >
+        besideinsurance_money = #{besideinsuranceMoney,jdbcType=BIGINT},
+      </if>
+      <if test="totalannualPayment != null" >
+        totalAnnual_payment = #{totalannualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="insyrancePayment != null" >
+        insyrance_payment = #{insyrancePayment,jdbcType=BIGINT},
+      </if>
+      <if test="coOdtnfd != null" >
+        co_odtnfd = #{coOdtnfd,jdbcType=BIGINT},
+      </if>
+      <if test="cliniclargePayment != null" >
+        clinicLarge_payment = #{cliniclargePayment,jdbcType=BIGINT},
+      </if>
+      <if test="retirementPayment != null" >
+        retirement_payment = #{retirementPayment,jdbcType=BIGINT},
+      </if>
+      <if test="disabilitysoldierPayment != null" >
+        disabilitysoldier_payment = #{disabilitysoldierPayment,jdbcType=BIGINT},
+      </if>
+      <if test="civilservantsPayment != null" >
+        civilservants_payment = #{civilservantsPayment,jdbcType=BIGINT},
+      </if>
+      <if test="hospitalMutualPayment != null" >
+        hospital_mutual_payment = #{hospitalMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="clinicMutualPayment != null" >
+        clinic_mutual_payment = #{clinicMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="totalClinicMutualPayment != null" >
+        total_clinic_mutual_payment = #{totalClinicMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="annualBalance != null" >
+        annual_Balance = #{annualBalance,jdbcType=BIGINT},
+      </if>
+      <if test="annualCoOdtnfd != null" >
+        annual_co_odtnfd = #{annualCoOdtnfd,jdbcType=BIGINT},
+      </if>
+      <if test="annualMutualPayment != null" >
+        annual_mutual_payment = #{annualMutualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="individualPayment != null" >
+        individual_payment = #{individualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="paymenta != null" >
+        paymentA = #{paymenta,jdbcType=BIGINT},
+      </if>
+      <if test="paymentb != null" >
+        paymentB = #{paymentb,jdbcType=BIGINT},
+      </if>
+      <if test="paymentFrom != null" >
+        payment_from = #{paymentFrom,jdbcType=BIGINT},
+      </if>
+      <if test="paymentCap != null" >
+        payment_cap = #{paymentCap,jdbcType=BIGINT},
+      </if>
+      <if test="ownExpense != null" >
+        own_expense = #{ownExpense,jdbcType=BIGINT},
+      </if>
+      <if test="totalIndividualPayment != null" >
+        total_individual_payment = #{totalIndividualPayment,jdbcType=BIGINT},
+      </if>
+      <if test="receiptClainAmount != null" >
+        receipt_clain_amount = #{receiptClainAmount,jdbcType=BIGINT},
+      </if>
+      <if test="operationFlr != null" >
+        operation_flr = #{operationFlr,jdbcType=CHAR},
+      </if>
+      <if test="clinicMoney != null" >
+        clinic_money = #{clinicMoney,jdbcType=BIGINT},
+      </if>
+      <if test="ybType != null" >
+        yb_type = #{ybType,jdbcType=VARCHAR},
+      </if>
+      <if test="feeattic != null" >
+        feeattic = #{feeattic,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalName != null" >
+        hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payRate != null" >
+        pay_rate = #{payRate,jdbcType=BIGINT},
+      </if>
+      <if test="deductibleAmount != null" >
+        deductible_amount = #{deductibleAmount,jdbcType=BIGINT},
+      </if>
+      <if test="refuseamt != null" >
+        refuseAmt = #{refuseamt,jdbcType=BIGINT},
+      </if>
+    </set>
+    where seqno = #{seqno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+    update claim_bill
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      billId = #{billid,jdbcType=VARCHAR},
+      hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      bill_amt = #{billAmt,jdbcType=BIGINT},
+      bill_type = #{billType,jdbcType=VARCHAR},
+      admission_date = #{admissionDate,jdbcType=DATE},
+      discharge_date = #{dischargeDate,jdbcType=DATE},
+      hospital_days = #{hospitalDays,jdbcType=INTEGER},
+      hospital_department = #{hospitalDepartment,jdbcType=VARCHAR},
+      all_own_amt = #{allOwnAmt,jdbcType=BIGINT},
+      sub_own_amt = #{subOwnAmt,jdbcType=BIGINT},
+      yb_look_up_amt = #{ybLookUpAmt,jdbcType=BIGINT},
+      flow_id = #{flowId,jdbcType=VARCHAR},
+      doctor_name = #{doctorName,jdbcType=VARCHAR},
+      settle_id = #{settleId,jdbcType=VARCHAR},
+      adjustment_date = #{adjustmentDate,jdbcType=DATE},
+      is_yb_bill = #{isYbBill,jdbcType=VARCHAR},
+      institutional_id = #{institutionalId,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      receipt_type = #{receiptType,jdbcType=VARCHAR},
+      receiptno = #{receiptno,jdbcType=VARCHAR},
+      clinic_date = #{clinicDate,jdbcType=DATE},
+      special_payment = #{specialPayment,jdbcType=BIGINT},
+      hospital_money = #{hospitalMoney,jdbcType=BIGINT},
+      fee_mmount = #{feeMmount,jdbcType=BIGINT},
+      fee_deductible = #{feeDeductible,jdbcType=BIGINT},
+      wipeout_amount = #{wipeoutAmount,jdbcType=BIGINT},
+      cash_payment = #{cashPayment,jdbcType=BIGINT},
+      account_payment = #{accountPayment,jdbcType=BIGINT},
+      account_balance = #{accountBalance,jdbcType=BIGINT},
+      medical_payment = #{medicalPayment,jdbcType=BIGINT},
+      total_medical_payment = #{totalMedicalPayment,jdbcType=BIGINT},
+      besideinsurance_money = #{besideinsuranceMoney,jdbcType=BIGINT},
+      totalAnnual_payment = #{totalannualPayment,jdbcType=BIGINT},
+      insyrance_payment = #{insyrancePayment,jdbcType=BIGINT},
+      co_odtnfd = #{coOdtnfd,jdbcType=BIGINT},
+      clinicLarge_payment = #{cliniclargePayment,jdbcType=BIGINT},
+      retirement_payment = #{retirementPayment,jdbcType=BIGINT},
+      disabilitysoldier_payment = #{disabilitysoldierPayment,jdbcType=BIGINT},
+      civilservants_payment = #{civilservantsPayment,jdbcType=BIGINT},
+      hospital_mutual_payment = #{hospitalMutualPayment,jdbcType=BIGINT},
+      clinic_mutual_payment = #{clinicMutualPayment,jdbcType=BIGINT},
+      total_clinic_mutual_payment = #{totalClinicMutualPayment,jdbcType=BIGINT},
+      annual_Balance = #{annualBalance,jdbcType=BIGINT},
+      annual_co_odtnfd = #{annualCoOdtnfd,jdbcType=BIGINT},
+      annual_mutual_payment = #{annualMutualPayment,jdbcType=BIGINT},
+      individual_payment = #{individualPayment,jdbcType=BIGINT},
+      paymentA = #{paymenta,jdbcType=BIGINT},
+      paymentB = #{paymentb,jdbcType=BIGINT},
+      payment_from = #{paymentFrom,jdbcType=BIGINT},
+      payment_cap = #{paymentCap,jdbcType=BIGINT},
+      own_expense = #{ownExpense,jdbcType=BIGINT},
+      total_individual_payment = #{totalIndividualPayment,jdbcType=BIGINT},
+      receipt_clain_amount = #{receiptClainAmount,jdbcType=BIGINT},
+      operation_flr = #{operationFlr,jdbcType=CHAR},
+      clinic_money = #{clinicMoney,jdbcType=BIGINT},
+      yb_type = #{ybType,jdbcType=VARCHAR},
+      feeattic = #{feeattic,jdbcType=VARCHAR},
+      hospital_name = #{hospitalName,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      pay_rate = #{payRate,jdbcType=BIGINT},
+      deductible_amount = #{deductibleAmount,jdbcType=BIGINT},
+      refuseAmt = #{refuseamt,jdbcType=BIGINT}
+    where seqno = #{seqno,jdbcType=VARCHAR}
+  </update>
+</mapper>

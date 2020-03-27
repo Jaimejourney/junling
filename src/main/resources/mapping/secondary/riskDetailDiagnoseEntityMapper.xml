@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.riskDetailDiagnoseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+    <id column="diagnoseId" property="diagnoseid" jdbcType="INTEGER" />
+    <result column="riskDetailId" property="riskdetailid" jdbcType="INTEGER" />
+    <result column="diagnoseName" property="diagnosename" jdbcType="VARCHAR" />
+    <result column="diagnoseType" property="diagnosetype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    diagnoseId, riskDetailId, diagnoseName, diagnoseType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from risk_detail_diagnose
+    where diagnoseId = #{diagnoseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from risk_detail_diagnose
+    where diagnoseId = #{diagnoseid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+    insert into risk_detail_diagnose (diagnoseId, riskDetailId, diagnoseName, 
+      diagnoseType)
+    values (#{diagnoseid,jdbcType=INTEGER}, #{riskdetailid,jdbcType=INTEGER}, #{diagnosename,jdbcType=VARCHAR}, 
+      #{diagnosetype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+    insert into risk_detail_diagnose
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="diagnoseid != null" >
+        diagnoseId,
+      </if>
+      <if test="riskdetailid != null" >
+        riskDetailId,
+      </if>
+      <if test="diagnosename != null" >
+        diagnoseName,
+      </if>
+      <if test="diagnosetype != null" >
+        diagnoseType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="diagnoseid != null" >
+        #{diagnoseid,jdbcType=INTEGER},
+      </if>
+      <if test="riskdetailid != null" >
+        #{riskdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="diagnosename != null" >
+        #{diagnosename,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosetype != null" >
+        #{diagnosetype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+    update risk_detail_diagnose
+    <set >
+      <if test="riskdetailid != null" >
+        riskDetailId = #{riskdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="diagnosename != null" >
+        diagnoseName = #{diagnosename,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosetype != null" >
+        diagnoseType = #{diagnosetype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where diagnoseId = #{diagnoseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+    update risk_detail_diagnose
+    set riskDetailId = #{riskdetailid,jdbcType=INTEGER},
+      diagnoseName = #{diagnosename,jdbcType=VARCHAR},
+      diagnoseType = #{diagnosetype,jdbcType=VARCHAR}
+    where diagnoseId = #{diagnoseid,jdbcType=INTEGER}
+  </update>
+</mapper>

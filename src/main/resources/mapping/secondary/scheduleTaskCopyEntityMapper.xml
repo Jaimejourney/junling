@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.scheduleTaskCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+    <id column="requst_id" property="requstId" jdbcType="VARCHAR" />
+    <result column="business_key" property="businessKey" jdbcType="VARCHAR" />
+    <result column="business_type" property="businessType" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="err_msg" property="errMsg" jdbcType="VARCHAR" />
+    <result column="is_lock" property="isLock" jdbcType="CHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="VARCHAR" />
+    <result column="CPayResult" property="cpayresult" jdbcType="VARCHAR" />
+    <result column="examAmt" property="examamt" jdbcType="DECIMAL" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="exam_status" property="examStatus" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="channel" property="channel" jdbcType="VARCHAR" />
+    <result column="case_type" property="caseType" jdbcType="VARCHAR" />
+    <result column="channel_case_no" property="channelCaseNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.scheduleTaskCopyEntity" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    requst_id, business_key, business_type, status, err_msg, is_lock, created_by, created_date, 
+    updated_by, updated_date, is_delete, CPayResult, examAmt, end_date, comment, exam_status, 
+    source, channel, case_type, channel_case_no
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from schedule_task_copy
+    where requst_id = #{requstId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from schedule_task_copy
+    where requst_id = #{requstId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+    insert into schedule_task_copy (requst_id, business_key, business_type, 
+      status, err_msg, is_lock, created_by, 
+      created_date, updated_by, updated_date, 
+      is_delete, CPayResult, examAmt, 
+      end_date, comment, exam_status, 
+      source, channel, case_type, 
+      channel_case_no, content)
+    values (#{requstId,jdbcType=VARCHAR}, #{businessKey,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{errMsg,jdbcType=VARCHAR}, #{isLock,jdbcType=CHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=VARCHAR}, #{cpayresult,jdbcType=VARCHAR}, #{examamt,jdbcType=DECIMAL}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{comment,jdbcType=VARCHAR}, #{examStatus,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{caseType,jdbcType=VARCHAR}, 
+      #{channelCaseNo,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+    insert into schedule_task_copy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="requstId != null" >
+        requst_id,
+      </if>
+      <if test="businessKey != null" >
+        business_key,
+      </if>
+      <if test="businessType != null" >
+        business_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="errMsg != null" >
+        err_msg,
+      </if>
+      <if test="isLock != null" >
+        is_lock,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="cpayresult != null" >
+        CPayResult,
+      </if>
+      <if test="examamt != null" >
+        examAmt,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="examStatus != null" >
+        exam_status,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="channel != null" >
+        channel,
+      </if>
+      <if test="caseType != null" >
+        case_type,
+      </if>
+      <if test="channelCaseNo != null" >
+        channel_case_no,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="requstId != null" >
+        #{requstId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessKey != null" >
+        #{businessKey,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="errMsg != null" >
+        #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="isLock != null" >
+        #{isLock,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="cpayresult != null" >
+        #{cpayresult,jdbcType=VARCHAR},
+      </if>
+      <if test="examamt != null" >
+        #{examamt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="examStatus != null" >
+        #{examStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null" >
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCaseNo != null" >
+        #{channelCaseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+    update schedule_task_copy
+    <set >
+      <if test="businessKey != null" >
+        business_key = #{businessKey,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="errMsg != null" >
+        err_msg = #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="isLock != null" >
+        is_lock = #{isLock,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="cpayresult != null" >
+        CPayResult = #{cpayresult,jdbcType=VARCHAR},
+      </if>
+      <if test="examamt != null" >
+        examAmt = #{examamt,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="examStatus != null" >
+        exam_status = #{examStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null" >
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        case_type = #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCaseNo != null" >
+        channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where requst_id = #{requstId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+    update schedule_task_copy
+    set business_key = #{businessKey,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      err_msg = #{errMsg,jdbcType=VARCHAR},
+      is_lock = #{isLock,jdbcType=CHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      CPayResult = #{cpayresult,jdbcType=VARCHAR},
+      examAmt = #{examamt,jdbcType=DECIMAL},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      comment = #{comment,jdbcType=VARCHAR},
+      exam_status = #{examStatus,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      channel = #{channel,jdbcType=VARCHAR},
+      case_type = #{caseType,jdbcType=VARCHAR},
+      channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where requst_id = #{requstId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+    update schedule_task_copy
+    set business_key = #{businessKey,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      err_msg = #{errMsg,jdbcType=VARCHAR},
+      is_lock = #{isLock,jdbcType=CHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      CPayResult = #{cpayresult,jdbcType=VARCHAR},
+      examAmt = #{examamt,jdbcType=DECIMAL},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      comment = #{comment,jdbcType=VARCHAR},
+      exam_status = #{examStatus,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      channel = #{channel,jdbcType=VARCHAR},
+      case_type = #{caseType,jdbcType=VARCHAR},
+      channel_case_no = #{channelCaseNo,jdbcType=VARCHAR}
+    where requst_id = #{requstId,jdbcType=VARCHAR}
+  </update>
+</mapper>

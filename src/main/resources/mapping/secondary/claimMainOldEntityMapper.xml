@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimMainOldEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimMainOldEntity" >
+    <id column="procno" property="procno" jdbcType="BIGINT" />
+    <id column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
+    <result column="docu_status" property="docuStatus" jdbcType="VARCHAR" />
+    <result column="docu_date" property="docuDate" jdbcType="TIMESTAMP" />
+    <result column="exam_date" property="examDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="is_direct_bill" property="isDirectBill" jdbcType="VARCHAR" />
+    <result column="exam_amt" property="examAmt" jdbcType="BIGINT" />
+    <result column="exam_result" property="examResult" jdbcType="VARCHAR" />
+    <result column="reject_cause" property="rejectCause" jdbcType="VARCHAR" />
+    <result column="accdnt_result" property="accdntResult" jdbcType="VARCHAR" />
+    <result column="idno" property="idno" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="partner_id" property="partnerId" jdbcType="VARCHAR" />
+    <result column="reasonCode" property="reasoncode" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="sign_date" property="signDate" jdbcType="TIMESTAMP" />
+    <result column="approve_date" property="approveDate" jdbcType="TIMESTAMP" />
+    <result column="need_material" property="needMaterial" jdbcType="VARCHAR" />
+    <result column="new_opinion" property="newOpinion" jdbcType="VARCHAR" />
+    <result column="prepaidPayAmt" property="prepaidpayamt" jdbcType="BIGINT" />
+    <result column="autoCheck" property="autocheck" jdbcType="VARCHAR" />
+    <result column="pause_mark" property="pauseMark" jdbcType="VARCHAR" />
+    <result column="terminate" property="terminate" jdbcType="VARCHAR" />
+    <result column="zeron_deductible" property="zeronDeductible" jdbcType="VARCHAR" />
+    <result column="caseFormula" property="caseformula" jdbcType="VARCHAR" />
+    <result column="death" property="death" jdbcType="VARCHAR" />
+    <result column="signAutoCheck" property="signautocheck" jdbcType="VARCHAR" />
+    <result column="deathProblem" property="deathproblem" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.claimMainOldEntityWithBLOBs" extends="BaseResultMap" >
+    <result column="reply_opin" property="replyOpin" jdbcType="LONGVARCHAR" />
+    <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    procno, docuno, insured_id, docu_status, docu_date, exam_date, end_date, is_direct_bill, 
+    exam_amt, exam_result, reject_cause, accdnt_result, idno, name, id_type, partner_id, 
+    reasonCode, sex, phone, sign_date, approve_date, need_material, new_opinion, prepaidPayAmt, 
+    autoCheck, pause_mark, terminate, zeron_deductible, caseFormula, death, signAutoCheck, 
+    deathProblem
+  </sql>
+  <sql id="Blob_Column_List" >
+    reply_opin, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="com.junling.mis.model.secondary.claimMainOldEntityKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from claim_main_old
+    where procno = #{procno,jdbcType=BIGINT}
+      and docuno = #{docuno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimMainOldEntityKey" >
+    delete from claim_main_old
+    where procno = #{procno,jdbcType=BIGINT}
+      and docuno = #{docuno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimMainOldEntityWithBLOBs" >
+    insert into claim_main_old (procno, docuno, insured_id, 
+      docu_status, docu_date, exam_date, 
+      end_date, is_direct_bill, exam_amt, 
+      exam_result, reject_cause, accdnt_result, 
+      idno, name, id_type, 
+      partner_id, reasonCode, sex, 
+      phone, sign_date, approve_date, 
+      need_material, new_opinion, prepaidPayAmt, 
+      autoCheck, pause_mark, terminate, 
+      zeron_deductible, caseFormula, death, 
+      signAutoCheck, deathProblem, reply_opin, 
+      remark)
+    values (#{procno,jdbcType=BIGINT}, #{docuno,jdbcType=VARCHAR}, #{insuredId,jdbcType=VARCHAR}, 
+      #{docuStatus,jdbcType=VARCHAR}, #{docuDate,jdbcType=TIMESTAMP}, #{examDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{isDirectBill,jdbcType=VARCHAR}, #{examAmt,jdbcType=BIGINT}, 
+      #{examResult,jdbcType=VARCHAR}, #{rejectCause,jdbcType=VARCHAR}, #{accdntResult,jdbcType=VARCHAR}, 
+      #{idno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, 
+      #{partnerId,jdbcType=VARCHAR}, #{reasoncode,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{signDate,jdbcType=TIMESTAMP}, #{approveDate,jdbcType=TIMESTAMP}, 
+      #{needMaterial,jdbcType=VARCHAR}, #{newOpinion,jdbcType=VARCHAR}, #{prepaidpayamt,jdbcType=BIGINT}, 
+      #{autocheck,jdbcType=VARCHAR}, #{pauseMark,jdbcType=VARCHAR}, #{terminate,jdbcType=VARCHAR}, 
+      #{zeronDeductible,jdbcType=VARCHAR}, #{caseformula,jdbcType=VARCHAR}, #{death,jdbcType=VARCHAR}, 
+      #{signautocheck,jdbcType=VARCHAR}, #{deathproblem,jdbcType=VARCHAR}, #{replyOpin,jdbcType=LONGVARCHAR}, 
+      #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimMainOldEntityWithBLOBs" >
+    insert into claim_main_old
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="procno != null" >
+        procno,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="docuStatus != null" >
+        docu_status,
+      </if>
+      <if test="docuDate != null" >
+        docu_date,
+      </if>
+      <if test="examDate != null" >
+        exam_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="isDirectBill != null" >
+        is_direct_bill,
+      </if>
+      <if test="examAmt != null" >
+        exam_amt,
+      </if>
+      <if test="examResult != null" >
+        exam_result,
+      </if>
+      <if test="rejectCause != null" >
+        reject_cause,
+      </if>
+      <if test="accdntResult != null" >
+        accdnt_result,
+      </if>
+      <if test="idno != null" >
+        idno,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="partnerId != null" >
+        partner_id,
+      </if>
+      <if test="reasoncode != null" >
+        reasonCode,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="signDate != null" >
+        sign_date,
+      </if>
+      <if test="approveDate != null" >
+        approve_date,
+      </if>
+      <if test="needMaterial != null" >
+        need_material,
+      </if>
+      <if test="newOpinion != null" >
+        new_opinion,
+      </if>
+      <if test="prepaidpayamt != null" >
+        prepaidPayAmt,
+      </if>
+      <if test="autocheck != null" >
+        autoCheck,
+      </if>
+      <if test="pauseMark != null" >
+        pause_mark,
+      </if>
+      <if test="terminate != null" >
+        terminate,
+      </if>
+      <if test="zeronDeductible != null" >
+        zeron_deductible,
+      </if>
+      <if test="caseformula != null" >
+        caseFormula,
+      </if>
+      <if test="death != null" >
+        death,
+      </if>
+      <if test="signautocheck != null" >
+        signAutoCheck,
+      </if>
+      <if test="deathproblem != null" >
+        deathProblem,
+      </if>
+      <if test="replyOpin != null" >
+        reply_opin,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="procno != null" >
+        #{procno,jdbcType=BIGINT},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="docuStatus != null" >
+        #{docuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="docuDate != null" >
+        #{docuDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examDate != null" >
+        #{examDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDirectBill != null" >
+        #{isDirectBill,jdbcType=VARCHAR},
+      </if>
+      <if test="examAmt != null" >
+        #{examAmt,jdbcType=BIGINT},
+      </if>
+      <if test="examResult != null" >
+        #{examResult,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectCause != null" >
+        #{rejectCause,jdbcType=VARCHAR},
+      </if>
+      <if test="accdntResult != null" >
+        #{accdntResult,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null" >
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="reasoncode != null" >
+        #{reasoncode,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="signDate != null" >
+        #{signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveDate != null" >
+        #{approveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="needMaterial != null" >
+        #{needMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="newOpinion != null" >
+        #{newOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="prepaidpayamt != null" >
+        #{prepaidpayamt,jdbcType=BIGINT},
+      </if>
+      <if test="autocheck != null" >
+        #{autocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="pauseMark != null" >
+        #{pauseMark,jdbcType=VARCHAR},
+      </if>
+      <if test="terminate != null" >
+        #{terminate,jdbcType=VARCHAR},
+      </if>
+      <if test="zeronDeductible != null" >
+        #{zeronDeductible,jdbcType=VARCHAR},
+      </if>
+      <if test="caseformula != null" >
+        #{caseformula,jdbcType=VARCHAR},
+      </if>
+      <if test="death != null" >
+        #{death,jdbcType=VARCHAR},
+      </if>
+      <if test="signautocheck != null" >
+        #{signautocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="deathproblem != null" >
+        #{deathproblem,jdbcType=VARCHAR},
+      </if>
+      <if test="replyOpin != null" >
+        #{replyOpin,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimMainOldEntityWithBLOBs" >
+    update claim_main_old
+    <set >
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="docuStatus != null" >
+        docu_status = #{docuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="docuDate != null" >
+        docu_date = #{docuDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examDate != null" >
+        exam_date = #{examDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDirectBill != null" >
+        is_direct_bill = #{isDirectBill,jdbcType=VARCHAR},
+      </if>
+      <if test="examAmt != null" >
+        exam_amt = #{examAmt,jdbcType=BIGINT},
+      </if>
+      <if test="examResult != null" >
+        exam_result = #{examResult,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectCause != null" >
+        reject_cause = #{rejectCause,jdbcType=VARCHAR},
+      </if>
+      <if test="accdntResult != null" >
+        accdnt_result = #{accdntResult,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        idno = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null" >
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="reasoncode != null" >
+        reasonCode = #{reasoncode,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="signDate != null" >
+        sign_date = #{signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveDate != null" >
+        approve_date = #{approveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="needMaterial != null" >
+        need_material = #{needMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="newOpinion != null" >
+        new_opinion = #{newOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="prepaidpayamt != null" >
+        prepaidPayAmt = #{prepaidpayamt,jdbcType=BIGINT},
+      </if>
+      <if test="autocheck != null" >
+        autoCheck = #{autocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="pauseMark != null" >
+        pause_mark = #{pauseMark,jdbcType=VARCHAR},
+      </if>
+      <if test="terminate != null" >
+        terminate = #{terminate,jdbcType=VARCHAR},
+      </if>
+      <if test="zeronDeductible != null" >
+        zeron_deductible = #{zeronDeductible,jdbcType=VARCHAR},
+      </if>
+      <if test="caseformula != null" >
+        caseFormula = #{caseformula,jdbcType=VARCHAR},
+      </if>
+      <if test="death != null" >
+        death = #{death,jdbcType=VARCHAR},
+      </if>
+      <if test="signautocheck != null" >
+        signAutoCheck = #{signautocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="deathproblem != null" >
+        deathProblem = #{deathproblem,jdbcType=VARCHAR},
+      </if>
+      <if test="replyOpin != null" >
+        reply_opin = #{replyOpin,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where procno = #{procno,jdbcType=BIGINT}
+      and docuno = #{docuno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.claimMainOldEntityWithBLOBs" >
+    update claim_main_old
+    set insured_id = #{insuredId,jdbcType=VARCHAR},
+      docu_status = #{docuStatus,jdbcType=VARCHAR},
+      docu_date = #{docuDate,jdbcType=TIMESTAMP},
+      exam_date = #{examDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      is_direct_bill = #{isDirectBill,jdbcType=VARCHAR},
+      exam_amt = #{examAmt,jdbcType=BIGINT},
+      exam_result = #{examResult,jdbcType=VARCHAR},
+      reject_cause = #{rejectCause,jdbcType=VARCHAR},
+      accdnt_result = #{accdntResult,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      reasonCode = #{reasoncode,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      sign_date = #{signDate,jdbcType=TIMESTAMP},
+      approve_date = #{approveDate,jdbcType=TIMESTAMP},
+      need_material = #{needMaterial,jdbcType=VARCHAR},
+      new_opinion = #{newOpinion,jdbcType=VARCHAR},
+      prepaidPayAmt = #{prepaidpayamt,jdbcType=BIGINT},
+      autoCheck = #{autocheck,jdbcType=VARCHAR},
+      pause_mark = #{pauseMark,jdbcType=VARCHAR},
+      terminate = #{terminate,jdbcType=VARCHAR},
+      zeron_deductible = #{zeronDeductible,jdbcType=VARCHAR},
+      caseFormula = #{caseformula,jdbcType=VARCHAR},
+      death = #{death,jdbcType=VARCHAR},
+      signAutoCheck = #{signautocheck,jdbcType=VARCHAR},
+      deathProblem = #{deathproblem,jdbcType=VARCHAR},
+      reply_opin = #{replyOpin,jdbcType=LONGVARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where procno = #{procno,jdbcType=BIGINT}
+      and docuno = #{docuno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimMainOldEntity" >
+    update claim_main_old
+    set insured_id = #{insuredId,jdbcType=VARCHAR},
+      docu_status = #{docuStatus,jdbcType=VARCHAR},
+      docu_date = #{docuDate,jdbcType=TIMESTAMP},
+      exam_date = #{examDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      is_direct_bill = #{isDirectBill,jdbcType=VARCHAR},
+      exam_amt = #{examAmt,jdbcType=BIGINT},
+      exam_result = #{examResult,jdbcType=VARCHAR},
+      reject_cause = #{rejectCause,jdbcType=VARCHAR},
+      accdnt_result = #{accdntResult,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      reasonCode = #{reasoncode,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      sign_date = #{signDate,jdbcType=TIMESTAMP},
+      approve_date = #{approveDate,jdbcType=TIMESTAMP},
+      need_material = #{needMaterial,jdbcType=VARCHAR},
+      new_opinion = #{newOpinion,jdbcType=VARCHAR},
+      prepaidPayAmt = #{prepaidpayamt,jdbcType=BIGINT},
+      autoCheck = #{autocheck,jdbcType=VARCHAR},
+      pause_mark = #{pauseMark,jdbcType=VARCHAR},
+      terminate = #{terminate,jdbcType=VARCHAR},
+      zeron_deductible = #{zeronDeductible,jdbcType=VARCHAR},
+      caseFormula = #{caseformula,jdbcType=VARCHAR},
+      death = #{death,jdbcType=VARCHAR},
+      signAutoCheck = #{signautocheck,jdbcType=VARCHAR},
+      deathProblem = #{deathproblem,jdbcType=VARCHAR}
+    where procno = #{procno,jdbcType=BIGINT}
+      and docuno = #{docuno,jdbcType=VARCHAR}
+  </update>
+</mapper>

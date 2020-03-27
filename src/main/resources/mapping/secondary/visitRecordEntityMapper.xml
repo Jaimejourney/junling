@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.visitRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitRecordEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="apply_type" property="applyType" jdbcType="VARCHAR" />
+    <result column="claim_type" property="claimType" jdbcType="VARCHAR" />
+    <result column="visit_time" property="visitTime" jdbcType="VARCHAR" />
+    <result column="accident_time" property="accidentTime" jdbcType="VARCHAR" />
+    <result column="person_id" property="personId" jdbcType="DECIMAL" />
+    <result column="image_id" property="imageId" jdbcType="DECIMAL" />
+    <result column="bank_id" property="bankId" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DOUBLE" />
+    <result column="pay_time" property="payTime" jdbcType="VARCHAR" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="claim_time" property="claimTime" jdbcType="VARCHAR" />
+    <result column="apply_time" property="applyTime" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="reply_time" property="replyTime" jdbcType="VARCHAR" />
+    <result column="finish_time" property="finishTime" jdbcType="VARCHAR" />
+    <result column="opt_status" property="optStatus" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="zip_path" property="zipPath" jdbcType="VARCHAR" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="hospital_code" property="hospitalCode" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="client_pol_ids" property="clientPolIds" jdbcType="VARCHAR" />
+    <result column="CPayResult" property="cpayresult" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="relationship_id" property="relationshipId" jdbcType="VARCHAR" />
+    <result column="process_type" property="processType" jdbcType="VARCHAR" />
+    <result column="apply_person_id" property="applyPersonId" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="case_type" property="caseType" jdbcType="VARCHAR" />
+    <result column="acci_desci" property="acciDesci" jdbcType="VARCHAR" />
+    <result column="acci_place" property="acciPlace" jdbcType="VARCHAR" />
+    <result column="to_anxin" property="toAnxin" jdbcType="VARCHAR" />
+    <result column="partner" property="partner" jdbcType="VARCHAR" />
+    <result column="initialReviewTime" property="initialreviewtime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="initial_review_end_time" property="initialReviewEndTime" jdbcType="TIMESTAMP" />
+    <result column="apply_by" property="applyBy" jdbcType="VARCHAR" />
+    <result column="review_by" property="reviewBy" jdbcType="VARCHAR" />
+    <result column="pushStatus" property="pushstatus" jdbcType="VARCHAR" />
+    <result column="pdfUrl" property="pdfurl" jdbcType="VARCHAR" />
+    <result column="pause_mark" property="pauseMark" jdbcType="VARCHAR" />
+    <result column="calFailType" property="calfailtype" jdbcType="VARCHAR" />
+    <result column="calculate_channel" property="calculateChannel" jdbcType="VARCHAR" />
+    <result column="excessExamineFlag" property="excessexamineflag" jdbcType="VARCHAR" />
+    <result column="deathExamineFlag" property="deathexamineflag" jdbcType="VARCHAR" />
+    <result column="problem" property="problem" jdbcType="VARCHAR" />
+    <result column="is_artificial" property="isArtificial" jdbcType="INTEGER" />
+    <result column="artificial_by" property="artificialBy" jdbcType="VARCHAR" />
+    <result column="hang_flag" property="hangFlag" jdbcType="VARCHAR" />
+    <result column="handleStatus" property="handlestatus" jdbcType="VARCHAR" />
+    <result column="needPushDeathRemarkFlag" property="needpushdeathremarkflag" jdbcType="VARCHAR" />
+    <result column="approve_by" property="approveBy" jdbcType="VARCHAR" />
+    <result column="is_sync_case_attr" property="isSyncCaseAttr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, 
+    bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, 
+    reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, 
+    docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, 
+    source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, 
+    create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, 
+    calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, 
+    artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from visit_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from visit_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+    insert into visit_record (id, openid, apply_type, 
+      claim_type, visit_time, accident_time, 
+      person_id, image_id, bank_id, 
+      status, amount, pay_time, 
+      pay_type, card_id, claim_time, 
+      apply_time, update_time, reply_time, 
+      finish_time, opt_status, remark, 
+      zip_path, update_by, hospital_code, 
+      docuno, client_pol_ids, CPayResult, 
+      comment, relationship_id, process_type, 
+      apply_person_id, source, case_type, 
+      acci_desci, acci_place, to_anxin, 
+      partner, initialReviewTime, create_time, 
+      initial_review_end_time, apply_by, review_by, 
+      pushStatus, pdfUrl, pause_mark, 
+      calFailType, calculate_channel, excessExamineFlag, 
+      deathExamineFlag, problem, is_artificial, 
+      artificial_by, hang_flag, handleStatus, 
+      needPushDeathRemarkFlag, approve_by, is_sync_case_attr
+      )
+    values (#{id,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{applyType,jdbcType=VARCHAR}, 
+      #{claimType,jdbcType=VARCHAR}, #{visitTime,jdbcType=VARCHAR}, #{accidentTime,jdbcType=VARCHAR}, 
+      #{personId,jdbcType=DECIMAL}, #{imageId,jdbcType=DECIMAL}, #{bankId,jdbcType=DECIMAL}, 
+      #{status,jdbcType=INTEGER}, #{amount,jdbcType=DOUBLE}, #{payTime,jdbcType=VARCHAR}, 
+      #{payType,jdbcType=VARCHAR}, #{cardId,jdbcType=VARCHAR}, #{claimTime,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{replyTime,jdbcType=VARCHAR}, 
+      #{finishTime,jdbcType=VARCHAR}, #{optStatus,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{zipPath,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{hospitalCode,jdbcType=VARCHAR}, 
+      #{docuno,jdbcType=VARCHAR}, #{clientPolIds,jdbcType=VARCHAR}, #{cpayresult,jdbcType=VARCHAR}, 
+      #{comment,jdbcType=VARCHAR}, #{relationshipId,jdbcType=VARCHAR}, #{processType,jdbcType=VARCHAR}, 
+      #{applyPersonId,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{caseType,jdbcType=VARCHAR}, 
+      #{acciDesci,jdbcType=VARCHAR}, #{acciPlace,jdbcType=VARCHAR}, #{toAnxin,jdbcType=VARCHAR}, 
+      #{partner,jdbcType=VARCHAR}, #{initialreviewtime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{initialReviewEndTime,jdbcType=TIMESTAMP}, #{applyBy,jdbcType=VARCHAR}, #{reviewBy,jdbcType=VARCHAR}, 
+      #{pushstatus,jdbcType=VARCHAR}, #{pdfurl,jdbcType=VARCHAR}, #{pauseMark,jdbcType=VARCHAR}, 
+      #{calfailtype,jdbcType=VARCHAR}, #{calculateChannel,jdbcType=VARCHAR}, #{excessexamineflag,jdbcType=VARCHAR}, 
+      #{deathexamineflag,jdbcType=VARCHAR}, #{problem,jdbcType=VARCHAR}, #{isArtificial,jdbcType=INTEGER}, 
+      #{artificialBy,jdbcType=VARCHAR}, #{hangFlag,jdbcType=VARCHAR}, #{handlestatus,jdbcType=VARCHAR}, 
+      #{needpushdeathremarkflag,jdbcType=VARCHAR}, #{approveBy,jdbcType=VARCHAR}, #{isSyncCaseAttr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+    insert into visit_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="applyType != null" >
+        apply_type,
+      </if>
+      <if test="claimType != null" >
+        claim_type,
+      </if>
+      <if test="visitTime != null" >
+        visit_time,
+      </if>
+      <if test="accidentTime != null" >
+        accident_time,
+      </if>
+      <if test="personId != null" >
+        person_id,
+      </if>
+      <if test="imageId != null" >
+        image_id,
+      </if>
+      <if test="bankId != null" >
+        bank_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="claimTime != null" >
+        claim_time,
+      </if>
+      <if test="applyTime != null" >
+        apply_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="replyTime != null" >
+        reply_time,
+      </if>
+      <if test="finishTime != null" >
+        finish_time,
+      </if>
+      <if test="optStatus != null" >
+        opt_status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="zipPath != null" >
+        zip_path,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="clientPolIds != null" >
+        client_pol_ids,
+      </if>
+      <if test="cpayresult != null" >
+        CPayResult,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="relationshipId != null" >
+        relationship_id,
+      </if>
+      <if test="processType != null" >
+        process_type,
+      </if>
+      <if test="applyPersonId != null" >
+        apply_person_id,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="caseType != null" >
+        case_type,
+      </if>
+      <if test="acciDesci != null" >
+        acci_desci,
+      </if>
+      <if test="acciPlace != null" >
+        acci_place,
+      </if>
+      <if test="toAnxin != null" >
+        to_anxin,
+      </if>
+      <if test="partner != null" >
+        partner,
+      </if>
+      <if test="initialreviewtime != null" >
+        initialReviewTime,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="initialReviewEndTime != null" >
+        initial_review_end_time,
+      </if>
+      <if test="applyBy != null" >
+        apply_by,
+      </if>
+      <if test="reviewBy != null" >
+        review_by,
+      </if>
+      <if test="pushstatus != null" >
+        pushStatus,
+      </if>
+      <if test="pdfurl != null" >
+        pdfUrl,
+      </if>
+      <if test="pauseMark != null" >
+        pause_mark,
+      </if>
+      <if test="calfailtype != null" >
+        calFailType,
+      </if>
+      <if test="calculateChannel != null" >
+        calculate_channel,
+      </if>
+      <if test="excessexamineflag != null" >
+        excessExamineFlag,
+      </if>
+      <if test="deathexamineflag != null" >
+        deathExamineFlag,
+      </if>
+      <if test="problem != null" >
+        problem,
+      </if>
+      <if test="isArtificial != null" >
+        is_artificial,
+      </if>
+      <if test="artificialBy != null" >
+        artificial_by,
+      </if>
+      <if test="hangFlag != null" >
+        hang_flag,
+      </if>
+      <if test="handlestatus != null" >
+        handleStatus,
+      </if>
+      <if test="needpushdeathremarkflag != null" >
+        needPushDeathRemarkFlag,
+      </if>
+      <if test="approveBy != null" >
+        approve_by,
+      </if>
+      <if test="isSyncCaseAttr != null" >
+        is_sync_case_attr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null" >
+        #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimType != null" >
+        #{claimType,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        #{visitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentTime != null" >
+        #{accidentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null" >
+        #{personId,jdbcType=DECIMAL},
+      </if>
+      <if test="imageId != null" >
+        #{imageId,jdbcType=DECIMAL},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimTime != null" >
+        #{claimTime,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyTime != null" >
+        #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishTime != null" >
+        #{finishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="optStatus != null" >
+        #{optStatus,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="zipPath != null" >
+        #{zipPath,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null" >
+        #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="clientPolIds != null" >
+        #{clientPolIds,jdbcType=VARCHAR},
+      </if>
+      <if test="cpayresult != null" >
+        #{cpayresult,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="relationshipId != null" >
+        #{relationshipId,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null" >
+        #{processType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPersonId != null" >
+        #{applyPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="acciDesci != null" >
+        #{acciDesci,jdbcType=VARCHAR},
+      </if>
+      <if test="acciPlace != null" >
+        #{acciPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="toAnxin != null" >
+        #{toAnxin,jdbcType=VARCHAR},
+      </if>
+      <if test="partner != null" >
+        #{partner,jdbcType=VARCHAR},
+      </if>
+      <if test="initialreviewtime != null" >
+        #{initialreviewtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initialReviewEndTime != null" >
+        #{initialReviewEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyBy != null" >
+        #{applyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewBy != null" >
+        #{reviewBy,jdbcType=VARCHAR},
+      </if>
+      <if test="pushstatus != null" >
+        #{pushstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfurl != null" >
+        #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pauseMark != null" >
+        #{pauseMark,jdbcType=VARCHAR},
+      </if>
+      <if test="calfailtype != null" >
+        #{calfailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="calculateChannel != null" >
+        #{calculateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="excessexamineflag != null" >
+        #{excessexamineflag,jdbcType=VARCHAR},
+      </if>
+      <if test="deathexamineflag != null" >
+        #{deathexamineflag,jdbcType=VARCHAR},
+      </if>
+      <if test="problem != null" >
+        #{problem,jdbcType=VARCHAR},
+      </if>
+      <if test="isArtificial != null" >
+        #{isArtificial,jdbcType=INTEGER},
+      </if>
+      <if test="artificialBy != null" >
+        #{artificialBy,jdbcType=VARCHAR},
+      </if>
+      <if test="hangFlag != null" >
+        #{hangFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="handlestatus != null" >
+        #{handlestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="needpushdeathremarkflag != null" >
+        #{needpushdeathremarkflag,jdbcType=VARCHAR},
+      </if>
+      <if test="approveBy != null" >
+        #{approveBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isSyncCaseAttr != null" >
+        #{isSyncCaseAttr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+    update visit_record
+    <set >
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyType != null" >
+        apply_type = #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimType != null" >
+        claim_type = #{claimType,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        visit_time = #{visitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentTime != null" >
+        accident_time = #{accidentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null" >
+        person_id = #{personId,jdbcType=DECIMAL},
+      </if>
+      <if test="imageId != null" >
+        image_id = #{imageId,jdbcType=DECIMAL},
+      </if>
+      <if test="bankId != null" >
+        bank_id = #{bankId,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimTime != null" >
+        claim_time = #{claimTime,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        apply_time = #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyTime != null" >
+        reply_time = #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishTime != null" >
+        finish_time = #{finishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="optStatus != null" >
+        opt_status = #{optStatus,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="zipPath != null" >
+        zip_path = #{zipPath,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="clientPolIds != null" >
+        client_pol_ids = #{clientPolIds,jdbcType=VARCHAR},
+      </if>
+      <if test="cpayresult != null" >
+        CPayResult = #{cpayresult,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="relationshipId != null" >
+        relationship_id = #{relationshipId,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null" >
+        process_type = #{processType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPersonId != null" >
+        apply_person_id = #{applyPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        case_type = #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="acciDesci != null" >
+        acci_desci = #{acciDesci,jdbcType=VARCHAR},
+      </if>
+      <if test="acciPlace != null" >
+        acci_place = #{acciPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="toAnxin != null" >
+        to_anxin = #{toAnxin,jdbcType=VARCHAR},
+      </if>
+      <if test="partner != null" >
+        partner = #{partner,jdbcType=VARCHAR},
+      </if>
+      <if test="initialreviewtime != null" >
+        initialReviewTime = #{initialreviewtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initialReviewEndTime != null" >
+        initial_review_end_time = #{initialReviewEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyBy != null" >
+        apply_by = #{applyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewBy != null" >
+        review_by = #{reviewBy,jdbcType=VARCHAR},
+      </if>
+      <if test="pushstatus != null" >
+        pushStatus = #{pushstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfurl != null" >
+        pdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pauseMark != null" >
+        pause_mark = #{pauseMark,jdbcType=VARCHAR},
+      </if>
+      <if test="calfailtype != null" >
+        calFailType = #{calfailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="calculateChannel != null" >
+        calculate_channel = #{calculateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="excessexamineflag != null" >
+        excessExamineFlag = #{excessexamineflag,jdbcType=VARCHAR},
+      </if>
+      <if test="deathexamineflag != null" >
+        deathExamineFlag = #{deathexamineflag,jdbcType=VARCHAR},
+      </if>
+      <if test="problem != null" >
+        problem = #{problem,jdbcType=VARCHAR},
+      </if>
+      <if test="isArtificial != null" >
+        is_artificial = #{isArtificial,jdbcType=INTEGER},
+      </if>
+      <if test="artificialBy != null" >
+        artificial_by = #{artificialBy,jdbcType=VARCHAR},
+      </if>
+      <if test="hangFlag != null" >
+        hang_flag = #{hangFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="handlestatus != null" >
+        handleStatus = #{handlestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="needpushdeathremarkflag != null" >
+        needPushDeathRemarkFlag = #{needpushdeathremarkflag,jdbcType=VARCHAR},
+      </if>
+      <if test="approveBy != null" >
+        approve_by = #{approveBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isSyncCaseAttr != null" >
+        is_sync_case_attr = #{isSyncCaseAttr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+    update visit_record
+    set openid = #{openid,jdbcType=VARCHAR},
+      apply_type = #{applyType,jdbcType=VARCHAR},
+      claim_type = #{claimType,jdbcType=VARCHAR},
+      visit_time = #{visitTime,jdbcType=VARCHAR},
+      accident_time = #{accidentTime,jdbcType=VARCHAR},
+      person_id = #{personId,jdbcType=DECIMAL},
+      image_id = #{imageId,jdbcType=DECIMAL},
+      bank_id = #{bankId,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DOUBLE},
+      pay_time = #{payTime,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      card_id = #{cardId,jdbcType=VARCHAR},
+      claim_time = #{claimTime,jdbcType=VARCHAR},
+      apply_time = #{applyTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      reply_time = #{replyTime,jdbcType=VARCHAR},
+      finish_time = #{finishTime,jdbcType=VARCHAR},
+      opt_status = #{optStatus,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      zip_path = #{zipPath,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      docuno = #{docuno,jdbcType=VARCHAR},
+      client_pol_ids = #{clientPolIds,jdbcType=VARCHAR},
+      CPayResult = #{cpayresult,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      relationship_id = #{relationshipId,jdbcType=VARCHAR},
+      process_type = #{processType,jdbcType=VARCHAR},
+      apply_person_id = #{applyPersonId,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      case_type = #{caseType,jdbcType=VARCHAR},
+      acci_desci = #{acciDesci,jdbcType=VARCHAR},
+      acci_place = #{acciPlace,jdbcType=VARCHAR},
+      to_anxin = #{toAnxin,jdbcType=VARCHAR},
+      partner = #{partner,jdbcType=VARCHAR},
+      initialReviewTime = #{initialreviewtime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      initial_review_end_time = #{initialReviewEndTime,jdbcType=TIMESTAMP},
+      apply_by = #{applyBy,jdbcType=VARCHAR},
+      review_by = #{reviewBy,jdbcType=VARCHAR},
+      pushStatus = #{pushstatus,jdbcType=VARCHAR},
+      pdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      pause_mark = #{pauseMark,jdbcType=VARCHAR},
+      calFailType = #{calfailtype,jdbcType=VARCHAR},
+      calculate_channel = #{calculateChannel,jdbcType=VARCHAR},
+      excessExamineFlag = #{excessexamineflag,jdbcType=VARCHAR},
+      deathExamineFlag = #{deathexamineflag,jdbcType=VARCHAR},
+      problem = #{problem,jdbcType=VARCHAR},
+      is_artificial = #{isArtificial,jdbcType=INTEGER},
+      artificial_by = #{artificialBy,jdbcType=VARCHAR},
+      hang_flag = #{hangFlag,jdbcType=VARCHAR},
+      handleStatus = #{handlestatus,jdbcType=VARCHAR},
+      needPushDeathRemarkFlag = #{needpushdeathremarkflag,jdbcType=VARCHAR},
+      approve_by = #{approveBy,jdbcType=VARCHAR},
+      is_sync_case_attr = #{isSyncCaseAttr,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.reportExcessRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="person_card_id" property="personCardId" jdbcType="VARCHAR" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, person_card_id, polno, createdDate, updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from report_excess_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from report_excess_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+    insert into report_excess_record (id, docuno, person_card_id, 
+      polno, createdDate, updatedDate
+      )
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{personCardId,jdbcType=VARCHAR}, 
+      #{polno,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+    insert into report_excess_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="personCardId != null" >
+        person_card_id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="personCardId != null" >
+        #{personCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+    update report_excess_record
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="personCardId != null" >
+        person_card_id = #{personCardId,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+    update report_excess_record
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      person_card_id = #{personCardId,jdbcType=VARCHAR},
+      polno = #{polno,jdbcType=VARCHAR},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

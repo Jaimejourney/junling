@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.sheet2EntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sheet2Entity" >
+    <result column="a" property="a" jdbcType="VARCHAR" />
+    <result column="b" property="b" jdbcType="VARCHAR" />
+    <result column="c" property="c" jdbcType="VARCHAR" />
+    <result column="d" property="d" jdbcType="VARCHAR" />
+    <result column="e" property="e" jdbcType="VARCHAR" />
+    <result column="f" property="f" jdbcType="VARCHAR" />
+    <result column="g" property="g" jdbcType="VARCHAR" />
+    <result column="h" property="h" jdbcType="VARCHAR" />
+    <result column="i" property="i" jdbcType="VARCHAR" />
+    <result column="j" property="j" jdbcType="VARCHAR" />
+    <result column="k" property="k" jdbcType="VARCHAR" />
+    <result column="l" property="l" jdbcType="VARCHAR" />
+    <result column="m" property="m" jdbcType="VARCHAR" />
+    <result column="n" property="n" jdbcType="VARCHAR" />
+    <result column="o" property="o" jdbcType="VARCHAR" />
+    <result column="p" property="p" jdbcType="VARCHAR" />
+    <result column="q" property="q" jdbcType="VARCHAR" />
+    <result column="r" property="r" jdbcType="VARCHAR" />
+    <result column="s" property="s" jdbcType="VARCHAR" />
+    <result column="t" property="t" jdbcType="VARCHAR" />
+    <result column="u" property="u" jdbcType="VARCHAR" />
+    <result column="v" property="v" jdbcType="VARCHAR" />
+    <result column="w" property="w" jdbcType="VARCHAR" />
+    <result column="x" property="x" jdbcType="VARCHAR" />
+    <result column=" y" property="y" jdbcType="VARCHAR" />
+    <result column="z" property="z" jdbcType="VARCHAR" />
+    <result column="aa" property="aa" jdbcType="VARCHAR" />
+    <result column="bb" property="bb" jdbcType="VARCHAR" />
+    <result column="cc" property="cc" jdbcType="VARCHAR" />
+    <result column="dd" property="dd" jdbcType="VARCHAR" />
+    <result column="ee" property="ee" jdbcType="VARCHAR" />
+    <result column="ff" property="ff" jdbcType="VARCHAR" />
+    <result column="gg" property="gg" jdbcType="VARCHAR" />
+    <result column="hh" property="hh" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.sheet2Entity" >
+    insert into sheet2 (a, b, c, d, 
+      e, f, g, h, 
+      i, j, k, l, 
+      m, n, o, p, 
+      q, r, s, t, 
+      u, v, w, x, 
+      " y", z, aa, bb, 
+      cc, dd, ee, ff, 
+      gg, hh)
+    values (#{a,jdbcType=VARCHAR}, #{b,jdbcType=VARCHAR}, #{c,jdbcType=VARCHAR}, #{d,jdbcType=VARCHAR}, 
+      #{e,jdbcType=VARCHAR}, #{f,jdbcType=VARCHAR}, #{g,jdbcType=VARCHAR}, #{h,jdbcType=VARCHAR}, 
+      #{i,jdbcType=VARCHAR}, #{j,jdbcType=VARCHAR}, #{k,jdbcType=VARCHAR}, #{l,jdbcType=VARCHAR}, 
+      #{m,jdbcType=VARCHAR}, #{n,jdbcType=VARCHAR}, #{o,jdbcType=VARCHAR}, #{p,jdbcType=VARCHAR}, 
+      #{q,jdbcType=VARCHAR}, #{r,jdbcType=VARCHAR}, #{s,jdbcType=VARCHAR}, #{t,jdbcType=VARCHAR}, 
+      #{u,jdbcType=VARCHAR}, #{v,jdbcType=VARCHAR}, #{w,jdbcType=VARCHAR}, #{x,jdbcType=VARCHAR}, 
+      #{y,jdbcType=VARCHAR}, #{z,jdbcType=VARCHAR}, #{aa,jdbcType=VARCHAR}, #{bb,jdbcType=VARCHAR}, 
+      #{cc,jdbcType=VARCHAR}, #{dd,jdbcType=VARCHAR}, #{ee,jdbcType=VARCHAR}, #{ff,jdbcType=VARCHAR}, 
+      #{gg,jdbcType=VARCHAR}, #{hh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sheet2Entity" >
+    insert into sheet2
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="a != null" >
+        a,
+      </if>
+      <if test="b != null" >
+        b,
+      </if>
+      <if test="c != null" >
+        c,
+      </if>
+      <if test="d != null" >
+        d,
+      </if>
+      <if test="e != null" >
+        e,
+      </if>
+      <if test="f != null" >
+        f,
+      </if>
+      <if test="g != null" >
+        g,
+      </if>
+      <if test="h != null" >
+        h,
+      </if>
+      <if test="i != null" >
+        i,
+      </if>
+      <if test="j != null" >
+        j,
+      </if>
+      <if test="k != null" >
+        k,
+      </if>
+      <if test="l != null" >
+        l,
+      </if>
+      <if test="m != null" >
+        m,
+      </if>
+      <if test="n != null" >
+        n,
+      </if>
+      <if test="o != null" >
+        o,
+      </if>
+      <if test="p != null" >
+        p,
+      </if>
+      <if test="q != null" >
+        q,
+      </if>
+      <if test="r != null" >
+        r,
+      </if>
+      <if test="s != null" >
+        s,
+      </if>
+      <if test="t != null" >
+        t,
+      </if>
+      <if test="u != null" >
+        u,
+      </if>
+      <if test="v != null" >
+        v,
+      </if>
+      <if test="w != null" >
+        w,
+      </if>
+      <if test="x != null" >
+        x,
+      </if>
+      <if test="y != null" >
+        " y",
+      </if>
+      <if test="z != null" >
+        z,
+      </if>
+      <if test="aa != null" >
+        aa,
+      </if>
+      <if test="bb != null" >
+        bb,
+      </if>
+      <if test="cc != null" >
+        cc,
+      </if>
+      <if test="dd != null" >
+        dd,
+      </if>
+      <if test="ee != null" >
+        ee,
+      </if>
+      <if test="ff != null" >
+        ff,
+      </if>
+      <if test="gg != null" >
+        gg,
+      </if>
+      <if test="hh != null" >
+        hh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="a != null" >
+        #{a,jdbcType=VARCHAR},
+      </if>
+      <if test="b != null" >
+        #{b,jdbcType=VARCHAR},
+      </if>
+      <if test="c != null" >
+        #{c,jdbcType=VARCHAR},
+      </if>
+      <if test="d != null" >
+        #{d,jdbcType=VARCHAR},
+      </if>
+      <if test="e != null" >
+        #{e,jdbcType=VARCHAR},
+      </if>
+      <if test="f != null" >
+        #{f,jdbcType=VARCHAR},
+      </if>
+      <if test="g != null" >
+        #{g,jdbcType=VARCHAR},
+      </if>
+      <if test="h != null" >
+        #{h,jdbcType=VARCHAR},
+      </if>
+      <if test="i != null" >
+        #{i,jdbcType=VARCHAR},
+      </if>
+      <if test="j != null" >
+        #{j,jdbcType=VARCHAR},
+      </if>
+      <if test="k != null" >
+        #{k,jdbcType=VARCHAR},
+      </if>
+      <if test="l != null" >
+        #{l,jdbcType=VARCHAR},
+      </if>
+      <if test="m != null" >
+        #{m,jdbcType=VARCHAR},
+      </if>
+      <if test="n != null" >
+        #{n,jdbcType=VARCHAR},
+      </if>
+      <if test="o != null" >
+        #{o,jdbcType=VARCHAR},
+      </if>
+      <if test="p != null" >
+        #{p,jdbcType=VARCHAR},
+      </if>
+      <if test="q != null" >
+        #{q,jdbcType=VARCHAR},
+      </if>
+      <if test="r != null" >
+        #{r,jdbcType=VARCHAR},
+      </if>
+      <if test="s != null" >
+        #{s,jdbcType=VARCHAR},
+      </if>
+      <if test="t != null" >
+        #{t,jdbcType=VARCHAR},
+      </if>
+      <if test="u != null" >
+        #{u,jdbcType=VARCHAR},
+      </if>
+      <if test="v != null" >
+        #{v,jdbcType=VARCHAR},
+      </if>
+      <if test="w != null" >
+        #{w,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null" >
+        #{x,jdbcType=VARCHAR},
+      </if>
+      <if test="y != null" >
+        #{y,jdbcType=VARCHAR},
+      </if>
+      <if test="z != null" >
+        #{z,jdbcType=VARCHAR},
+      </if>
+      <if test="aa != null" >
+        #{aa,jdbcType=VARCHAR},
+      </if>
+      <if test="bb != null" >
+        #{bb,jdbcType=VARCHAR},
+      </if>
+      <if test="cc != null" >
+        #{cc,jdbcType=VARCHAR},
+      </if>
+      <if test="dd != null" >
+        #{dd,jdbcType=VARCHAR},
+      </if>
+      <if test="ee != null" >
+        #{ee,jdbcType=VARCHAR},
+      </if>
+      <if test="ff != null" >
+        #{ff,jdbcType=VARCHAR},
+      </if>
+      <if test="gg != null" >
+        #{gg,jdbcType=VARCHAR},
+      </if>
+      <if test="hh != null" >
+        #{hh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

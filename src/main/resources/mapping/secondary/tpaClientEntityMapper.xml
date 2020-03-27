@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaClientEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaClientEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
+    <result column="clientno" property="clientno" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="idno" property="idno" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="birth_date" property="birthDate" jdbcType="TIMESTAMP" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="surrender_ins_eff_date" property="surrenderInsEffDate" jdbcType="VARCHAR" />
+    <result column="social_sec_flag" property="socialSecFlag" jdbcType="CHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="main_insured_id" property="mainInsuredId" jdbcType="VARCHAR" />
+    <result column="main_id_type" property="mainIdType" jdbcType="VARCHAR" />
+    <result column="main_idno" property="mainIdno" jdbcType="VARCHAR" />
+    <result column="main_name" property="mainName" jdbcType="VARCHAR" />
+    <result column="main_gender" property="mainGender" jdbcType="VARCHAR" />
+    <result column="main_birth_date" property="mainBirthDate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, grade_level, clientno, id_type, idno, name, gender, address, birth_date, mobile, 
+    email, surrender_ins_eff_date, social_sec_flag, created_by, created_date, updated_by, 
+    updated_date, main_insured_id, main_id_type, main_idno, main_name, main_gender, main_birth_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_client
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tpa_client
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+    insert into tpa_client (id, grade_level, clientno, 
+      id_type, idno, name, 
+      gender, address, birth_date, 
+      mobile, email, surrender_ins_eff_date, 
+      social_sec_flag, created_by, created_date, 
+      updated_by, updated_date, main_insured_id, 
+      main_id_type, main_idno, main_name, 
+      main_gender, main_birth_date)
+    values (#{id,jdbcType=BIGINT}, #{gradeLevel,jdbcType=VARCHAR}, #{clientno,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=VARCHAR}, #{idno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, #{birthDate,jdbcType=TIMESTAMP}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{surrenderInsEffDate,jdbcType=VARCHAR}, 
+      #{socialSecFlag,jdbcType=CHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, #{mainInsuredId,jdbcType=VARCHAR}, 
+      #{mainIdType,jdbcType=VARCHAR}, #{mainIdno,jdbcType=VARCHAR}, #{mainName,jdbcType=VARCHAR}, 
+      #{mainGender,jdbcType=VARCHAR}, #{mainBirthDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+    insert into tpa_client
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="clientno != null" >
+        clientno,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idno != null" >
+        idno,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="birthDate != null" >
+        birth_date,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="surrenderInsEffDate != null" >
+        surrender_ins_eff_date,
+      </if>
+      <if test="socialSecFlag != null" >
+        social_sec_flag,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="mainInsuredId != null" >
+        main_insured_id,
+      </if>
+      <if test="mainIdType != null" >
+        main_id_type,
+      </if>
+      <if test="mainIdno != null" >
+        main_idno,
+      </if>
+      <if test="mainName != null" >
+        main_name,
+      </if>
+      <if test="mainGender != null" >
+        main_gender,
+      </if>
+      <if test="mainBirthDate != null" >
+        main_birth_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="clientno != null" >
+        #{clientno,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null" >
+        #{birthDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="surrenderInsEffDate != null" >
+        #{surrenderInsEffDate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecFlag != null" >
+        #{socialSecFlag,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mainInsuredId != null" >
+        #{mainInsuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIdType != null" >
+        #{mainIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIdno != null" >
+        #{mainIdno,jdbcType=VARCHAR},
+      </if>
+      <if test="mainName != null" >
+        #{mainName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainGender != null" >
+        #{mainGender,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBirthDate != null" >
+        #{mainBirthDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+    update tpa_client
+    <set >
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="clientno != null" >
+        clientno = #{clientno,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        idno = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null" >
+        birth_date = #{birthDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="surrenderInsEffDate != null" >
+        surrender_ins_eff_date = #{surrenderInsEffDate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecFlag != null" >
+        social_sec_flag = #{socialSecFlag,jdbcType=CHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mainInsuredId != null" >
+        main_insured_id = #{mainInsuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIdType != null" >
+        main_id_type = #{mainIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIdno != null" >
+        main_idno = #{mainIdno,jdbcType=VARCHAR},
+      </if>
+      <if test="mainName != null" >
+        main_name = #{mainName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainGender != null" >
+        main_gender = #{mainGender,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBirthDate != null" >
+        main_birth_date = #{mainBirthDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+    update tpa_client
+    set grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      clientno = #{clientno,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birth_date = #{birthDate,jdbcType=TIMESTAMP},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      surrender_ins_eff_date = #{surrenderInsEffDate,jdbcType=VARCHAR},
+      social_sec_flag = #{socialSecFlag,jdbcType=CHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      main_insured_id = #{mainInsuredId,jdbcType=VARCHAR},
+      main_id_type = #{mainIdType,jdbcType=VARCHAR},
+      main_idno = #{mainIdno,jdbcType=VARCHAR},
+      main_name = #{mainName,jdbcType=VARCHAR},
+      main_gender = #{mainGender,jdbcType=VARCHAR},
+      main_birth_date = #{mainBirthDate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

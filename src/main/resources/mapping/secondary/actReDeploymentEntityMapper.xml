@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.actReDeploymentEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actReDeploymentEntity" >
+    <id column="ID_" property="id" jdbcType="VARCHAR" />
+    <result column="NAME_" property="name" jdbcType="VARCHAR" />
+    <result column="CATEGORY_" property="category" jdbcType="VARCHAR" />
+    <result column="KEY_" property="key" jdbcType="VARCHAR" />
+    <result column="TENANT_ID_" property="tenantId" jdbcType="VARCHAR" />
+    <result column="DEPLOY_TIME_" property="deployTime" jdbcType="TIMESTAMP" />
+    <result column="ENGINE_VERSION_" property="engineVersion" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID_, NAME_, CATEGORY_, KEY_, TENANT_ID_, DEPLOY_TIME_, ENGINE_VERSION_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from act_re_deployment
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from act_re_deployment
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+    insert into act_re_deployment (ID_, NAME_, CATEGORY_, 
+      KEY_, TENANT_ID_, DEPLOY_TIME_, 
+      ENGINE_VERSION_)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{key,jdbcType=VARCHAR}, #{tenantId,jdbcType=VARCHAR}, #{deployTime,jdbcType=TIMESTAMP}, 
+      #{engineVersion,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+    insert into act_re_deployment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID_,
+      </if>
+      <if test="name != null" >
+        NAME_,
+      </if>
+      <if test="category != null" >
+        CATEGORY_,
+      </if>
+      <if test="key != null" >
+        KEY_,
+      </if>
+      <if test="tenantId != null" >
+        TENANT_ID_,
+      </if>
+      <if test="deployTime != null" >
+        DEPLOY_TIME_,
+      </if>
+      <if test="engineVersion != null" >
+        ENGINE_VERSION_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null" >
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="deployTime != null" >
+        #{deployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="engineVersion != null" >
+        #{engineVersion,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+    update act_re_deployment
+    <set >
+      <if test="name != null" >
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        CATEGORY_ = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        KEY_ = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null" >
+        TENANT_ID_ = #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="deployTime != null" >
+        DEPLOY_TIME_ = #{deployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="engineVersion != null" >
+        ENGINE_VERSION_ = #{engineVersion,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+    update act_re_deployment
+    set NAME_ = #{name,jdbcType=VARCHAR},
+      CATEGORY_ = #{category,jdbcType=VARCHAR},
+      KEY_ = #{key,jdbcType=VARCHAR},
+      TENANT_ID_ = #{tenantId,jdbcType=VARCHAR},
+      DEPLOY_TIME_ = #{deployTime,jdbcType=TIMESTAMP},
+      ENGINE_VERSION_ = #{engineVersion,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,28 @@
+package com.junling.mis.service.primary;
+
+import com.junling.mis.model.primary.tbCwfNodeEntity;
+
+;
+
+
+
+/** 
+ * <br/>
+ * Created by yikaiZhu on 2020/03/17
+ */
+public interface TbCwfNodeService {
+
+	Boolean addTbCwfNode(tbCwfNodeEntity tbCwfNodeEntity) throws Exception;
+
+	Boolean updateTbCwfNode(tbCwfNodeEntity tbCwfNodeEntity) throws Exception;
+
+	tbCwfNodeEntity findDetailTbCwfNode(String cwfNode) throws Exception;
+	
+//	Result listTbCwfNode(TbCwfNodeModel tbCwfNodeModel) throws Exception;
+//
+//    Result listTbCwfNodePage(TbCwfNodeModel tbCwfNodeModel) throws Exception;
+//
+//	Result countTbCwfNode(TbCwfNodeModel tbCwfNodeModel) throws Exception;
+//
+	Boolean deleteTbCwfNode(String cwfNode) throws Exception;
+}

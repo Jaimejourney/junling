@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaPolClientRelationEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolClientRelationEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
+    <result column="insured_id" property="insuredId" jdbcType="BIGINT" />
+    <result column="pol_relation" property="polRelation" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, polno, grade_level, insured_id, pol_relation, created_by, created_date, updated_by, 
+    updated_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_pol_client_relation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tpa_pol_client_relation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolClientRelationEntity" >
+    insert into tpa_pol_client_relation (id, polno, grade_level, 
+      insured_id, pol_relation, created_by, 
+      created_date, updated_by, updated_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{polno,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=VARCHAR}, 
+      #{insuredId,jdbcType=BIGINT}, #{polRelation,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolClientRelationEntity" >
+    insert into tpa_pol_client_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="polRelation != null" >
+        pol_relation,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=BIGINT},
+      </if>
+      <if test="polRelation != null" >
+        #{polRelation,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolClientRelationEntity" >
+    update tpa_pol_client_relation
+    <set >
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=BIGINT},
+      </if>
+      <if test="polRelation != null" >
+        pol_relation = #{polRelation,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolClientRelationEntity" >
+    update tpa_pol_client_relation
+    set polno = #{polno,jdbcType=VARCHAR},
+      grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      insured_id = #{insuredId,jdbcType=BIGINT},
+      pol_relation = #{polRelation,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

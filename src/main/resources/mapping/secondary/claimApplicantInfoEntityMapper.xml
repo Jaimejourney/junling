@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimApplicantInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimApplicantInfoEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="relation" property="relation" jdbcType="VARCHAR" />
+    <result column="idno" property="idno" jdbcType="VARCHAR" />
+    <result column="idtype" property="idtype" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="reasonCode" property="reasoncode" jdbcType="INTEGER" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, name, relation, idno, idtype, phone, email, address, reasonCode, createdDate, 
+    updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_applicant_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_applicant_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimApplicantInfoEntity" >
+    insert into claim_applicant_info (id, docuno, name, 
+      relation, idno, idtype, 
+      phone, email, address, 
+      reasonCode, createdDate, updatedDate
+      )
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{relation,jdbcType=VARCHAR}, #{idno,jdbcType=VARCHAR}, #{idtype,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{reasoncode,jdbcType=INTEGER}, #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimApplicantInfoEntity" >
+    insert into claim_applicant_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="relation != null" >
+        relation,
+      </if>
+      <if test="idno != null" >
+        idno,
+      </if>
+      <if test="idtype != null" >
+        idtype,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="reasoncode != null" >
+        reasonCode,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="relation != null" >
+        #{relation,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="idtype != null" >
+        #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="reasoncode != null" >
+        #{reasoncode,jdbcType=INTEGER},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimApplicantInfoEntity" >
+    update claim_applicant_info
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="relation != null" >
+        relation = #{relation,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        idno = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="idtype != null" >
+        idtype = #{idtype,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="reasoncode != null" >
+        reasonCode = #{reasoncode,jdbcType=INTEGER},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimApplicantInfoEntity" >
+    update claim_applicant_info
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      relation = #{relation,jdbcType=VARCHAR},
+      idno = #{idno,jdbcType=VARCHAR},
+      idtype = #{idtype,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      reasonCode = #{reasoncode,jdbcType=INTEGER},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

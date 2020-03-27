@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.batchOperateLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.batchOperateLogEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="operate_time" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="batch_type" property="batchType" jdbcType="TINYINT" />
+    <result column="batch_file_name" property="batchFileName" jdbcType="VARCHAR" />
+    <result column="result" property="result" jdbcType="VARCHAR" />
+    <result column="result_status" property="resultStatus" jdbcType="TINYINT" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, operate_time, polno, batch_type, batch_file_name, result, result_status, update_poson, 
+    update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from batch_operate_log
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from batch_operate_log
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+    insert into batch_operate_log (id, operate_time, polno, 
+      batch_type, batch_file_name, result, 
+      result_status, update_poson, update_time, 
+      is_delete)
+    values (#{id,jdbcType=VARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, #{polno,jdbcType=VARCHAR}, 
+      #{batchType,jdbcType=TINYINT}, #{batchFileName,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, 
+      #{resultStatus,jdbcType=TINYINT}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+    insert into batch_operate_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="operateTime != null" >
+        operate_time,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="batchType != null" >
+        batch_type,
+      </if>
+      <if test="batchFileName != null" >
+        batch_file_name,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+      <if test="resultStatus != null" >
+        result_status,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchType != null" >
+        #{batchType,jdbcType=TINYINT},
+      </if>
+      <if test="batchFileName != null" >
+        #{batchFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="resultStatus != null" >
+        #{resultStatus,jdbcType=TINYINT},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+    update batch_operate_log
+    <set >
+      <if test="operateTime != null" >
+        operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchType != null" >
+        batch_type = #{batchType,jdbcType=TINYINT},
+      </if>
+      <if test="batchFileName != null" >
+        batch_file_name = #{batchFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="resultStatus != null" >
+        result_status = #{resultStatus,jdbcType=TINYINT},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+    update batch_operate_log
+    set operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      polno = #{polno,jdbcType=VARCHAR},
+      batch_type = #{batchType,jdbcType=TINYINT},
+      batch_file_name = #{batchFileName,jdbcType=VARCHAR},
+      result = #{result,jdbcType=VARCHAR},
+      result_status = #{resultStatus,jdbcType=TINYINT},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

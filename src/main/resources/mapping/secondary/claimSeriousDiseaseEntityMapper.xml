@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimSeriousDiseaseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimSeriousDiseaseEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="seriousDiseaseCode" property="seriousdiseasecode" jdbcType="VARCHAR" />
+    <result column="seriousDiseaseName" property="seriousdiseasename" jdbcType="VARCHAR" />
+    <result column="seriousDocter" property="seriousdocter" jdbcType="VARCHAR" />
+    <result column="diagnoseDate" property="diagnosedate" jdbcType="DATE" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, accno, seriousDiseaseCode, seriousDiseaseName, seriousDocter, diagnoseDate, 
+    createdDate, updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_serious_disease
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_serious_disease
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseEntity" >
+    insert into claim_serious_disease (id, docuno, accno, 
+      seriousDiseaseCode, seriousDiseaseName, 
+      seriousDocter, diagnoseDate, createdDate, 
+      updatedDate)
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
+      #{seriousdiseasecode,jdbcType=VARCHAR}, #{seriousdiseasename,jdbcType=VARCHAR}, 
+      #{seriousdocter,jdbcType=VARCHAR}, #{diagnosedate,jdbcType=DATE}, #{createddate,jdbcType=TIMESTAMP}, 
+      #{updateddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseEntity" >
+    insert into claim_serious_disease
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="seriousdiseasecode != null" >
+        seriousDiseaseCode,
+      </if>
+      <if test="seriousdiseasename != null" >
+        seriousDiseaseName,
+      </if>
+      <if test="seriousdocter != null" >
+        seriousDocter,
+      </if>
+      <if test="diagnosedate != null" >
+        diagnoseDate,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousdiseasecode != null" >
+        #{seriousdiseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousdiseasename != null" >
+        #{seriousdiseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousdocter != null" >
+        #{seriousdocter,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosedate != null" >
+        #{diagnosedate,jdbcType=DATE},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseEntity" >
+    update claim_serious_disease
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousdiseasecode != null" >
+        seriousDiseaseCode = #{seriousdiseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousdiseasename != null" >
+        seriousDiseaseName = #{seriousdiseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousdocter != null" >
+        seriousDocter = #{seriousdocter,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosedate != null" >
+        diagnoseDate = #{diagnosedate,jdbcType=DATE},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseEntity" >
+    update claim_serious_disease
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      seriousDiseaseCode = #{seriousdiseasecode,jdbcType=VARCHAR},
+      seriousDiseaseName = #{seriousdiseasename,jdbcType=VARCHAR},
+      seriousDocter = #{seriousdocter,jdbcType=VARCHAR},
+      diagnoseDate = #{diagnosedate,jdbcType=DATE},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

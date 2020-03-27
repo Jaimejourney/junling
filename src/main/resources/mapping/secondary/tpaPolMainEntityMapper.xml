@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaPolMainEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolMainEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="insured_name" property="insuredName" jdbcType="VARCHAR" />
+    <result column="premium" property="premium" jdbcType="VARCHAR" />
+    <result column="eff_date" property="effDate" jdbcType="TIMESTAMP" />
+    <result column="matu_date" property="matuDate" jdbcType="TIMESTAMP" />
+    <result column="pol_status" property="polStatus" jdbcType="VARCHAR" />
+    <result column="pol_type" property="polType" jdbcType="CHAR" />
+    <result column="special_agreement" property="specialAgreement" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="certno" property="certno" jdbcType="VARCHAR" />
+    <result column="source_desc" property="sourceDesc" jdbcType="VARCHAR" />
+    <result column="grp_contno" property="grpContno" jdbcType="VARCHAR" />
+    <result column="xbidentification" property="xbidentification" jdbcType="VARCHAR" />
+    <result column="ybidentification" property="ybidentification" jdbcType="VARCHAR" />
+    <result column="old_polno" property="oldPolno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, polno, insured_name, premium, eff_date, matu_date, pol_status, pol_type, special_agreement, 
+    source, created_by, created_date, updated_by, updated_date, certno, source_desc, 
+    grp_contno, xbidentification, ybidentification, old_polno
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_pol_main
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tpa_pol_main
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+    insert into tpa_pol_main (id, polno, insured_name, 
+      premium, eff_date, matu_date, 
+      pol_status, pol_type, special_agreement, 
+      source, created_by, created_date, 
+      updated_by, updated_date, certno, 
+      source_desc, grp_contno, xbidentification, 
+      ybidentification, old_polno)
+    values (#{id,jdbcType=BIGINT}, #{polno,jdbcType=VARCHAR}, #{insuredName,jdbcType=VARCHAR}, 
+      #{premium,jdbcType=VARCHAR}, #{effDate,jdbcType=TIMESTAMP}, #{matuDate,jdbcType=TIMESTAMP}, 
+      #{polStatus,jdbcType=VARCHAR}, #{polType,jdbcType=CHAR}, #{specialAgreement,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, #{certno,jdbcType=VARCHAR}, 
+      #{sourceDesc,jdbcType=VARCHAR}, #{grpContno,jdbcType=VARCHAR}, #{xbidentification,jdbcType=VARCHAR}, 
+      #{ybidentification,jdbcType=VARCHAR}, #{oldPolno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+    insert into tpa_pol_main
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="insuredName != null" >
+        insured_name,
+      </if>
+      <if test="premium != null" >
+        premium,
+      </if>
+      <if test="effDate != null" >
+        eff_date,
+      </if>
+      <if test="matuDate != null" >
+        matu_date,
+      </if>
+      <if test="polStatus != null" >
+        pol_status,
+      </if>
+      <if test="polType != null" >
+        pol_type,
+      </if>
+      <if test="specialAgreement != null" >
+        special_agreement,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="certno != null" >
+        certno,
+      </if>
+      <if test="sourceDesc != null" >
+        source_desc,
+      </if>
+      <if test="grpContno != null" >
+        grp_contno,
+      </if>
+      <if test="xbidentification != null" >
+        xbidentification,
+      </if>
+      <if test="ybidentification != null" >
+        ybidentification,
+      </if>
+      <if test="oldPolno != null" >
+        old_polno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredName != null" >
+        #{insuredName,jdbcType=VARCHAR},
+      </if>
+      <if test="premium != null" >
+        #{premium,jdbcType=VARCHAR},
+      </if>
+      <if test="effDate != null" >
+        #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="matuDate != null" >
+        #{matuDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polStatus != null" >
+        #{polStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="polType != null" >
+        #{polType,jdbcType=CHAR},
+      </if>
+      <if test="specialAgreement != null" >
+        #{specialAgreement,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certno != null" >
+        #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceDesc != null" >
+        #{sourceDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="grpContno != null" >
+        #{grpContno,jdbcType=VARCHAR},
+      </if>
+      <if test="xbidentification != null" >
+        #{xbidentification,jdbcType=VARCHAR},
+      </if>
+      <if test="ybidentification != null" >
+        #{ybidentification,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPolno != null" >
+        #{oldPolno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+    update tpa_pol_main
+    <set >
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredName != null" >
+        insured_name = #{insuredName,jdbcType=VARCHAR},
+      </if>
+      <if test="premium != null" >
+        premium = #{premium,jdbcType=VARCHAR},
+      </if>
+      <if test="effDate != null" >
+        eff_date = #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="matuDate != null" >
+        matu_date = #{matuDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polStatus != null" >
+        pol_status = #{polStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="polType != null" >
+        pol_type = #{polType,jdbcType=CHAR},
+      </if>
+      <if test="specialAgreement != null" >
+        special_agreement = #{specialAgreement,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certno != null" >
+        certno = #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceDesc != null" >
+        source_desc = #{sourceDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="grpContno != null" >
+        grp_contno = #{grpContno,jdbcType=VARCHAR},
+      </if>
+      <if test="xbidentification != null" >
+        xbidentification = #{xbidentification,jdbcType=VARCHAR},
+      </if>
+      <if test="ybidentification != null" >
+        ybidentification = #{ybidentification,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPolno != null" >
+        old_polno = #{oldPolno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+    update tpa_pol_main
+    set polno = #{polno,jdbcType=VARCHAR},
+      insured_name = #{insuredName,jdbcType=VARCHAR},
+      premium = #{premium,jdbcType=VARCHAR},
+      eff_date = #{effDate,jdbcType=TIMESTAMP},
+      matu_date = #{matuDate,jdbcType=TIMESTAMP},
+      pol_status = #{polStatus,jdbcType=VARCHAR},
+      pol_type = #{polType,jdbcType=CHAR},
+      special_agreement = #{specialAgreement,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      certno = #{certno,jdbcType=VARCHAR},
+      source_desc = #{sourceDesc,jdbcType=VARCHAR},
+      grp_contno = #{grpContno,jdbcType=VARCHAR},
+      xbidentification = #{xbidentification,jdbcType=VARCHAR},
+      ybidentification = #{ybidentification,jdbcType=VARCHAR},
+      old_polno = #{oldPolno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

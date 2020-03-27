@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.paymentItemEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.paymentItemEntity" >
+    <result column="payment_item_code" property="paymentItemCode" jdbcType="VARCHAR" />
+    <result column="payment_item_name" property="paymentItemName" jdbcType="VARCHAR" />
+    <result column="payment_item_english_name" property="paymentItemEnglishName" jdbcType="VARCHAR" />
+    <result column="payment_item_category" property="paymentItemCategory" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.paymentItemEntity" >
+    insert into payment_item (payment_item_code, payment_item_name, 
+      payment_item_english_name, payment_item_category, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{paymentItemCode,jdbcType=VARCHAR}, #{paymentItemName,jdbcType=VARCHAR}, 
+      #{paymentItemEnglishName,jdbcType=VARCHAR}, #{paymentItemCategory,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.paymentItemEntity" >
+    insert into payment_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paymentItemCode != null" >
+        payment_item_code,
+      </if>
+      <if test="paymentItemName != null" >
+        payment_item_name,
+      </if>
+      <if test="paymentItemEnglishName != null" >
+        payment_item_english_name,
+      </if>
+      <if test="paymentItemCategory != null" >
+        payment_item_category,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paymentItemCode != null" >
+        #{paymentItemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentItemName != null" >
+        #{paymentItemName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentItemEnglishName != null" >
+        #{paymentItemEnglishName,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentItemCategory != null" >
+        #{paymentItemCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

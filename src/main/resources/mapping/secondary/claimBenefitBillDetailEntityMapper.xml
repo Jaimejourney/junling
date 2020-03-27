@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBenefitBillDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBenefitBillDetailEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="receiptno" property="receiptno" jdbcType="VARCHAR" />
+    <result column="itemCode" property="itemcode" jdbcType="VARCHAR" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="riskCode" property="riskcode" jdbcType="VARCHAR" />
+    <result column="riskName" property="riskname" jdbcType="VARCHAR" />
+    <result column="benefitCode" property="benefitcode" jdbcType="VARCHAR" />
+    <result column="benefitName" property="benefitname" jdbcType="VARCHAR" />
+    <result column="examAmt" property="examamt" jdbcType="DECIMAL" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, receiptno, itemCode, polno, riskCode, riskName, benefitCode, benefitName, 
+    examAmt, createdDate, updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_benefit_bill_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_benefit_bill_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBenefitBillDetailEntity" >
+    insert into claim_benefit_bill_detail (id, docuno, receiptno, 
+      itemCode, polno, riskCode, 
+      riskName, benefitCode, benefitName, 
+      examAmt, createdDate, updatedDate
+      )
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, 
+      #{itemcode,jdbcType=VARCHAR}, #{polno,jdbcType=VARCHAR}, #{riskcode,jdbcType=VARCHAR}, 
+      #{riskname,jdbcType=VARCHAR}, #{benefitcode,jdbcType=VARCHAR}, #{benefitname,jdbcType=VARCHAR}, 
+      #{examamt,jdbcType=DECIMAL}, #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBenefitBillDetailEntity" >
+    insert into claim_benefit_bill_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="receiptno != null" >
+        receiptno,
+      </if>
+      <if test="itemcode != null" >
+        itemCode,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="riskcode != null" >
+        riskCode,
+      </if>
+      <if test="riskname != null" >
+        riskName,
+      </if>
+      <if test="benefitcode != null" >
+        benefitCode,
+      </if>
+      <if test="benefitname != null" >
+        benefitName,
+      </if>
+      <if test="examamt != null" >
+        examAmt,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null" >
+        #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null" >
+        #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitcode != null" >
+        #{benefitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitname != null" >
+        #{benefitname,jdbcType=VARCHAR},
+      </if>
+      <if test="examamt != null" >
+        #{examamt,jdbcType=DECIMAL},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBenefitBillDetailEntity" >
+    update claim_benefit_bill_detail
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptno = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        itemCode = #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null" >
+        riskCode = #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null" >
+        riskName = #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitcode != null" >
+        benefitCode = #{benefitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitname != null" >
+        benefitName = #{benefitname,jdbcType=VARCHAR},
+      </if>
+      <if test="examamt != null" >
+        examAmt = #{examamt,jdbcType=DECIMAL},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBenefitBillDetailEntity" >
+    update claim_benefit_bill_detail
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      receiptno = #{receiptno,jdbcType=VARCHAR},
+      itemCode = #{itemcode,jdbcType=VARCHAR},
+      polno = #{polno,jdbcType=VARCHAR},
+      riskCode = #{riskcode,jdbcType=VARCHAR},
+      riskName = #{riskname,jdbcType=VARCHAR},
+      benefitCode = #{benefitcode,jdbcType=VARCHAR},
+      benefitName = #{benefitname,jdbcType=VARCHAR},
+      examAmt = #{examamt,jdbcType=DECIMAL},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

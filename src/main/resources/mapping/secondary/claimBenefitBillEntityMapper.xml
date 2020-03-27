@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBenefitBillEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="receiptno" property="receiptno" jdbcType="VARCHAR" />
+    <result column="riskCode" property="riskcode" jdbcType="VARCHAR" />
+    <result column="riskName" property="riskname" jdbcType="VARCHAR" />
+    <result column="benefitCode" property="benefitcode" jdbcType="VARCHAR" />
+    <result column="benefitName" property="benefitname" jdbcType="VARCHAR" />
+    <result column="calAmt" property="calamt" jdbcType="DECIMAL" />
+    <result column="deductibleAmt" property="deductibleamt" jdbcType="DECIMAL" />
+    <result column="billAmt" property="billamt" jdbcType="DECIMAL" />
+    <result column="declineAmt" property="declineamt" jdbcType="DECIMAL" />
+    <result column="expensesAmountSum" property="expensesamountsum" jdbcType="DECIMAL" />
+    <result column="deductibleValue" property="deductiblevalue" jdbcType="DECIMAL" />
+    <result column="dentalAmountSum" property="dentalamountsum" jdbcType="DECIMAL" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+    <result column="hisAmountSum" property="hisamountsum" jdbcType="DECIMAL" />
+    <result column="orherdeducAmountSum" property="orherdeducamountsum" jdbcType="DECIMAL" />
+    <result column="deductibleRate" property="deductiblerate" jdbcType="DECIMAL" />
+    <result column="socialAmount" property="socialamount" jdbcType="DECIMAL" />
+    <result column="thirdAmount" property="thirdamount" jdbcType="DECIMAL" />
+    <result column="adjustAmount" property="adjustamount" jdbcType="DECIMAL" />
+    <result column="adjustAmountReason" property="adjustamountreason" jdbcType="VARCHAR" />
+    <result column="reasonAmountSum" property="reasonamountsum" jdbcType="DECIMAL" />
+    <result column="originalThirdAmount" property="originalthirdamount" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, accno, polno, receiptno, riskCode, riskName, benefitCode, benefitName, 
+    calAmt, deductibleAmt, billAmt, declineAmt, expensesAmountSum, deductibleValue, dentalAmountSum, 
+    createdDate, updatedDate, hisAmountSum, orherdeducAmountSum, deductibleRate, socialAmount, 
+    thirdAmount, adjustAmount, adjustAmountReason, reasonAmountSum, originalThirdAmount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_benefit_bill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_benefit_bill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+    insert into claim_benefit_bill (id, docuno, accno, 
+      polno, receiptno, riskCode, 
+      riskName, benefitCode, benefitName, 
+      calAmt, deductibleAmt, billAmt, 
+      declineAmt, expensesAmountSum, deductibleValue, 
+      dentalAmountSum, createdDate, updatedDate, 
+      hisAmountSum, orherdeducAmountSum, deductibleRate, 
+      socialAmount, thirdAmount, adjustAmount, 
+      adjustAmountReason, reasonAmountSum, originalThirdAmount
+      )
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
+      #{polno,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, #{riskcode,jdbcType=VARCHAR}, 
+      #{riskname,jdbcType=VARCHAR}, #{benefitcode,jdbcType=VARCHAR}, #{benefitname,jdbcType=VARCHAR}, 
+      #{calamt,jdbcType=DECIMAL}, #{deductibleamt,jdbcType=DECIMAL}, #{billamt,jdbcType=DECIMAL}, 
+      #{declineamt,jdbcType=DECIMAL}, #{expensesamountsum,jdbcType=DECIMAL}, #{deductiblevalue,jdbcType=DECIMAL}, 
+      #{dentalamountsum,jdbcType=DECIMAL}, #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP}, 
+      #{hisamountsum,jdbcType=DECIMAL}, #{orherdeducamountsum,jdbcType=DECIMAL}, #{deductiblerate,jdbcType=DECIMAL}, 
+      #{socialamount,jdbcType=DECIMAL}, #{thirdamount,jdbcType=DECIMAL}, #{adjustamount,jdbcType=DECIMAL}, 
+      #{adjustamountreason,jdbcType=VARCHAR}, #{reasonamountsum,jdbcType=DECIMAL}, #{originalthirdamount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+    insert into claim_benefit_bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="receiptno != null" >
+        receiptno,
+      </if>
+      <if test="riskcode != null" >
+        riskCode,
+      </if>
+      <if test="riskname != null" >
+        riskName,
+      </if>
+      <if test="benefitcode != null" >
+        benefitCode,
+      </if>
+      <if test="benefitname != null" >
+        benefitName,
+      </if>
+      <if test="calamt != null" >
+        calAmt,
+      </if>
+      <if test="deductibleamt != null" >
+        deductibleAmt,
+      </if>
+      <if test="billamt != null" >
+        billAmt,
+      </if>
+      <if test="declineamt != null" >
+        declineAmt,
+      </if>
+      <if test="expensesamountsum != null" >
+        expensesAmountSum,
+      </if>
+      <if test="deductiblevalue != null" >
+        deductibleValue,
+      </if>
+      <if test="dentalamountsum != null" >
+        dentalAmountSum,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+      <if test="hisamountsum != null" >
+        hisAmountSum,
+      </if>
+      <if test="orherdeducamountsum != null" >
+        orherdeducAmountSum,
+      </if>
+      <if test="deductiblerate != null" >
+        deductibleRate,
+      </if>
+      <if test="socialamount != null" >
+        socialAmount,
+      </if>
+      <if test="thirdamount != null" >
+        thirdAmount,
+      </if>
+      <if test="adjustamount != null" >
+        adjustAmount,
+      </if>
+      <if test="adjustamountreason != null" >
+        adjustAmountReason,
+      </if>
+      <if test="reasonamountsum != null" >
+        reasonAmountSum,
+      </if>
+      <if test="originalthirdamount != null" >
+        originalThirdAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null" >
+        #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null" >
+        #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitcode != null" >
+        #{benefitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitname != null" >
+        #{benefitname,jdbcType=VARCHAR},
+      </if>
+      <if test="calamt != null" >
+        #{calamt,jdbcType=DECIMAL},
+      </if>
+      <if test="deductibleamt != null" >
+        #{deductibleamt,jdbcType=DECIMAL},
+      </if>
+      <if test="billamt != null" >
+        #{billamt,jdbcType=DECIMAL},
+      </if>
+      <if test="declineamt != null" >
+        #{declineamt,jdbcType=DECIMAL},
+      </if>
+      <if test="expensesamountsum != null" >
+        #{expensesamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="deductiblevalue != null" >
+        #{deductiblevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="dentalamountsum != null" >
+        #{dentalamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hisamountsum != null" >
+        #{hisamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="orherdeducamountsum != null" >
+        #{orherdeducamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="deductiblerate != null" >
+        #{deductiblerate,jdbcType=DECIMAL},
+      </if>
+      <if test="socialamount != null" >
+        #{socialamount,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdamount != null" >
+        #{thirdamount,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustamount != null" >
+        #{adjustamount,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustamountreason != null" >
+        #{adjustamountreason,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonamountsum != null" >
+        #{reasonamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="originalthirdamount != null" >
+        #{originalthirdamount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+    update claim_benefit_bill
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptno = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null" >
+        riskCode = #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null" >
+        riskName = #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitcode != null" >
+        benefitCode = #{benefitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitname != null" >
+        benefitName = #{benefitname,jdbcType=VARCHAR},
+      </if>
+      <if test="calamt != null" >
+        calAmt = #{calamt,jdbcType=DECIMAL},
+      </if>
+      <if test="deductibleamt != null" >
+        deductibleAmt = #{deductibleamt,jdbcType=DECIMAL},
+      </if>
+      <if test="billamt != null" >
+        billAmt = #{billamt,jdbcType=DECIMAL},
+      </if>
+      <if test="declineamt != null" >
+        declineAmt = #{declineamt,jdbcType=DECIMAL},
+      </if>
+      <if test="expensesamountsum != null" >
+        expensesAmountSum = #{expensesamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="deductiblevalue != null" >
+        deductibleValue = #{deductiblevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="dentalamountsum != null" >
+        dentalAmountSum = #{dentalamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hisamountsum != null" >
+        hisAmountSum = #{hisamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="orherdeducamountsum != null" >
+        orherdeducAmountSum = #{orherdeducamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="deductiblerate != null" >
+        deductibleRate = #{deductiblerate,jdbcType=DECIMAL},
+      </if>
+      <if test="socialamount != null" >
+        socialAmount = #{socialamount,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdamount != null" >
+        thirdAmount = #{thirdamount,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustamount != null" >
+        adjustAmount = #{adjustamount,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustamountreason != null" >
+        adjustAmountReason = #{adjustamountreason,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonamountsum != null" >
+        reasonAmountSum = #{reasonamountsum,jdbcType=DECIMAL},
+      </if>
+      <if test="originalthirdamount != null" >
+        originalThirdAmount = #{originalthirdamount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+    update claim_benefit_bill
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      polno = #{polno,jdbcType=VARCHAR},
+      receiptno = #{receiptno,jdbcType=VARCHAR},
+      riskCode = #{riskcode,jdbcType=VARCHAR},
+      riskName = #{riskname,jdbcType=VARCHAR},
+      benefitCode = #{benefitcode,jdbcType=VARCHAR},
+      benefitName = #{benefitname,jdbcType=VARCHAR},
+      calAmt = #{calamt,jdbcType=DECIMAL},
+      deductibleAmt = #{deductibleamt,jdbcType=DECIMAL},
+      billAmt = #{billamt,jdbcType=DECIMAL},
+      declineAmt = #{declineamt,jdbcType=DECIMAL},
+      expensesAmountSum = #{expensesamountsum,jdbcType=DECIMAL},
+      deductibleValue = #{deductiblevalue,jdbcType=DECIMAL},
+      dentalAmountSum = #{dentalamountsum,jdbcType=DECIMAL},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      hisAmountSum = #{hisamountsum,jdbcType=DECIMAL},
+      orherdeducAmountSum = #{orherdeducamountsum,jdbcType=DECIMAL},
+      deductibleRate = #{deductiblerate,jdbcType=DECIMAL},
+      socialAmount = #{socialamount,jdbcType=DECIMAL},
+      thirdAmount = #{thirdamount,jdbcType=DECIMAL},
+      adjustAmount = #{adjustamount,jdbcType=DECIMAL},
+      adjustAmountReason = #{adjustamountreason,jdbcType=VARCHAR},
+      reasonAmountSum = #{reasonamountsum,jdbcType=DECIMAL},
+      originalThirdAmount = #{originalthirdamount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

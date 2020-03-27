@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.visitImageEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitImageEntity" >
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="apply_record" property="applyRecord" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.visitImageEntityWithBLOBs" extends="BaseResultMap" >
+    <result column="id_card" property="idCard" jdbcType="LONGVARCHAR" />
+    <result column="original_certificate" property="originalCertificate" jdbcType="LONGVARCHAR" />
+    <result column="detail_list" property="detailList" jdbcType="LONGVARCHAR" />
+    <result column="hospital_records" property="hospitalRecords" jdbcType="LONGVARCHAR" />
+    <result column="accident_proof" property="accidentProof" jdbcType="LONGVARCHAR" />
+    <result column="outpatient_records" property="outpatientRecords" jdbcType="LONGVARCHAR" />
+    <result column="biochemical_report" property="biochemicalReport" jdbcType="LONGVARCHAR" />
+    <result column="medical_report" property="medicalReport" jdbcType="LONGVARCHAR" />
+    <result column="other_report" property="otherReport" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_poson, update_time, is_delete, apply_record
+  </sql>
+  <sql id="Blob_Column_List" >
+    id_card, original_certificate, detail_list, hospital_records, accident_proof, outpatient_records, 
+    biochemical_report, medical_report, other_report
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from visit_image
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from visit_image
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitImageEntityWithBLOBs" >
+    insert into visit_image (id, create_time, update_poson, 
+      update_time, is_delete, apply_record, 
+      id_card, original_certificate, detail_list, 
+      hospital_records, accident_proof, 
+      outpatient_records, biochemical_report, 
+      medical_report, other_report)
+    values (#{id,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, #{applyRecord,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=LONGVARCHAR}, #{originalCertificate,jdbcType=LONGVARCHAR}, #{detailList,jdbcType=LONGVARCHAR}, 
+      #{hospitalRecords,jdbcType=LONGVARCHAR}, #{accidentProof,jdbcType=LONGVARCHAR}, 
+      #{outpatientRecords,jdbcType=LONGVARCHAR}, #{biochemicalReport,jdbcType=LONGVARCHAR}, 
+      #{medicalReport,jdbcType=LONGVARCHAR}, #{otherReport,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitImageEntityWithBLOBs" >
+    insert into visit_image
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="applyRecord != null" >
+        apply_record,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="originalCertificate != null" >
+        original_certificate,
+      </if>
+      <if test="detailList != null" >
+        detail_list,
+      </if>
+      <if test="hospitalRecords != null" >
+        hospital_records,
+      </if>
+      <if test="accidentProof != null" >
+        accident_proof,
+      </if>
+      <if test="outpatientRecords != null" >
+        outpatient_records,
+      </if>
+      <if test="biochemicalReport != null" >
+        biochemical_report,
+      </if>
+      <if test="medicalReport != null" >
+        medical_report,
+      </if>
+      <if test="otherReport != null" >
+        other_report,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="applyRecord != null" >
+        #{applyRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="originalCertificate != null" >
+        #{originalCertificate,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detailList != null" >
+        #{detailList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hospitalRecords != null" >
+        #{hospitalRecords,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="accidentProof != null" >
+        #{accidentProof,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="outpatientRecords != null" >
+        #{outpatientRecords,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="biochemicalReport != null" >
+        #{biochemicalReport,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="medicalReport != null" >
+        #{medicalReport,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="otherReport != null" >
+        #{otherReport,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitImageEntityWithBLOBs" >
+    update visit_image
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="applyRecord != null" >
+        apply_record = #{applyRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="originalCertificate != null" >
+        original_certificate = #{originalCertificate,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detailList != null" >
+        detail_list = #{detailList,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hospitalRecords != null" >
+        hospital_records = #{hospitalRecords,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="accidentProof != null" >
+        accident_proof = #{accidentProof,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="outpatientRecords != null" >
+        outpatient_records = #{outpatientRecords,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="biochemicalReport != null" >
+        biochemical_report = #{biochemicalReport,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="medicalReport != null" >
+        medical_report = #{medicalReport,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="otherReport != null" >
+        other_report = #{otherReport,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.visitImageEntityWithBLOBs" >
+    update visit_image
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      apply_record = #{applyRecord,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=LONGVARCHAR},
+      original_certificate = #{originalCertificate,jdbcType=LONGVARCHAR},
+      detail_list = #{detailList,jdbcType=LONGVARCHAR},
+      hospital_records = #{hospitalRecords,jdbcType=LONGVARCHAR},
+      accident_proof = #{accidentProof,jdbcType=LONGVARCHAR},
+      outpatient_records = #{outpatientRecords,jdbcType=LONGVARCHAR},
+      biochemical_report = #{biochemicalReport,jdbcType=LONGVARCHAR},
+      medical_report = #{medicalReport,jdbcType=LONGVARCHAR},
+      other_report = #{otherReport,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitImageEntity" >
+    update visit_image
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      apply_record = #{applyRecord,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

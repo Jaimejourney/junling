@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.visitPersonEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitPersonEntity" >
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_time" property="lastTime" jdbcType="TIMESTAMP" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="user_type_remark" property="userTypeRemark" jdbcType="VARCHAR" />
+    <result column="calculate_channel" property="calculateChannel" jdbcType="VARCHAR" />
+    <result column="risk_detail" property="riskDetail" jdbcType="VARCHAR" />
+    <result column="risk_name" property="riskName" jdbcType="VARCHAR" />
+    <result column="risk_result" property="riskResult" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, openid, name, phone, email, create_time, last_time, card_id, update_poson, update_time, 
+    is_delete, user_type_remark, calculate_channel, risk_detail, risk_name, risk_result
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from visit_person
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from visit_person
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+    insert into visit_person (id, openid, name, 
+      phone, email, create_time, 
+      last_time, card_id, update_poson, 
+      update_time, is_delete, user_type_remark, 
+      calculate_channel, risk_detail, risk_name, 
+      risk_result)
+    values (#{id,jdbcType=DECIMAL}, #{openid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastTime,jdbcType=TIMESTAMP}, #{cardId,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, #{userTypeRemark,jdbcType=VARCHAR}, 
+      #{calculateChannel,jdbcType=VARCHAR}, #{riskDetail,jdbcType=VARCHAR}, #{riskName,jdbcType=VARCHAR}, 
+      #{riskResult,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+    insert into visit_person
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="lastTime != null" >
+        last_time,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="userTypeRemark != null" >
+        user_type_remark,
+      </if>
+      <if test="calculateChannel != null" >
+        calculate_channel,
+      </if>
+      <if test="riskDetail != null" >
+        risk_detail,
+      </if>
+      <if test="riskName != null" >
+        risk_name,
+      </if>
+      <if test="riskResult != null" >
+        risk_result,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTime != null" >
+        #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="userTypeRemark != null" >
+        #{userTypeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="calculateChannel != null" >
+        #{calculateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="riskDetail != null" >
+        #{riskDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="riskName != null" >
+        #{riskName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskResult != null" >
+        #{riskResult,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+    update visit_person
+    <set >
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTime != null" >
+        last_time = #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="userTypeRemark != null" >
+        user_type_remark = #{userTypeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="calculateChannel != null" >
+        calculate_channel = #{calculateChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="riskDetail != null" >
+        risk_detail = #{riskDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="riskName != null" >
+        risk_name = #{riskName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskResult != null" >
+        risk_result = #{riskResult,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+    update visit_person
+    set openid = #{openid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_time = #{lastTime,jdbcType=TIMESTAMP},
+      card_id = #{cardId,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      user_type_remark = #{userTypeRemark,jdbcType=VARCHAR},
+      calculate_channel = #{calculateChannel,jdbcType=VARCHAR},
+      risk_detail = #{riskDetail,jdbcType=VARCHAR},
+      risk_name = #{riskName,jdbcType=VARCHAR},
+      risk_result = #{riskResult,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.renbaoEndCaseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="CaseNo" property="caseno" jdbcType="VARCHAR" />
+    <result column="Contno" property="contno" jdbcType="VARCHAR" />
+    <result column="IdNo" property="idno" jdbcType="VARCHAR" />
+    <result column="EndCaseDate" property="endcasedate" jdbcType="VARCHAR" />
+    <result column="CLAIMNO" property="claimno" jdbcType="VARCHAR" />
+    <result column="OutDutyAmnt" property="outdutyamnt" jdbcType="VARCHAR" />
+    <result column="RealPay" property="realpay" jdbcType="VARCHAR" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, CaseNo, Contno, IdNo, EndCaseDate, CLAIMNO, OutDutyAmnt, RealPay, createdDate, 
+    updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from renbao_end_case
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from renbao_end_case
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+    insert into renbao_end_case (id, CaseNo, Contno, 
+      IdNo, EndCaseDate, CLAIMNO, 
+      OutDutyAmnt, RealPay, createdDate, 
+      updatedDate)
+    values (#{id,jdbcType=INTEGER}, #{caseno,jdbcType=VARCHAR}, #{contno,jdbcType=VARCHAR}, 
+      #{idno,jdbcType=VARCHAR}, #{endcasedate,jdbcType=VARCHAR}, #{claimno,jdbcType=VARCHAR}, 
+      #{outdutyamnt,jdbcType=VARCHAR}, #{realpay,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, 
+      #{updateddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+    insert into renbao_end_case
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="caseno != null" >
+        CaseNo,
+      </if>
+      <if test="contno != null" >
+        Contno,
+      </if>
+      <if test="idno != null" >
+        IdNo,
+      </if>
+      <if test="endcasedate != null" >
+        EndCaseDate,
+      </if>
+      <if test="claimno != null" >
+        CLAIMNO,
+      </if>
+      <if test="outdutyamnt != null" >
+        OutDutyAmnt,
+      </if>
+      <if test="realpay != null" >
+        RealPay,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="caseno != null" >
+        #{caseno,jdbcType=VARCHAR},
+      </if>
+      <if test="contno != null" >
+        #{contno,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="endcasedate != null" >
+        #{endcasedate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimno != null" >
+        #{claimno,jdbcType=VARCHAR},
+      </if>
+      <if test="outdutyamnt != null" >
+        #{outdutyamnt,jdbcType=VARCHAR},
+      </if>
+      <if test="realpay != null" >
+        #{realpay,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+    update renbao_end_case
+    <set >
+      <if test="caseno != null" >
+        CaseNo = #{caseno,jdbcType=VARCHAR},
+      </if>
+      <if test="contno != null" >
+        Contno = #{contno,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        IdNo = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="endcasedate != null" >
+        EndCaseDate = #{endcasedate,jdbcType=VARCHAR},
+      </if>
+      <if test="claimno != null" >
+        CLAIMNO = #{claimno,jdbcType=VARCHAR},
+      </if>
+      <if test="outdutyamnt != null" >
+        OutDutyAmnt = #{outdutyamnt,jdbcType=VARCHAR},
+      </if>
+      <if test="realpay != null" >
+        RealPay = #{realpay,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+    update renbao_end_case
+    set CaseNo = #{caseno,jdbcType=VARCHAR},
+      Contno = #{contno,jdbcType=VARCHAR},
+      IdNo = #{idno,jdbcType=VARCHAR},
+      EndCaseDate = #{endcasedate,jdbcType=VARCHAR},
+      CLAIMNO = #{claimno,jdbcType=VARCHAR},
+      OutDutyAmnt = #{outdutyamnt,jdbcType=VARCHAR},
+      RealPay = #{realpay,jdbcType=VARCHAR},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

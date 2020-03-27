@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.hospitalizationInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
+    <result column="is_yb_patient" property="isYbPatient" jdbcType="VARCHAR" />
+    <result column="region_name_hb" property="regionNameHb" jdbcType="VARCHAR" />
+    <result column="institutional_id" property="institutionalId" jdbcType="VARCHAR" />
+    <result column="therapy_type_hb" property="therapyTypeHb" jdbcType="VARCHAR" />
+    <result column="doctor_reg_id" property="doctorRegId" jdbcType="VARCHAR" />
+    <result column="doctor_name" property="doctorName" jdbcType="VARCHAR" />
+    <result column="date_admission" property="dateAdmission" jdbcType="TIMESTAMP" />
+    <result column="admission_department_code_hb" property="admissionDepartmentCodeHb" jdbcType="VARCHAR" />
+    <result column="admission_department_name_hb" property="admissionDepartmentNameHb" jdbcType="VARCHAR" />
+    <result column="is_dbz_pa" property="isDbzPa" jdbcType="VARCHAR" />
+    <result column="diagnosis_code1_hb" property="diagnosisCode1Hb" jdbcType="VARCHAR" />
+    <result column="diagnosis_name1_hb" property="diagnosisName1Hb" jdbcType="VARCHAR" />
+    <result column="diagnosis_code2_hb" property="diagnosisCode2Hb" jdbcType="VARCHAR" />
+    <result column="diagnosis_name2_hb" property="diagnosisName2Hb" jdbcType="VARCHAR" />
+    <result column="diagnosis_code3_hb" property="diagnosisCode3Hb" jdbcType="VARCHAR" />
+    <result column="diagnosis_name3_hb" property="diagnosisName3Hb" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, flow_id, is_yb_patient, region_name_hb, institutional_id, therapy_type_hb, 
+    doctor_reg_id, doctor_name, date_admission, admission_department_code_hb, admission_department_name_hb, 
+    is_dbz_pa, diagnosis_code1_hb, diagnosis_name1_hb, diagnosis_code2_hb, diagnosis_name2_hb, 
+    diagnosis_code3_hb, diagnosis_name3_hb, update_poson, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hospitalization_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hospitalization_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+    insert into hospitalization_info (id, docuno, flow_id, 
+      is_yb_patient, region_name_hb, institutional_id, 
+      therapy_type_hb, doctor_reg_id, doctor_name, 
+      date_admission, admission_department_code_hb, 
+      admission_department_name_hb, is_dbz_pa, diagnosis_code1_hb, 
+      diagnosis_name1_hb, diagnosis_code2_hb, diagnosis_name2_hb, 
+      diagnosis_code3_hb, diagnosis_name3_hb, update_poson, 
+      update_time, is_delete)
+    values (#{id,jdbcType=VARCHAR}, #{docuno,jdbcType=VARCHAR}, #{flowId,jdbcType=VARCHAR}, 
+      #{isYbPatient,jdbcType=VARCHAR}, #{regionNameHb,jdbcType=VARCHAR}, #{institutionalId,jdbcType=VARCHAR}, 
+      #{therapyTypeHb,jdbcType=VARCHAR}, #{doctorRegId,jdbcType=VARCHAR}, #{doctorName,jdbcType=VARCHAR}, 
+      #{dateAdmission,jdbcType=TIMESTAMP}, #{admissionDepartmentCodeHb,jdbcType=VARCHAR}, 
+      #{admissionDepartmentNameHb,jdbcType=VARCHAR}, #{isDbzPa,jdbcType=VARCHAR}, #{diagnosisCode1Hb,jdbcType=VARCHAR}, 
+      #{diagnosisName1Hb,jdbcType=VARCHAR}, #{diagnosisCode2Hb,jdbcType=VARCHAR}, #{diagnosisName2Hb,jdbcType=VARCHAR}, 
+      #{diagnosisCode3Hb,jdbcType=VARCHAR}, #{diagnosisName3Hb,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+    insert into hospitalization_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="flowId != null" >
+        flow_id,
+      </if>
+      <if test="isYbPatient != null" >
+        is_yb_patient,
+      </if>
+      <if test="regionNameHb != null" >
+        region_name_hb,
+      </if>
+      <if test="institutionalId != null" >
+        institutional_id,
+      </if>
+      <if test="therapyTypeHb != null" >
+        therapy_type_hb,
+      </if>
+      <if test="doctorRegId != null" >
+        doctor_reg_id,
+      </if>
+      <if test="doctorName != null" >
+        doctor_name,
+      </if>
+      <if test="dateAdmission != null" >
+        date_admission,
+      </if>
+      <if test="admissionDepartmentCodeHb != null" >
+        admission_department_code_hb,
+      </if>
+      <if test="admissionDepartmentNameHb != null" >
+        admission_department_name_hb,
+      </if>
+      <if test="isDbzPa != null" >
+        is_dbz_pa,
+      </if>
+      <if test="diagnosisCode1Hb != null" >
+        diagnosis_code1_hb,
+      </if>
+      <if test="diagnosisName1Hb != null" >
+        diagnosis_name1_hb,
+      </if>
+      <if test="diagnosisCode2Hb != null" >
+        diagnosis_code2_hb,
+      </if>
+      <if test="diagnosisName2Hb != null" >
+        diagnosis_name2_hb,
+      </if>
+      <if test="diagnosisCode3Hb != null" >
+        diagnosis_code3_hb,
+      </if>
+      <if test="diagnosisName3Hb != null" >
+        diagnosis_name3_hb,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="isYbPatient != null" >
+        #{isYbPatient,jdbcType=VARCHAR},
+      </if>
+      <if test="regionNameHb != null" >
+        #{regionNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionalId != null" >
+        #{institutionalId,jdbcType=VARCHAR},
+      </if>
+      <if test="therapyTypeHb != null" >
+        #{therapyTypeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorRegId != null" >
+        #{doctorRegId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAdmission != null" >
+        #{dateAdmission,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admissionDepartmentCodeHb != null" >
+        #{admissionDepartmentCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDepartmentNameHb != null" >
+        #{admissionDepartmentNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="isDbzPa != null" >
+        #{isDbzPa,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisCode1Hb != null" >
+        #{diagnosisCode1Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisName1Hb != null" >
+        #{diagnosisName1Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisCode2Hb != null" >
+        #{diagnosisCode2Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisName2Hb != null" >
+        #{diagnosisName2Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisCode3Hb != null" >
+        #{diagnosisCode3Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisName3Hb != null" >
+        #{diagnosisName3Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+    update hospitalization_info
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        flow_id = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="isYbPatient != null" >
+        is_yb_patient = #{isYbPatient,jdbcType=VARCHAR},
+      </if>
+      <if test="regionNameHb != null" >
+        region_name_hb = #{regionNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionalId != null" >
+        institutional_id = #{institutionalId,jdbcType=VARCHAR},
+      </if>
+      <if test="therapyTypeHb != null" >
+        therapy_type_hb = #{therapyTypeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorRegId != null" >
+        doctor_reg_id = #{doctorRegId,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        doctor_name = #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAdmission != null" >
+        date_admission = #{dateAdmission,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admissionDepartmentCodeHb != null" >
+        admission_department_code_hb = #{admissionDepartmentCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDepartmentNameHb != null" >
+        admission_department_name_hb = #{admissionDepartmentNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="isDbzPa != null" >
+        is_dbz_pa = #{isDbzPa,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisCode1Hb != null" >
+        diagnosis_code1_hb = #{diagnosisCode1Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisName1Hb != null" >
+        diagnosis_name1_hb = #{diagnosisName1Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisCode2Hb != null" >
+        diagnosis_code2_hb = #{diagnosisCode2Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisName2Hb != null" >
+        diagnosis_name2_hb = #{diagnosisName2Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisCode3Hb != null" >
+        diagnosis_code3_hb = #{diagnosisCode3Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosisName3Hb != null" >
+        diagnosis_name3_hb = #{diagnosisName3Hb,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+    update hospitalization_info
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      flow_id = #{flowId,jdbcType=VARCHAR},
+      is_yb_patient = #{isYbPatient,jdbcType=VARCHAR},
+      region_name_hb = #{regionNameHb,jdbcType=VARCHAR},
+      institutional_id = #{institutionalId,jdbcType=VARCHAR},
+      therapy_type_hb = #{therapyTypeHb,jdbcType=VARCHAR},
+      doctor_reg_id = #{doctorRegId,jdbcType=VARCHAR},
+      doctor_name = #{doctorName,jdbcType=VARCHAR},
+      date_admission = #{dateAdmission,jdbcType=TIMESTAMP},
+      admission_department_code_hb = #{admissionDepartmentCodeHb,jdbcType=VARCHAR},
+      admission_department_name_hb = #{admissionDepartmentNameHb,jdbcType=VARCHAR},
+      is_dbz_pa = #{isDbzPa,jdbcType=VARCHAR},
+      diagnosis_code1_hb = #{diagnosisCode1Hb,jdbcType=VARCHAR},
+      diagnosis_name1_hb = #{diagnosisName1Hb,jdbcType=VARCHAR},
+      diagnosis_code2_hb = #{diagnosisCode2Hb,jdbcType=VARCHAR},
+      diagnosis_name2_hb = #{diagnosisName2Hb,jdbcType=VARCHAR},
+      diagnosis_code3_hb = #{diagnosisCode3Hb,jdbcType=VARCHAR},
+      diagnosis_name3_hb = #{diagnosisName3Hb,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

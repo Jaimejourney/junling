@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.importedMedicineCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.importedMedicineCopyEntity" >
+    <result column="registration_number" property="registrationNumber" jdbcType="VARCHAR" />
+    <result column="original_registration_number" property="originalRegistrationNumber" jdbcType="VARCHAR" />
+    <result column="registration_number_note" property="registrationNumberNote" jdbcType="VARCHAR" />
+    <result column="package_approval_number" property="packageApprovalNumber" jdbcType="VARCHAR" />
+    <result column="chinese_company_name" property="chineseCompanyName" jdbcType="VARCHAR" />
+    <result column="english_company_name" property="englishCompanyName" jdbcType="VARCHAR" />
+    <result column="chinese_address" property="chineseAddress" jdbcType="VARCHAR" />
+    <result column="english_address" property="englishAddress" jdbcType="VARCHAR" />
+    <result column="chinese_country" property="chineseCountry" jdbcType="VARCHAR" />
+    <result column="english_country" property="englishCountry" jdbcType="VARCHAR" />
+    <result column="chinese_product_name" property="chineseProductName" jdbcType="VARCHAR" />
+    <result column="english_product_name" property="englishProductName" jdbcType="VARCHAR" />
+    <result column="chinese_goods_name" property="chineseGoodsName" jdbcType="VARCHAR" />
+    <result column="english_goods_name" property="englishGoodsName" jdbcType="VARCHAR" />
+    <result column="chinese_formulation" property="chineseFormulation" jdbcType="VARCHAR" />
+    <result column="english_formulation" property="englishFormulation" jdbcType="VARCHAR" />
+    <result column="chinese_packing_specification" property="chinesePackingSpecification" jdbcType="VARCHAR" />
+    <result column="chinese_manufacturer" property="chineseManufacturer" jdbcType="VARCHAR" />
+    <result column="english_manufacturer" property="englishManufacturer" jdbcType="VARCHAR" />
+    <result column="chinese_vendor_address" property="chineseVendorAddress" jdbcType="VARCHAR" />
+    <result column="english_vendor_address" property="englishVendorAddress" jdbcType="VARCHAR" />
+    <result column="chinese_manufacturer_country" property="chineseManufacturerCountry" jdbcType="VARCHAR" />
+    <result column="english_manufacturer_country" property="englishManufacturerCountry" jdbcType="VARCHAR" />
+    <result column="issue_date" property="issueDate" jdbcType="VARCHAR" />
+    <result column="expiration_date" property="expirationDate" jdbcType="VARCHAR" />
+    <result column="package_company_name" property="packageCompanyName" jdbcType="VARCHAR" />
+    <result column="package_company_address" property="packageCompanyAddress" jdbcType="VARCHAR" />
+    <result column="package_number_approval_date" property="packageNumberApprovalDate" jdbcType="VARCHAR" />
+    <result column="package_document_expiration_date" property="packageDocumentExpirationDate" jdbcType="VARCHAR" />
+    <result column="product_category" property="productCategory" jdbcType="VARCHAR" />
+    <result column="drug_standard_code" property="drugStandardCode" jdbcType="VARCHAR" />
+    <result column="drug_standard_code_note" property="drugStandardCodeNote" jdbcType="VARCHAR" />
+    <result column="related_database_query" property="relatedDatabaseQuery" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.importedMedicineCopyEntity" >
+    insert into imported_medicine_copy (registration_number, original_registration_number, 
+      registration_number_note, package_approval_number, 
+      chinese_company_name, english_company_name, 
+      chinese_address, english_address, chinese_country, 
+      english_country, chinese_product_name, english_product_name, 
+      chinese_goods_name, english_goods_name, chinese_formulation, 
+      english_formulation, chinese_packing_specification, 
+      chinese_manufacturer, english_manufacturer, 
+      chinese_vendor_address, english_vendor_address, 
+      chinese_manufacturer_country, english_manufacturer_country, 
+      issue_date, expiration_date, package_company_name, 
+      package_company_address, package_number_approval_date, 
+      package_document_expiration_date, product_category, 
+      drug_standard_code, drug_standard_code_note, 
+      related_database_query)
+    values (#{registrationNumber,jdbcType=VARCHAR}, #{originalRegistrationNumber,jdbcType=VARCHAR}, 
+      #{registrationNumberNote,jdbcType=VARCHAR}, #{packageApprovalNumber,jdbcType=VARCHAR}, 
+      #{chineseCompanyName,jdbcType=VARCHAR}, #{englishCompanyName,jdbcType=VARCHAR}, 
+      #{chineseAddress,jdbcType=VARCHAR}, #{englishAddress,jdbcType=VARCHAR}, #{chineseCountry,jdbcType=VARCHAR}, 
+      #{englishCountry,jdbcType=VARCHAR}, #{chineseProductName,jdbcType=VARCHAR}, #{englishProductName,jdbcType=VARCHAR}, 
+      #{chineseGoodsName,jdbcType=VARCHAR}, #{englishGoodsName,jdbcType=VARCHAR}, #{chineseFormulation,jdbcType=VARCHAR}, 
+      #{englishFormulation,jdbcType=VARCHAR}, #{chinesePackingSpecification,jdbcType=VARCHAR}, 
+      #{chineseManufacturer,jdbcType=VARCHAR}, #{englishManufacturer,jdbcType=VARCHAR}, 
+      #{chineseVendorAddress,jdbcType=VARCHAR}, #{englishVendorAddress,jdbcType=VARCHAR}, 
+      #{chineseManufacturerCountry,jdbcType=VARCHAR}, #{englishManufacturerCountry,jdbcType=VARCHAR}, 
+      #{issueDate,jdbcType=VARCHAR}, #{expirationDate,jdbcType=VARCHAR}, #{packageCompanyName,jdbcType=VARCHAR}, 
+      #{packageCompanyAddress,jdbcType=VARCHAR}, #{packageNumberApprovalDate,jdbcType=VARCHAR}, 
+      #{packageDocumentExpirationDate,jdbcType=VARCHAR}, #{productCategory,jdbcType=VARCHAR}, 
+      #{drugStandardCode,jdbcType=VARCHAR}, #{drugStandardCodeNote,jdbcType=VARCHAR}, 
+      #{relatedDatabaseQuery,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.importedMedicineCopyEntity" >
+    insert into imported_medicine_copy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="registrationNumber != null" >
+        registration_number,
+      </if>
+      <if test="originalRegistrationNumber != null" >
+        original_registration_number,
+      </if>
+      <if test="registrationNumberNote != null" >
+        registration_number_note,
+      </if>
+      <if test="packageApprovalNumber != null" >
+        package_approval_number,
+      </if>
+      <if test="chineseCompanyName != null" >
+        chinese_company_name,
+      </if>
+      <if test="englishCompanyName != null" >
+        english_company_name,
+      </if>
+      <if test="chineseAddress != null" >
+        chinese_address,
+      </if>
+      <if test="englishAddress != null" >
+        english_address,
+      </if>
+      <if test="chineseCountry != null" >
+        chinese_country,
+      </if>
+      <if test="englishCountry != null" >
+        english_country,
+      </if>
+      <if test="chineseProductName != null" >
+        chinese_product_name,
+      </if>
+      <if test="englishProductName != null" >
+        english_product_name,
+      </if>
+      <if test="chineseGoodsName != null" >
+        chinese_goods_name,
+      </if>
+      <if test="englishGoodsName != null" >
+        english_goods_name,
+      </if>
+      <if test="chineseFormulation != null" >
+        chinese_formulation,
+      </if>
+      <if test="englishFormulation != null" >
+        english_formulation,
+      </if>
+      <if test="chinesePackingSpecification != null" >
+        chinese_packing_specification,
+      </if>
+      <if test="chineseManufacturer != null" >
+        chinese_manufacturer,
+      </if>
+      <if test="englishManufacturer != null" >
+        english_manufacturer,
+      </if>
+      <if test="chineseVendorAddress != null" >
+        chinese_vendor_address,
+      </if>
+      <if test="englishVendorAddress != null" >
+        english_vendor_address,
+      </if>
+      <if test="chineseManufacturerCountry != null" >
+        chinese_manufacturer_country,
+      </if>
+      <if test="englishManufacturerCountry != null" >
+        english_manufacturer_country,
+      </if>
+      <if test="issueDate != null" >
+        issue_date,
+      </if>
+      <if test="expirationDate != null" >
+        expiration_date,
+      </if>
+      <if test="packageCompanyName != null" >
+        package_company_name,
+      </if>
+      <if test="packageCompanyAddress != null" >
+        package_company_address,
+      </if>
+      <if test="packageNumberApprovalDate != null" >
+        package_number_approval_date,
+      </if>
+      <if test="packageDocumentExpirationDate != null" >
+        package_document_expiration_date,
+      </if>
+      <if test="productCategory != null" >
+        product_category,
+      </if>
+      <if test="drugStandardCode != null" >
+        drug_standard_code,
+      </if>
+      <if test="drugStandardCodeNote != null" >
+        drug_standard_code_note,
+      </if>
+      <if test="relatedDatabaseQuery != null" >
+        related_database_query,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="registrationNumber != null" >
+        #{registrationNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="originalRegistrationNumber != null" >
+        #{originalRegistrationNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationNumberNote != null" >
+        #{registrationNumberNote,jdbcType=VARCHAR},
+      </if>
+      <if test="packageApprovalNumber != null" >
+        #{packageApprovalNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseCompanyName != null" >
+        #{chineseCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishCompanyName != null" >
+        #{englishCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseAddress != null" >
+        #{chineseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="englishAddress != null" >
+        #{englishAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseCountry != null" >
+        #{chineseCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="englishCountry != null" >
+        #{englishCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseProductName != null" >
+        #{chineseProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishProductName != null" >
+        #{englishProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseGoodsName != null" >
+        #{chineseGoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishGoodsName != null" >
+        #{englishGoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseFormulation != null" >
+        #{chineseFormulation,jdbcType=VARCHAR},
+      </if>
+      <if test="englishFormulation != null" >
+        #{englishFormulation,jdbcType=VARCHAR},
+      </if>
+      <if test="chinesePackingSpecification != null" >
+        #{chinesePackingSpecification,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseManufacturer != null" >
+        #{chineseManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="englishManufacturer != null" >
+        #{englishManufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseVendorAddress != null" >
+        #{chineseVendorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="englishVendorAddress != null" >
+        #{englishVendorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseManufacturerCountry != null" >
+        #{chineseManufacturerCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="englishManufacturerCountry != null" >
+        #{englishManufacturerCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null" >
+        #{issueDate,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null" >
+        #{expirationDate,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCompanyName != null" >
+        #{packageCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCompanyAddress != null" >
+        #{packageCompanyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="packageNumberApprovalDate != null" >
+        #{packageNumberApprovalDate,jdbcType=VARCHAR},
+      </if>
+      <if test="packageDocumentExpirationDate != null" >
+        #{packageDocumentExpirationDate,jdbcType=VARCHAR},
+      </if>
+      <if test="productCategory != null" >
+        #{productCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="drugStandardCode != null" >
+        #{drugStandardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugStandardCodeNote != null" >
+        #{drugStandardCodeNote,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedDatabaseQuery != null" >
+        #{relatedDatabaseQuery,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

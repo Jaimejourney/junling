@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimAccEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimAccEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="accDate" property="accdate" jdbcType="DATE" />
+    <result column="accType" property="acctype" jdbcType="VARCHAR" />
+    <result column="accProviceCode" property="accprovicecode" jdbcType="VARCHAR" />
+    <result column="accCityCode" property="acccitycode" jdbcType="VARCHAR" />
+    <result column="accCountyCode" property="acccountycode" jdbcType="VARCHAR" />
+    <result column="accPlace" property="accplace" jdbcType="VARCHAR" />
+    <result column="inHospitalDate" property="inhospitaldate" jdbcType="DATE" />
+    <result column="outHospitalDate" property="outhospitaldate" jdbcType="DATE" />
+    <result column="accdesc" property="accdesc" jdbcType="VARCHAR" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+    <result column="conclusionBasisType" property="conclusionbasistype" jdbcType="VARCHAR" />
+    <result column="majorDiseaseName" property="majordiseasename" jdbcType="VARCHAR" />
+    <result column="majorDiseaseCode" property="majordiseasecode" jdbcType="VARCHAR" />
+    <result column="confirmDate" property="confirmdate" jdbcType="DATE" />
+    <result column="paidAmnt" property="paidamnt" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, accno, accDate, accType, accProviceCode, accCityCode, accCountyCode, 
+    accPlace, inHospitalDate, outHospitalDate, accdesc, createdDate, updatedDate, conclusionBasisType, 
+    majorDiseaseName, majorDiseaseCode, confirmDate, paidAmnt
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_acc
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_acc
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+    insert into claim_acc (id, docuno, accno, 
+      accDate, accType, accProviceCode, 
+      accCityCode, accCountyCode, accPlace, 
+      inHospitalDate, outHospitalDate, accdesc, 
+      createdDate, updatedDate, conclusionBasisType, 
+      majorDiseaseName, majorDiseaseCode, confirmDate, 
+      paidAmnt)
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
+      #{accdate,jdbcType=DATE}, #{acctype,jdbcType=VARCHAR}, #{accprovicecode,jdbcType=VARCHAR}, 
+      #{acccitycode,jdbcType=VARCHAR}, #{acccountycode,jdbcType=VARCHAR}, #{accplace,jdbcType=VARCHAR}, 
+      #{inhospitaldate,jdbcType=DATE}, #{outhospitaldate,jdbcType=DATE}, #{accdesc,jdbcType=VARCHAR}, 
+      #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP}, #{conclusionbasistype,jdbcType=VARCHAR}, 
+      #{majordiseasename,jdbcType=VARCHAR}, #{majordiseasecode,jdbcType=VARCHAR}, #{confirmdate,jdbcType=DATE}, 
+      #{paidamnt,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+    insert into claim_acc
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="accdate != null" >
+        accDate,
+      </if>
+      <if test="acctype != null" >
+        accType,
+      </if>
+      <if test="accprovicecode != null" >
+        accProviceCode,
+      </if>
+      <if test="acccitycode != null" >
+        accCityCode,
+      </if>
+      <if test="acccountycode != null" >
+        accCountyCode,
+      </if>
+      <if test="accplace != null" >
+        accPlace,
+      </if>
+      <if test="inhospitaldate != null" >
+        inHospitalDate,
+      </if>
+      <if test="outhospitaldate != null" >
+        outHospitalDate,
+      </if>
+      <if test="accdesc != null" >
+        accdesc,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+      <if test="conclusionbasistype != null" >
+        conclusionBasisType,
+      </if>
+      <if test="majordiseasename != null" >
+        majorDiseaseName,
+      </if>
+      <if test="majordiseasecode != null" >
+        majorDiseaseCode,
+      </if>
+      <if test="confirmdate != null" >
+        confirmDate,
+      </if>
+      <if test="paidamnt != null" >
+        paidAmnt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="accdate != null" >
+        #{accdate,jdbcType=DATE},
+      </if>
+      <if test="acctype != null" >
+        #{acctype,jdbcType=VARCHAR},
+      </if>
+      <if test="accprovicecode != null" >
+        #{accprovicecode,jdbcType=VARCHAR},
+      </if>
+      <if test="acccitycode != null" >
+        #{acccitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="acccountycode != null" >
+        #{acccountycode,jdbcType=VARCHAR},
+      </if>
+      <if test="accplace != null" >
+        #{accplace,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitaldate != null" >
+        #{inhospitaldate,jdbcType=DATE},
+      </if>
+      <if test="outhospitaldate != null" >
+        #{outhospitaldate,jdbcType=DATE},
+      </if>
+      <if test="accdesc != null" >
+        #{accdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="conclusionbasistype != null" >
+        #{conclusionbasistype,jdbcType=VARCHAR},
+      </if>
+      <if test="majordiseasename != null" >
+        #{majordiseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="majordiseasecode != null" >
+        #{majordiseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmdate != null" >
+        #{confirmdate,jdbcType=DATE},
+      </if>
+      <if test="paidamnt != null" >
+        #{paidamnt,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+    update claim_acc
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="accdate != null" >
+        accDate = #{accdate,jdbcType=DATE},
+      </if>
+      <if test="acctype != null" >
+        accType = #{acctype,jdbcType=VARCHAR},
+      </if>
+      <if test="accprovicecode != null" >
+        accProviceCode = #{accprovicecode,jdbcType=VARCHAR},
+      </if>
+      <if test="acccitycode != null" >
+        accCityCode = #{acccitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="acccountycode != null" >
+        accCountyCode = #{acccountycode,jdbcType=VARCHAR},
+      </if>
+      <if test="accplace != null" >
+        accPlace = #{accplace,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitaldate != null" >
+        inHospitalDate = #{inhospitaldate,jdbcType=DATE},
+      </if>
+      <if test="outhospitaldate != null" >
+        outHospitalDate = #{outhospitaldate,jdbcType=DATE},
+      </if>
+      <if test="accdesc != null" >
+        accdesc = #{accdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="conclusionbasistype != null" >
+        conclusionBasisType = #{conclusionbasistype,jdbcType=VARCHAR},
+      </if>
+      <if test="majordiseasename != null" >
+        majorDiseaseName = #{majordiseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="majordiseasecode != null" >
+        majorDiseaseCode = #{majordiseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmdate != null" >
+        confirmDate = #{confirmdate,jdbcType=DATE},
+      </if>
+      <if test="paidamnt != null" >
+        paidAmnt = #{paidamnt,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+    update claim_acc
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      accDate = #{accdate,jdbcType=DATE},
+      accType = #{acctype,jdbcType=VARCHAR},
+      accProviceCode = #{accprovicecode,jdbcType=VARCHAR},
+      accCityCode = #{acccitycode,jdbcType=VARCHAR},
+      accCountyCode = #{acccountycode,jdbcType=VARCHAR},
+      accPlace = #{accplace,jdbcType=VARCHAR},
+      inHospitalDate = #{inhospitaldate,jdbcType=DATE},
+      outHospitalDate = #{outhospitaldate,jdbcType=DATE},
+      accdesc = #{accdesc,jdbcType=VARCHAR},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      conclusionBasisType = #{conclusionbasistype,jdbcType=VARCHAR},
+      majorDiseaseName = #{majordiseasename,jdbcType=VARCHAR},
+      majorDiseaseCode = #{majordiseasecode,jdbcType=VARCHAR},
+      confirmDate = #{confirmdate,jdbcType=DATE},
+      paidAmnt = #{paidamnt,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

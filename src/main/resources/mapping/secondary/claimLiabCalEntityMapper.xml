@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimLiabCalEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimLiabCalEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
+    <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
+    <result column="benefit_code" property="benefitCode" jdbcType="VARCHAR" />
+    <result column="cal_amt" property="calAmt" jdbcType="BIGINT" />
+    <result column="exam_amt" property="examAmt" jdbcType="BIGINT" />
+    <result column="deductible_amt" property="deductibleAmt" jdbcType="BIGINT" />
+    <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="amt_cur" property="amtCur" jdbcType="VARCHAR" />
+    <result column="pay_result" property="payResult" jdbcType="VARCHAR" />
+    <result column="refuse_pay_reason" property="refusePayReason" jdbcType="VARCHAR" />
+    <result column="bill_amt" property="billAmt" jdbcType="BIGINT" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="riskCode" property="riskcode" jdbcType="VARCHAR" />
+    <result column="riskName" property="riskname" jdbcType="VARCHAR" />
+    <result column="declineAmt" property="declineamt" jdbcType="BIGINT" />
+    <result column="benefit_name" property="benefitName" jdbcType="VARCHAR" />
+    <result column="examComment" property="examcomment" jdbcType="VARCHAR" />
+    <result column="plan_name" property="planName" jdbcType="VARCHAR" />
+    <result column="paidAmnt" property="paidamnt" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, polno, plan_code, grade_level, benefit_code, cal_amt, exam_amt, deductible_amt, 
+    insured_id, update_poson, update_time, is_delete, amt_cur, pay_result, refuse_pay_reason, 
+    bill_amt, accno, riskCode, riskName, declineAmt, benefit_name, examComment, plan_name, 
+    paidAmnt
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_liab_cal
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from claim_liab_cal
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+    insert into claim_liab_cal (id, docuno, polno, 
+      plan_code, grade_level, benefit_code, 
+      cal_amt, exam_amt, deductible_amt, 
+      insured_id, update_poson, update_time, 
+      is_delete, amt_cur, pay_result, 
+      refuse_pay_reason, bill_amt, accno, 
+      riskCode, riskName, declineAmt, 
+      benefit_name, examComment, plan_name, 
+      paidAmnt)
+    values (#{id,jdbcType=VARCHAR}, #{docuno,jdbcType=VARCHAR}, #{polno,jdbcType=VARCHAR}, 
+      #{planCode,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=VARCHAR}, #{benefitCode,jdbcType=VARCHAR}, 
+      #{calAmt,jdbcType=BIGINT}, #{examAmt,jdbcType=BIGINT}, #{deductibleAmt,jdbcType=BIGINT}, 
+      #{insuredId,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=BIGINT}, #{amtCur,jdbcType=VARCHAR}, #{payResult,jdbcType=VARCHAR}, 
+      #{refusePayReason,jdbcType=VARCHAR}, #{billAmt,jdbcType=BIGINT}, #{accno,jdbcType=VARCHAR}, 
+      #{riskcode,jdbcType=VARCHAR}, #{riskname,jdbcType=VARCHAR}, #{declineamt,jdbcType=BIGINT}, 
+      #{benefitName,jdbcType=VARCHAR}, #{examcomment,jdbcType=VARCHAR}, #{planName,jdbcType=VARCHAR}, 
+      #{paidamnt,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+    insert into claim_liab_cal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="planCode != null" >
+        plan_code,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code,
+      </if>
+      <if test="calAmt != null" >
+        cal_amt,
+      </if>
+      <if test="examAmt != null" >
+        exam_amt,
+      </if>
+      <if test="deductibleAmt != null" >
+        deductible_amt,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="amtCur != null" >
+        amt_cur,
+      </if>
+      <if test="payResult != null" >
+        pay_result,
+      </if>
+      <if test="refusePayReason != null" >
+        refuse_pay_reason,
+      </if>
+      <if test="billAmt != null" >
+        bill_amt,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="riskcode != null" >
+        riskCode,
+      </if>
+      <if test="riskname != null" >
+        riskName,
+      </if>
+      <if test="declineamt != null" >
+        declineAmt,
+      </if>
+      <if test="benefitName != null" >
+        benefit_name,
+      </if>
+      <if test="examcomment != null" >
+        examComment,
+      </if>
+      <if test="planName != null" >
+        plan_name,
+      </if>
+      <if test="paidamnt != null" >
+        paidAmnt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="calAmt != null" >
+        #{calAmt,jdbcType=BIGINT},
+      </if>
+      <if test="examAmt != null" >
+        #{examAmt,jdbcType=BIGINT},
+      </if>
+      <if test="deductibleAmt != null" >
+        #{deductibleAmt,jdbcType=BIGINT},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="amtCur != null" >
+        #{amtCur,jdbcType=VARCHAR},
+      </if>
+      <if test="payResult != null" >
+        #{payResult,jdbcType=VARCHAR},
+      </if>
+      <if test="refusePayReason != null" >
+        #{refusePayReason,jdbcType=VARCHAR},
+      </if>
+      <if test="billAmt != null" >
+        #{billAmt,jdbcType=BIGINT},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null" >
+        #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null" >
+        #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="declineamt != null" >
+        #{declineamt,jdbcType=BIGINT},
+      </if>
+      <if test="benefitName != null" >
+        #{benefitName,jdbcType=VARCHAR},
+      </if>
+      <if test="examcomment != null" >
+        #{examcomment,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null" >
+        #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="paidamnt != null" >
+        #{paidamnt,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+    update claim_liab_cal
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="planCode != null" >
+        plan_code = #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="calAmt != null" >
+        cal_amt = #{calAmt,jdbcType=BIGINT},
+      </if>
+      <if test="examAmt != null" >
+        exam_amt = #{examAmt,jdbcType=BIGINT},
+      </if>
+      <if test="deductibleAmt != null" >
+        deductible_amt = #{deductibleAmt,jdbcType=BIGINT},
+      </if>
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="amtCur != null" >
+        amt_cur = #{amtCur,jdbcType=VARCHAR},
+      </if>
+      <if test="payResult != null" >
+        pay_result = #{payResult,jdbcType=VARCHAR},
+      </if>
+      <if test="refusePayReason != null" >
+        refuse_pay_reason = #{refusePayReason,jdbcType=VARCHAR},
+      </if>
+      <if test="billAmt != null" >
+        bill_amt = #{billAmt,jdbcType=BIGINT},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null" >
+        riskCode = #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null" >
+        riskName = #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="declineamt != null" >
+        declineAmt = #{declineamt,jdbcType=BIGINT},
+      </if>
+      <if test="benefitName != null" >
+        benefit_name = #{benefitName,jdbcType=VARCHAR},
+      </if>
+      <if test="examcomment != null" >
+        examComment = #{examcomment,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null" >
+        plan_name = #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="paidamnt != null" >
+        paidAmnt = #{paidamnt,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+    update claim_liab_cal
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      polno = #{polno,jdbcType=VARCHAR},
+      plan_code = #{planCode,jdbcType=VARCHAR},
+      grade_level = #{gradeLevel,jdbcType=VARCHAR},
+      benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      cal_amt = #{calAmt,jdbcType=BIGINT},
+      exam_amt = #{examAmt,jdbcType=BIGINT},
+      deductible_amt = #{deductibleAmt,jdbcType=BIGINT},
+      insured_id = #{insuredId,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      amt_cur = #{amtCur,jdbcType=VARCHAR},
+      pay_result = #{payResult,jdbcType=VARCHAR},
+      refuse_pay_reason = #{refusePayReason,jdbcType=VARCHAR},
+      bill_amt = #{billAmt,jdbcType=BIGINT},
+      accno = #{accno,jdbcType=VARCHAR},
+      riskCode = #{riskcode,jdbcType=VARCHAR},
+      riskName = #{riskname,jdbcType=VARCHAR},
+      declineAmt = #{declineamt,jdbcType=BIGINT},
+      benefit_name = #{benefitName,jdbcType=VARCHAR},
+      examComment = #{examcomment,jdbcType=VARCHAR},
+      plan_name = #{planName,jdbcType=VARCHAR},
+      paidAmnt = #{paidamnt,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

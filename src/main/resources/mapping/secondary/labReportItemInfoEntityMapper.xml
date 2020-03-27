@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.labReportItemInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+    <id column="labItemRcdFlow" property="labitemrcdflow" jdbcType="VARCHAR" />
+    <result column="labFlow" property="labflow" jdbcType="VARCHAR" />
+    <result column="labRepItemCode" property="labrepitemcode" jdbcType="VARCHAR" />
+    <result column="labRepItemName" property="labrepitemname" jdbcType="VARCHAR" />
+    <result column="resultType" property="resulttype" jdbcType="VARCHAR" />
+    <result column="resultNum" property="resultnum" jdbcType="VARCHAR" />
+    <result column="resultText" property="resulttext" jdbcType="VARCHAR" />
+    <result column="referenceText" property="referencetext" jdbcType="VARCHAR" />
+    <result column="labRepItemUnit" property="labrepitemunit" jdbcType="VARCHAR" />
+    <result column="changeFlag" property="changeflag" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    labItemRcdFlow, labFlow, labRepItemCode, labRepItemName, resultType, resultNum, resultText, 
+    referenceText, labRepItemUnit, changeFlag, update_poson, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from lab_report_item_info
+    where labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from lab_report_item_info
+    where labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+    insert into lab_report_item_info (labItemRcdFlow, labFlow, labRepItemCode, 
+      labRepItemName, resultType, resultNum, 
+      resultText, referenceText, labRepItemUnit, 
+      changeFlag, update_poson, update_time, 
+      is_delete)
+    values (#{labitemrcdflow,jdbcType=VARCHAR}, #{labflow,jdbcType=VARCHAR}, #{labrepitemcode,jdbcType=VARCHAR}, 
+      #{labrepitemname,jdbcType=VARCHAR}, #{resulttype,jdbcType=VARCHAR}, #{resultnum,jdbcType=VARCHAR}, 
+      #{resulttext,jdbcType=VARCHAR}, #{referencetext,jdbcType=VARCHAR}, #{labrepitemunit,jdbcType=VARCHAR}, 
+      #{changeflag,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+    insert into lab_report_item_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="labitemrcdflow != null" >
+        labItemRcdFlow,
+      </if>
+      <if test="labflow != null" >
+        labFlow,
+      </if>
+      <if test="labrepitemcode != null" >
+        labRepItemCode,
+      </if>
+      <if test="labrepitemname != null" >
+        labRepItemName,
+      </if>
+      <if test="resulttype != null" >
+        resultType,
+      </if>
+      <if test="resultnum != null" >
+        resultNum,
+      </if>
+      <if test="resulttext != null" >
+        resultText,
+      </if>
+      <if test="referencetext != null" >
+        referenceText,
+      </if>
+      <if test="labrepitemunit != null" >
+        labRepItemUnit,
+      </if>
+      <if test="changeflag != null" >
+        changeFlag,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="labitemrcdflow != null" >
+        #{labitemrcdflow,jdbcType=VARCHAR},
+      </if>
+      <if test="labflow != null" >
+        #{labflow,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemcode != null" >
+        #{labrepitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemname != null" >
+        #{labrepitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttype != null" >
+        #{resulttype,jdbcType=VARCHAR},
+      </if>
+      <if test="resultnum != null" >
+        #{resultnum,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttext != null" >
+        #{resulttext,jdbcType=VARCHAR},
+      </if>
+      <if test="referencetext != null" >
+        #{referencetext,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemunit != null" >
+        #{labrepitemunit,jdbcType=VARCHAR},
+      </if>
+      <if test="changeflag != null" >
+        #{changeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+    update lab_report_item_info
+    <set >
+      <if test="labflow != null" >
+        labFlow = #{labflow,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemcode != null" >
+        labRepItemCode = #{labrepitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemname != null" >
+        labRepItemName = #{labrepitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttype != null" >
+        resultType = #{resulttype,jdbcType=VARCHAR},
+      </if>
+      <if test="resultnum != null" >
+        resultNum = #{resultnum,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttext != null" >
+        resultText = #{resulttext,jdbcType=VARCHAR},
+      </if>
+      <if test="referencetext != null" >
+        referenceText = #{referencetext,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemunit != null" >
+        labRepItemUnit = #{labrepitemunit,jdbcType=VARCHAR},
+      </if>
+      <if test="changeflag != null" >
+        changeFlag = #{changeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+    update lab_report_item_info
+    set labFlow = #{labflow,jdbcType=VARCHAR},
+      labRepItemCode = #{labrepitemcode,jdbcType=VARCHAR},
+      labRepItemName = #{labrepitemname,jdbcType=VARCHAR},
+      resultType = #{resulttype,jdbcType=VARCHAR},
+      resultNum = #{resultnum,jdbcType=VARCHAR},
+      resultText = #{resulttext,jdbcType=VARCHAR},
+      referenceText = #{referencetext,jdbcType=VARCHAR},
+      labRepItemUnit = #{labrepitemunit,jdbcType=VARCHAR},
+      changeFlag = #{changeflag,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR}
+  </update>
+</mapper>

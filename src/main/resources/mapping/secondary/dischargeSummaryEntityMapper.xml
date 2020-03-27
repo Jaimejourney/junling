@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.dischargeSummaryEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.dischargeSummaryEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="gender_code" property="genderCode" jdbcType="VARCHAR" />
+    <result column="admission_id" property="admissionId" jdbcType="VARCHAR" />
+    <result column="admission_department_code_hb" property="admissionDepartmentCodeHb" jdbcType="VARCHAR" />
+    <result column="admission_department_name_hb" property="admissionDepartmentNameHb" jdbcType="VARCHAR" />
+    <result column="date_admission" property="dateAdmission" jdbcType="TIMESTAMP" />
+    <result column="inHosSituation" property="inhossituation" jdbcType="VARCHAR" />
+    <result column="inHosDiagnosis" property="inhosdiagnosis" jdbcType="VARCHAR" />
+    <result column="diagnosisTreatment" property="diagnosistreatment" jdbcType="VARCHAR" />
+    <result column="date_discharge" property="dateDischarge" jdbcType="TIMESTAMP" />
+    <result column="dischDiagnosis" property="dischdiagnosis" jdbcType="VARCHAR" />
+    <result column="dischAdvice" property="dischadvice" jdbcType="VARCHAR" />
+    <result column="dischargeSummary" property="dischargesummary" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, flow_id, name, gender_code, admission_id, admission_department_code_hb, admission_department_name_hb, 
+    date_admission, inHosSituation, inHosDiagnosis, diagnosisTreatment, date_discharge, 
+    dischDiagnosis, dischAdvice, dischargeSummary, create_time, update_poson, update_time, 
+    is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from discharge_summary
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from discharge_summary
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.dischargeSummaryEntity" >
+    insert into discharge_summary (id, flow_id, name, 
+      gender_code, admission_id, admission_department_code_hb, 
+      admission_department_name_hb, date_admission, 
+      inHosSituation, inHosDiagnosis, diagnosisTreatment, 
+      date_discharge, dischDiagnosis, dischAdvice, 
+      dischargeSummary, create_time, update_poson, 
+      update_time, is_delete)
+    values (#{id,jdbcType=VARCHAR}, #{flowId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{genderCode,jdbcType=VARCHAR}, #{admissionId,jdbcType=VARCHAR}, #{admissionDepartmentCodeHb,jdbcType=VARCHAR}, 
+      #{admissionDepartmentNameHb,jdbcType=VARCHAR}, #{dateAdmission,jdbcType=TIMESTAMP}, 
+      #{inhossituation,jdbcType=VARCHAR}, #{inhosdiagnosis,jdbcType=VARCHAR}, #{diagnosistreatment,jdbcType=VARCHAR}, 
+      #{dateDischarge,jdbcType=TIMESTAMP}, #{dischdiagnosis,jdbcType=VARCHAR}, #{dischadvice,jdbcType=VARCHAR}, 
+      #{dischargesummary,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updatePoson,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.dischargeSummaryEntity" >
+    insert into discharge_summary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="flowId != null" >
+        flow_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="genderCode != null" >
+        gender_code,
+      </if>
+      <if test="admissionId != null" >
+        admission_id,
+      </if>
+      <if test="admissionDepartmentCodeHb != null" >
+        admission_department_code_hb,
+      </if>
+      <if test="admissionDepartmentNameHb != null" >
+        admission_department_name_hb,
+      </if>
+      <if test="dateAdmission != null" >
+        date_admission,
+      </if>
+      <if test="inhossituation != null" >
+        inHosSituation,
+      </if>
+      <if test="inhosdiagnosis != null" >
+        inHosDiagnosis,
+      </if>
+      <if test="diagnosistreatment != null" >
+        diagnosisTreatment,
+      </if>
+      <if test="dateDischarge != null" >
+        date_discharge,
+      </if>
+      <if test="dischdiagnosis != null" >
+        dischDiagnosis,
+      </if>
+      <if test="dischadvice != null" >
+        dischAdvice,
+      </if>
+      <if test="dischargesummary != null" >
+        dischargeSummary,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="genderCode != null" >
+        #{genderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionId != null" >
+        #{admissionId,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDepartmentCodeHb != null" >
+        #{admissionDepartmentCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDepartmentNameHb != null" >
+        #{admissionDepartmentNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAdmission != null" >
+        #{dateAdmission,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inhossituation != null" >
+        #{inhossituation,jdbcType=VARCHAR},
+      </if>
+      <if test="inhosdiagnosis != null" >
+        #{inhosdiagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistreatment != null" >
+        #{diagnosistreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="dateDischarge != null" >
+        #{dateDischarge,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dischdiagnosis != null" >
+        #{dischdiagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="dischadvice != null" >
+        #{dischadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="dischargesummary != null" >
+        #{dischargesummary,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.dischargeSummaryEntity" >
+    update discharge_summary
+    <set >
+      <if test="flowId != null" >
+        flow_id = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="genderCode != null" >
+        gender_code = #{genderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionId != null" >
+        admission_id = #{admissionId,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDepartmentCodeHb != null" >
+        admission_department_code_hb = #{admissionDepartmentCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionDepartmentNameHb != null" >
+        admission_department_name_hb = #{admissionDepartmentNameHb,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAdmission != null" >
+        date_admission = #{dateAdmission,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inhossituation != null" >
+        inHosSituation = #{inhossituation,jdbcType=VARCHAR},
+      </if>
+      <if test="inhosdiagnosis != null" >
+        inHosDiagnosis = #{inhosdiagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistreatment != null" >
+        diagnosisTreatment = #{diagnosistreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="dateDischarge != null" >
+        date_discharge = #{dateDischarge,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dischdiagnosis != null" >
+        dischDiagnosis = #{dischdiagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="dischadvice != null" >
+        dischAdvice = #{dischadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="dischargesummary != null" >
+        dischargeSummary = #{dischargesummary,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.dischargeSummaryEntity" >
+    update discharge_summary
+    set flow_id = #{flowId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      gender_code = #{genderCode,jdbcType=VARCHAR},
+      admission_id = #{admissionId,jdbcType=VARCHAR},
+      admission_department_code_hb = #{admissionDepartmentCodeHb,jdbcType=VARCHAR},
+      admission_department_name_hb = #{admissionDepartmentNameHb,jdbcType=VARCHAR},
+      date_admission = #{dateAdmission,jdbcType=TIMESTAMP},
+      inHosSituation = #{inhossituation,jdbcType=VARCHAR},
+      inHosDiagnosis = #{inhosdiagnosis,jdbcType=VARCHAR},
+      diagnosisTreatment = #{diagnosistreatment,jdbcType=VARCHAR},
+      date_discharge = #{dateDischarge,jdbcType=TIMESTAMP},
+      dischDiagnosis = #{dischdiagnosis,jdbcType=VARCHAR},
+      dischAdvice = #{dischadvice,jdbcType=VARCHAR},
+      dischargeSummary = #{dischargesummary,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

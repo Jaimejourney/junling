@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.jlverifylogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.jlverifylogEntity" >
+    <id column="jl_verify_seq" property="jlVerifySeq" jdbcType="VARCHAR" />
+    <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
+    <result column="hos_code_hb" property="hosCodeHb" jdbcType="VARCHAR" />
+    <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="seqno" property="seqno" jdbcType="VARCHAR" />
+    <result column="jl_result" property="jlResult" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="partner_id" property="partnerId" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+    <result column="visit_record_id" property="visitRecordId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    jl_verify_seq, insured_id, hos_code_hb, flow_id, docuno, seqno, jl_result, status, 
+    partner_id, update_poson, update_time, is_delete, visit_record_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from jlverifylog
+    where jl_verify_seq = #{jlVerifySeq,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from jlverifylog
+    where jl_verify_seq = #{jlVerifySeq,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+    insert into jlverifylog (jl_verify_seq, insured_id, hos_code_hb, 
+      flow_id, docuno, seqno, 
+      jl_result, status, partner_id, 
+      update_poson, update_time, is_delete, 
+      visit_record_id)
+    values (#{jlVerifySeq,jdbcType=VARCHAR}, #{insuredId,jdbcType=VARCHAR}, #{hosCodeHb,jdbcType=VARCHAR}, 
+      #{flowId,jdbcType=VARCHAR}, #{docuno,jdbcType=VARCHAR}, #{seqno,jdbcType=VARCHAR}, 
+      #{jlResult,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, 
+      #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, 
+      #{visitRecordId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+    insert into jlverifylog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="jlVerifySeq != null" >
+        jl_verify_seq,
+      </if>
+      <if test="insuredId != null" >
+        insured_id,
+      </if>
+      <if test="hosCodeHb != null" >
+        hos_code_hb,
+      </if>
+      <if test="flowId != null" >
+        flow_id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="seqno != null" >
+        seqno,
+      </if>
+      <if test="jlResult != null" >
+        jl_result,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="partnerId != null" >
+        partner_id,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="visitRecordId != null" >
+        visit_record_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="jlVerifySeq != null" >
+        #{jlVerifySeq,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredId != null" >
+        #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="hosCodeHb != null" >
+        #{hosCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null" >
+        #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="jlResult != null" >
+        #{jlResult,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null" >
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="visitRecordId != null" >
+        #{visitRecordId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+    update jlverifylog
+    <set >
+      <if test="insuredId != null" >
+        insured_id = #{insuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="hosCodeHb != null" >
+        hos_code_hb = #{hosCodeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        flow_id = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null" >
+        seqno = #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="jlResult != null" >
+        jl_result = #{jlResult,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null" >
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+      <if test="visitRecordId != null" >
+        visit_record_id = #{visitRecordId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where jl_verify_seq = #{jlVerifySeq,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+    update jlverifylog
+    set insured_id = #{insuredId,jdbcType=VARCHAR},
+      hos_code_hb = #{hosCodeHb,jdbcType=VARCHAR},
+      flow_id = #{flowId,jdbcType=VARCHAR},
+      docuno = #{docuno,jdbcType=VARCHAR},
+      seqno = #{seqno,jdbcType=VARCHAR},
+      jl_result = #{jlResult,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT},
+      visit_record_id = #{visitRecordId,jdbcType=VARCHAR}
+    where jl_verify_seq = #{jlVerifySeq,jdbcType=VARCHAR}
+  </update>
+</mapper>

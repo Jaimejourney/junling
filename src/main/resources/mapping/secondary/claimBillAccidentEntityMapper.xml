@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBillAccidentEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillAccidentEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="receiptno" property="receiptno" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="accidentCode" property="accidentcode" jdbcType="VARCHAR" />
+    <result column="accidentName" property="accidentname" jdbcType="VARCHAR" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, receiptno, accno, accidentCode, accidentName, createdDate, updatedDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_bill_accident
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_bill_accident
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillAccidentEntity" >
+    insert into claim_bill_accident (id, docuno, receiptno, 
+      accno, accidentCode, accidentName, 
+      createdDate, updatedDate)
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, 
+      #{accno,jdbcType=VARCHAR}, #{accidentcode,jdbcType=VARCHAR}, #{accidentname,jdbcType=VARCHAR}, 
+      #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillAccidentEntity" >
+    insert into claim_bill_accident
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="receiptno != null" >
+        receiptno,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="accidentcode != null" >
+        accidentCode,
+      </if>
+      <if test="accidentname != null" >
+        accidentName,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentcode != null" >
+        #{accidentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentname != null" >
+        #{accidentname,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillAccidentEntity" >
+    update claim_bill_accident
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptno = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentcode != null" >
+        accidentCode = #{accidentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentname != null" >
+        accidentName = #{accidentname,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillAccidentEntity" >
+    update claim_bill_accident
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      receiptno = #{receiptno,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      accidentCode = #{accidentcode,jdbcType=VARCHAR},
+      accidentName = #{accidentname,jdbcType=VARCHAR},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

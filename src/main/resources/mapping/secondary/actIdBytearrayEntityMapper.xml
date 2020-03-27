@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.actIdBytearrayEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdBytearrayEntity" >
+    <id column="ID_" property="id" jdbcType="VARCHAR" />
+    <result column="REV_" property="rev" jdbcType="INTEGER" />
+    <result column="NAME_" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.actIdBytearrayEntity" extends="BaseResultMap" >
+    <result column="BYTES_" property="bytes" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID_, REV_, NAME_
+  </sql>
+  <sql id="Blob_Column_List" >
+    BYTES_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from act_id_bytearray
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from act_id_bytearray
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdBytearrayEntity" >
+    insert into act_id_bytearray (ID_, REV_, NAME_, 
+      BYTES_)
+    values (#{id,jdbcType=VARCHAR}, #{rev,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{bytes,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdBytearrayEntity" >
+    insert into act_id_bytearray
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID_,
+      </if>
+      <if test="rev != null" >
+        REV_,
+      </if>
+      <if test="name != null" >
+        NAME_,
+      </if>
+      <if test="bytes != null" >
+        BYTES_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null" >
+        #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bytes != null" >
+        #{bytes,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdBytearrayEntity" >
+    update act_id_bytearray
+    <set >
+      <if test="rev != null" >
+        REV_ = #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bytes != null" >
+        BYTES_ = #{bytes,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.actIdBytearrayEntity" >
+    update act_id_bytearray
+    set REV_ = #{rev,jdbcType=INTEGER},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      BYTES_ = #{bytes,jdbcType=LONGVARBINARY}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdBytearrayEntity" >
+    update act_id_bytearray
+    set REV_ = #{rev,jdbcType=INTEGER},
+      NAME_ = #{name,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

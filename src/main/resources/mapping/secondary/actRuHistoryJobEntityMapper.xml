@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.actRuHistoryJobEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+    <id column="ID_" property="id" jdbcType="VARCHAR" />
+    <result column="REV_" property="rev" jdbcType="INTEGER" />
+    <result column="LOCK_EXP_TIME_" property="lockExpTime" jdbcType="TIMESTAMP" />
+    <result column="LOCK_OWNER_" property="lockOwner" jdbcType="VARCHAR" />
+    <result column="RETRIES_" property="retries" jdbcType="INTEGER" />
+    <result column="EXCEPTION_STACK_ID_" property="exceptionStackId" jdbcType="VARCHAR" />
+    <result column="EXCEPTION_MSG_" property="exceptionMsg" jdbcType="VARCHAR" />
+    <result column="HANDLER_TYPE_" property="handlerType" jdbcType="VARCHAR" />
+    <result column="HANDLER_CFG_" property="handlerCfg" jdbcType="VARCHAR" />
+    <result column="ADV_HANDLER_CFG_ID_" property="advHandlerCfgId" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME_" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="TENANT_ID_" property="tenantId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID_, REV_, LOCK_EXP_TIME_, LOCK_OWNER_, RETRIES_, EXCEPTION_STACK_ID_, EXCEPTION_MSG_, 
+    HANDLER_TYPE_, HANDLER_CFG_, ADV_HANDLER_CFG_ID_, CREATE_TIME_, TENANT_ID_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from act_ru_history_job
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from act_ru_history_job
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+    insert into act_ru_history_job (ID_, REV_, LOCK_EXP_TIME_, 
+      LOCK_OWNER_, RETRIES_, EXCEPTION_STACK_ID_, 
+      EXCEPTION_MSG_, HANDLER_TYPE_, HANDLER_CFG_, 
+      ADV_HANDLER_CFG_ID_, CREATE_TIME_, TENANT_ID_
+      )
+    values (#{id,jdbcType=VARCHAR}, #{rev,jdbcType=INTEGER}, #{lockExpTime,jdbcType=TIMESTAMP}, 
+      #{lockOwner,jdbcType=VARCHAR}, #{retries,jdbcType=INTEGER}, #{exceptionStackId,jdbcType=VARCHAR}, 
+      #{exceptionMsg,jdbcType=VARCHAR}, #{handlerType,jdbcType=VARCHAR}, #{handlerCfg,jdbcType=VARCHAR}, 
+      #{advHandlerCfgId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{tenantId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+    insert into act_ru_history_job
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID_,
+      </if>
+      <if test="rev != null" >
+        REV_,
+      </if>
+      <if test="lockExpTime != null" >
+        LOCK_EXP_TIME_,
+      </if>
+      <if test="lockOwner != null" >
+        LOCK_OWNER_,
+      </if>
+      <if test="retries != null" >
+        RETRIES_,
+      </if>
+      <if test="exceptionStackId != null" >
+        EXCEPTION_STACK_ID_,
+      </if>
+      <if test="exceptionMsg != null" >
+        EXCEPTION_MSG_,
+      </if>
+      <if test="handlerType != null" >
+        HANDLER_TYPE_,
+      </if>
+      <if test="handlerCfg != null" >
+        HANDLER_CFG_,
+      </if>
+      <if test="advHandlerCfgId != null" >
+        ADV_HANDLER_CFG_ID_,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME_,
+      </if>
+      <if test="tenantId != null" >
+        TENANT_ID_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null" >
+        #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="lockExpTime != null" >
+        #{lockExpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lockOwner != null" >
+        #{lockOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="retries != null" >
+        #{retries,jdbcType=INTEGER},
+      </if>
+      <if test="exceptionStackId != null" >
+        #{exceptionStackId,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionMsg != null" >
+        #{exceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerType != null" >
+        #{handlerType,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerCfg != null" >
+        #{handlerCfg,jdbcType=VARCHAR},
+      </if>
+      <if test="advHandlerCfgId != null" >
+        #{advHandlerCfgId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tenantId != null" >
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+    update act_ru_history_job
+    <set >
+      <if test="rev != null" >
+        REV_ = #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="lockExpTime != null" >
+        LOCK_EXP_TIME_ = #{lockExpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lockOwner != null" >
+        LOCK_OWNER_ = #{lockOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="retries != null" >
+        RETRIES_ = #{retries,jdbcType=INTEGER},
+      </if>
+      <if test="exceptionStackId != null" >
+        EXCEPTION_STACK_ID_ = #{exceptionStackId,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionMsg != null" >
+        EXCEPTION_MSG_ = #{exceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerType != null" >
+        HANDLER_TYPE_ = #{handlerType,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerCfg != null" >
+        HANDLER_CFG_ = #{handlerCfg,jdbcType=VARCHAR},
+      </if>
+      <if test="advHandlerCfgId != null" >
+        ADV_HANDLER_CFG_ID_ = #{advHandlerCfgId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tenantId != null" >
+        TENANT_ID_ = #{tenantId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+    update act_ru_history_job
+    set REV_ = #{rev,jdbcType=INTEGER},
+      LOCK_EXP_TIME_ = #{lockExpTime,jdbcType=TIMESTAMP},
+      LOCK_OWNER_ = #{lockOwner,jdbcType=VARCHAR},
+      RETRIES_ = #{retries,jdbcType=INTEGER},
+      EXCEPTION_STACK_ID_ = #{exceptionStackId,jdbcType=VARCHAR},
+      EXCEPTION_MSG_ = #{exceptionMsg,jdbcType=VARCHAR},
+      HANDLER_TYPE_ = #{handlerType,jdbcType=VARCHAR},
+      HANDLER_CFG_ = #{handlerCfg,jdbcType=VARCHAR},
+      ADV_HANDLER_CFG_ID_ = #{advHandlerCfgId,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      TENANT_ID_ = #{tenantId,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

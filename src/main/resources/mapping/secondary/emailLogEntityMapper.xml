@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.emailLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.emailLogEntity" >
+    <id column="email_log_id" property="emailLogId" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="person_name" property="personName" jdbcType="VARCHAR" />
+    <result column="person_email" property="personEmail" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="BIGINT" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    email_log_id, title, person_name, person_email, status, msg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from email_log
+    where email_log_id = #{emailLogId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from email_log
+    where email_log_id = #{emailLogId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+    insert into email_log (email_log_id, title, person_name, 
+      person_email, status, msg
+      )
+    values (#{emailLogId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{personName,jdbcType=VARCHAR}, 
+      #{personEmail,jdbcType=VARCHAR}, #{status,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+    insert into email_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="emailLogId != null" >
+        email_log_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="personName != null" >
+        person_name,
+      </if>
+      <if test="personEmail != null" >
+        person_email,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="emailLogId != null" >
+        #{emailLogId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="personName != null" >
+        #{personName,jdbcType=VARCHAR},
+      </if>
+      <if test="personEmail != null" >
+        #{personEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIGINT},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+    update email_log
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="personName != null" >
+        person_name = #{personName,jdbcType=VARCHAR},
+      </if>
+      <if test="personEmail != null" >
+        person_email = #{personEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIGINT},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where email_log_id = #{emailLogId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+    update email_log
+    set title = #{title,jdbcType=VARCHAR},
+      person_name = #{personName,jdbcType=VARCHAR},
+      person_email = #{personEmail,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIGINT},
+      msg = #{msg,jdbcType=VARCHAR}
+    where email_log_id = #{emailLogId,jdbcType=BIGINT}
+  </update>
+</mapper>

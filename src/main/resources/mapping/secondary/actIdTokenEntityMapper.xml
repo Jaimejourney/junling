@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.actIdTokenEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdTokenEntity" >
+    <id column="ID_" property="id" jdbcType="VARCHAR" />
+    <result column="REV_" property="rev" jdbcType="INTEGER" />
+    <result column="TOKEN_VALUE_" property="tokenValue" jdbcType="VARCHAR" />
+    <result column="TOKEN_DATE_" property="tokenDate" jdbcType="TIMESTAMP" />
+    <result column="IP_ADDRESS_" property="ipAddress" jdbcType="VARCHAR" />
+    <result column="USER_AGENT_" property="userAgent" jdbcType="VARCHAR" />
+    <result column="USER_ID_" property="userId" jdbcType="VARCHAR" />
+    <result column="TOKEN_DATA_" property="tokenData" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID_, REV_, TOKEN_VALUE_, TOKEN_DATE_, IP_ADDRESS_, USER_AGENT_, USER_ID_, TOKEN_DATA_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from act_id_token
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from act_id_token
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+    insert into act_id_token (ID_, REV_, TOKEN_VALUE_, 
+      TOKEN_DATE_, IP_ADDRESS_, USER_AGENT_, 
+      USER_ID_, TOKEN_DATA_)
+    values (#{id,jdbcType=VARCHAR}, #{rev,jdbcType=INTEGER}, #{tokenValue,jdbcType=VARCHAR}, 
+      #{tokenDate,jdbcType=TIMESTAMP}, #{ipAddress,jdbcType=VARCHAR}, #{userAgent,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{tokenData,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+    insert into act_id_token
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID_,
+      </if>
+      <if test="rev != null" >
+        REV_,
+      </if>
+      <if test="tokenValue != null" >
+        TOKEN_VALUE_,
+      </if>
+      <if test="tokenDate != null" >
+        TOKEN_DATE_,
+      </if>
+      <if test="ipAddress != null" >
+        IP_ADDRESS_,
+      </if>
+      <if test="userAgent != null" >
+        USER_AGENT_,
+      </if>
+      <if test="userId != null" >
+        USER_ID_,
+      </if>
+      <if test="tokenData != null" >
+        TOKEN_DATA_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null" >
+        #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="tokenValue != null" >
+        #{tokenValue,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenDate != null" >
+        #{tokenDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipAddress != null" >
+        #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userAgent != null" >
+        #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenData != null" >
+        #{tokenData,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+    update act_id_token
+    <set >
+      <if test="rev != null" >
+        REV_ = #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="tokenValue != null" >
+        TOKEN_VALUE_ = #{tokenValue,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenDate != null" >
+        TOKEN_DATE_ = #{tokenDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipAddress != null" >
+        IP_ADDRESS_ = #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userAgent != null" >
+        USER_AGENT_ = #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        USER_ID_ = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenData != null" >
+        TOKEN_DATA_ = #{tokenData,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+    update act_id_token
+    set REV_ = #{rev,jdbcType=INTEGER},
+      TOKEN_VALUE_ = #{tokenValue,jdbcType=VARCHAR},
+      TOKEN_DATE_ = #{tokenDate,jdbcType=TIMESTAMP},
+      IP_ADDRESS_ = #{ipAddress,jdbcType=VARCHAR},
+      USER_AGENT_ = #{userAgent,jdbcType=VARCHAR},
+      USER_ID_ = #{userId,jdbcType=VARCHAR},
+      TOKEN_DATA_ = #{tokenData,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

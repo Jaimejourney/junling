@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.clauseInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.clauseInfoEntity" >
+    <id column="clause_id" property="clauseId" jdbcType="VARCHAR" />
+    <result column="organization_id" property="organizationId" jdbcType="VARCHAR" />
+    <result column="clause_code" property="clauseCode" jdbcType="VARCHAR" />
+    <result column="clause_name" property="clauseName" jdbcType="VARCHAR" />
+    <result column="clause_type" property="clauseType" jdbcType="VARCHAR" />
+    <result column="clause_start_time" property="clauseStartTime" jdbcType="TIMESTAMP" />
+    <result column="clause_end_time" property="clauseEndTime" jdbcType="TIMESTAMP" />
+    <result column="clause_status" property="clauseStatus" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.clauseInfoEntity" extends="BaseResultMap" >
+    <result column="clause_des" property="clauseDes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    clause_id, organization_id, clause_code, clause_name, clause_type, clause_start_time, 
+    clause_end_time, clause_status, created_by, created_time, updated_by, updated_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    clause_des
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from clause_info
+    where clause_id = #{clauseId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from clause_info
+    where clause_id = #{clauseId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.clauseInfoEntity" >
+    insert into clause_info (clause_id, organization_id, clause_code, 
+      clause_name, clause_type, clause_start_time, 
+      clause_end_time, clause_status, created_by, 
+      created_time, updated_by, updated_time, 
+      clause_des)
+    values (#{clauseId,jdbcType=VARCHAR}, #{organizationId,jdbcType=VARCHAR}, #{clauseCode,jdbcType=VARCHAR}, 
+      #{clauseName,jdbcType=VARCHAR}, #{clauseType,jdbcType=VARCHAR}, #{clauseStartTime,jdbcType=TIMESTAMP}, 
+      #{clauseEndTime,jdbcType=TIMESTAMP}, #{clauseStatus,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, 
+      #{clauseDes,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.clauseInfoEntity" >
+    insert into clause_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clauseId != null" >
+        clause_id,
+      </if>
+      <if test="organizationId != null" >
+        organization_id,
+      </if>
+      <if test="clauseCode != null" >
+        clause_code,
+      </if>
+      <if test="clauseName != null" >
+        clause_name,
+      </if>
+      <if test="clauseType != null" >
+        clause_type,
+      </if>
+      <if test="clauseStartTime != null" >
+        clause_start_time,
+      </if>
+      <if test="clauseEndTime != null" >
+        clause_end_time,
+      </if>
+      <if test="clauseStatus != null" >
+        clause_status,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+      <if test="clauseDes != null" >
+        clause_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clauseId != null" >
+        #{clauseId,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null" >
+        #{organizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseCode != null" >
+        #{clauseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseName != null" >
+        #{clauseName,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseType != null" >
+        #{clauseType,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseStartTime != null" >
+        #{clauseStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clauseEndTime != null" >
+        #{clauseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clauseStatus != null" >
+        #{clauseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clauseDes != null" >
+        #{clauseDes,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.clauseInfoEntity" >
+    update clause_info
+    <set >
+      <if test="organizationId != null" >
+        organization_id = #{organizationId,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseCode != null" >
+        clause_code = #{clauseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseName != null" >
+        clause_name = #{clauseName,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseType != null" >
+        clause_type = #{clauseType,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseStartTime != null" >
+        clause_start_time = #{clauseStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clauseEndTime != null" >
+        clause_end_time = #{clauseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clauseStatus != null" >
+        clause_status = #{clauseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clauseDes != null" >
+        clause_des = #{clauseDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where clause_id = #{clauseId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.clauseInfoEntity" >
+    update clause_info
+    set organization_id = #{organizationId,jdbcType=VARCHAR},
+      clause_code = #{clauseCode,jdbcType=VARCHAR},
+      clause_name = #{clauseName,jdbcType=VARCHAR},
+      clause_type = #{clauseType,jdbcType=VARCHAR},
+      clause_start_time = #{clauseStartTime,jdbcType=TIMESTAMP},
+      clause_end_time = #{clauseEndTime,jdbcType=TIMESTAMP},
+      clause_status = #{clauseStatus,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      clause_des = #{clauseDes,jdbcType=LONGVARCHAR}
+    where clause_id = #{clauseId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.clauseInfoEntity" >
+    update clause_info
+    set organization_id = #{organizationId,jdbcType=VARCHAR},
+      clause_code = #{clauseCode,jdbcType=VARCHAR},
+      clause_name = #{clauseName,jdbcType=VARCHAR},
+      clause_type = #{clauseType,jdbcType=VARCHAR},
+      clause_start_time = #{clauseStartTime,jdbcType=TIMESTAMP},
+      clause_end_time = #{clauseEndTime,jdbcType=TIMESTAMP},
+      clause_status = #{clauseStatus,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where clause_id = #{clauseId,jdbcType=VARCHAR}
+  </update>
+</mapper>

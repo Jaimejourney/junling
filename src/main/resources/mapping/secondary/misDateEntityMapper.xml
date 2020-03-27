@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.misDateEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.misDateEntity" >
+    <result column="mis_date" property="misDate" jdbcType="VARCHAR" />
+    <result column="is_rest" property="isRest" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.misDateEntity" >
+    insert into mis_date (mis_date, is_rest)
+    values (#{misDate,jdbcType=VARCHAR}, #{isRest,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.misDateEntity" >
+    insert into mis_date
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="misDate != null" >
+        mis_date,
+      </if>
+      <if test="isRest != null" >
+        is_rest,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="misDate != null" >
+        #{misDate,jdbcType=VARCHAR},
+      </if>
+      <if test="isRest != null" >
+        #{isRest,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

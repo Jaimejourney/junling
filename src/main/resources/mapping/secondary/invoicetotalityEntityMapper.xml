@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.invoicetotalityEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.invoicetotalityEntity" >
+    <id column="invoicetotality_id" property="invoicetotalityId" jdbcType="BIGINT" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="VARCHAR" />
+    <result column="inHospitalNum" property="inhospitalnum" jdbcType="VARCHAR" />
+    <result column="inHosDate" property="inhosdate" jdbcType="VARCHAR" />
+    <result column="dischDate" property="dischdate" jdbcType="VARCHAR" />
+    <result column="hospitalDay" property="hospitalday" jdbcType="VARCHAR" />
+    <result column="settleDate" property="settledate" jdbcType="VARCHAR" />
+    <result column="socialNumber" property="socialnumber" jdbcType="VARCHAR" />
+    <result column="invoiceNO" property="invoiceno" jdbcType="VARCHAR" />
+    <result column="sumMoney" property="summoney" jdbcType="VARCHAR" />
+    <result column="selfCareAmount" property="selfcareamount" jdbcType="VARCHAR" />
+    <result column="medicareFundCost" property="medicarefundcost" jdbcType="VARCHAR" />
+    <result column="acctPay" property="acctpay" jdbcType="VARCHAR" />
+    <result column="selfAmount" property="selfamount" jdbcType="VARCHAR" />
+    <result column="sbFundPay" property="sbfundpay" jdbcType="VARCHAR" />
+    <result column="medicalNum" property="medicalnum" jdbcType="VARCHAR" />
+    <result column="billNum" property="billnum" jdbcType="VARCHAR" />
+    <result column="medicarePayLine" property="medicarepayline" jdbcType="VARCHAR" />
+    <result column="seriousllnessPay" property="seriousllnesspay" jdbcType="VARCHAR" />
+    <result column="dischDiagnosisCode" property="dischdiagnosiscode" jdbcType="VARCHAR" />
+    <result column="dischDiagnosisName" property="dischdiagnosisname" jdbcType="VARCHAR" />
+    <result column="selfPayment" property="selfpayment" jdbcType="VARCHAR" />
+    <result column="ProRataSelfPayment" property="prorataselfpayment" jdbcType="VARCHAR" />
+    <result column="seriousllnessPaySelfPayment" property="seriousllnesspayselfpayment" jdbcType="VARCHAR" />
+    <result column="otherReimbursedAmount" property="otherreimbursedamount" jdbcType="VARCHAR" />
+    <result column="inInsureMoney" property="ininsuremoney" jdbcType="VARCHAR" />
+    <result column="hospitalSelfAmount" property="hospitalselfamount" jdbcType="VARCHAR" />
+    <result column="medicalType" property="medicaltype" jdbcType="VARCHAR" />
+    <result column="deptNum" property="deptnum" jdbcType="VARCHAR" />
+    <result column="deptName" property="deptname" jdbcType="VARCHAR" />
+    <result column="is_yb_bill" property="isYbBill" jdbcType="VARCHAR" />
+    <result column="billType" property="billtype" jdbcType="VARCHAR" />
+    <result column="hospitalId" property="hospitalid" jdbcType="VARCHAR" />
+    <result column="hospitalizationTimes" property="hospitalizationtimes" jdbcType="VARCHAR" />
+    <result column="receiptNo" property="receiptno" jdbcType="VARCHAR" />
+    <result column="uniInvoiceType" property="uniinvoicetype" jdbcType="VARCHAR" />
+    <result column="insureSelfPay" property="insureselfpay" jdbcType="VARCHAR" />
+    <result column="prepayments" property="prepayments" jdbcType="VARCHAR" />
+    <result column="personalPay" property="personalpay" jdbcType="VARCHAR" />
+    <result column="civilServantSubsidy" property="civilservantsubsidy" jdbcType="VARCHAR" />
+    <result column="birthFund" property="birthfund" jdbcType="VARCHAR" />
+    <result column="otherPay" property="otherpay" jdbcType="VARCHAR" />
+    <result column="costCategory" property="costcategory" jdbcType="VARCHAR" />
+    <result column="uniCostCategory" property="unicostcategory" jdbcType="VARCHAR" />
+    <result column="uniDepartment" property="unidepartment" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    invoicetotality_id, card_id, sendTradeNum, name, sex, age, inHospitalNum, inHosDate, 
+    dischDate, hospitalDay, settleDate, socialNumber, invoiceNO, sumMoney, selfCareAmount, 
+    medicareFundCost, acctPay, selfAmount, sbFundPay, medicalNum, billNum, medicarePayLine, 
+    seriousllnessPay, dischDiagnosisCode, dischDiagnosisName, selfPayment, ProRataSelfPayment, 
+    seriousllnessPaySelfPayment, otherReimbursedAmount, inInsureMoney, hospitalSelfAmount, 
+    medicalType, deptNum, deptName, is_yb_bill, billType, hospitalId, hospitalizationTimes, 
+    receiptNo, uniInvoiceType, insureSelfPay, prepayments, personalPay, civilServantSubsidy, 
+    birthFund, otherPay, costCategory, uniCostCategory, uniDepartment, created_time, 
+    updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from invoicetotality
+    where invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from invoicetotality
+    where invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+    insert into invoicetotality (invoicetotality_id, card_id, sendTradeNum, 
+      name, sex, age, inHospitalNum, 
+      inHosDate, dischDate, hospitalDay, 
+      settleDate, socialNumber, invoiceNO, 
+      sumMoney, selfCareAmount, medicareFundCost, 
+      acctPay, selfAmount, sbFundPay, 
+      medicalNum, billNum, medicarePayLine, 
+      seriousllnessPay, dischDiagnosisCode, dischDiagnosisName, 
+      selfPayment, ProRataSelfPayment, seriousllnessPaySelfPayment, 
+      otherReimbursedAmount, inInsureMoney, hospitalSelfAmount, 
+      medicalType, deptNum, deptName, 
+      is_yb_bill, billType, hospitalId, 
+      hospitalizationTimes, receiptNo, uniInvoiceType, 
+      insureSelfPay, prepayments, personalPay, 
+      civilServantSubsidy, birthFund, otherPay, 
+      costCategory, uniCostCategory, uniDepartment, 
+      created_time, updated_time)
+    values (#{invoicetotalityId,jdbcType=BIGINT}, #{cardId,jdbcType=VARCHAR}, #{sendtradenum,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{inhospitalnum,jdbcType=VARCHAR}, 
+      #{inhosdate,jdbcType=VARCHAR}, #{dischdate,jdbcType=VARCHAR}, #{hospitalday,jdbcType=VARCHAR}, 
+      #{settledate,jdbcType=VARCHAR}, #{socialnumber,jdbcType=VARCHAR}, #{invoiceno,jdbcType=VARCHAR}, 
+      #{summoney,jdbcType=VARCHAR}, #{selfcareamount,jdbcType=VARCHAR}, #{medicarefundcost,jdbcType=VARCHAR}, 
+      #{acctpay,jdbcType=VARCHAR}, #{selfamount,jdbcType=VARCHAR}, #{sbfundpay,jdbcType=VARCHAR}, 
+      #{medicalnum,jdbcType=VARCHAR}, #{billnum,jdbcType=VARCHAR}, #{medicarepayline,jdbcType=VARCHAR}, 
+      #{seriousllnesspay,jdbcType=VARCHAR}, #{dischdiagnosiscode,jdbcType=VARCHAR}, #{dischdiagnosisname,jdbcType=VARCHAR}, 
+      #{selfpayment,jdbcType=VARCHAR}, #{prorataselfpayment,jdbcType=VARCHAR}, #{seriousllnesspayselfpayment,jdbcType=VARCHAR}, 
+      #{otherreimbursedamount,jdbcType=VARCHAR}, #{ininsuremoney,jdbcType=VARCHAR}, #{hospitalselfamount,jdbcType=VARCHAR}, 
+      #{medicaltype,jdbcType=VARCHAR}, #{deptnum,jdbcType=VARCHAR}, #{deptname,jdbcType=VARCHAR}, 
+      #{isYbBill,jdbcType=VARCHAR}, #{billtype,jdbcType=VARCHAR}, #{hospitalid,jdbcType=VARCHAR}, 
+      #{hospitalizationtimes,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, #{uniinvoicetype,jdbcType=VARCHAR}, 
+      #{insureselfpay,jdbcType=VARCHAR}, #{prepayments,jdbcType=VARCHAR}, #{personalpay,jdbcType=VARCHAR}, 
+      #{civilservantsubsidy,jdbcType=VARCHAR}, #{birthfund,jdbcType=VARCHAR}, #{otherpay,jdbcType=VARCHAR}, 
+      #{costcategory,jdbcType=VARCHAR}, #{unicostcategory,jdbcType=VARCHAR}, #{unidepartment,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+    insert into invoicetotality
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="invoicetotalityId != null" >
+        invoicetotality_id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="inhospitalnum != null" >
+        inHospitalNum,
+      </if>
+      <if test="inhosdate != null" >
+        inHosDate,
+      </if>
+      <if test="dischdate != null" >
+        dischDate,
+      </if>
+      <if test="hospitalday != null" >
+        hospitalDay,
+      </if>
+      <if test="settledate != null" >
+        settleDate,
+      </if>
+      <if test="socialnumber != null" >
+        socialNumber,
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO,
+      </if>
+      <if test="summoney != null" >
+        sumMoney,
+      </if>
+      <if test="selfcareamount != null" >
+        selfCareAmount,
+      </if>
+      <if test="medicarefundcost != null" >
+        medicareFundCost,
+      </if>
+      <if test="acctpay != null" >
+        acctPay,
+      </if>
+      <if test="selfamount != null" >
+        selfAmount,
+      </if>
+      <if test="sbfundpay != null" >
+        sbFundPay,
+      </if>
+      <if test="medicalnum != null" >
+        medicalNum,
+      </if>
+      <if test="billnum != null" >
+        billNum,
+      </if>
+      <if test="medicarepayline != null" >
+        medicarePayLine,
+      </if>
+      <if test="seriousllnesspay != null" >
+        seriousllnessPay,
+      </if>
+      <if test="dischdiagnosiscode != null" >
+        dischDiagnosisCode,
+      </if>
+      <if test="dischdiagnosisname != null" >
+        dischDiagnosisName,
+      </if>
+      <if test="selfpayment != null" >
+        selfPayment,
+      </if>
+      <if test="prorataselfpayment != null" >
+        ProRataSelfPayment,
+      </if>
+      <if test="seriousllnesspayselfpayment != null" >
+        seriousllnessPaySelfPayment,
+      </if>
+      <if test="otherreimbursedamount != null" >
+        otherReimbursedAmount,
+      </if>
+      <if test="ininsuremoney != null" >
+        inInsureMoney,
+      </if>
+      <if test="hospitalselfamount != null" >
+        hospitalSelfAmount,
+      </if>
+      <if test="medicaltype != null" >
+        medicalType,
+      </if>
+      <if test="deptnum != null" >
+        deptNum,
+      </if>
+      <if test="deptname != null" >
+        deptName,
+      </if>
+      <if test="isYbBill != null" >
+        is_yb_bill,
+      </if>
+      <if test="billtype != null" >
+        billType,
+      </if>
+      <if test="hospitalid != null" >
+        hospitalId,
+      </if>
+      <if test="hospitalizationtimes != null" >
+        hospitalizationTimes,
+      </if>
+      <if test="receiptno != null" >
+        receiptNo,
+      </if>
+      <if test="uniinvoicetype != null" >
+        uniInvoiceType,
+      </if>
+      <if test="insureselfpay != null" >
+        insureSelfPay,
+      </if>
+      <if test="prepayments != null" >
+        prepayments,
+      </if>
+      <if test="personalpay != null" >
+        personalPay,
+      </if>
+      <if test="civilservantsubsidy != null" >
+        civilServantSubsidy,
+      </if>
+      <if test="birthfund != null" >
+        birthFund,
+      </if>
+      <if test="otherpay != null" >
+        otherPay,
+      </if>
+      <if test="costcategory != null" >
+        costCategory,
+      </if>
+      <if test="unicostcategory != null" >
+        uniCostCategory,
+      </if>
+      <if test="unidepartment != null" >
+        uniDepartment,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="invoicetotalityId != null" >
+        #{invoicetotalityId,jdbcType=BIGINT},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtradenum != null" >
+        #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitalnum != null" >
+        #{inhospitalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="inhosdate != null" >
+        #{inhosdate,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdate != null" >
+        #{dischdate,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalday != null" >
+        #{hospitalday,jdbcType=VARCHAR},
+      </if>
+      <if test="settledate != null" >
+        #{settledate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialnumber != null" >
+        #{socialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="summoney != null" >
+        #{summoney,jdbcType=VARCHAR},
+      </if>
+      <if test="selfcareamount != null" >
+        #{selfcareamount,jdbcType=VARCHAR},
+      </if>
+      <if test="medicarefundcost != null" >
+        #{medicarefundcost,jdbcType=VARCHAR},
+      </if>
+      <if test="acctpay != null" >
+        #{acctpay,jdbcType=VARCHAR},
+      </if>
+      <if test="selfamount != null" >
+        #{selfamount,jdbcType=VARCHAR},
+      </if>
+      <if test="sbfundpay != null" >
+        #{sbfundpay,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalnum != null" >
+        #{medicalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="billnum != null" >
+        #{billnum,jdbcType=VARCHAR},
+      </if>
+      <if test="medicarepayline != null" >
+        #{medicarepayline,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousllnesspay != null" >
+        #{seriousllnesspay,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosiscode != null" >
+        #{dischdiagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosisname != null" >
+        #{dischdiagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="selfpayment != null" >
+        #{selfpayment,jdbcType=VARCHAR},
+      </if>
+      <if test="prorataselfpayment != null" >
+        #{prorataselfpayment,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousllnesspayselfpayment != null" >
+        #{seriousllnesspayselfpayment,jdbcType=VARCHAR},
+      </if>
+      <if test="otherreimbursedamount != null" >
+        #{otherreimbursedamount,jdbcType=VARCHAR},
+      </if>
+      <if test="ininsuremoney != null" >
+        #{ininsuremoney,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalselfamount != null" >
+        #{hospitalselfamount,jdbcType=VARCHAR},
+      </if>
+      <if test="medicaltype != null" >
+        #{medicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="deptnum != null" >
+        #{deptnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="isYbBill != null" >
+        #{isYbBill,jdbcType=VARCHAR},
+      </if>
+      <if test="billtype != null" >
+        #{billtype,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalizationtimes != null" >
+        #{hospitalizationtimes,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="uniinvoicetype != null" >
+        #{uniinvoicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="insureselfpay != null" >
+        #{insureselfpay,jdbcType=VARCHAR},
+      </if>
+      <if test="prepayments != null" >
+        #{prepayments,jdbcType=VARCHAR},
+      </if>
+      <if test="personalpay != null" >
+        #{personalpay,jdbcType=VARCHAR},
+      </if>
+      <if test="civilservantsubsidy != null" >
+        #{civilservantsubsidy,jdbcType=VARCHAR},
+      </if>
+      <if test="birthfund != null" >
+        #{birthfund,jdbcType=VARCHAR},
+      </if>
+      <if test="otherpay != null" >
+        #{otherpay,jdbcType=VARCHAR},
+      </if>
+      <if test="costcategory != null" >
+        #{costcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="unicostcategory != null" >
+        #{unicostcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="unidepartment != null" >
+        #{unidepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+    update invoicetotality
+    <set >
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitalnum != null" >
+        inHospitalNum = #{inhospitalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="inhosdate != null" >
+        inHosDate = #{inhosdate,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdate != null" >
+        dischDate = #{dischdate,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalday != null" >
+        hospitalDay = #{hospitalday,jdbcType=VARCHAR},
+      </if>
+      <if test="settledate != null" >
+        settleDate = #{settledate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialnumber != null" >
+        socialNumber = #{socialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="summoney != null" >
+        sumMoney = #{summoney,jdbcType=VARCHAR},
+      </if>
+      <if test="selfcareamount != null" >
+        selfCareAmount = #{selfcareamount,jdbcType=VARCHAR},
+      </if>
+      <if test="medicarefundcost != null" >
+        medicareFundCost = #{medicarefundcost,jdbcType=VARCHAR},
+      </if>
+      <if test="acctpay != null" >
+        acctPay = #{acctpay,jdbcType=VARCHAR},
+      </if>
+      <if test="selfamount != null" >
+        selfAmount = #{selfamount,jdbcType=VARCHAR},
+      </if>
+      <if test="sbfundpay != null" >
+        sbFundPay = #{sbfundpay,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalnum != null" >
+        medicalNum = #{medicalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="billnum != null" >
+        billNum = #{billnum,jdbcType=VARCHAR},
+      </if>
+      <if test="medicarepayline != null" >
+        medicarePayLine = #{medicarepayline,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousllnesspay != null" >
+        seriousllnessPay = #{seriousllnesspay,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosiscode != null" >
+        dischDiagnosisCode = #{dischdiagnosiscode,jdbcType=VARCHAR},
+      </if>
+      <if test="dischdiagnosisname != null" >
+        dischDiagnosisName = #{dischdiagnosisname,jdbcType=VARCHAR},
+      </if>
+      <if test="selfpayment != null" >
+        selfPayment = #{selfpayment,jdbcType=VARCHAR},
+      </if>
+      <if test="prorataselfpayment != null" >
+        ProRataSelfPayment = #{prorataselfpayment,jdbcType=VARCHAR},
+      </if>
+      <if test="seriousllnesspayselfpayment != null" >
+        seriousllnessPaySelfPayment = #{seriousllnesspayselfpayment,jdbcType=VARCHAR},
+      </if>
+      <if test="otherreimbursedamount != null" >
+        otherReimbursedAmount = #{otherreimbursedamount,jdbcType=VARCHAR},
+      </if>
+      <if test="ininsuremoney != null" >
+        inInsureMoney = #{ininsuremoney,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalselfamount != null" >
+        hospitalSelfAmount = #{hospitalselfamount,jdbcType=VARCHAR},
+      </if>
+      <if test="medicaltype != null" >
+        medicalType = #{medicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="deptnum != null" >
+        deptNum = #{deptnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        deptName = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="isYbBill != null" >
+        is_yb_bill = #{isYbBill,jdbcType=VARCHAR},
+      </if>
+      <if test="billtype != null" >
+        billType = #{billtype,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        hospitalId = #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalizationtimes != null" >
+        hospitalizationTimes = #{hospitalizationtimes,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptNo = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="uniinvoicetype != null" >
+        uniInvoiceType = #{uniinvoicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="insureselfpay != null" >
+        insureSelfPay = #{insureselfpay,jdbcType=VARCHAR},
+      </if>
+      <if test="prepayments != null" >
+        prepayments = #{prepayments,jdbcType=VARCHAR},
+      </if>
+      <if test="personalpay != null" >
+        personalPay = #{personalpay,jdbcType=VARCHAR},
+      </if>
+      <if test="civilservantsubsidy != null" >
+        civilServantSubsidy = #{civilservantsubsidy,jdbcType=VARCHAR},
+      </if>
+      <if test="birthfund != null" >
+        birthFund = #{birthfund,jdbcType=VARCHAR},
+      </if>
+      <if test="otherpay != null" >
+        otherPay = #{otherpay,jdbcType=VARCHAR},
+      </if>
+      <if test="costcategory != null" >
+        costCategory = #{costcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="unicostcategory != null" >
+        uniCostCategory = #{unicostcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="unidepartment != null" >
+        uniDepartment = #{unidepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+    update invoicetotality
+    set card_id = #{cardId,jdbcType=VARCHAR},
+      sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      inHospitalNum = #{inhospitalnum,jdbcType=VARCHAR},
+      inHosDate = #{inhosdate,jdbcType=VARCHAR},
+      dischDate = #{dischdate,jdbcType=VARCHAR},
+      hospitalDay = #{hospitalday,jdbcType=VARCHAR},
+      settleDate = #{settledate,jdbcType=VARCHAR},
+      socialNumber = #{socialnumber,jdbcType=VARCHAR},
+      invoiceNO = #{invoiceno,jdbcType=VARCHAR},
+      sumMoney = #{summoney,jdbcType=VARCHAR},
+      selfCareAmount = #{selfcareamount,jdbcType=VARCHAR},
+      medicareFundCost = #{medicarefundcost,jdbcType=VARCHAR},
+      acctPay = #{acctpay,jdbcType=VARCHAR},
+      selfAmount = #{selfamount,jdbcType=VARCHAR},
+      sbFundPay = #{sbfundpay,jdbcType=VARCHAR},
+      medicalNum = #{medicalnum,jdbcType=VARCHAR},
+      billNum = #{billnum,jdbcType=VARCHAR},
+      medicarePayLine = #{medicarepayline,jdbcType=VARCHAR},
+      seriousllnessPay = #{seriousllnesspay,jdbcType=VARCHAR},
+      dischDiagnosisCode = #{dischdiagnosiscode,jdbcType=VARCHAR},
+      dischDiagnosisName = #{dischdiagnosisname,jdbcType=VARCHAR},
+      selfPayment = #{selfpayment,jdbcType=VARCHAR},
+      ProRataSelfPayment = #{prorataselfpayment,jdbcType=VARCHAR},
+      seriousllnessPaySelfPayment = #{seriousllnesspayselfpayment,jdbcType=VARCHAR},
+      otherReimbursedAmount = #{otherreimbursedamount,jdbcType=VARCHAR},
+      inInsureMoney = #{ininsuremoney,jdbcType=VARCHAR},
+      hospitalSelfAmount = #{hospitalselfamount,jdbcType=VARCHAR},
+      medicalType = #{medicaltype,jdbcType=VARCHAR},
+      deptNum = #{deptnum,jdbcType=VARCHAR},
+      deptName = #{deptname,jdbcType=VARCHAR},
+      is_yb_bill = #{isYbBill,jdbcType=VARCHAR},
+      billType = #{billtype,jdbcType=VARCHAR},
+      hospitalId = #{hospitalid,jdbcType=VARCHAR},
+      hospitalizationTimes = #{hospitalizationtimes,jdbcType=VARCHAR},
+      receiptNo = #{receiptno,jdbcType=VARCHAR},
+      uniInvoiceType = #{uniinvoicetype,jdbcType=VARCHAR},
+      insureSelfPay = #{insureselfpay,jdbcType=VARCHAR},
+      prepayments = #{prepayments,jdbcType=VARCHAR},
+      personalPay = #{personalpay,jdbcType=VARCHAR},
+      civilServantSubsidy = #{civilservantsubsidy,jdbcType=VARCHAR},
+      birthFund = #{birthfund,jdbcType=VARCHAR},
+      otherPay = #{otherpay,jdbcType=VARCHAR},
+      costCategory = #{costcategory,jdbcType=VARCHAR},
+      uniCostCategory = #{unicostcategory,jdbcType=VARCHAR},
+      uniDepartment = #{unidepartment,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.labReportMicrobesInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.labReportMicrobesInfoEntity" >
+    <id column="recordMicrobesFlow" property="recordmicrobesflow" jdbcType="VARCHAR" />
+    <result column="labItemRcdFlow" property="labitemrcdflow" jdbcType="VARCHAR" />
+    <result column="lrMicrobesSn" property="lrmicrobessn" jdbcType="VARCHAR" />
+    <result column="labRepitemCode" property="labrepitemcode" jdbcType="VARCHAR" />
+    <result column="labRepitemName" property="labrepitemname" jdbcType="VARCHAR" />
+    <result column="kb" property="kb" jdbcType="VARCHAR" />
+    <result column="resultText" property="resulttext" jdbcType="VARCHAR" />
+    <result column="sensitivity" property="sensitivity" jdbcType="VARCHAR" />
+    <result column="bloodConcentration" property="bloodconcentration" jdbcType="VARCHAR" />
+    <result column="urineConcentration" property="urineconcentration" jdbcType="VARCHAR" />
+    <result column="drugSensitiveCode" property="drugsensitivecode" jdbcType="VARCHAR" />
+    <result column="additionalResult" property="additionalresult" jdbcType="VARCHAR" />
+    <result column="useMethod" property="usemethod" jdbcType="VARCHAR" />
+    <result column="bloodConcentraOther" property="bloodconcentraother" jdbcType="VARCHAR" />
+    <result column="urineConcentraOther" property="urineconcentraother" jdbcType="VARCHAR" />
+    <result column="useMethodOther" property="usemethodother" jdbcType="VARCHAR" />
+    <result column="bacteriostatDiameter" property="bacteriostatdiameter" jdbcType="VARCHAR" />
+    <result column="ncclsReferenceValue" property="ncclsreferencevalue" jdbcType="VARCHAR" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recordMicrobesFlow, labItemRcdFlow, lrMicrobesSn, labRepitemCode, labRepitemName, 
+    kb, resultText, sensitivity, bloodConcentration, urineConcentration, drugSensitiveCode, 
+    additionalResult, useMethod, bloodConcentraOther, urineConcentraOther, useMethodOther, 
+    bacteriostatDiameter, ncclsReferenceValue, update_poson, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from lab_report_microbes_info
+    where recordMicrobesFlow = #{recordmicrobesflow,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from lab_report_microbes_info
+    where recordMicrobesFlow = #{recordmicrobesflow,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.labReportMicrobesInfoEntity" >
+    insert into lab_report_microbes_info (recordMicrobesFlow, labItemRcdFlow, 
+      lrMicrobesSn, labRepitemCode, labRepitemName, 
+      kb, resultText, sensitivity, 
+      bloodConcentration, urineConcentration, 
+      drugSensitiveCode, additionalResult, useMethod, 
+      bloodConcentraOther, urineConcentraOther, 
+      useMethodOther, bacteriostatDiameter, ncclsReferenceValue, 
+      update_poson, update_time, is_delete
+      )
+    values (#{recordmicrobesflow,jdbcType=VARCHAR}, #{labitemrcdflow,jdbcType=VARCHAR}, 
+      #{lrmicrobessn,jdbcType=VARCHAR}, #{labrepitemcode,jdbcType=VARCHAR}, #{labrepitemname,jdbcType=VARCHAR}, 
+      #{kb,jdbcType=VARCHAR}, #{resulttext,jdbcType=VARCHAR}, #{sensitivity,jdbcType=VARCHAR}, 
+      #{bloodconcentration,jdbcType=VARCHAR}, #{urineconcentration,jdbcType=VARCHAR}, 
+      #{drugsensitivecode,jdbcType=VARCHAR}, #{additionalresult,jdbcType=VARCHAR}, #{usemethod,jdbcType=VARCHAR}, 
+      #{bloodconcentraother,jdbcType=VARCHAR}, #{urineconcentraother,jdbcType=VARCHAR}, 
+      #{usemethodother,jdbcType=VARCHAR}, #{bacteriostatdiameter,jdbcType=VARCHAR}, #{ncclsreferencevalue,jdbcType=VARCHAR}, 
+      #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.labReportMicrobesInfoEntity" >
+    insert into lab_report_microbes_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordmicrobesflow != null" >
+        recordMicrobesFlow,
+      </if>
+      <if test="labitemrcdflow != null" >
+        labItemRcdFlow,
+      </if>
+      <if test="lrmicrobessn != null" >
+        lrMicrobesSn,
+      </if>
+      <if test="labrepitemcode != null" >
+        labRepitemCode,
+      </if>
+      <if test="labrepitemname != null" >
+        labRepitemName,
+      </if>
+      <if test="kb != null" >
+        kb,
+      </if>
+      <if test="resulttext != null" >
+        resultText,
+      </if>
+      <if test="sensitivity != null" >
+        sensitivity,
+      </if>
+      <if test="bloodconcentration != null" >
+        bloodConcentration,
+      </if>
+      <if test="urineconcentration != null" >
+        urineConcentration,
+      </if>
+      <if test="drugsensitivecode != null" >
+        drugSensitiveCode,
+      </if>
+      <if test="additionalresult != null" >
+        additionalResult,
+      </if>
+      <if test="usemethod != null" >
+        useMethod,
+      </if>
+      <if test="bloodconcentraother != null" >
+        bloodConcentraOther,
+      </if>
+      <if test="urineconcentraother != null" >
+        urineConcentraOther,
+      </if>
+      <if test="usemethodother != null" >
+        useMethodOther,
+      </if>
+      <if test="bacteriostatdiameter != null" >
+        bacteriostatDiameter,
+      </if>
+      <if test="ncclsreferencevalue != null" >
+        ncclsReferenceValue,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordmicrobesflow != null" >
+        #{recordmicrobesflow,jdbcType=VARCHAR},
+      </if>
+      <if test="labitemrcdflow != null" >
+        #{labitemrcdflow,jdbcType=VARCHAR},
+      </if>
+      <if test="lrmicrobessn != null" >
+        #{lrmicrobessn,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemcode != null" >
+        #{labrepitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemname != null" >
+        #{labrepitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="kb != null" >
+        #{kb,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttext != null" >
+        #{resulttext,jdbcType=VARCHAR},
+      </if>
+      <if test="sensitivity != null" >
+        #{sensitivity,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodconcentration != null" >
+        #{bloodconcentration,jdbcType=VARCHAR},
+      </if>
+      <if test="urineconcentration != null" >
+        #{urineconcentration,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsensitivecode != null" >
+        #{drugsensitivecode,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalresult != null" >
+        #{additionalresult,jdbcType=VARCHAR},
+      </if>
+      <if test="usemethod != null" >
+        #{usemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodconcentraother != null" >
+        #{bloodconcentraother,jdbcType=VARCHAR},
+      </if>
+      <if test="urineconcentraother != null" >
+        #{urineconcentraother,jdbcType=VARCHAR},
+      </if>
+      <if test="usemethodother != null" >
+        #{usemethodother,jdbcType=VARCHAR},
+      </if>
+      <if test="bacteriostatdiameter != null" >
+        #{bacteriostatdiameter,jdbcType=VARCHAR},
+      </if>
+      <if test="ncclsreferencevalue != null" >
+        #{ncclsreferencevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.labReportMicrobesInfoEntity" >
+    update lab_report_microbes_info
+    <set >
+      <if test="labitemrcdflow != null" >
+        labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR},
+      </if>
+      <if test="lrmicrobessn != null" >
+        lrMicrobesSn = #{lrmicrobessn,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemcode != null" >
+        labRepitemCode = #{labrepitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="labrepitemname != null" >
+        labRepitemName = #{labrepitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="kb != null" >
+        kb = #{kb,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttext != null" >
+        resultText = #{resulttext,jdbcType=VARCHAR},
+      </if>
+      <if test="sensitivity != null" >
+        sensitivity = #{sensitivity,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodconcentration != null" >
+        bloodConcentration = #{bloodconcentration,jdbcType=VARCHAR},
+      </if>
+      <if test="urineconcentration != null" >
+        urineConcentration = #{urineconcentration,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsensitivecode != null" >
+        drugSensitiveCode = #{drugsensitivecode,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalresult != null" >
+        additionalResult = #{additionalresult,jdbcType=VARCHAR},
+      </if>
+      <if test="usemethod != null" >
+        useMethod = #{usemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodconcentraother != null" >
+        bloodConcentraOther = #{bloodconcentraother,jdbcType=VARCHAR},
+      </if>
+      <if test="urineconcentraother != null" >
+        urineConcentraOther = #{urineconcentraother,jdbcType=VARCHAR},
+      </if>
+      <if test="usemethodother != null" >
+        useMethodOther = #{usemethodother,jdbcType=VARCHAR},
+      </if>
+      <if test="bacteriostatdiameter != null" >
+        bacteriostatDiameter = #{bacteriostatdiameter,jdbcType=VARCHAR},
+      </if>
+      <if test="ncclsreferencevalue != null" >
+        ncclsReferenceValue = #{ncclsreferencevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where recordMicrobesFlow = #{recordmicrobesflow,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.labReportMicrobesInfoEntity" >
+    update lab_report_microbes_info
+    set labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR},
+      lrMicrobesSn = #{lrmicrobessn,jdbcType=VARCHAR},
+      labRepitemCode = #{labrepitemcode,jdbcType=VARCHAR},
+      labRepitemName = #{labrepitemname,jdbcType=VARCHAR},
+      kb = #{kb,jdbcType=VARCHAR},
+      resultText = #{resulttext,jdbcType=VARCHAR},
+      sensitivity = #{sensitivity,jdbcType=VARCHAR},
+      bloodConcentration = #{bloodconcentration,jdbcType=VARCHAR},
+      urineConcentration = #{urineconcentration,jdbcType=VARCHAR},
+      drugSensitiveCode = #{drugsensitivecode,jdbcType=VARCHAR},
+      additionalResult = #{additionalresult,jdbcType=VARCHAR},
+      useMethod = #{usemethod,jdbcType=VARCHAR},
+      bloodConcentraOther = #{bloodconcentraother,jdbcType=VARCHAR},
+      urineConcentraOther = #{urineconcentraother,jdbcType=VARCHAR},
+      useMethodOther = #{usemethodother,jdbcType=VARCHAR},
+      bacteriostatDiameter = #{bacteriostatdiameter,jdbcType=VARCHAR},
+      ncclsReferenceValue = #{ncclsreferencevalue,jdbcType=VARCHAR},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where recordMicrobesFlow = #{recordmicrobesflow,jdbcType=VARCHAR}
+  </update>
+</mapper>

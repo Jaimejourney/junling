@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.benefitEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.benefitEntity" >
+    <id column="benefit_code" property="benefitCode" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    benefit_code, description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from benefit
+    where benefit_code = #{benefitCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from benefit
+    where benefit_code = #{benefitCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.benefitEntity" >
+    insert into benefit (benefit_code, description)
+    values (#{benefitCode,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.benefitEntity" >
+    insert into benefit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="benefitCode != null" >
+        benefit_code,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="benefitCode != null" >
+        #{benefitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.benefitEntity" >
+    update benefit
+    <set >
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where benefit_code = #{benefitCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.benefitEntity" >
+    update benefit
+    set description = #{description,jdbcType=VARCHAR}
+    where benefit_code = #{benefitCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

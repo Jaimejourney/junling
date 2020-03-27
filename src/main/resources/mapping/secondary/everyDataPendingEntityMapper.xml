@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.everyDataPendingEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.everyDataPendingEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dates" property="dates" jdbcType="VARCHAR" />
+    <result column="auditPending" property="auditpending" jdbcType="VARCHAR" />
+    <result column="approvePending" property="approvepending" jdbcType="VARCHAR" />
+    <result column="qualityPending" property="qualitypending" jdbcType="VARCHAR" />
+    <result column="settlePending" property="settlepending" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, dates, auditPending, approvePending, qualityPending, settlePending, createTime, 
+    updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from every_data_pending
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from every_data_pending
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+    insert into every_data_pending (id, dates, auditPending, 
+      approvePending, qualityPending, settlePending, 
+      createTime, updateTime)
+    values (#{id,jdbcType=INTEGER}, #{dates,jdbcType=VARCHAR}, #{auditpending,jdbcType=VARCHAR}, 
+      #{approvepending,jdbcType=VARCHAR}, #{qualitypending,jdbcType=VARCHAR}, #{settlepending,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+    insert into every_data_pending
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="dates != null" >
+        dates,
+      </if>
+      <if test="auditpending != null" >
+        auditPending,
+      </if>
+      <if test="approvepending != null" >
+        approvePending,
+      </if>
+      <if test="qualitypending != null" >
+        qualityPending,
+      </if>
+      <if test="settlepending != null" >
+        settlePending,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dates != null" >
+        #{dates,jdbcType=VARCHAR},
+      </if>
+      <if test="auditpending != null" >
+        #{auditpending,jdbcType=VARCHAR},
+      </if>
+      <if test="approvepending != null" >
+        #{approvepending,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitypending != null" >
+        #{qualitypending,jdbcType=VARCHAR},
+      </if>
+      <if test="settlepending != null" >
+        #{settlepending,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+    update every_data_pending
+    <set >
+      <if test="dates != null" >
+        dates = #{dates,jdbcType=VARCHAR},
+      </if>
+      <if test="auditpending != null" >
+        auditPending = #{auditpending,jdbcType=VARCHAR},
+      </if>
+      <if test="approvepending != null" >
+        approvePending = #{approvepending,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitypending != null" >
+        qualityPending = #{qualitypending,jdbcType=VARCHAR},
+      </if>
+      <if test="settlepending != null" >
+        settlePending = #{settlepending,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+    update every_data_pending
+    set dates = #{dates,jdbcType=VARCHAR},
+      auditPending = #{auditpending,jdbcType=VARCHAR},
+      approvePending = #{approvepending,jdbcType=VARCHAR},
+      qualityPending = #{qualitypending,jdbcType=VARCHAR},
+      settlePending = #{settlepending,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

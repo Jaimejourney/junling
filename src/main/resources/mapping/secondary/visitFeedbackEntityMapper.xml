@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.visitFeedbackEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitFeedbackEntity" >
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="record_id" property="recordId" jdbcType="VARCHAR" />
+    <result column="indemnity_id" property="indemnityId" jdbcType="VARCHAR" />
+    <result column="unit_id" property="unitId" jdbcType="VARCHAR" />
+    <result column="corporate_name" property="corporateName" jdbcType="VARCHAR" />
+    <result column="customer_time" property="customerTime" jdbcType="VARCHAR" />
+    <result column="is_urgent" property="isUrgent" jdbcType="VARCHAR" />
+    <result column="case_id" property="caseId" jdbcType="VARCHAR" />
+    <result column="insurer_rel" property="insurerRel" jdbcType="VARCHAR" />
+    <result column="insurer_name" property="insurerName" jdbcType="VARCHAR" />
+    <result column="opt_num" property="optNum" jdbcType="VARCHAR" />
+    <result column="opt_name" property="optName" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="card_type" property="cardType" jdbcType="VARCHAR" />
+    <result column="card_num" property="cardNum" jdbcType="VARCHAR" />
+    <result column="invoice_count" property="invoiceCount" jdbcType="VARCHAR" />
+    <result column="datum_count" property="datumCount" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="case_sources" property="caseSources" jdbcType="VARCHAR" />
+    <result column="expand1" property="expand1" jdbcType="VARCHAR" />
+    <result column="expand2" property="expand2" jdbcType="VARCHAR" />
+    <result column="expand3" property="expand3" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, record_id, indemnity_id, unit_id, corporate_name, customer_time, is_urgent, case_id, 
+    insurer_rel, insurer_name, opt_num, opt_name, birthday, card_type, card_num, invoice_count, 
+    datum_count, remark, case_sources, expand1, expand2, expand3, type, create_time, 
+    update_poson, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from visit_feedback
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from visit_feedback
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+    insert into visit_feedback (id, record_id, indemnity_id, 
+      unit_id, corporate_name, customer_time, 
+      is_urgent, case_id, insurer_rel, 
+      insurer_name, opt_num, opt_name, 
+      birthday, card_type, card_num, 
+      invoice_count, datum_count, remark, 
+      case_sources, expand1, expand2, 
+      expand3, type, create_time, 
+      update_poson, update_time, is_delete
+      )
+    values (#{id,jdbcType=DECIMAL}, #{recordId,jdbcType=VARCHAR}, #{indemnityId,jdbcType=VARCHAR}, 
+      #{unitId,jdbcType=VARCHAR}, #{corporateName,jdbcType=VARCHAR}, #{customerTime,jdbcType=VARCHAR}, 
+      #{isUrgent,jdbcType=VARCHAR}, #{caseId,jdbcType=VARCHAR}, #{insurerRel,jdbcType=VARCHAR}, 
+      #{insurerName,jdbcType=VARCHAR}, #{optNum,jdbcType=VARCHAR}, #{optName,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, #{cardNum,jdbcType=VARCHAR}, 
+      #{invoiceCount,jdbcType=VARCHAR}, #{datumCount,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{caseSources,jdbcType=VARCHAR}, #{expand1,jdbcType=VARCHAR}, #{expand2,jdbcType=VARCHAR}, 
+      #{expand3,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+    insert into visit_feedback
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="recordId != null" >
+        record_id,
+      </if>
+      <if test="indemnityId != null" >
+        indemnity_id,
+      </if>
+      <if test="unitId != null" >
+        unit_id,
+      </if>
+      <if test="corporateName != null" >
+        corporate_name,
+      </if>
+      <if test="customerTime != null" >
+        customer_time,
+      </if>
+      <if test="isUrgent != null" >
+        is_urgent,
+      </if>
+      <if test="caseId != null" >
+        case_id,
+      </if>
+      <if test="insurerRel != null" >
+        insurer_rel,
+      </if>
+      <if test="insurerName != null" >
+        insurer_name,
+      </if>
+      <if test="optNum != null" >
+        opt_num,
+      </if>
+      <if test="optName != null" >
+        opt_name,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardNum != null" >
+        card_num,
+      </if>
+      <if test="invoiceCount != null" >
+        invoice_count,
+      </if>
+      <if test="datumCount != null" >
+        datum_count,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="caseSources != null" >
+        case_sources,
+      </if>
+      <if test="expand1 != null" >
+        expand1,
+      </if>
+      <if test="expand2 != null" >
+        expand2,
+      </if>
+      <if test="expand3 != null" >
+        expand3,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="recordId != null" >
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="indemnityId != null" >
+        #{indemnityId,jdbcType=VARCHAR},
+      </if>
+      <if test="unitId != null" >
+        #{unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="corporateName != null" >
+        #{corporateName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerTime != null" >
+        #{customerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isUrgent != null" >
+        #{isUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=VARCHAR},
+      </if>
+      <if test="insurerRel != null" >
+        #{insurerRel,jdbcType=VARCHAR},
+      </if>
+      <if test="insurerName != null" >
+        #{insurerName,jdbcType=VARCHAR},
+      </if>
+      <if test="optNum != null" >
+        #{optNum,jdbcType=VARCHAR},
+      </if>
+      <if test="optName != null" >
+        #{optName,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null" >
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCount != null" >
+        #{invoiceCount,jdbcType=VARCHAR},
+      </if>
+      <if test="datumCount != null" >
+        #{datumCount,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="caseSources != null" >
+        #{caseSources,jdbcType=VARCHAR},
+      </if>
+      <if test="expand1 != null" >
+        #{expand1,jdbcType=VARCHAR},
+      </if>
+      <if test="expand2 != null" >
+        #{expand2,jdbcType=VARCHAR},
+      </if>
+      <if test="expand3 != null" >
+        #{expand3,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+    update visit_feedback
+    <set >
+      <if test="recordId != null" >
+        record_id = #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="indemnityId != null" >
+        indemnity_id = #{indemnityId,jdbcType=VARCHAR},
+      </if>
+      <if test="unitId != null" >
+        unit_id = #{unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="corporateName != null" >
+        corporate_name = #{corporateName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerTime != null" >
+        customer_time = #{customerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isUrgent != null" >
+        is_urgent = #{isUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        case_id = #{caseId,jdbcType=VARCHAR},
+      </if>
+      <if test="insurerRel != null" >
+        insurer_rel = #{insurerRel,jdbcType=VARCHAR},
+      </if>
+      <if test="insurerName != null" >
+        insurer_name = #{insurerName,jdbcType=VARCHAR},
+      </if>
+      <if test="optNum != null" >
+        opt_num = #{optNum,jdbcType=VARCHAR},
+      </if>
+      <if test="optName != null" >
+        opt_name = #{optName,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null" >
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCount != null" >
+        invoice_count = #{invoiceCount,jdbcType=VARCHAR},
+      </if>
+      <if test="datumCount != null" >
+        datum_count = #{datumCount,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="caseSources != null" >
+        case_sources = #{caseSources,jdbcType=VARCHAR},
+      </if>
+      <if test="expand1 != null" >
+        expand1 = #{expand1,jdbcType=VARCHAR},
+      </if>
+      <if test="expand2 != null" >
+        expand2 = #{expand2,jdbcType=VARCHAR},
+      </if>
+      <if test="expand3 != null" >
+        expand3 = #{expand3,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        update_poson = #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+    update visit_feedback
+    set record_id = #{recordId,jdbcType=VARCHAR},
+      indemnity_id = #{indemnityId,jdbcType=VARCHAR},
+      unit_id = #{unitId,jdbcType=VARCHAR},
+      corporate_name = #{corporateName,jdbcType=VARCHAR},
+      customer_time = #{customerTime,jdbcType=VARCHAR},
+      is_urgent = #{isUrgent,jdbcType=VARCHAR},
+      case_id = #{caseId,jdbcType=VARCHAR},
+      insurer_rel = #{insurerRel,jdbcType=VARCHAR},
+      insurer_name = #{insurerName,jdbcType=VARCHAR},
+      opt_num = #{optNum,jdbcType=VARCHAR},
+      opt_name = #{optName,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      card_type = #{cardType,jdbcType=VARCHAR},
+      card_num = #{cardNum,jdbcType=VARCHAR},
+      invoice_count = #{invoiceCount,jdbcType=VARCHAR},
+      datum_count = #{datumCount,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      case_sources = #{caseSources,jdbcType=VARCHAR},
+      expand1 = #{expand1,jdbcType=VARCHAR},
+      expand2 = #{expand2,jdbcType=VARCHAR},
+      expand3 = #{expand3,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_poson = #{updatePoson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIGINT}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

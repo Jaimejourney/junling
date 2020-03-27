@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.tpaPolPlanBenefitEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="grade_level" property="gradeLevel" jdbcType="INTEGER" />
+    <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
+    <result column="benefit_code" property="benefitCode" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="max_amount" property="maxAmount" jdbcType="VARCHAR" />
+    <result column="subsidy_amount" property="subsidyAmount" jdbcType="VARCHAR" />
+    <result column="waiting_period" property="waitingPeriod" jdbcType="VARCHAR" />
+    <result column="accident_waiting_period" property="accidentWaitingPeriod" jdbcType="INTEGER" />
+    <result column="deductible_days" property="deductibleDays" jdbcType="VARCHAR" />
+    <result column="deductible_type" property="deductibleType" jdbcType="VARCHAR" />
+    <result column="deductible_amount" property="deductibleAmount" jdbcType="VARCHAR" />
+    <result column="pay_rate" property="payRate" jdbcType="VARCHAR" />
+    <result column="punish_pay_rate" property="punishPayRate" jdbcType="VARCHAR" />
+    <result column="limit_type" property="limitType" jdbcType="VARCHAR" />
+    <result column="limit_amount" property="limitAmount" jdbcType="VARCHAR" />
+    <result column="limit_days" property="limitDays" jdbcType="VARCHAR" />
+    <result column="limit_times" property="limitTimes" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="product_code" property="productCode" jdbcType="VARCHAR" />
+    <result column="risk_code" property="riskCode" jdbcType="VARCHAR" />
+    <result column="prem" property="prem" jdbcType="DOUBLE" />
+    <result column="amnt" property="amnt" jdbcType="DOUBLE" />
+    <result column="plan_name" property="planName" jdbcType="VARCHAR" />
+    <result column="get_duty_code" property="getDutyCode" jdbcType="VARCHAR" />
+    <result column="get_duty_name" property="getDutyName" jdbcType="VARCHAR" />
+    <result column="get_duty_kind" property="getDutyKind" jdbcType="VARCHAR" />
+    <result column="get_duty_kind_name" property="getDutyKindName" jdbcType="VARCHAR" />
+    <result column="duty_amnt" property="dutyAmnt" jdbcType="DOUBLE" />
+    <result column="risk_name" property="riskName" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, polno, grade_level, plan_code, benefit_code, description, max_amount, subsidy_amount, 
+    waiting_period, accident_waiting_period, deductible_days, deductible_type, deductible_amount, 
+    pay_rate, punish_pay_rate, limit_type, limit_amount, limit_days, limit_times, created_by, 
+    created_date, updated_by, updated_date, product_code, risk_code, prem, amnt, plan_name, 
+    get_duty_code, get_duty_name, get_duty_kind, get_duty_kind_name, duty_amnt, risk_name, 
+    product_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tpa_pol_plan_benefit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tpa_pol_plan_benefit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+    insert into tpa_pol_plan_benefit (id, polno, grade_level, 
+      plan_code, benefit_code, description, 
+      max_amount, subsidy_amount, waiting_period, 
+      accident_waiting_period, deductible_days, 
+      deductible_type, deductible_amount, pay_rate, 
+      punish_pay_rate, limit_type, limit_amount, 
+      limit_days, limit_times, created_by, 
+      created_date, updated_by, updated_date, 
+      product_code, risk_code, prem, 
+      amnt, plan_name, get_duty_code, 
+      get_duty_name, get_duty_kind, get_duty_kind_name, 
+      duty_amnt, risk_name, product_name
+      )
+    values (#{id,jdbcType=INTEGER}, #{polno,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=INTEGER}, 
+      #{planCode,jdbcType=VARCHAR}, #{benefitCode,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{maxAmount,jdbcType=VARCHAR}, #{subsidyAmount,jdbcType=VARCHAR}, #{waitingPeriod,jdbcType=VARCHAR}, 
+      #{accidentWaitingPeriod,jdbcType=INTEGER}, #{deductibleDays,jdbcType=VARCHAR}, 
+      #{deductibleType,jdbcType=VARCHAR}, #{deductibleAmount,jdbcType=VARCHAR}, #{payRate,jdbcType=VARCHAR}, 
+      #{punishPayRate,jdbcType=VARCHAR}, #{limitType,jdbcType=VARCHAR}, #{limitAmount,jdbcType=VARCHAR}, 
+      #{limitDays,jdbcType=VARCHAR}, #{limitTimes,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{productCode,jdbcType=VARCHAR}, #{riskCode,jdbcType=VARCHAR}, #{prem,jdbcType=DOUBLE}, 
+      #{amnt,jdbcType=DOUBLE}, #{planName,jdbcType=VARCHAR}, #{getDutyCode,jdbcType=VARCHAR}, 
+      #{getDutyName,jdbcType=VARCHAR}, #{getDutyKind,jdbcType=VARCHAR}, #{getDutyKindName,jdbcType=VARCHAR}, 
+      #{dutyAmnt,jdbcType=DOUBLE}, #{riskName,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+    insert into tpa_pol_plan_benefit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level,
+      </if>
+      <if test="planCode != null" >
+        plan_code,
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="maxAmount != null" >
+        max_amount,
+      </if>
+      <if test="subsidyAmount != null" >
+        subsidy_amount,
+      </if>
+      <if test="waitingPeriod != null" >
+        waiting_period,
+      </if>
+      <if test="accidentWaitingPeriod != null" >
+        accident_waiting_period,
+      </if>
+      <if test="deductibleDays != null" >
+        deductible_days,
+      </if>
+      <if test="deductibleType != null" >
+        deductible_type,
+      </if>
+      <if test="deductibleAmount != null" >
+        deductible_amount,
+      </if>
+      <if test="payRate != null" >
+        pay_rate,
+      </if>
+      <if test="punishPayRate != null" >
+        punish_pay_rate,
+      </if>
+      <if test="limitType != null" >
+        limit_type,
+      </if>
+      <if test="limitAmount != null" >
+        limit_amount,
+      </if>
+      <if test="limitDays != null" >
+        limit_days,
+      </if>
+      <if test="limitTimes != null" >
+        limit_times,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="productCode != null" >
+        product_code,
+      </if>
+      <if test="riskCode != null" >
+        risk_code,
+      </if>
+      <if test="prem != null" >
+        prem,
+      </if>
+      <if test="amnt != null" >
+        amnt,
+      </if>
+      <if test="planName != null" >
+        plan_name,
+      </if>
+      <if test="getDutyCode != null" >
+        get_duty_code,
+      </if>
+      <if test="getDutyName != null" >
+        get_duty_name,
+      </if>
+      <if test="getDutyKind != null" >
+        get_duty_kind,
+      </if>
+      <if test="getDutyKindName != null" >
+        get_duty_kind_name,
+      </if>
+      <if test="dutyAmnt != null" >
+        duty_amnt,
+      </if>
+      <if test="riskName != null" >
+        risk_name,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        #{gradeLevel,jdbcType=INTEGER},
+      </if>
+      <if test="planCode != null" >
+        #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        #{benefitCode,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="maxAmount != null" >
+        #{maxAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="subsidyAmount != null" >
+        #{subsidyAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="waitingPeriod != null" >
+        #{waitingPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentWaitingPeriod != null" >
+        #{accidentWaitingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="deductibleDays != null" >
+        #{deductibleDays,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleType != null" >
+        #{deductibleType,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleAmount != null" >
+        #{deductibleAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="payRate != null" >
+        #{payRate,jdbcType=VARCHAR},
+      </if>
+      <if test="punishPayRate != null" >
+        #{punishPayRate,jdbcType=VARCHAR},
+      </if>
+      <if test="limitType != null" >
+        #{limitType,jdbcType=VARCHAR},
+      </if>
+      <if test="limitAmount != null" >
+        #{limitAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="limitDays != null" >
+        #{limitDays,jdbcType=VARCHAR},
+      </if>
+      <if test="limitTimes != null" >
+        #{limitTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskCode != null" >
+        #{riskCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prem != null" >
+        #{prem,jdbcType=DOUBLE},
+      </if>
+      <if test="amnt != null" >
+        #{amnt,jdbcType=DOUBLE},
+      </if>
+      <if test="planName != null" >
+        #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyCode != null" >
+        #{getDutyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyName != null" >
+        #{getDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyKind != null" >
+        #{getDutyKind,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyKindName != null" >
+        #{getDutyKindName,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyAmnt != null" >
+        #{dutyAmnt,jdbcType=DOUBLE},
+      </if>
+      <if test="riskName != null" >
+        #{riskName,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+    update tpa_pol_plan_benefit
+    <set >
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeLevel != null" >
+        grade_level = #{gradeLevel,jdbcType=INTEGER},
+      </if>
+      <if test="planCode != null" >
+        plan_code = #{planCode,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code = #{benefitCode,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="maxAmount != null" >
+        max_amount = #{maxAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="subsidyAmount != null" >
+        subsidy_amount = #{subsidyAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="waitingPeriod != null" >
+        waiting_period = #{waitingPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentWaitingPeriod != null" >
+        accident_waiting_period = #{accidentWaitingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="deductibleDays != null" >
+        deductible_days = #{deductibleDays,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleType != null" >
+        deductible_type = #{deductibleType,jdbcType=VARCHAR},
+      </if>
+      <if test="deductibleAmount != null" >
+        deductible_amount = #{deductibleAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="payRate != null" >
+        pay_rate = #{payRate,jdbcType=VARCHAR},
+      </if>
+      <if test="punishPayRate != null" >
+        punish_pay_rate = #{punishPayRate,jdbcType=VARCHAR},
+      </if>
+      <if test="limitType != null" >
+        limit_type = #{limitType,jdbcType=VARCHAR},
+      </if>
+      <if test="limitAmount != null" >
+        limit_amount = #{limitAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="limitDays != null" >
+        limit_days = #{limitDays,jdbcType=VARCHAR},
+      </if>
+      <if test="limitTimes != null" >
+        limit_times = #{limitTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productCode != null" >
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskCode != null" >
+        risk_code = #{riskCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prem != null" >
+        prem = #{prem,jdbcType=DOUBLE},
+      </if>
+      <if test="amnt != null" >
+        amnt = #{amnt,jdbcType=DOUBLE},
+      </if>
+      <if test="planName != null" >
+        plan_name = #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyCode != null" >
+        get_duty_code = #{getDutyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyName != null" >
+        get_duty_name = #{getDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyKind != null" >
+        get_duty_kind = #{getDutyKind,jdbcType=VARCHAR},
+      </if>
+      <if test="getDutyKindName != null" >
+        get_duty_kind_name = #{getDutyKindName,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyAmnt != null" >
+        duty_amnt = #{dutyAmnt,jdbcType=DOUBLE},
+      </if>
+      <if test="riskName != null" >
+        risk_name = #{riskName,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+    update tpa_pol_plan_benefit
+    set polno = #{polno,jdbcType=VARCHAR},
+      grade_level = #{gradeLevel,jdbcType=INTEGER},
+      plan_code = #{planCode,jdbcType=VARCHAR},
+      benefit_code = #{benefitCode,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      max_amount = #{maxAmount,jdbcType=VARCHAR},
+      subsidy_amount = #{subsidyAmount,jdbcType=VARCHAR},
+      waiting_period = #{waitingPeriod,jdbcType=VARCHAR},
+      accident_waiting_period = #{accidentWaitingPeriod,jdbcType=INTEGER},
+      deductible_days = #{deductibleDays,jdbcType=VARCHAR},
+      deductible_type = #{deductibleType,jdbcType=VARCHAR},
+      deductible_amount = #{deductibleAmount,jdbcType=VARCHAR},
+      pay_rate = #{payRate,jdbcType=VARCHAR},
+      punish_pay_rate = #{punishPayRate,jdbcType=VARCHAR},
+      limit_type = #{limitType,jdbcType=VARCHAR},
+      limit_amount = #{limitAmount,jdbcType=VARCHAR},
+      limit_days = #{limitDays,jdbcType=VARCHAR},
+      limit_times = #{limitTimes,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      risk_code = #{riskCode,jdbcType=VARCHAR},
+      prem = #{prem,jdbcType=DOUBLE},
+      amnt = #{amnt,jdbcType=DOUBLE},
+      plan_name = #{planName,jdbcType=VARCHAR},
+      get_duty_code = #{getDutyCode,jdbcType=VARCHAR},
+      get_duty_name = #{getDutyName,jdbcType=VARCHAR},
+      get_duty_kind = #{getDutyKind,jdbcType=VARCHAR},
+      get_duty_kind_name = #{getDutyKindName,jdbcType=VARCHAR},
+      duty_amnt = #{dutyAmnt,jdbcType=DOUBLE},
+      risk_name = #{riskName,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

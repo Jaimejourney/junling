@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.bdAreaclEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.bdAreaclEntity" >
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="CREATIONTIME" property="creationtime" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="DATAORIGINFLAG" property="dataoriginflag" jdbcType="DECIMAL" />
+    <result column="DEF1" property="def1" jdbcType="VARCHAR" />
+    <result column="DEF2" property="def2" jdbcType="VARCHAR" />
+    <result column="DEF3" property="def3" jdbcType="VARCHAR" />
+    <result column="DEF4" property="def4" jdbcType="VARCHAR" />
+    <result column="DEF5" property="def5" jdbcType="VARCHAR" />
+    <result column="DR" property="dr" jdbcType="DECIMAL" />
+    <result column="ENABLESTATE" property="enablestate" jdbcType="DECIMAL" />
+    <result column="ENAME" property="ename" jdbcType="VARCHAR" />
+    <result column="INNERCODE" property="innercode" jdbcType="VARCHAR" />
+    <result column="MNECODE" property="mnecode" jdbcType="VARCHAR" />
+    <result column="MODIFIEDTIME" property="modifiedtime" jdbcType="VARCHAR" />
+    <result column="MODIFIER" property="modifier" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="NAME2" property="name2" jdbcType="VARCHAR" />
+    <result column="NAME3" property="name3" jdbcType="VARCHAR" />
+    <result column="NAME4" property="name4" jdbcType="VARCHAR" />
+    <result column="NAME5" property="name5" jdbcType="VARCHAR" />
+    <result column="NAME6" property="name6" jdbcType="VARCHAR" />
+    <result column="PK_AREACL" property="pkAreacl" jdbcType="VARCHAR" />
+    <result column="PK_FATHERAREA" property="pkFatherarea" jdbcType="VARCHAR" />
+    <result column="PK_GROUP" property="pkGroup" jdbcType="VARCHAR" />
+    <result column="PK_ORG" property="pkOrg" jdbcType="VARCHAR" />
+    <result column="SEQ" property="seq" jdbcType="VARCHAR" />
+    <result column="TS" property="ts" jdbcType="VARCHAR" />
+    <result column="T_MODIFY_TM" property="tModifyTm" jdbcType="TIMESTAMP" />
+    <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.bdAreaclEntity" >
+    insert into bd_areacl (CODE, CREATIONTIME, CREATOR, 
+      DATAORIGINFLAG, DEF1, DEF2, 
+      DEF3, DEF4, DEF5, DR, 
+      ENABLESTATE, ENAME, INNERCODE, 
+      MNECODE, MODIFIEDTIME, MODIFIER, 
+      NAME, NAME2, NAME3, 
+      NAME4, NAME5, NAME6, 
+      PK_AREACL, PK_FATHERAREA, PK_GROUP, 
+      PK_ORG, SEQ, TS, T_MODIFY_TM, 
+      update_poson, update_time, is_delete
+      )
+    values (#{code,jdbcType=VARCHAR}, #{creationtime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{dataoriginflag,jdbcType=DECIMAL}, #{def1,jdbcType=VARCHAR}, #{def2,jdbcType=VARCHAR}, 
+      #{def3,jdbcType=VARCHAR}, #{def4,jdbcType=VARCHAR}, #{def5,jdbcType=VARCHAR}, #{dr,jdbcType=DECIMAL}, 
+      #{enablestate,jdbcType=DECIMAL}, #{ename,jdbcType=VARCHAR}, #{innercode,jdbcType=VARCHAR}, 
+      #{mnecode,jdbcType=VARCHAR}, #{modifiedtime,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{name2,jdbcType=VARCHAR}, #{name3,jdbcType=VARCHAR}, 
+      #{name4,jdbcType=VARCHAR}, #{name5,jdbcType=VARCHAR}, #{name6,jdbcType=VARCHAR}, 
+      #{pkAreacl,jdbcType=VARCHAR}, #{pkFatherarea,jdbcType=VARCHAR}, #{pkGroup,jdbcType=VARCHAR}, 
+      #{pkOrg,jdbcType=VARCHAR}, #{seq,jdbcType=VARCHAR}, #{ts,jdbcType=VARCHAR}, #{tModifyTm,jdbcType=TIMESTAMP}, 
+      #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.bdAreaclEntity" >
+    insert into bd_areacl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="creationtime != null" >
+        CREATIONTIME,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="dataoriginflag != null" >
+        DATAORIGINFLAG,
+      </if>
+      <if test="def1 != null" >
+        DEF1,
+      </if>
+      <if test="def2 != null" >
+        DEF2,
+      </if>
+      <if test="def3 != null" >
+        DEF3,
+      </if>
+      <if test="def4 != null" >
+        DEF4,
+      </if>
+      <if test="def5 != null" >
+        DEF5,
+      </if>
+      <if test="dr != null" >
+        DR,
+      </if>
+      <if test="enablestate != null" >
+        ENABLESTATE,
+      </if>
+      <if test="ename != null" >
+        ENAME,
+      </if>
+      <if test="innercode != null" >
+        INNERCODE,
+      </if>
+      <if test="mnecode != null" >
+        MNECODE,
+      </if>
+      <if test="modifiedtime != null" >
+        MODIFIEDTIME,
+      </if>
+      <if test="modifier != null" >
+        MODIFIER,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="name2 != null" >
+        NAME2,
+      </if>
+      <if test="name3 != null" >
+        NAME3,
+      </if>
+      <if test="name4 != null" >
+        NAME4,
+      </if>
+      <if test="name5 != null" >
+        NAME5,
+      </if>
+      <if test="name6 != null" >
+        NAME6,
+      </if>
+      <if test="pkAreacl != null" >
+        PK_AREACL,
+      </if>
+      <if test="pkFatherarea != null" >
+        PK_FATHERAREA,
+      </if>
+      <if test="pkGroup != null" >
+        PK_GROUP,
+      </if>
+      <if test="pkOrg != null" >
+        PK_ORG,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="ts != null" >
+        TS,
+      </if>
+      <if test="tModifyTm != null" >
+        T_MODIFY_TM,
+      </if>
+      <if test="updatePoson != null" >
+        update_poson,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="creationtime != null" >
+        #{creationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="dataoriginflag != null" >
+        #{dataoriginflag,jdbcType=DECIMAL},
+      </if>
+      <if test="def1 != null" >
+        #{def1,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null" >
+        #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null" >
+        #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null" >
+        #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null" >
+        #{def5,jdbcType=VARCHAR},
+      </if>
+      <if test="dr != null" >
+        #{dr,jdbcType=DECIMAL},
+      </if>
+      <if test="enablestate != null" >
+        #{enablestate,jdbcType=DECIMAL},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="innercode != null" >
+        #{innercode,jdbcType=VARCHAR},
+      </if>
+      <if test="mnecode != null" >
+        #{mnecode,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedtime != null" >
+        #{modifiedtime,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="name2 != null" >
+        #{name2,jdbcType=VARCHAR},
+      </if>
+      <if test="name3 != null" >
+        #{name3,jdbcType=VARCHAR},
+      </if>
+      <if test="name4 != null" >
+        #{name4,jdbcType=VARCHAR},
+      </if>
+      <if test="name5 != null" >
+        #{name5,jdbcType=VARCHAR},
+      </if>
+      <if test="name6 != null" >
+        #{name6,jdbcType=VARCHAR},
+      </if>
+      <if test="pkAreacl != null" >
+        #{pkAreacl,jdbcType=VARCHAR},
+      </if>
+      <if test="pkFatherarea != null" >
+        #{pkFatherarea,jdbcType=VARCHAR},
+      </if>
+      <if test="pkGroup != null" >
+        #{pkGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="pkOrg != null" >
+        #{pkOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=VARCHAR},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=VARCHAR},
+      </if>
+      <if test="tModifyTm != null" >
+        #{tModifyTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePoson != null" >
+        #{updatePoson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,11 +1,15 @@
 package com.junling.mis;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.junling.mis.mapper")
+@MapperScans({
+        @MapperScan(basePackages = {"com.junling.mis.mapper.primary"}, sqlSessionFactoryRef = "primarySqlSessionFactory"),
+        @MapperScan(basePackages = {"com.junling.mis.mapper.secondary"}, sqlSessionFactoryRef = "secondarySqlSessionFactory")
+})
 public class MisApplication {
 
     public static void main(String[] args) {

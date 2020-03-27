@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.electronicMedicalEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.electronicMedicalEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="medicalNum" property="medicalnum" jdbcType="VARCHAR" />
+    <result column="hospitalRecordId" property="hospitalrecordid" jdbcType="VARCHAR" />
+    <result column="inHospitalNum" property="inhospitalnum" jdbcType="VARCHAR" />
+    <result column="cheifComplaint" property="cheifcomplaint" jdbcType="VARCHAR" />
+    <result column="medicalAbstract" property="medicalabstract" jdbcType="VARCHAR" />
+    <result column="physicalExamination" property="physicalexamination" jdbcType="VARCHAR" />
+    <result column="juniorCollege" property="juniorcollege" jdbcType="VARCHAR" />
+    <result column="auxiliaryExamination" property="auxiliaryexamination" jdbcType="VARCHAR" />
+    <result column="totalRecordInfo" property="totalrecordinfo" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" extends="BaseResultMap" >
+    <result column="historyPresentIllness" property="historypresentillness" jdbcType="LONGVARCHAR" />
+    <result column="pastDiseaseHistory" property="pastdiseasehistory" jdbcType="LONGVARCHAR" />
+    <result column="personalHistory" property="personalhistory" jdbcType="LONGVARCHAR" />
+    <result column="obstetricalHistory" property="obstetricalhistory" jdbcType="LONGVARCHAR" />
+    <result column="menstruationHistory" property="menstruationhistory" jdbcType="LONGVARCHAR" />
+    <result column="familyHistory" property="familyhistory" jdbcType="LONGVARCHAR" />
+    <result column="diagnosisTreatment" property="diagnosistreatment" jdbcType="LONGVARCHAR" />
+    <result column="attendingPhysician" property="attendingphysician" jdbcType="LONGVARCHAR" />
+    <result column="dischargeStatus" property="dischargestatus" jdbcType="LONGVARCHAR" />
+    <result column="dischargeOrder" property="dischargeorder" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, medicalNum, hospitalRecordId, inHospitalNum, cheifComplaint, medicalAbstract, 
+    physicalExamination, juniorCollege, auxiliaryExamination, totalRecordInfo, created_date, 
+    updated_date, sendTradeNum
+  </sql>
+  <sql id="Blob_Column_List" >
+    historyPresentIllness, pastDiseaseHistory, personalHistory, obstetricalHistory, menstruationHistory, 
+    familyHistory, diagnosisTreatment, attendingPhysician, dischargeStatus, dischargeOrder
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from electronic_medical
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from electronic_medical
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+    insert into electronic_medical (id, medicalNum, hospitalRecordId, 
+      inHospitalNum, cheifComplaint, medicalAbstract, 
+      physicalExamination, juniorCollege, auxiliaryExamination, 
+      totalRecordInfo, created_date, updated_date, 
+      sendTradeNum, historyPresentIllness, 
+      pastDiseaseHistory, personalHistory, 
+      obstetricalHistory, menstruationHistory, 
+      familyHistory, diagnosisTreatment, 
+      attendingPhysician, dischargeStatus, 
+      dischargeOrder)
+    values (#{id,jdbcType=INTEGER}, #{medicalnum,jdbcType=VARCHAR}, #{hospitalrecordid,jdbcType=VARCHAR}, 
+      #{inhospitalnum,jdbcType=VARCHAR}, #{cheifcomplaint,jdbcType=VARCHAR}, #{medicalabstract,jdbcType=VARCHAR}, 
+      #{physicalexamination,jdbcType=VARCHAR}, #{juniorcollege,jdbcType=VARCHAR}, #{auxiliaryexamination,jdbcType=VARCHAR}, 
+      #{totalrecordinfo,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{sendtradenum,jdbcType=VARCHAR}, #{historypresentillness,jdbcType=LONGVARCHAR}, 
+      #{pastdiseasehistory,jdbcType=LONGVARCHAR}, #{personalhistory,jdbcType=LONGVARCHAR}, 
+      #{obstetricalhistory,jdbcType=LONGVARCHAR}, #{menstruationhistory,jdbcType=LONGVARCHAR}, 
+      #{familyhistory,jdbcType=LONGVARCHAR}, #{diagnosistreatment,jdbcType=LONGVARCHAR}, 
+      #{attendingphysician,jdbcType=LONGVARCHAR}, #{dischargestatus,jdbcType=LONGVARCHAR}, 
+      #{dischargeorder,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+    insert into electronic_medical
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="medicalnum != null" >
+        medicalNum,
+      </if>
+      <if test="hospitalrecordid != null" >
+        hospitalRecordId,
+      </if>
+      <if test="inhospitalnum != null" >
+        inHospitalNum,
+      </if>
+      <if test="cheifcomplaint != null" >
+        cheifComplaint,
+      </if>
+      <if test="medicalabstract != null" >
+        medicalAbstract,
+      </if>
+      <if test="physicalexamination != null" >
+        physicalExamination,
+      </if>
+      <if test="juniorcollege != null" >
+        juniorCollege,
+      </if>
+      <if test="auxiliaryexamination != null" >
+        auxiliaryExamination,
+      </if>
+      <if test="totalrecordinfo != null" >
+        totalRecordInfo,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum,
+      </if>
+      <if test="historypresentillness != null" >
+        historyPresentIllness,
+      </if>
+      <if test="pastdiseasehistory != null" >
+        pastDiseaseHistory,
+      </if>
+      <if test="personalhistory != null" >
+        personalHistory,
+      </if>
+      <if test="obstetricalhistory != null" >
+        obstetricalHistory,
+      </if>
+      <if test="menstruationhistory != null" >
+        menstruationHistory,
+      </if>
+      <if test="familyhistory != null" >
+        familyHistory,
+      </if>
+      <if test="diagnosistreatment != null" >
+        diagnosisTreatment,
+      </if>
+      <if test="attendingphysician != null" >
+        attendingPhysician,
+      </if>
+      <if test="dischargestatus != null" >
+        dischargeStatus,
+      </if>
+      <if test="dischargeorder != null" >
+        dischargeOrder,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="medicalnum != null" >
+        #{medicalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalrecordid != null" >
+        #{hospitalrecordid,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitalnum != null" >
+        #{inhospitalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cheifcomplaint != null" >
+        #{cheifcomplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalabstract != null" >
+        #{medicalabstract,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalexamination != null" >
+        #{physicalexamination,jdbcType=VARCHAR},
+      </if>
+      <if test="juniorcollege != null" >
+        #{juniorcollege,jdbcType=VARCHAR},
+      </if>
+      <if test="auxiliaryexamination != null" >
+        #{auxiliaryexamination,jdbcType=VARCHAR},
+      </if>
+      <if test="totalrecordinfo != null" >
+        #{totalrecordinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtradenum != null" >
+        #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="historypresentillness != null" >
+        #{historypresentillness,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pastdiseasehistory != null" >
+        #{pastdiseasehistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="personalhistory != null" >
+        #{personalhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="obstetricalhistory != null" >
+        #{obstetricalhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="menstruationhistory != null" >
+        #{menstruationhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="familyhistory != null" >
+        #{familyhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="diagnosistreatment != null" >
+        #{diagnosistreatment,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attendingphysician != null" >
+        #{attendingphysician,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dischargestatus != null" >
+        #{dischargestatus,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dischargeorder != null" >
+        #{dischargeorder,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+    update electronic_medical
+    <set >
+      <if test="medicalnum != null" >
+        medicalNum = #{medicalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalrecordid != null" >
+        hospitalRecordId = #{hospitalrecordid,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitalnum != null" >
+        inHospitalNum = #{inhospitalnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cheifcomplaint != null" >
+        cheifComplaint = #{cheifcomplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalabstract != null" >
+        medicalAbstract = #{medicalabstract,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalexamination != null" >
+        physicalExamination = #{physicalexamination,jdbcType=VARCHAR},
+      </if>
+      <if test="juniorcollege != null" >
+        juniorCollege = #{juniorcollege,jdbcType=VARCHAR},
+      </if>
+      <if test="auxiliaryexamination != null" >
+        auxiliaryExamination = #{auxiliaryexamination,jdbcType=VARCHAR},
+      </if>
+      <if test="totalrecordinfo != null" >
+        totalRecordInfo = #{totalrecordinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtradenum != null" >
+        sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      </if>
+      <if test="historypresentillness != null" >
+        historyPresentIllness = #{historypresentillness,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pastdiseasehistory != null" >
+        pastDiseaseHistory = #{pastdiseasehistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="personalhistory != null" >
+        personalHistory = #{personalhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="obstetricalhistory != null" >
+        obstetricalHistory = #{obstetricalhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="menstruationhistory != null" >
+        menstruationHistory = #{menstruationhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="familyhistory != null" >
+        familyHistory = #{familyhistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="diagnosistreatment != null" >
+        diagnosisTreatment = #{diagnosistreatment,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attendingphysician != null" >
+        attendingPhysician = #{attendingphysician,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dischargestatus != null" >
+        dischargeStatus = #{dischargestatus,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dischargeorder != null" >
+        dischargeOrder = #{dischargeorder,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+    update electronic_medical
+    set medicalNum = #{medicalnum,jdbcType=VARCHAR},
+      hospitalRecordId = #{hospitalrecordid,jdbcType=VARCHAR},
+      inHospitalNum = #{inhospitalnum,jdbcType=VARCHAR},
+      cheifComplaint = #{cheifcomplaint,jdbcType=VARCHAR},
+      medicalAbstract = #{medicalabstract,jdbcType=VARCHAR},
+      physicalExamination = #{physicalexamination,jdbcType=VARCHAR},
+      juniorCollege = #{juniorcollege,jdbcType=VARCHAR},
+      auxiliaryExamination = #{auxiliaryexamination,jdbcType=VARCHAR},
+      totalRecordInfo = #{totalrecordinfo,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
+      historyPresentIllness = #{historypresentillness,jdbcType=LONGVARCHAR},
+      pastDiseaseHistory = #{pastdiseasehistory,jdbcType=LONGVARCHAR},
+      personalHistory = #{personalhistory,jdbcType=LONGVARCHAR},
+      obstetricalHistory = #{obstetricalhistory,jdbcType=LONGVARCHAR},
+      menstruationHistory = #{menstruationhistory,jdbcType=LONGVARCHAR},
+      familyHistory = #{familyhistory,jdbcType=LONGVARCHAR},
+      diagnosisTreatment = #{diagnosistreatment,jdbcType=LONGVARCHAR},
+      attendingPhysician = #{attendingphysician,jdbcType=LONGVARCHAR},
+      dischargeStatus = #{dischargestatus,jdbcType=LONGVARCHAR},
+      dischargeOrder = #{dischargeorder,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.electronicMedicalEntity" >
+    update electronic_medical
+    set medicalNum = #{medicalnum,jdbcType=VARCHAR},
+      hospitalRecordId = #{hospitalrecordid,jdbcType=VARCHAR},
+      inHospitalNum = #{inhospitalnum,jdbcType=VARCHAR},
+      cheifComplaint = #{cheifcomplaint,jdbcType=VARCHAR},
+      medicalAbstract = #{medicalabstract,jdbcType=VARCHAR},
+      physicalExamination = #{physicalexamination,jdbcType=VARCHAR},
+      juniorCollege = #{juniorcollege,jdbcType=VARCHAR},
+      auxiliaryExamination = #{auxiliaryexamination,jdbcType=VARCHAR},
+      totalRecordInfo = #{totalrecordinfo,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      sendTradeNum = #{sendtradenum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

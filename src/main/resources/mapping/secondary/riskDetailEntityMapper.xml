@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.riskDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.riskDetailEntity" >
+    <id column="riskDetailId" property="riskdetailid" jdbcType="INTEGER" />
+    <result column="visitPersonId" property="visitpersonid" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="originHospitalName" property="originhospitalname" jdbcType="VARCHAR" />
+    <result column="areaCode" property="areacode" jdbcType="VARCHAR" />
+    <result column="inHospitalDay" property="inhospitalday" jdbcType="INTEGER" />
+    <result column="hospitalName" property="hospitalname" jdbcType="VARCHAR" />
+    <result column="diagnoseResult" property="diagnoseresult" jdbcType="VARCHAR" />
+    <result column="medicalType" property="medicaltype" jdbcType="VARCHAR" />
+    <result column="hospitalCode" property="hospitalcode" jdbcType="VARCHAR" />
+    <result column="startTime" property="starttime" jdbcType="BIGINT" />
+    <result column="endTime" property="endtime" jdbcType="BIGINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    riskDetailId, visitPersonId, areaName, originHospitalName, areaCode, inHospitalDay, 
+    hospitalName, diagnoseResult, medicalType, hospitalCode, startTime, endTime, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from risk_detail
+    where riskDetailId = #{riskdetailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from risk_detail
+    where riskDetailId = #{riskdetailid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+    insert into risk_detail (riskDetailId, visitPersonId, areaName, 
+      originHospitalName, areaCode, inHospitalDay, 
+      hospitalName, diagnoseResult, medicalType, 
+      hospitalCode, startTime, endTime, 
+      createTime)
+    values (#{riskdetailid,jdbcType=INTEGER}, #{visitpersonid,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{originhospitalname,jdbcType=VARCHAR}, #{areacode,jdbcType=VARCHAR}, #{inhospitalday,jdbcType=INTEGER}, 
+      #{hospitalname,jdbcType=VARCHAR}, #{diagnoseresult,jdbcType=VARCHAR}, #{medicaltype,jdbcType=VARCHAR}, 
+      #{hospitalcode,jdbcType=VARCHAR}, #{starttime,jdbcType=BIGINT}, #{endtime,jdbcType=BIGINT}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+    insert into risk_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="riskdetailid != null" >
+        riskDetailId,
+      </if>
+      <if test="visitpersonid != null" >
+        visitPersonId,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="originhospitalname != null" >
+        originHospitalName,
+      </if>
+      <if test="areacode != null" >
+        areaCode,
+      </if>
+      <if test="inhospitalday != null" >
+        inHospitalDay,
+      </if>
+      <if test="hospitalname != null" >
+        hospitalName,
+      </if>
+      <if test="diagnoseresult != null" >
+        diagnoseResult,
+      </if>
+      <if test="medicaltype != null" >
+        medicalType,
+      </if>
+      <if test="hospitalcode != null" >
+        hospitalCode,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="riskdetailid != null" >
+        #{riskdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="visitpersonid != null" >
+        #{visitpersonid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="originhospitalname != null" >
+        #{originhospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitalday != null" >
+        #{inhospitalday,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalname != null" >
+        #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnoseresult != null" >
+        #{diagnoseresult,jdbcType=VARCHAR},
+      </if>
+      <if test="medicaltype != null" >
+        #{medicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalcode != null" >
+        #{hospitalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=BIGINT},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+    update risk_detail
+    <set >
+      <if test="visitpersonid != null" >
+        visitPersonId = #{visitpersonid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="originhospitalname != null" >
+        originHospitalName = #{originhospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        areaCode = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="inhospitalday != null" >
+        inHospitalDay = #{inhospitalday,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalname != null" >
+        hospitalName = #{hospitalname,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnoseresult != null" >
+        diagnoseResult = #{diagnoseresult,jdbcType=VARCHAR},
+      </if>
+      <if test="medicaltype != null" >
+        medicalType = #{medicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalcode != null" >
+        hospitalCode = #{hospitalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=BIGINT},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where riskDetailId = #{riskdetailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+    update risk_detail
+    set visitPersonId = #{visitpersonid,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      originHospitalName = #{originhospitalname,jdbcType=VARCHAR},
+      areaCode = #{areacode,jdbcType=VARCHAR},
+      inHospitalDay = #{inhospitalday,jdbcType=INTEGER},
+      hospitalName = #{hospitalname,jdbcType=VARCHAR},
+      diagnoseResult = #{diagnoseresult,jdbcType=VARCHAR},
+      medicalType = #{medicaltype,jdbcType=VARCHAR},
+      hospitalCode = #{hospitalcode,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=BIGINT},
+      endTime = #{endtime,jdbcType=BIGINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where riskDetailId = #{riskdetailid,jdbcType=INTEGER}
+  </update>
+</mapper>

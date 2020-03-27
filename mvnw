@@ -51,8 +51,8 @@ cygwin=false
 darwin=false
 mingw=false
 case "$(uname)" in
-CYGWIN*) cygwin=true ;;
-MINGW*) mingw=true ;;
+CYGWIN*) cygwin=true ;
+MINGW*) mingw=true ;
 Darwin*)
   darwin=true
   # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
@@ -64,7 +64,7 @@ Darwin*)
       export JAVA_HOME="/Library/Java/Home"
     fi
   fi
-  ;;
+  ;
 esac
 
 if [ -z "$JAVA_HOME" ]; then
@@ -229,7 +229,7 @@ else
     case "$key" in wrapperUrl)
       jarUrl="$value"
       break
-      ;;
+      ;
     esac
   done <"$BASE_DIR/.mvn/wrapper/maven-wrapper.properties"
   if [ "$MVNW_VERBOSE" = true ]; then

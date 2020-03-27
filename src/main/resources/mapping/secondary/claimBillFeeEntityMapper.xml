@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.claimBillFeeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillFeeEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docuno" property="docuno" jdbcType="VARCHAR" />
+    <result column="accno" property="accno" jdbcType="VARCHAR" />
+    <result column="receiptno" property="receiptno" jdbcType="VARCHAR" />
+    <result column="feeitemType" property="feeitemtype" jdbcType="VARCHAR" />
+    <result column="feeitemName" property="feeitemname" jdbcType="VARCHAR" />
+    <result column="sumfeeAmt" property="sumfeeamt" jdbcType="DECIMAL" />
+    <result column="selfAmt" property="selfamt" jdbcType="DECIMAL" />
+    <result column="preAmt" property="preamt" jdbcType="DECIMAL" />
+    <result column="refuseAmt" property="refuseamt" jdbcType="DECIMAL" />
+    <result column="feeDeductibleAmt" property="feedeductibleamt" jdbcType="DECIMAL" />
+    <result column="selfPay2Amt" property="selfpay2amt" jdbcType="DECIMAL" />
+    <result column="secufeeAmt" property="secufeeamt" jdbcType="DECIMAL" />
+    <result column="costreMark" property="costremark" jdbcType="VARCHAR" />
+    <result column="createdDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="updatedDate" property="updateddate" jdbcType="TIMESTAMP" />
+    <result column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="benefit_code" property="benefitCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docuno, accno, receiptno, feeitemType, feeitemName, sumfeeAmt, selfAmt, preAmt, 
+    refuseAmt, feeDeductibleAmt, selfPay2Amt, secufeeAmt, costreMark, createdDate, updatedDate, 
+    polno, benefit_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_bill_fee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from claim_bill_fee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+    insert into claim_bill_fee (id, docuno, accno, 
+      receiptno, feeitemType, feeitemName, 
+      sumfeeAmt, selfAmt, preAmt, 
+      refuseAmt, feeDeductibleAmt, selfPay2Amt, 
+      secufeeAmt, costreMark, createdDate, 
+      updatedDate, polno, benefit_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
+      #{receiptno,jdbcType=VARCHAR}, #{feeitemtype,jdbcType=VARCHAR}, #{feeitemname,jdbcType=VARCHAR}, 
+      #{sumfeeamt,jdbcType=DECIMAL}, #{selfamt,jdbcType=DECIMAL}, #{preamt,jdbcType=DECIMAL}, 
+      #{refuseamt,jdbcType=DECIMAL}, #{feedeductibleamt,jdbcType=DECIMAL}, #{selfpay2amt,jdbcType=DECIMAL}, 
+      #{secufeeamt,jdbcType=DECIMAL}, #{costremark,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, 
+      #{updateddate,jdbcType=TIMESTAMP}, #{polno,jdbcType=VARCHAR}, #{benefitCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+    insert into claim_bill_fee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docuno != null" >
+        docuno,
+      </if>
+      <if test="accno != null" >
+        accno,
+      </if>
+      <if test="receiptno != null" >
+        receiptno,
+      </if>
+      <if test="feeitemtype != null" >
+        feeitemType,
+      </if>
+      <if test="feeitemname != null" >
+        feeitemName,
+      </if>
+      <if test="sumfeeamt != null" >
+        sumfeeAmt,
+      </if>
+      <if test="selfamt != null" >
+        selfAmt,
+      </if>
+      <if test="preamt != null" >
+        preAmt,
+      </if>
+      <if test="refuseamt != null" >
+        refuseAmt,
+      </if>
+      <if test="feedeductibleamt != null" >
+        feeDeductibleAmt,
+      </if>
+      <if test="selfpay2amt != null" >
+        selfPay2Amt,
+      </if>
+      <if test="secufeeamt != null" >
+        secufeeAmt,
+      </if>
+      <if test="costremark != null" >
+        costreMark,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="updateddate != null" >
+        updatedDate,
+      </if>
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docuno != null" >
+        #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="feeitemtype != null" >
+        #{feeitemtype,jdbcType=VARCHAR},
+      </if>
+      <if test="feeitemname != null" >
+        #{feeitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="sumfeeamt != null" >
+        #{sumfeeamt,jdbcType=DECIMAL},
+      </if>
+      <if test="selfamt != null" >
+        #{selfamt,jdbcType=DECIMAL},
+      </if>
+      <if test="preamt != null" >
+        #{preamt,jdbcType=DECIMAL},
+      </if>
+      <if test="refuseamt != null" >
+        #{refuseamt,jdbcType=DECIMAL},
+      </if>
+      <if test="feedeductibleamt != null" >
+        #{feedeductibleamt,jdbcType=DECIMAL},
+      </if>
+      <if test="selfpay2amt != null" >
+        #{selfpay2amt,jdbcType=DECIMAL},
+      </if>
+      <if test="secufeeamt != null" >
+        #{secufeeamt,jdbcType=DECIMAL},
+      </if>
+      <if test="costremark != null" >
+        #{costremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        #{benefitCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+    update claim_bill_fee
+    <set >
+      <if test="docuno != null" >
+        docuno = #{docuno,jdbcType=VARCHAR},
+      </if>
+      <if test="accno != null" >
+        accno = #{accno,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptno != null" >
+        receiptno = #{receiptno,jdbcType=VARCHAR},
+      </if>
+      <if test="feeitemtype != null" >
+        feeitemType = #{feeitemtype,jdbcType=VARCHAR},
+      </if>
+      <if test="feeitemname != null" >
+        feeitemName = #{feeitemname,jdbcType=VARCHAR},
+      </if>
+      <if test="sumfeeamt != null" >
+        sumfeeAmt = #{sumfeeamt,jdbcType=DECIMAL},
+      </if>
+      <if test="selfamt != null" >
+        selfAmt = #{selfamt,jdbcType=DECIMAL},
+      </if>
+      <if test="preamt != null" >
+        preAmt = #{preamt,jdbcType=DECIMAL},
+      </if>
+      <if test="refuseamt != null" >
+        refuseAmt = #{refuseamt,jdbcType=DECIMAL},
+      </if>
+      <if test="feedeductibleamt != null" >
+        feeDeductibleAmt = #{feedeductibleamt,jdbcType=DECIMAL},
+      </if>
+      <if test="selfpay2amt != null" >
+        selfPay2Amt = #{selfpay2amt,jdbcType=DECIMAL},
+      </if>
+      <if test="secufeeamt != null" >
+        secufeeAmt = #{secufeeamt,jdbcType=DECIMAL},
+      </if>
+      <if test="costremark != null" >
+        costreMark = #{costremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateddate != null" >
+        updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polno != null" >
+        polno = #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitCode != null" >
+        benefit_code = #{benefitCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+    update claim_bill_fee
+    set docuno = #{docuno,jdbcType=VARCHAR},
+      accno = #{accno,jdbcType=VARCHAR},
+      receiptno = #{receiptno,jdbcType=VARCHAR},
+      feeitemType = #{feeitemtype,jdbcType=VARCHAR},
+      feeitemName = #{feeitemname,jdbcType=VARCHAR},
+      sumfeeAmt = #{sumfeeamt,jdbcType=DECIMAL},
+      selfAmt = #{selfamt,jdbcType=DECIMAL},
+      preAmt = #{preamt,jdbcType=DECIMAL},
+      refuseAmt = #{refuseamt,jdbcType=DECIMAL},
+      feeDeductibleAmt = #{feedeductibleamt,jdbcType=DECIMAL},
+      selfPay2Amt = #{selfpay2amt,jdbcType=DECIMAL},
+      secufeeAmt = #{secufeeamt,jdbcType=DECIMAL},
+      costreMark = #{costremark,jdbcType=VARCHAR},
+      createdDate = #{createddate,jdbcType=TIMESTAMP},
+      updatedDate = #{updateddate,jdbcType=TIMESTAMP},
+      polno = #{polno,jdbcType=VARCHAR},
+      benefit_code = #{benefitCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

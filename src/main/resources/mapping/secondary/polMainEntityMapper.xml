@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.polMainEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.polMainEntity" >
+    <id column="polno" property="polno" jdbcType="VARCHAR" />
+    <result column="eff_date" property="effDate" jdbcType="TIMESTAMP" />
+    <result column="matu_date" property="matuDate" jdbcType="TIMESTAMP" />
+    <result column="pol_status" property="polStatus" jdbcType="VARCHAR" />
+    <result column="pol_type" property="polType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    polno, eff_date, matu_date, pol_status, pol_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pol_main
+    where polno = #{polno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pol_main
+    where polno = #{polno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+    insert into pol_main (polno, eff_date, matu_date, 
+      pol_status, pol_type)
+    values (#{polno,jdbcType=VARCHAR}, #{effDate,jdbcType=TIMESTAMP}, #{matuDate,jdbcType=TIMESTAMP}, 
+      #{polStatus,jdbcType=VARCHAR}, #{polType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+    insert into pol_main
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="polno != null" >
+        polno,
+      </if>
+      <if test="effDate != null" >
+        eff_date,
+      </if>
+      <if test="matuDate != null" >
+        matu_date,
+      </if>
+      <if test="polStatus != null" >
+        pol_status,
+      </if>
+      <if test="polType != null" >
+        pol_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="polno != null" >
+        #{polno,jdbcType=VARCHAR},
+      </if>
+      <if test="effDate != null" >
+        #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="matuDate != null" >
+        #{matuDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polStatus != null" >
+        #{polStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="polType != null" >
+        #{polType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+    update pol_main
+    <set >
+      <if test="effDate != null" >
+        eff_date = #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="matuDate != null" >
+        matu_date = #{matuDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polStatus != null" >
+        pol_status = #{polStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="polType != null" >
+        pol_type = #{polType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where polno = #{polno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+    update pol_main
+    set eff_date = #{effDate,jdbcType=TIMESTAMP},
+      matu_date = #{matuDate,jdbcType=TIMESTAMP},
+      pol_status = #{polStatus,jdbcType=VARCHAR},
+      pol_type = #{polType,jdbcType=VARCHAR}
+    where polno = #{polno,jdbcType=VARCHAR}
+  </update>
+</mapper>

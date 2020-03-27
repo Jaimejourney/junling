@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.secondary.visitRecordRenbaojianDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+    <id column="visit_id" property="visitId" jdbcType="VARCHAR" />
+    <result column="channel_case_no" property="channelCaseNo" jdbcType="VARCHAR" />
+    <result column="report_organization" property="reportOrganization" jdbcType="VARCHAR" />
+    <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
+    <result column="accident_type" property="accidentType" jdbcType="VARCHAR" />
+    <result column="insure_organization" property="insureOrganization" jdbcType="VARCHAR" />
+    <result column="apply_amnt" property="applyAmnt" jdbcType="DOUBLE" />
+    <result column="pic_count" property="picCount" jdbcType="INTEGER" />
+    <result column="invoice_num" property="invoiceNum" jdbcType="INTEGER" />
+    <result column="hospital" property="hospital" jdbcType="VARCHAR" />
+    <result column="pathogeny" property="pathogeny" jdbcType="VARCHAR" />
+    <result column="batch_id" property="batchId" jdbcType="VARCHAR" />
+    <result column="see_doctor_type" property="seeDoctorType" jdbcType="VARCHAR" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="isSupplement" property="issupplement" jdbcType="VARCHAR" />
+    <result column="supplementRemark" property="supplementremark" jdbcType="VARCHAR" />
+    <result column="attach" property="attach" jdbcType="VARCHAR" />
+    <result column="threatened_type" property="threatenedType" jdbcType="VARCHAR" />
+    <result column="transctionNum" property="transctionnum" jdbcType="VARCHAR" />
+    <result column="ma_yi_case_no" property="maYiCaseNo" jdbcType="VARCHAR" />
+    <result column="express_no" property="expressNo" jdbcType="VARCHAR" />
+    <result column="received" property="received" jdbcType="VARCHAR" />
+    <result column="prepaidAmt" property="prepaidamt" jdbcType="VARCHAR" />
+    <result column="userType" property="usertype" jdbcType="VARCHAR" />
+    <result column="handlePriority" property="handlepriority" jdbcType="VARCHAR" />
+    <result column="handleRemark" property="handleremark" jdbcType="VARCHAR" />
+    <result column="conclusion_basis_type" property="conclusionBasisType" jdbcType="VARCHAR" />
+    <result column="reOpenType" property="reopentype" jdbcType="VARCHAR" />
+    <result column="isError" property="iserror" jdbcType="VARCHAR" />
+    <result column="send_express_no_time" property="sendExpressNoTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" extends="BaseResultMap" >
+    <result column="picInfos" property="picinfos" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    visit_id, channel_case_no, report_organization, policy_no, accident_type, insure_organization, 
+    apply_amnt, pic_count, invoice_num, hospital, pathogeny, batch_id, see_doctor_type, 
+    created_date, updated_date, isSupplement, supplementRemark, attach, threatened_type, 
+    transctionNum, ma_yi_case_no, express_no, received, prepaidAmt, userType, handlePriority, 
+    handleRemark, conclusion_basis_type, reOpenType, isError, send_express_no_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    picInfos
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from visit_record_renbaojian_detail
+    where visit_id = #{visitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from visit_record_renbaojian_detail
+    where visit_id = #{visitId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+    insert into visit_record_renbaojian_detail (visit_id, channel_case_no, report_organization, 
+      policy_no, accident_type, insure_organization, 
+      apply_amnt, pic_count, invoice_num, 
+      hospital, pathogeny, batch_id, 
+      see_doctor_type, created_date, updated_date, 
+      isSupplement, supplementRemark, attach, 
+      threatened_type, transctionNum, ma_yi_case_no, 
+      express_no, received, prepaidAmt, 
+      userType, handlePriority, handleRemark, 
+      conclusion_basis_type, reOpenType, isError, 
+      send_express_no_time, picInfos)
+    values (#{visitId,jdbcType=VARCHAR}, #{channelCaseNo,jdbcType=VARCHAR}, #{reportOrganization,jdbcType=VARCHAR}, 
+      #{policyNo,jdbcType=VARCHAR}, #{accidentType,jdbcType=VARCHAR}, #{insureOrganization,jdbcType=VARCHAR}, 
+      #{applyAmnt,jdbcType=DOUBLE}, #{picCount,jdbcType=INTEGER}, #{invoiceNum,jdbcType=INTEGER}, 
+      #{hospital,jdbcType=VARCHAR}, #{pathogeny,jdbcType=VARCHAR}, #{batchId,jdbcType=VARCHAR}, 
+      #{seeDoctorType,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{issupplement,jdbcType=VARCHAR}, #{supplementremark,jdbcType=VARCHAR}, #{attach,jdbcType=VARCHAR}, 
+      #{threatenedType,jdbcType=VARCHAR}, #{transctionnum,jdbcType=VARCHAR}, #{maYiCaseNo,jdbcType=VARCHAR}, 
+      #{expressNo,jdbcType=VARCHAR}, #{received,jdbcType=VARCHAR}, #{prepaidamt,jdbcType=VARCHAR}, 
+      #{usertype,jdbcType=VARCHAR}, #{handlepriority,jdbcType=VARCHAR}, #{handleremark,jdbcType=VARCHAR}, 
+      #{conclusionBasisType,jdbcType=VARCHAR}, #{reopentype,jdbcType=VARCHAR}, #{iserror,jdbcType=VARCHAR}, 
+      #{sendExpressNoTime,jdbcType=VARCHAR}, #{picinfos,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+    insert into visit_record_renbaojian_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="visitId != null" >
+        visit_id,
+      </if>
+      <if test="channelCaseNo != null" >
+        channel_case_no,
+      </if>
+      <if test="reportOrganization != null" >
+        report_organization,
+      </if>
+      <if test="policyNo != null" >
+        policy_no,
+      </if>
+      <if test="accidentType != null" >
+        accident_type,
+      </if>
+      <if test="insureOrganization != null" >
+        insure_organization,
+      </if>
+      <if test="applyAmnt != null" >
+        apply_amnt,
+      </if>
+      <if test="picCount != null" >
+        pic_count,
+      </if>
+      <if test="invoiceNum != null" >
+        invoice_num,
+      </if>
+      <if test="hospital != null" >
+        hospital,
+      </if>
+      <if test="pathogeny != null" >
+        pathogeny,
+      </if>
+      <if test="batchId != null" >
+        batch_id,
+      </if>
+      <if test="seeDoctorType != null" >
+        see_doctor_type,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="updatedDate != null" >
+        updated_date,
+      </if>
+      <if test="issupplement != null" >
+        isSupplement,
+      </if>
+      <if test="supplementremark != null" >
+        supplementRemark,
+      </if>
+      <if test="attach != null" >
+        attach,
+      </if>
+      <if test="threatenedType != null" >
+        threatened_type,
+      </if>
+      <if test="transctionnum != null" >
+        transctionNum,
+      </if>
+      <if test="maYiCaseNo != null" >
+        ma_yi_case_no,
+      </if>
+      <if test="expressNo != null" >
+        express_no,
+      </if>
+      <if test="received != null" >
+        received,
+      </if>
+      <if test="prepaidamt != null" >
+        prepaidAmt,
+      </if>
+      <if test="usertype != null" >
+        userType,
+      </if>
+      <if test="handlepriority != null" >
+        handlePriority,
+      </if>
+      <if test="handleremark != null" >
+        handleRemark,
+      </if>
+      <if test="conclusionBasisType != null" >
+        conclusion_basis_type,
+      </if>
+      <if test="reopentype != null" >
+        reOpenType,
+      </if>
+      <if test="iserror != null" >
+        isError,
+      </if>
+      <if test="sendExpressNoTime != null" >
+        send_express_no_time,
+      </if>
+      <if test="picinfos != null" >
+        picInfos,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="visitId != null" >
+        #{visitId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCaseNo != null" >
+        #{channelCaseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reportOrganization != null" >
+        #{reportOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentType != null" >
+        #{accidentType,jdbcType=VARCHAR},
+      </if>
+      <if test="insureOrganization != null" >
+        #{insureOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmnt != null" >
+        #{applyAmnt,jdbcType=DOUBLE},
+      </if>
+      <if test="picCount != null" >
+        #{picCount,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceNum != null" >
+        #{invoiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="hospital != null" >
+        #{hospital,jdbcType=VARCHAR},
+      </if>
+      <if test="pathogeny != null" >
+        #{pathogeny,jdbcType=VARCHAR},
+      </if>
+      <if test="batchId != null" >
+        #{batchId,jdbcType=VARCHAR},
+      </if>
+      <if test="seeDoctorType != null" >
+        #{seeDoctorType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issupplement != null" >
+        #{issupplement,jdbcType=VARCHAR},
+      </if>
+      <if test="supplementremark != null" >
+        #{supplementremark,jdbcType=VARCHAR},
+      </if>
+      <if test="attach != null" >
+        #{attach,jdbcType=VARCHAR},
+      </if>
+      <if test="threatenedType != null" >
+        #{threatenedType,jdbcType=VARCHAR},
+      </if>
+      <if test="transctionnum != null" >
+        #{transctionnum,jdbcType=VARCHAR},
+      </if>
+      <if test="maYiCaseNo != null" >
+        #{maYiCaseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNo != null" >
+        #{expressNo,jdbcType=VARCHAR},
+      </if>
+      <if test="received != null" >
+        #{received,jdbcType=VARCHAR},
+      </if>
+      <if test="prepaidamt != null" >
+        #{prepaidamt,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="handlepriority != null" >
+        #{handlepriority,jdbcType=VARCHAR},
+      </if>
+      <if test="handleremark != null" >
+        #{handleremark,jdbcType=VARCHAR},
+      </if>
+      <if test="conclusionBasisType != null" >
+        #{conclusionBasisType,jdbcType=VARCHAR},
+      </if>
+      <if test="reopentype != null" >
+        #{reopentype,jdbcType=VARCHAR},
+      </if>
+      <if test="iserror != null" >
+        #{iserror,jdbcType=VARCHAR},
+      </if>
+      <if test="sendExpressNoTime != null" >
+        #{sendExpressNoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="picinfos != null" >
+        #{picinfos,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+    update visit_record_renbaojian_detail
+    <set >
+      <if test="channelCaseNo != null" >
+        channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reportOrganization != null" >
+        report_organization = #{reportOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentType != null" >
+        accident_type = #{accidentType,jdbcType=VARCHAR},
+      </if>
+      <if test="insureOrganization != null" >
+        insure_organization = #{insureOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmnt != null" >
+        apply_amnt = #{applyAmnt,jdbcType=DOUBLE},
+      </if>
+      <if test="picCount != null" >
+        pic_count = #{picCount,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceNum != null" >
+        invoice_num = #{invoiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="hospital != null" >
+        hospital = #{hospital,jdbcType=VARCHAR},
+      </if>
+      <if test="pathogeny != null" >
+        pathogeny = #{pathogeny,jdbcType=VARCHAR},
+      </if>
+      <if test="batchId != null" >
+        batch_id = #{batchId,jdbcType=VARCHAR},
+      </if>
+      <if test="seeDoctorType != null" >
+        see_doctor_type = #{seeDoctorType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issupplement != null" >
+        isSupplement = #{issupplement,jdbcType=VARCHAR},
+      </if>
+      <if test="supplementremark != null" >
+        supplementRemark = #{supplementremark,jdbcType=VARCHAR},
+      </if>
+      <if test="attach != null" >
+        attach = #{attach,jdbcType=VARCHAR},
+      </if>
+      <if test="threatenedType != null" >
+        threatened_type = #{threatenedType,jdbcType=VARCHAR},
+      </if>
+      <if test="transctionnum != null" >
+        transctionNum = #{transctionnum,jdbcType=VARCHAR},
+      </if>
+      <if test="maYiCaseNo != null" >
+        ma_yi_case_no = #{maYiCaseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNo != null" >
+        express_no = #{expressNo,jdbcType=VARCHAR},
+      </if>
+      <if test="received != null" >
+        received = #{received,jdbcType=VARCHAR},
+      </if>
+      <if test="prepaidamt != null" >
+        prepaidAmt = #{prepaidamt,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        userType = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="handlepriority != null" >
+        handlePriority = #{handlepriority,jdbcType=VARCHAR},
+      </if>
+      <if test="handleremark != null" >
+        handleRemark = #{handleremark,jdbcType=VARCHAR},
+      </if>
+      <if test="conclusionBasisType != null" >
+        conclusion_basis_type = #{conclusionBasisType,jdbcType=VARCHAR},
+      </if>
+      <if test="reopentype != null" >
+        reOpenType = #{reopentype,jdbcType=VARCHAR},
+      </if>
+      <if test="iserror != null" >
+        isError = #{iserror,jdbcType=VARCHAR},
+      </if>
+      <if test="sendExpressNoTime != null" >
+        send_express_no_time = #{sendExpressNoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="picinfos != null" >
+        picInfos = #{picinfos,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where visit_id = #{visitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+    update visit_record_renbaojian_detail
+    set channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
+      report_organization = #{reportOrganization,jdbcType=VARCHAR},
+      policy_no = #{policyNo,jdbcType=VARCHAR},
+      accident_type = #{accidentType,jdbcType=VARCHAR},
+      insure_organization = #{insureOrganization,jdbcType=VARCHAR},
+      apply_amnt = #{applyAmnt,jdbcType=DOUBLE},
+      pic_count = #{picCount,jdbcType=INTEGER},
+      invoice_num = #{invoiceNum,jdbcType=INTEGER},
+      hospital = #{hospital,jdbcType=VARCHAR},
+      pathogeny = #{pathogeny,jdbcType=VARCHAR},
+      batch_id = #{batchId,jdbcType=VARCHAR},
+      see_doctor_type = #{seeDoctorType,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      isSupplement = #{issupplement,jdbcType=VARCHAR},
+      supplementRemark = #{supplementremark,jdbcType=VARCHAR},
+      attach = #{attach,jdbcType=VARCHAR},
+      threatened_type = #{threatenedType,jdbcType=VARCHAR},
+      transctionNum = #{transctionnum,jdbcType=VARCHAR},
+      ma_yi_case_no = #{maYiCaseNo,jdbcType=VARCHAR},
+      express_no = #{expressNo,jdbcType=VARCHAR},
+      received = #{received,jdbcType=VARCHAR},
+      prepaidAmt = #{prepaidamt,jdbcType=VARCHAR},
+      userType = #{usertype,jdbcType=VARCHAR},
+      handlePriority = #{handlepriority,jdbcType=VARCHAR},
+      handleRemark = #{handleremark,jdbcType=VARCHAR},
+      conclusion_basis_type = #{conclusionBasisType,jdbcType=VARCHAR},
+      reOpenType = #{reopentype,jdbcType=VARCHAR},
+      isError = #{iserror,jdbcType=VARCHAR},
+      send_express_no_time = #{sendExpressNoTime,jdbcType=VARCHAR},
+      picInfos = #{picinfos,jdbcType=LONGVARCHAR}
+    where visit_id = #{visitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+    update visit_record_renbaojian_detail
+    set channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
+      report_organization = #{reportOrganization,jdbcType=VARCHAR},
+      policy_no = #{policyNo,jdbcType=VARCHAR},
+      accident_type = #{accidentType,jdbcType=VARCHAR},
+      insure_organization = #{insureOrganization,jdbcType=VARCHAR},
+      apply_amnt = #{applyAmnt,jdbcType=DOUBLE},
+      pic_count = #{picCount,jdbcType=INTEGER},
+      invoice_num = #{invoiceNum,jdbcType=INTEGER},
+      hospital = #{hospital,jdbcType=VARCHAR},
+      pathogeny = #{pathogeny,jdbcType=VARCHAR},
+      batch_id = #{batchId,jdbcType=VARCHAR},
+      see_doctor_type = #{seeDoctorType,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+      isSupplement = #{issupplement,jdbcType=VARCHAR},
+      supplementRemark = #{supplementremark,jdbcType=VARCHAR},
+      attach = #{attach,jdbcType=VARCHAR},
+      threatened_type = #{threatenedType,jdbcType=VARCHAR},
+      transctionNum = #{transctionnum,jdbcType=VARCHAR},
+      ma_yi_case_no = #{maYiCaseNo,jdbcType=VARCHAR},
+      express_no = #{expressNo,jdbcType=VARCHAR},
+      received = #{received,jdbcType=VARCHAR},
+      prepaidAmt = #{prepaidamt,jdbcType=VARCHAR},
+      userType = #{usertype,jdbcType=VARCHAR},
+      handlePriority = #{handlepriority,jdbcType=VARCHAR},
+      handleRemark = #{handleremark,jdbcType=VARCHAR},
+      conclusion_basis_type = #{conclusionBasisType,jdbcType=VARCHAR},
+      reOpenType = #{reopentype,jdbcType=VARCHAR},
+      isError = #{iserror,jdbcType=VARCHAR},
+      send_express_no_time = #{sendExpressNoTime,jdbcType=VARCHAR}
+    where visit_id = #{visitId,jdbcType=VARCHAR}
+  </update>
+</mapper>
