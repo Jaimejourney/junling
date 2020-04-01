@@ -2,6 +2,7 @@ package com.junling.mis.scheduledTasks;
 
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
+import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.claimInfoEntityMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
@@ -17,7 +18,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -54,7 +54,8 @@ public class SynchronizeClaimInfo {
         for (int i = 0; i < list.size(); i++) {
             visitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(list.get(i).getId());
             claimInfoEntity claimInfoEntity = new claimInfoEntity();
-            claimInfoEntity.setClaimInfoId(list.get(i).getId()+"111");
+            String claimInfoId = GetUUID32.getUUID32();
+            claimInfoEntity.setClaimInfoId(claimInfoId);
             claimInfoEntity.setClaimNo(list.get(i).getId());
             claimInfoEntity.setRegistrationNo(list.get(i).getDocuno());
             claimInfoEntity.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());

@@ -2,6 +2,7 @@ package com.junling.mis.scheduledTasks;
 
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
+import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.customerActionEntityMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
@@ -44,6 +45,8 @@ public class SynchronizeCustomerAction {
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             customerActionEntity customerActionEntity = new customerActionEntity();
+            String customerActionId = GetUUID32.getUUID32();
+            customerActionEntity.setCustomerActionId(customerActionId);
             customerActionEntity.setActionType(list.get(i).getRelationshipId());
             System.out.println("success");
         }

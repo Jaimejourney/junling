@@ -1,6 +1,7 @@
 package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
+import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.customerInfoEntityMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
@@ -45,10 +46,15 @@ public class SynchronizeCustomerInfo {
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
-            customerInfoEntity customerInfoEntity = new customerInfoEntity();
+            customerInfoEntity customerVisitApplyPersonEntity = new customerInfoEntity();
             visitApplyPersonEntity visitApplyPersonEntity = visitApplyPersonEntityMapper.selectByPrimaryKey(new BigDecimal(list.get(i).getApplyPersonId()));
+            String applyCustomerNo = GetUUID32.getUUID32();
+            customerVisitApplyPersonEntity.setCustomerNo(applyCustomerNo);
+
+            customerInfoEntity customerVisitPersonEntity = new customerInfoEntity();
             visitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(list.get(i).getPersonId());
-            customerInfoEntity.setCustomerNo("1");
+            String customerNo = GetUUID32.getUUID32();
+            customerVisitPersonEntity.setCustomerNo(customerNo);
             System.out.println("success");
         }
     }
