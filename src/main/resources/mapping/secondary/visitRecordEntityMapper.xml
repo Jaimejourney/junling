@@ -705,4 +705,15 @@
       is_sync_case_attr = #{isSyncCaseAttr,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="search" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from visit_record
+    <where>
+      <if test="start != null">
+        and finish_time &gt;= #{start}
+      </if>
+    </where>
+  </select>
 </mapper>

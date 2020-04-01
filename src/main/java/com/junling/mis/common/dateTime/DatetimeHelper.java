@@ -1,5 +1,6 @@
 package com.junling.mis.common.dateTime;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,8 +11,14 @@ public class DatetimeHelper {
      * @return
      */
     public static String now() {
-        Date dnow = new Date();
+        Date now = new Date();
         SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
-        return format.format(dnow);
+        return format.format(now);
+    }
+
+    public static Date dateHelper(String str) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = (Date) sdf.parse(str);
+        return date;
     }
 }
