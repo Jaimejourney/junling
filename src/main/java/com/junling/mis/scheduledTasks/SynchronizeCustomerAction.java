@@ -4,6 +4,7 @@ package com.junling.mis.scheduledTasks;
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.customerActionEntityMapper;
+import com.junling.mis.mapper.secondary.hospitalEntityMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
@@ -21,19 +22,16 @@ import java.util.List;
 
 @Component
 public class SynchronizeCustomerAction {
-    private final static Logger LOG = LoggerFactory.getLogger(SynchronizeRelationship.class);
+    private final static Logger LOG = LoggerFactory.getLogger(SynchronizeCustomerAction.class);
 
     @Autowired
     visitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    visitApplyPersonEntityMapper visitApplyPersonEntityMapper;
-
-    @Autowired
-    visitPersonEntityMapper visitPersonEntityMapper;
-
-    @Autowired
     customerActionEntityMapper customerActionEntityMapper;
+
+    @Autowired
+    hospitalEntityMapper hospitalEntityMapper;
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
@@ -44,10 +42,22 @@ public class SynchronizeCustomerAction {
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
+            visitRecordEntity record = list.get(i);
             customerActionEntity customerActionEntity = new customerActionEntity();
             String customerActionId = GetUUID32.getUUID32();
             customerActionEntity.setCustomerActionId(customerActionId);
-            customerActionEntity.setActionType(list.get(i).getRelationshipId());
+            customerActionEntity.setCustomerId(record.getApplyPersonId());
+            customerActionEntity.setActionType("apply");
+            customerActionEntity.setActionObject(String.valueOf(record.getPersonId()));
+            customerActionEntity.setActionStartTime(DatetimeHelper.dateHelper(record.getApplyTime()));
+            customerActionEntity.setActionEndTime(DatetimeHelper.dateHelper(record.getFinishTime()));
+            customerActionEntity.setActionPlace(hospitalEntityMapper.selectByPrimaryKey(Integer.valueOf(record.getHospitalCode())).getHospitalName());
+            customerActionEntity.setActionDes("description");
+            customerActionEntity.setCreatedBy("system test");
+            customerActionEntity.setCreatedTime(date);
+            customerActionEntity.setUpdatedBy("system test");
+            customerActionEntity.setUpdatedTime(date);
+            customerActionEntity.setActionType(record.getRelationshipId());
             System.out.println("success");
         }
     }

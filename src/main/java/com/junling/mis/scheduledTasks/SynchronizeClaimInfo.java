@@ -44,7 +44,7 @@ public class SynchronizeClaimInfo {
     claimInfoEntityMapper claimInfoEntityMapper;
 
 //0/5 * * * * *
-    @Scheduled(cron = "0 0 */24 * * *")
+    @Scheduled(cron = "0/5 * * * * *")
     public void myTask() throws ParseException {
         String str = DatetimeHelper.now();
         Date date = DatetimeHelper.dateHelper(str);
@@ -52,13 +52,24 @@ public class SynchronizeClaimInfo {
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
-            visitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(list.get(i).getId());
+            visitRecordEntity record = list.get(i);
+            visitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());
             claimInfoEntity claimInfoEntity = new claimInfoEntity();
             String claimInfoId = GetUUID32.getUUID32();
             claimInfoEntity.setClaimInfoId(claimInfoId);
-            claimInfoEntity.setClaimNo(list.get(i).getId());
-            claimInfoEntity.setRegistrationNo(list.get(i).getDocuno());
+            claimInfoEntity.setClaimNo(record.getId());
+            claimInfoEntity.setRegistrationNo(record.getDocuno());
             claimInfoEntity.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());
+            claimInfoEntity.setClaimReportId(String.valueOf(record.getPersonId()));
+            claimInfoEntity.setInsureId(record.getApplyPersonId());
+            claimInfoEntity.setAccidentType(visitRecordRenbaojianDetailEntity.getAccidentType());
+            claimInfoEntity.setReportTime(DatetimeHelper.dateHelper(record.getApplyTime()));
+            claimInfoEntity.setClaimStatus(String.valueOf(record.getStatus()));
+            claimInfoEntity.setClaimSoucreType(record.getClaimType());
+            claimInfoEntity.setCreatedBy("SystemTest");
+            claimInfoEntity.setCreatedTime(date);
+            claimInfoEntity.setUpdatedBy("SystemTest");
+            claimInfoEntity.setUpdatedTime(date);
             claimInfoEntityMapper.insert(claimInfoEntity);
             System.out.println("success");
         }

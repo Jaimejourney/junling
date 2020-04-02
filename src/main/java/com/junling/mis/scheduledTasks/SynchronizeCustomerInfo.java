@@ -46,15 +46,35 @@ public class SynchronizeCustomerInfo {
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
+            visitRecordEntity record = list.get(i);
             customerInfoEntity customerVisitApplyPersonEntity = new customerInfoEntity();
-            visitApplyPersonEntity visitApplyPersonEntity = visitApplyPersonEntityMapper.selectByPrimaryKey(new BigDecimal(list.get(i).getApplyPersonId()));
+            visitApplyPersonEntity visitApplyPersonEntity = visitApplyPersonEntityMapper.selectByPrimaryKey(new BigDecimal(record.getApplyPersonId()));
             String applyCustomerNo = GetUUID32.getUUID32();
             customerVisitApplyPersonEntity.setCustomerNo(applyCustomerNo);
+            customerVisitApplyPersonEntity.setCreatedBy("system test");
+            customerVisitApplyPersonEntity.setCreatedTime(date);
+            customerVisitApplyPersonEntity.setUpdatedBy("system test");
+            customerVisitApplyPersonEntity.setUpdatedTime(date);
+
 
             customerInfoEntity customerVisitPersonEntity = new customerInfoEntity();
-            visitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(list.get(i).getPersonId());
+            visitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             String customerNo = GetUUID32.getUUID32();
             customerVisitPersonEntity.setCustomerNo(customerNo);
+            //姓名
+            customerVisitPersonEntity.setCustomerName(visitPersonEntity.getName());
+            //手机号
+            customerVisitPersonEntity.setCustomerPhoneNo(visitPersonEntity.getPhone());
+            //邮箱
+            customerVisitPersonEntity.setEmail(visitPersonEntity.getEmail());
+            //证件号
+            customerVisitPersonEntity.setIdNo(visitPersonEntity.getCardId());
+            customerVisitPersonEntity.setCreatedBy("system test");
+            customerVisitPersonEntity.setCreatedTime(date);
+            customerVisitPersonEntity.setUpdatedBy("system test");
+            customerVisitPersonEntity.setUpdatedTime(date);
+
+
             System.out.println("success");
         }
     }

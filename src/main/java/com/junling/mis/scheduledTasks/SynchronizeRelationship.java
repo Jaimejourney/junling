@@ -27,12 +27,6 @@ public class SynchronizeRelationship {
     visitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    visitApplyPersonEntityMapper visitApplyPersonEntityMapper;
-
-    @Autowired
-    visitPersonEntityMapper visitPersonEntityMapper;
-
-    @Autowired
     customerRelationEntityMapper customerRelationEntityMapper;
 
     @Scheduled(cron = "0 0 */24 * * *")
@@ -44,10 +38,20 @@ public class SynchronizeRelationship {
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
+            visitRecordEntity record = list.get(i);
             customerRelationEntity customerRelationEntity = new customerRelationEntity();
             String customerRelationId = GetUUID32.getUUID32();
             customerRelationEntity.setCustomerRelationId(customerRelationId);
-            customerRelationEntity.setRelationType(list.get(i).getRelationshipId());
+            customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());
+            customerRelationEntity.setRelationType(record.getRelationshipId());
+            customerRelationEntity.setRelationCustomer(String.valueOf(record.getPersonId()));
+            customerRelationEntity.setRelationStartTime(DatetimeHelper.dateHelper(record.getApplyTime()));
+            customerRelationEntity.setRelationEndTime(DatetimeHelper.dateHelper(record.getFinishTime()));
+            customerRelationEntity.setRelationStatus("1");
+            customerRelationEntity.setCreatedBy("sysetem test");
+            customerRelationEntity.setCreatedTime(date);
+            customerRelationEntity.setUpdatedBy("system test");
+            customerRelationEntity.setUpdatedTime(date);
             System.out.println("success");
         }
     }
