@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.gradeLevelProductEntity;
+import com.junling.mis.model.primary.gradeLevelProduct;
 import com.junling.mis.service.primary.GradeLevelProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class GradeLevelProductServiceImpl implements GradeLevelProductService {
 	private final static Logger LOG = LoggerFactory.getLogger(GradeLevelProductServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.gradeLevelProductEntityMapper gradeLevelProductEntityMapper;
+	private com.junling.mis.mapper.primary.gradeLevelProductMapper gradeLevelProductMapper;
 
 	@Override
-	public Boolean addGradeLevelProduct(gradeLevelProductEntity gradeLevelProductEntity) throws Exception {
-		return gradeLevelProductEntityMapper.insert(gradeLevelProductEntity) > 0;
+	public Boolean addGradeLevelProduct(gradeLevelProduct gradeLevelProduct) throws Exception {
+		return gradeLevelProductMapper.insert(gradeLevelProduct) > 0;
 	}
 
 	@Override
-	public Boolean updateGradeLevelProduct(gradeLevelProductEntity gradeLevelProductEntity) throws Exception {
-		return gradeLevelProductEntityMapper.updateByPrimaryKey(gradeLevelProductEntity) > 0;
+	public Boolean updateGradeLevelProduct(gradeLevelProduct gradeLevelProduct) throws Exception {
+		return gradeLevelProductMapper.updateByPrimaryKey(gradeLevelProduct) > 0;
 	}
 
 	@Override
-	public gradeLevelProductEntity findDetailGradeLevelProduct(String gradeLevelProductId) throws Exception {
-		return gradeLevelProductEntityMapper.selectByPrimaryKey(gradeLevelProductId);
+	public gradeLevelProduct findDetailGradeLevelProduct(String gradeLevelProductId) throws Exception {
+		return gradeLevelProductMapper.selectByPrimaryKey(gradeLevelProductId);
 	}
 
 	@Override
 	public Boolean deleteGradeLevelProduct(String gradeLevelProductId) throws Exception {
-		return gradeLevelProductEntityMapper.deleteByPrimaryKey(gradeLevelProductId) > 0;
+		return gradeLevelProductMapper.deleteByPrimaryKey(gradeLevelProductId) > 0;
 	}
 
 //	@Override

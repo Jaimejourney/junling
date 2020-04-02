@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyInfoEntity;
+import com.junling.mis.model.primary.policyInfo;
 import com.junling.mis.service.primary.PolicyInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PolicyInfoServiceImpl implements PolicyInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyInfoServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyInfoEntityMapper policyInfoEntityMapper;
+	private com.junling.mis.mapper.primary.policyInfoMapper policyInfoMapper;
 
 	@Override
-	public Boolean addPolicyInfo(policyInfoEntity policyInfoEntity) throws Exception {
-		return policyInfoEntityMapper.insert(policyInfoEntity) > 0;
+	public Boolean addPolicyInfo(policyInfo policyInfo) throws Exception {
+		return policyInfoMapper.insert(policyInfo) > 0;
 	}
 
 	@Override
-	public Boolean updatePolicyInfo(policyInfoEntity policyInfoEntity) throws Exception {
-		return policyInfoEntityMapper.updateByPrimaryKey(policyInfoEntity) > 0;
+	public Boolean updatePolicyInfo(policyInfo policyInfo) throws Exception {
+		return policyInfoMapper.updateByPrimaryKey(policyInfo) > 0;
 	}
 
 	@Override
-	public policyInfoEntity findDetailPolicyInfo(String policyInfoId) throws Exception {
-		return policyInfoEntityMapper.selectByPrimaryKey(policyInfoId);
+	public policyInfo findDetailPolicyInfo(String policyInfoId) throws Exception {
+		return policyInfoMapper.selectByPrimaryKey(policyInfoId);
 	}
 
 	@Override
 	public Boolean deletePolicyInfo(String policyInfoId) throws Exception {
-		return policyInfoEntityMapper.deleteByPrimaryKey(policyInfoId) > 0;
+		return policyInfoMapper.deleteByPrimaryKey(policyInfoId) > 0;
 	}
 
 //	@Override

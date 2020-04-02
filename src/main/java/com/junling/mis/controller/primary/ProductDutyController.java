@@ -2,8 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.productDutyEntity;
-import com.junling.mis.model.primary.productDutyEntityKey;
+import com.junling.mis.model.primary.productDuty;
 import com.junling.mis.service.primary.ProductDutyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +20,8 @@ public class ProductDutyController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addProductDuty(@RequestBody productDutyEntity productDutyEntity) throws Exception {
-        if(service.addProductDuty(productDutyEntity)){
+    public MakeResult addProductDuty(@RequestBody productDuty productDuty) throws Exception {
+        if(service.addProductDuty(productDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -31,8 +30,8 @@ public class ProductDutyController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateProductDuty(@RequestBody productDutyEntity productDutyEntity) throws Exception {
-        if(service.updateProductDuty(productDutyEntity)){
+    public MakeResult updateProductDuty(@RequestBody productDuty productDuty) throws Exception {
+        if(service.updateProductDuty(productDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -41,19 +40,19 @@ public class ProductDutyController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<productDutyEntity> searchProductDuty(@RequestBody productDutyEntityKey key) throws Exception {
-        productDutyEntity productDutyEntity = service.findDetailProductDuty(key);
-        MakeResult<productDutyEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(productDutyEntity == null){
+    public MakeResult<productDuty> searchProductDuty(@RequestBody String productDutyId) throws Exception {
+        productDuty productDuty = service.findDetailProductDuty(productDutyId);
+        MakeResult<productDuty> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(productDuty == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(productDutyEntity);
+        return result.addResults(productDuty);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult delProductDuty(@RequestBody productDutyEntityKey key) throws Exception {
-        if(service.deleteProductDuty(key)){
+    public MakeResult delProductDuty(@RequestBody String productDutyId) throws Exception {
+        if(service.deleteProductDuty(productDutyId)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);

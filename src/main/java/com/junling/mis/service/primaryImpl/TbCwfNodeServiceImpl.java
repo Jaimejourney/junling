@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbCwfNodeEntity;
+import com.junling.mis.model.primary.tbCwfNode;
 import com.junling.mis.service.primary.TbCwfNodeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbCwfNodeServiceImpl implements TbCwfNodeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbCwfNodeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbCwfNodeEntityMapper tbCwfNodeEntityMapper;
+	private com.junling.mis.mapper.primary.tbCwfNodeMapper tbCwfNodeMapper;
 
 	@Override
-	public Boolean addTbCwfNode(tbCwfNodeEntity tbCwfNodeEntity) throws Exception {
-		return tbCwfNodeEntityMapper.insert(tbCwfNodeEntity) > 0;
+	public Boolean addTbCwfNode(tbCwfNode tbCwfNode) throws Exception {
+		return tbCwfNodeMapper.insert(tbCwfNode) > 0;
 	}
 
 	@Override
-	public Boolean updateTbCwfNode(tbCwfNodeEntity tbCwfNodeEntity) throws Exception {
-		return tbCwfNodeEntityMapper.updateByPrimaryKey(tbCwfNodeEntity) > 0;
+	public Boolean updateTbCwfNode(tbCwfNode tbCwfNode) throws Exception {
+		return tbCwfNodeMapper.updateByPrimaryKey(tbCwfNode) > 0;
 	}
 
 	@Override
-	public tbCwfNodeEntity findDetailTbCwfNode(String cwfNode) throws Exception {
-		return tbCwfNodeEntityMapper.selectByPrimaryKey(cwfNode);
+	public tbCwfNode findDetailTbCwfNode(String cwfNode) throws Exception {
+		return tbCwfNodeMapper.selectByPrimaryKey(cwfNode);
 	}
 
 	@Override
 	public Boolean deleteTbCwfNode(String cwfNode) throws Exception {
-		return tbCwfNodeEntityMapper.deleteByPrimaryKey(cwfNode)>0;
+		return tbCwfNodeMapper.deleteByPrimaryKey(cwfNode)>0;
 	}
 
 //	@Override

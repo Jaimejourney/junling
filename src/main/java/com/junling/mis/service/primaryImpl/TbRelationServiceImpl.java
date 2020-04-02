@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbRelationEntity;
+import com.junling.mis.model.primary.tbRelation;
 import com.junling.mis.service.primary.TbRelationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbRelationServiceImpl implements TbRelationService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbRelationServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbRelationEntityMapper tbRelationEntityMapper;
+	private com.junling.mis.mapper.primary.tbRelationMapper tbRelationMapper;
 
 	@Override
-	public Boolean addTbRelation(tbRelationEntity tbRelationEntity) throws Exception {
-		return tbRelationEntityMapper.insert(tbRelationEntity)>0;
+	public Boolean addTbRelation(tbRelation tbRelation) throws Exception {
+		return tbRelationMapper.insert(tbRelation)>0;
 	}
 
 	@Override
-	public Boolean updateTbRelation(tbRelationEntity tbRelationEntity) throws Exception {
-		return tbRelationEntityMapper.updateByPrimaryKey(tbRelationEntity)>0;
+	public Boolean updateTbRelation(tbRelation tbRelation) throws Exception {
+		return tbRelationMapper.updateByPrimaryKey(tbRelation)>0;
 	}
 
 	@Override
-	public tbRelationEntity findDetailTbRelation(String relationCode) throws Exception {
-		return tbRelationEntityMapper.selectByPrimaryKey(relationCode);
+	public tbRelation findDetailTbRelation(String relationCode) throws Exception {
+		return tbRelationMapper.selectByPrimaryKey(relationCode);
 	}
 
 	@Override
 	public Boolean deleteTbRelation(String relationCode) throws Exception {
-		return tbRelationEntityMapper.deleteByPrimaryKey(relationCode)>0;
+		return tbRelationMapper.deleteByPrimaryKey(relationCode)>0;
 	}
 
 //	@Override

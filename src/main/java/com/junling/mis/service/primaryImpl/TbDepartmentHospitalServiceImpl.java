@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbDepartmentHospitalEntity;
+import com.junling.mis.mapper.primary.tbHospitalDepartmentMapper;
+import com.junling.mis.model.primary.tbHospitalDepartment;
 import com.junling.mis.service.primary.TbDepartmentHospitalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +18,26 @@ public class TbDepartmentHospitalServiceImpl implements TbDepartmentHospitalServ
 	private final static Logger LOG = LoggerFactory.getLogger(TbDepartmentHospitalServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbDepartmentHospitalEntityMapper tbDepartmentHospitalEntityMapper;
+	private tbHospitalDepartmentMapper tbHospitalDepartmentMapper;
 
 	@Override
-	public Boolean addTbDepartmentHospital(tbDepartmentHospitalEntity tbDepartmentHospitalEntity) throws Exception {
-		return tbDepartmentHospitalEntityMapper.insert(tbDepartmentHospitalEntity) > 0;
+	public Boolean addTbDepartmentHospital(tbHospitalDepartment tbHospitalDepartment) throws Exception {
+		return tbHospitalDepartmentMapper.insert(tbHospitalDepartment) > 0;
 	}
 
 	@Override
-	public Boolean updateTbDepartmentHospital(tbDepartmentHospitalEntity tbDepartmentHospitalEntity) throws Exception {
-		return tbDepartmentHospitalEntityMapper.updateByPrimaryKey(tbDepartmentHospitalEntity)>0;
+	public Boolean updateTbDepartmentHospital(tbHospitalDepartment tbHospitalDepartment) throws Exception {
+		return tbHospitalDepartmentMapper.updateByPrimaryKey(tbHospitalDepartment)>0;
 	}
 
 	@Override
-	public tbDepartmentHospitalEntity findDetailTbDepartmentHospital(Integer departmentId) throws Exception {
-		return tbDepartmentHospitalEntityMapper.selectByPrimaryKey(departmentId);
+	public tbHospitalDepartment findDetailTbDepartmentHospital(String departmentId) throws Exception {
+		return tbHospitalDepartmentMapper.selectByPrimaryKey(departmentId);
 	}
 
 	@Override
-	public Boolean deleteTbDepartmentHospital(Integer departmentId) throws Exception {
-		return tbDepartmentHospitalEntityMapper.deleteByPrimaryKey(departmentId) > 0;
+	public Boolean deleteTbDepartmentHospital(String departmentId) throws Exception {
+		return tbHospitalDepartmentMapper.deleteByPrimaryKey(departmentId) > 0;
 	}
 
 

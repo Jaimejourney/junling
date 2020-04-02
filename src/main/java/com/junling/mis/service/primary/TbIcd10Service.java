@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbIcd10Entity;
+import com.junling.mis.model.primary.tbIcd10;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbIcd10Entity;
  */
 public interface TbIcd10Service {
 
-	Boolean addTbIcd10(tbIcd10Entity tbIcd10Entity) throws Exception;
+	Boolean addTbIcd10(tbIcd10 tbIcd10) throws Exception;
 
-	Boolean updateTbIcd10(tbIcd10Entity tbIcd10Entity) throws Exception;
+	Boolean updateTbIcd10(tbIcd10 tbIcd10) throws Exception;
 
-	tbIcd10Entity findDetailTbIcd10(String icd) throws Exception;
+	tbIcd10 findDetailTbIcd10(String icd) throws Exception;
 	
 //	Result listTbIcd10(TbIcd10Model tbIcd10Model) throws Exception;
 //

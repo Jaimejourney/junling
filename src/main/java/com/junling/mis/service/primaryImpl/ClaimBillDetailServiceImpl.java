@@ -1,8 +1,8 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.claimBillDetailEntityMapper;
-import com.junling.mis.model.primary.claimBillDetailEntity;
-import com.junling.mis.model.primary.claimBillDetailEntityKey;
+import com.junling.mis.mapper.primary.claimBillDetailMapper;
+import com.junling.mis.model.primary.claimBillDetail;
+import com.junling.mis.model.primary.claimBillDetailKey;
 import com.junling.mis.service.primary.ClaimBillDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,26 +20,26 @@ public class ClaimBillDetailServiceImpl implements ClaimBillDetailService {
 	private final static Logger LOG = LoggerFactory.getLogger(ClaimBillDetailServiceImpl.class);
 
 	@Resource
-	private claimBillDetailEntityMapper mapper;
+	private claimBillDetailMapper mapper;
 
 
 	@Override
-	public Boolean addClaimBillDetail(claimBillDetailEntity claimBillDetailEntity) throws Exception {
-		return mapper.insert(claimBillDetailEntity) > 0;
+	public Boolean addClaimBillDetail(claimBillDetail claimBillDetail) throws Exception {
+		return mapper.insert(claimBillDetail) > 0;
 	}
 
 	@Override
-	public Boolean updateClaimBillDetail(claimBillDetailEntity claimBillDetailEntity) throws Exception {
-		return mapper.updateByPrimaryKey(claimBillDetailEntity) > 0;
+	public Boolean updateClaimBillDetail(claimBillDetail claimBillDetail) throws Exception {
+		return mapper.updateByPrimaryKey(claimBillDetail) > 0;
 	}
 
 	@Override
-	public claimBillDetailEntity findDetailClaimBillDetail(claimBillDetailEntityKey key) throws Exception {
+	public claimBillDetail findDetailClaimBillDetail(claimBillDetailKey key) throws Exception {
 		return mapper.selectByPrimaryKey(key);
 	}
 
 	@Override
-	public Boolean deleteClaimBillDetail(claimBillDetailEntityKey key) throws Exception {
+	public Boolean deleteClaimBillDetail(claimBillDetailKey key) throws Exception {
 		return mapper.deleteByPrimaryKey(key) > 0;
 	}
 }

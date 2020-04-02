@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbReportTypeEntity;
+import com.junling.mis.model.primary.tbReportType;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbReportTypeEntity;
  */
 public interface TbReportTypeService {
 
-	Boolean addTbReportType(tbReportTypeEntity tbReportTypeEntity) throws Exception;
+	Boolean addTbReportType(tbReportType tbReportType) throws Exception;
 
-	Boolean updateTbReportType(tbReportTypeEntity tbReportTypeEntity) throws Exception;
+	Boolean updateTbReportType(tbReportType tbReportType) throws Exception;
 
-	tbReportTypeEntity findDetailTbReportType(String reportTypeCode) throws Exception;
+	tbReportType findDetailTbReportType(String reportTypeCode) throws Exception;
 	
 //	Result listTbReportType(TbReportTypeModel tbReportTypeModel) throws Exception;
 //

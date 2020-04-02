@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.claimInvestigationInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimInvestigationInfo" >
+    <id column="claim_investigation_info_id" property="claimInvestigationInfoId" jdbcType="VARCHAR" />
+    <result column="claim_no" property="claimNo" jdbcType="VARCHAR" />
+    <result column="apply_time" property="applyTime" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="reply" property="reply" jdbcType="VARCHAR" />
+    <result column="reply_time" property="replyTime" jdbcType="VARCHAR" />
+    <result column="investigation_conclusion" property="investigationConclusion" jdbcType="VARCHAR" />
+    <result column="investigation_unit" property="investigationUnit" jdbcType="VARCHAR" />
+    <result column="investigation_scope" property="investigationScope" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    claim_investigation_info_id, claim_no, apply_time, description, user_id, reply, reply_time, 
+    investigation_conclusion, investigation_unit, investigation_scope, created_by, created_time, 
+    updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_investigation_info
+    where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from claim_investigation_info
+    where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+    insert into claim_investigation_info (claim_investigation_info_id, claim_no, 
+      apply_time, description, user_id, 
+      reply, reply_time, investigation_conclusion, 
+      investigation_unit, investigation_scope, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{claimInvestigationInfoId,jdbcType=VARCHAR}, #{claimNo,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{reply,jdbcType=VARCHAR}, #{replyTime,jdbcType=VARCHAR}, #{investigationConclusion,jdbcType=VARCHAR}, 
+      #{investigationUnit,jdbcType=VARCHAR}, #{investigationScope,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+    insert into claim_investigation_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="claimInvestigationInfoId != null" >
+        claim_investigation_info_id,
+      </if>
+      <if test="claimNo != null" >
+        claim_no,
+      </if>
+      <if test="applyTime != null" >
+        apply_time,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="reply != null" >
+        reply,
+      </if>
+      <if test="replyTime != null" >
+        reply_time,
+      </if>
+      <if test="investigationConclusion != null" >
+        investigation_conclusion,
+      </if>
+      <if test="investigationUnit != null" >
+        investigation_unit,
+      </if>
+      <if test="investigationScope != null" >
+        investigation_scope,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="claimInvestigationInfoId != null" >
+        #{claimInvestigationInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null" >
+        #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="investigationConclusion != null" >
+        #{investigationConclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="investigationUnit != null" >
+        #{investigationUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="investigationScope != null" >
+        #{investigationScope,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+    update claim_investigation_info
+    <set >
+      <if test="claimNo != null" >
+        claim_no = #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        apply_time = #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        reply = #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null" >
+        reply_time = #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="investigationConclusion != null" >
+        investigation_conclusion = #{investigationConclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="investigationUnit != null" >
+        investigation_unit = #{investigationUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="investigationScope != null" >
+        investigation_scope = #{investigationScope,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+    update claim_investigation_info
+    set claim_no = #{claimNo,jdbcType=VARCHAR},
+      apply_time = #{applyTime,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      reply = #{reply,jdbcType=VARCHAR},
+      reply_time = #{replyTime,jdbcType=VARCHAR},
+      investigation_conclusion = #{investigationConclusion,jdbcType=VARCHAR},
+      investigation_unit = #{investigationUnit,jdbcType=VARCHAR},
+      investigation_scope = #{investigationScope,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

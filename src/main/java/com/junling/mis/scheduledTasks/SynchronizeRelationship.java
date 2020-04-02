@@ -3,11 +3,9 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.customerRelationEntityMapper;
-import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
-import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
+import com.junling.mis.mapper.primary.customerRelationMapper;
 import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
-import com.junling.mis.model.primary.customerRelationEntity;
+import com.junling.mis.model.primary.customerRelation;
 import com.junling.mis.model.secondary.visitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +25,7 @@ public class SynchronizeRelationship {
     visitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    customerRelationEntityMapper customerRelationEntityMapper;
+    customerRelationMapper customerRelationEntityMapper;
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
@@ -38,7 +36,7 @@ public class SynchronizeRelationship {
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             visitRecordEntity record = list.get(i);
-            customerRelationEntity customerRelationEntity = new customerRelationEntity();
+            customerRelation customerRelationEntity = new customerRelation();
             String customerRelationId = GetUUID32.getUUID32();
             customerRelationEntity.setCustomerRelationId(customerRelationId);
             customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());

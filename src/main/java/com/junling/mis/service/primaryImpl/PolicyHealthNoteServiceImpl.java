@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyHealthNoteEntity;
+import com.junling.mis.model.primary.policyHealthNote;
 import com.junling.mis.service.primary.PolicyHealthNoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PolicyHealthNoteServiceImpl implements PolicyHealthNoteService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyHealthNoteServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyHealthNoteEntityMapper policyHealthNoteEntityMapper;
+	private com.junling.mis.mapper.primary.policyHealthNoteMapper policyHealthNoteMapper;
 
 	@Override
-	public Boolean addPolicyHealthNote(policyHealthNoteEntity policyHealthNoteEntity) throws Exception {
-		return policyHealthNoteEntityMapper.insert(policyHealthNoteEntity)>0;
+	public Boolean addPolicyHealthNote(policyHealthNote policyHealthNote) throws Exception {
+		return policyHealthNoteMapper.insert(policyHealthNote)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyHealthNote(policyHealthNoteEntity policyHealthNoteEntity) throws Exception {
-		return policyHealthNoteEntityMapper.updateByPrimaryKey(policyHealthNoteEntity)>0;
+	public Boolean updatePolicyHealthNote(policyHealthNote policyHealthNote) throws Exception {
+		return policyHealthNoteMapper.updateByPrimaryKey(policyHealthNote)>0;
 	}
 
 	@Override
-	public policyHealthNoteEntity findDetailPolicyHealthNote(String healthNoteId) throws Exception {
-		return policyHealthNoteEntityMapper.selectByPrimaryKey(healthNoteId);
+	public policyHealthNote findDetailPolicyHealthNote(String healthNoteId) throws Exception {
+		return policyHealthNoteMapper.selectByPrimaryKey(healthNoteId);
 	}
 
 	@Override
 	public Boolean deletePolicyHealthNote(String healthNoteId) throws Exception {
-		return policyHealthNoteEntityMapper.deleteByPrimaryKey(healthNoteId)>0;
+		return policyHealthNoteMapper.deleteByPrimaryKey(healthNoteId)>0;
 	}
 
 //	@Override

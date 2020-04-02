@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyGradeLevelProductEntity;
+import com.junling.mis.mapper.primary.policyGradeLevelProMapper;
+import com.junling.mis.model.primary.policyGradeLevelPro;
 import com.junling.mis.service.primary.PolicyGradeLevelProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +18,26 @@ public class PolicyGradeLevelProductServiceImpl implements PolicyGradeLevelProdu
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyGradeLevelProductServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyGradeLevelProductEntityMapper policyGradeLevelProductEntityMapper;
+	private policyGradeLevelProMapper policyGradeLevelProMapper;
 
 	@Override
-	public Boolean addPolicyGradeLevelProduct(policyGradeLevelProductEntity policyGradeLevelProductEntity) throws Exception {
-		return policyGradeLevelProductEntityMapper.insert(policyGradeLevelProductEntity)>0;
+	public Boolean addPolicyGradeLevelProduct(policyGradeLevelPro policyGradeLevelProduct) throws Exception {
+		return policyGradeLevelProMapper.insert(policyGradeLevelProduct)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyGradeLevelProduct(policyGradeLevelProductEntity policyGradeLevelProductEntity) throws Exception {
-		return policyGradeLevelProductEntityMapper.updateByPrimaryKey(policyGradeLevelProductEntity) > 0;
+	public Boolean updatePolicyGradeLevelProduct(policyGradeLevelPro policyGradeLevelProduct) throws Exception {
+		return policyGradeLevelProMapper.updateByPrimaryKey(policyGradeLevelProduct) > 0;
 	}
 
 	@Override
-	public policyGradeLevelProductEntity findDetailPolicyGradeLevelProduct(String pglProductId) throws Exception {
-		return policyGradeLevelProductEntityMapper.selectByPrimaryKey(pglProductId);
+	public policyGradeLevelPro findDetailPolicyGradeLevelProduct(String pglProductId) throws Exception {
+		return policyGradeLevelProMapper.selectByPrimaryKey(pglProductId);
 	}
 
 	@Override
 	public Boolean deletePolicyGradeLevelProduct(String pglProductId) throws Exception {
-		return policyGradeLevelProductEntityMapper.deleteByPrimaryKey(pglProductId)>0;
+		return policyGradeLevelProMapper.deleteByPrimaryKey(pglProductId)>0;
 	}
 
 //	@Override

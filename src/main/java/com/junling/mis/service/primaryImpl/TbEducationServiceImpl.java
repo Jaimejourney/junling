@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbEducationEntity;
+import com.junling.mis.model.primary.tbEducation;
 import com.junling.mis.service.primary.TbEducationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbEducationServiceImpl implements TbEducationService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbEducationServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbEducationEntityMapper tbEducationEntityMapper;
+	private com.junling.mis.mapper.primary.tbEducationMapper tbEducationMapper;
 
 	@Override
-	public Boolean addTbEducation(tbEducationEntity tbEducationEntity) throws Exception {
-		return tbEducationEntityMapper.insert(tbEducationEntity)>0;
+	public Boolean addTbEducation(tbEducation tbEducation) throws Exception {
+		return tbEducationMapper.insert(tbEducation)>0;
 	}
 
 	@Override
-	public Boolean updateTbEducation(tbEducationEntity tbEducationEntity) throws Exception {
-		return tbEducationEntityMapper.updateByPrimaryKey(tbEducationEntity)>0;
+	public Boolean updateTbEducation(tbEducation tbEducation) throws Exception {
+		return tbEducationMapper.updateByPrimaryKey(tbEducation)>0;
 	}
 
 	@Override
-	public tbEducationEntity findDetailTbEducation(String educationCode) throws Exception {
-		return tbEducationEntityMapper.selectByPrimaryKey(educationCode);
+	public tbEducation findDetailTbEducation(String educationCode) throws Exception {
+		return tbEducationMapper.selectByPrimaryKey(educationCode);
 	}
 
 	@Override
 	public Boolean deleteTbEducation(String educationCode) throws Exception {
-		return tbEducationEntityMapper.deleteByPrimaryKey(educationCode)>0;
+		return tbEducationMapper.deleteByPrimaryKey(educationCode)>0;
 	}
 
 //	@Override

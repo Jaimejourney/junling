@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.organizagionInfoEntityMapper;
-import com.junling.mis.model.primary.organizationInfoEntity;
+import com.junling.mis.mapper.primary.organizationInfoMapper;
+import com.junling.mis.model.primary.organizationInfo;
 import com.junling.mis.service.primary.OrganizationInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,26 +18,26 @@ public class OrganizationInfoServiceImpl implements OrganizationInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(OrganizationInfoServiceImpl.class);
 
 	@Resource
-	private organizagionInfoEntityMapper organizationInfoEntityMapper;
+	private organizationInfoMapper organizationInfoMapper;
 
 	@Override
-	public Boolean addOrganizationInfo(organizationInfoEntity organizationInfoModel) throws Exception {
-		return organizationInfoEntityMapper.insert(organizationInfoModel) > 0;
+	public Boolean addOrganizationInfo(organizationInfo organizationInfoModel) throws Exception {
+		return organizationInfoMapper.insert(organizationInfoModel) > 0;
 	}
 
 	@Override
-	public Boolean updateOrganizationInfo(organizationInfoEntity organizationInfoEntity) throws Exception {
-		return organizationInfoEntityMapper.updateByPrimaryKey(organizationInfoEntity) > 0;
+	public Boolean updateOrganizationInfo(organizationInfo organizationInfo) throws Exception {
+		return organizationInfoMapper.updateByPrimaryKey(organizationInfo) > 0;
 	}
 
 	@Override
-	public organizationInfoEntity findDetailOrganizationInfo(String organizationId) throws Exception {
-		return organizationInfoEntityMapper.selectByPrimaryKey(organizationId);
+	public organizationInfo findDetailOrganizationInfo(String organizationId) throws Exception {
+		return organizationInfoMapper.selectByPrimaryKey(organizationId);
 	}
 
 	@Override
 	public Boolean deleteOrganizationInfo(String organizationId) throws Exception {
-		return organizationInfoEntityMapper.deleteByPrimaryKey(organizationId) > 0;
+		return organizationInfoMapper.deleteByPrimaryKey(organizationId) > 0;
 	}
 
 //	@Override

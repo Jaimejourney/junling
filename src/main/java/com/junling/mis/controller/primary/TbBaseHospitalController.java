@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbBaseHospitalEntityWithBLOBs;
+import com.junling.mis.model.primary.tbBaseHospital;
 import com.junling.mis.service.primary.TbBaseHospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbBaseHospitalController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbBaseHospital(@RequestBody tbBaseHospitalEntityWithBLOBs tbBaseHospitalEntityWithBLOBs) throws Exception {
-        if(service.addTbBaseHospital(tbBaseHospitalEntityWithBLOBs)){
+    public MakeResult addTbBaseHospital(@RequestBody tbBaseHospital tbBaseHospital) throws Exception {
+        if(service.addTbBaseHospital(tbBaseHospital)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbBaseHospitalController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbBaseHospital(@RequestBody tbBaseHospitalEntityWithBLOBs tbBaseHospitalEntityWithBLOBs) throws Exception {
-        if(service.updateTbBaseHospital(tbBaseHospitalEntityWithBLOBs)){
+    public MakeResult updateTbBaseHospital(@RequestBody tbBaseHospital tbBaseHospital) throws Exception {
+        if(service.updateTbBaseHospital(tbBaseHospital)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbBaseHospitalController {
 
     @RequestMapping(value = "/search/{hospitalId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbBaseHospitalEntityWithBLOBs> searchTbBaseHospital(@PathVariable("hospitalId") String hospitalId) throws Exception {
-        tbBaseHospitalEntityWithBLOBs tbBaseHospitalEntityWithBLOBs = service.findDetailTbBaseHospital(hospitalId);
-        MakeResult<tbBaseHospitalEntityWithBLOBs> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbBaseHospitalEntityWithBLOBs == null){
+    public MakeResult<tbBaseHospital> searchTbBaseHospital(@PathVariable("hospitalId") String hospitalId) throws Exception {
+        tbBaseHospital tbBaseHospital = service.findDetailTbBaseHospital(hospitalId);
+        MakeResult<tbBaseHospital> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbBaseHospital == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbBaseHospitalEntityWithBLOBs);
+        return result.addResults(tbBaseHospital);
     }
 
     @RequestMapping(value = "/delete/{hospitalId}", method = RequestMethod.GET)

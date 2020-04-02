@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbCustomerLevelEntity;
+import com.junling.mis.model.primary.tbCustomerLevel;
 import com.junling.mis.service.primary.TbCustomerLevelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbCustomerLevelServiceImpl implements TbCustomerLevelService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbCustomerLevelServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbCustomerLevelEntityMapper tbCustomerLevelEntityMapper;
+	private com.junling.mis.mapper.primary.tbCustomerLevelMapper tbCustomerLevelMapper;
 
 	@Override
-	public Boolean addTbCustomerLevel(tbCustomerLevelEntity tbCustomerLevelEntity) throws Exception {
-		return tbCustomerLevelEntityMapper.insert(tbCustomerLevelEntity)>0;
+	public Boolean addTbCustomerLevel(tbCustomerLevel tbCustomerLevel) throws Exception {
+		return tbCustomerLevelMapper.insert(tbCustomerLevel)>0;
 	}
 
 	@Override
-	public Boolean updateTbCustomerLevel(tbCustomerLevelEntity tbCustomerLevelEntity) throws Exception {
-		return tbCustomerLevelEntityMapper.updateByPrimaryKey(tbCustomerLevelEntity)>0;
+	public Boolean updateTbCustomerLevel(tbCustomerLevel tbCustomerLevel) throws Exception {
+		return tbCustomerLevelMapper.updateByPrimaryKey(tbCustomerLevel)>0;
 	}
 
 	@Override
-	public tbCustomerLevelEntity findDetailTbCustomerLevel(String customerLevelCode) throws Exception {
-		return tbCustomerLevelEntityMapper.selectByPrimaryKey(customerLevelCode);
+	public tbCustomerLevel findDetailTbCustomerLevel(String customerLevelCode) throws Exception {
+		return tbCustomerLevelMapper.selectByPrimaryKey(customerLevelCode);
 	}
 
 	@Override
 	public Boolean deleteTbCustomerLevel(String customerLevelCode) throws Exception {
-		return tbCustomerLevelEntityMapper.deleteByPrimaryKey(customerLevelCode)>0;
+		return tbCustomerLevelMapper.deleteByPrimaryKey(customerLevelCode)>0;
 	}
 
 //	@Override

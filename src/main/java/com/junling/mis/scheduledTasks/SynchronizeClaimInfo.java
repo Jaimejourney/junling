@@ -3,12 +3,12 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.claimInfoEntityMapper;
+import com.junling.mis.mapper.primary.claimInfoMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
 import com.junling.mis.mapper.secondary.visitRecordRenbaojianDetailEntityMapper;
-import com.junling.mis.model.primary.claimInfoEntity;
+import com.junling.mis.model.primary.claimInfo;
 import com.junling.mis.model.secondary.visitRecordEntity;
 import com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity;
 import org.slf4j.Logger;
@@ -41,7 +41,7 @@ public class SynchronizeClaimInfo {
     visitPersonEntityMapper visitPersonEntityMapper;
 
     @Autowired
-    claimInfoEntityMapper claimInfoEntityMapper;
+    claimInfoMapper claimInfoEntityMapper;
 
 //0/5 * * * * *
     @Scheduled(cron = "0 0 */24 * * *")
@@ -53,7 +53,7 @@ public class SynchronizeClaimInfo {
         for (int i = 0; i < list.size(); i++) {
             visitRecordEntity record = list.get(i);
             visitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());
-            claimInfoEntity claimInfoEntity = new claimInfoEntity();
+            claimInfo claimInfoEntity = new claimInfo();
             String claimInfoId = GetUUID32.getUUID32();
             claimInfoEntity.setClaimInfoId(claimInfoId);
             claimInfoEntity.setClaimNo(record.getId());

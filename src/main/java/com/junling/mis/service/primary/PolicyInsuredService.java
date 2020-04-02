@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.policyInsuredEntity;
+import com.junling.mis.model.primary.policyInsured;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.policyInsuredEntity;
  */
 public interface PolicyInsuredService {
 
-	Boolean addPolicyInsured(policyInsuredEntity policyInsuredEntity) throws Exception;
+	Boolean addPolicyInsured(policyInsured policyInsured) throws Exception;
 
-	Boolean updatePolicyInsured(policyInsuredEntity policyInsuredEntity) throws Exception;
+	Boolean updatePolicyInsured(policyInsured policyInsured) throws Exception;
 
-	policyInsuredEntity findDetailPolicyInsured(String policyInsuredId) throws Exception;
+	policyInsured findDetailPolicyInsured(String policyInsuredId) throws Exception;
 	
 //	Result listPolicyInsured(PolicyInsuredModel policyInsuredModel) throws Exception;
 //

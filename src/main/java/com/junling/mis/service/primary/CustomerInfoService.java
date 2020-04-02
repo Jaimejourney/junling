@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.customerInfoEntity;
+import com.junling.mis.model.primary.customerInfo;
 
 
 /** 
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.customerInfoEntity;
  */
 public interface CustomerInfoService {
 
-	Boolean addCustomerInfo(customerInfoEntity customerInfoEntity) throws Exception;
+	Boolean addCustomerInfo(customerInfo customerInfo) throws Exception;
 
-	Boolean updateCustomerInfo(customerInfoEntity customerInfoEntity) throws Exception;
+	Boolean updateCustomerInfo(customerInfo customerInfo) throws Exception;
 
-	customerInfoEntity findDetailCustomerInfo(String customerNo) throws Exception;
+	customerInfo findDetailCustomerInfo(String customerNo) throws Exception;
 	
 //	Result listCustomerInfo(CustomerInfoModel customerInfoModel) throws Exception;
 //

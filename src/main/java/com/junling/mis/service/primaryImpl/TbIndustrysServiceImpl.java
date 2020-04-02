@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbIndustrysEntity;
+import com.junling.mis.model.primary.tbIndustrys;
 import com.junling.mis.service.primary.TbIndustrysService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbIndustrysServiceImpl implements TbIndustrysService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbIndustrysServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbIndustrysEntityMapper tbIndustrysEntityMapper;
+	private com.junling.mis.mapper.primary.tbIndustrysMapper tbIndustrysMapper;
 
 	@Override
-	public Boolean addTbIndustrys(tbIndustrysEntity tbIndustrysEntity) throws Exception {
-		return tbIndustrysEntityMapper.insert(tbIndustrysEntity)>0;
+	public Boolean addTbIndustrys(tbIndustrys tbIndustrys) throws Exception {
+		return tbIndustrysMapper.insert(tbIndustrys)>0;
 	}
 
 	@Override
-	public Boolean updateTbIndustrys(tbIndustrysEntity tbIndustrysEntity) throws Exception {
-		return tbIndustrysEntityMapper.updateByPrimaryKey(tbIndustrysEntity)>0;
+	public Boolean updateTbIndustrys(tbIndustrys tbIndustrys) throws Exception {
+		return tbIndustrysMapper.updateByPrimaryKey(tbIndustrys)>0;
 	}
 
 	@Override
-	public tbIndustrysEntity findDetailTbIndustrys(String industryTypeCode) throws Exception {
-		return tbIndustrysEntityMapper.selectByPrimaryKey(industryTypeCode);
+	public tbIndustrys findDetailTbIndustrys(String industryTypeCode) throws Exception {
+		return tbIndustrysMapper.selectByPrimaryKey(industryTypeCode);
 	}
 
 	@Override
 	public Boolean deleteTbIndustrys(String industryTypeCode) throws Exception {
-		return tbIndustrysEntityMapper.deleteByPrimaryKey(industryTypeCode)>0;
+		return tbIndustrysMapper.deleteByPrimaryKey(industryTypeCode)>0;
 	}
 
 //	@Override

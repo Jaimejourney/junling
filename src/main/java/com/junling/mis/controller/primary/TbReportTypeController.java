@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbReportTypeEntity;
+import com.junling.mis.model.primary.tbReportType;
 import com.junling.mis.service.primary.TbReportTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbReportTypeController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbReportType(@RequestBody tbReportTypeEntity tbReportTypeEntity) throws Exception {
-        if(service.addTbReportType(tbReportTypeEntity)){
+    public MakeResult addTbReportType(@RequestBody tbReportType tbReportType) throws Exception {
+        if(service.addTbReportType(tbReportType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbReportTypeController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbReportType(@RequestBody tbReportTypeEntity tbReportTypeEntity) throws Exception {
-        if(service.updateTbReportType(tbReportTypeEntity)){
+    public MakeResult updateTbReportType(@RequestBody tbReportType tbReportType) throws Exception {
+        if(service.updateTbReportType(tbReportType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbReportTypeController {
 
     @RequestMapping(value = "/search/{reportTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbReportTypeEntity> searchTbReportType(@PathVariable("reportTypeCode") String reportTypeCode) throws Exception {
-        tbReportTypeEntity tbReportTypeEntity = service.findDetailTbReportType(reportTypeCode);
-        MakeResult<tbReportTypeEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbReportTypeEntity == null){
+    public MakeResult<tbReportType> searchTbReportType(@PathVariable("reportTypeCode") String reportTypeCode) throws Exception {
+        tbReportType tbReportType = service.findDetailTbReportType(reportTypeCode);
+        MakeResult<tbReportType> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbReportType == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbReportTypeEntity);
+        return result.addResults(tbReportType);
     }
 
     @RequestMapping(value = "/delete/{reportTypeCode}", method = RequestMethod.GET)

@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.customerActionEntity;
+import com.junling.mis.model.primary.customerAction;
 
 /** 
  * <br/>
@@ -8,11 +8,11 @@ import com.junling.mis.model.primary.customerActionEntity;
  */
 public interface CustomerActionService {
 
-	Boolean addCustomerAction(customerActionEntity customerActionEntity) throws Exception;
+	Boolean addCustomerAction(customerAction customerAction) throws Exception;
 
-	Boolean updateCustomerAction(customerActionEntity customerActionEntity) throws Exception;
+	Boolean updateCustomerAction(customerAction customerAction) throws Exception;
 
-	customerActionEntity findDetailCustomerAction(String customerActionId) throws Exception;
+	customerAction findDetailCustomerAction(String customerActionId) throws Exception;
 	
 //	Result listCustomerAction(CustomerActionModel customerActionModel) throws Exception;
 //

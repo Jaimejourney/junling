@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbBankEntity;
+import com.junling.mis.model.primary.tbBank;
 import com.junling.mis.service.primary.TbBankService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbBankServiceImpl implements TbBankService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbBankServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbBankEntityMapper tbBankEntityMapper;
+	private com.junling.mis.mapper.primary.tbBankMapper tbBankMapper;
 
 	@Override
-	public Boolean addTbBank(tbBankEntity tbBankEntity) throws Exception {
-		return tbBankEntityMapper.insert(tbBankEntity)>0;
+	public Boolean addTbBank(tbBank tbBank) throws Exception {
+		return tbBankMapper.insert(tbBank)>0;
 	}
 
 	@Override
-	public Boolean updateTbBank(tbBankEntity tbBankEntity) throws Exception {
-		return tbBankEntityMapper.updateByPrimaryKey(tbBankEntity)>0;
+	public Boolean updateTbBank(tbBank tbBank) throws Exception {
+		return tbBankMapper.updateByPrimaryKey(tbBank)>0;
 	}
 
 	@Override
-	public tbBankEntity findDetailTbBank(String bankCode) throws Exception {
-		return tbBankEntityMapper.selectByPrimaryKey(bankCode);
+	public tbBank findDetailTbBank(String bankCode) throws Exception {
+		return tbBankMapper.selectByPrimaryKey(bankCode);
 	}
 
 	@Override
 	public Boolean deleteTbBank(String bankCode) throws Exception {
-		return tbBankEntityMapper.deleteByPrimaryKey(bankCode)>0;
+		return tbBankMapper.deleteByPrimaryKey(bankCode)>0;
 	}
 
 //	@Override

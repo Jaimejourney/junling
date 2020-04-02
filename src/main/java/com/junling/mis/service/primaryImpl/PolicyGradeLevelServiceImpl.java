@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyGradeLevelEntity;
+import com.junling.mis.model.primary.policyGradeLevel;
 import com.junling.mis.service.primary.PolicyGradeLevelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PolicyGradeLevelServiceImpl implements PolicyGradeLevelService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyGradeLevelServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyGradeLevelEntityMapper policyGradeLevelEntityMapper;
+	private com.junling.mis.mapper.primary.policyGradeLevelMapper policyGradeLevelMapper;
 
 	@Override
-	public Boolean addPolicyGradeLevel(policyGradeLevelEntity policyGradeLevelEntity) throws Exception {
-		return policyGradeLevelEntityMapper.insert(policyGradeLevelEntity)>0;
+	public Boolean addPolicyGradeLevel(policyGradeLevel policyGradeLevel) throws Exception {
+		return policyGradeLevelMapper.insert(policyGradeLevel)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyGradeLevel(policyGradeLevelEntity policyGradeLevelEntity) throws Exception {
-		return policyGradeLevelEntityMapper.updateByPrimaryKey(policyGradeLevelEntity)>0;
+	public Boolean updatePolicyGradeLevel(policyGradeLevel policyGradeLevel) throws Exception {
+		return policyGradeLevelMapper.updateByPrimaryKey(policyGradeLevel)>0;
 	}
 
 	@Override
-	public policyGradeLevelEntity findDetailPolicyGradeLevel(String policyGradeLevelId) throws Exception {
-		return policyGradeLevelEntityMapper.selectByPrimaryKey(policyGradeLevelId);
+	public policyGradeLevel findDetailPolicyGradeLevel(String policyGradeLevelId) throws Exception {
+		return policyGradeLevelMapper.selectByPrimaryKey(policyGradeLevelId);
 	}
 
 	@Override
 	public Boolean deletePolicyGradeLevel(String policyGradeLevelId) throws Exception {
-		return policyGradeLevelEntityMapper.deleteByPrimaryKey(policyGradeLevelId)>0;
+		return policyGradeLevelMapper.deleteByPrimaryKey(policyGradeLevelId)>0;
 	}
 
 //	@Override

@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.pglProductSubDutyClaimRateEntity;
+import com.junling.mis.mapper.primary.pglpsdClaimRateMapper;
+import com.junling.mis.model.primary.pglpsdClaimRate;
 import com.junling.mis.service.primary.PglProductSubDutyClaimRateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,61 +18,25 @@ public class PglProductSubDutyClaimRateServiceImpl implements PglProductSubDutyC
 	private final static Logger LOG = LoggerFactory.getLogger(PglProductSubDutyClaimRateServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.pglProductSubDutyClaimRateEntityMapper pglProductSubDutyClaimRateEntityMapper;
+	private pglpsdClaimRateMapper pglpsdClaimRateMapper;
 
 	@Override
-	public Boolean addPglProductSubDutyClaimRate(pglProductSubDutyClaimRateEntity pglProductSubDutyClaimRateEntity) throws Exception {
-		return pglProductSubDutyClaimRateEntityMapper.insert(pglProductSubDutyClaimRateEntity) > 0;
+	public Boolean addPglProductSubDutyClaimRate(pglpsdClaimRate pglpsdClaimRate) throws Exception {
+		return pglpsdClaimRateMapper.insert(pglpsdClaimRate) > 0;
 	}
 
 	@Override
-	public Boolean updatePglProductSubDutyClaimRate(pglProductSubDutyClaimRateEntity pglProductSubDutyClaimRateEntity) throws Exception {
-		return pglProductSubDutyClaimRateEntityMapper.updateByPrimaryKey(pglProductSubDutyClaimRateEntity) > 0;
+	public Boolean updatePglProductSubDutyClaimRate(pglpsdClaimRate pglpsdClaimRate) throws Exception {
+		return pglpsdClaimRateMapper.updateByPrimaryKey(pglpsdClaimRate) > 0;
 	}
 
 	@Override
-	public pglProductSubDutyClaimRateEntity findDetailPglProductSubDutyClaimRate(String pglpsdClaimRateId) throws Exception {
-		return pglProductSubDutyClaimRateEntityMapper.selectByPrimaryKey(pglpsdClaimRateId);
+	public pglpsdClaimRate findDetailPglProductSubDutyClaimRate(String pglpsdClaimRateId) throws Exception {
+		return pglpsdClaimRateMapper.selectByPrimaryKey(pglpsdClaimRateId);
 	}
 
 	@Override
 	public Boolean deletePglProductSubDutyClaimRate(String pglpsdClaimRateId) throws Exception {
-		return pglProductSubDutyClaimRateEntityMapper.deleteByPrimaryKey(pglpsdClaimRateId)>0;
+		return pglpsdClaimRateMapper.deleteByPrimaryKey(pglpsdClaimRateId)>0;
 	}
-
-//	@Override
-//	public Result addPglProductSubDutyClaimRate(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception {
-//		return null;
-//	}
-//
-//	@Override
-//	public Result updatePglProductSubDutyClaimRate(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception {
-//		return null;
-//	}
-//
-//	@Override
-//	public Result findDetailPglProductSubDutyClaimRate(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception{
-//		return null;
-//	}
-//
-//	@Override
-//	public Result listPglProductSubDutyClaimRate(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception{
-//		return null;
-//	}
-//
-//	@Override
-//	public Result listPglProductSubDutyClaimRatePage(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception{
-//		return null;
-//	}
-//
-//	@Override
-//	public Result countPglProductSubDutyClaimRate(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception{
-//		return null;
-//	}
-//
-//	@Override
-//	public Result deletePglProductSubDutyClaimRate(PglProductSubDutyClaimRateModel pglProductSubDutyClaimRateModel) throws Exception{
-//		return null;
-//	}
-
 }

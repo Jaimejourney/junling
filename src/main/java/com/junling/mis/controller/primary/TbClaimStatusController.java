@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbClaimStatusEntity;
+import com.junling.mis.model.primary.tbClaimStatus;
 import com.junling.mis.service.primary.TbClaimStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbClaimStatusController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbClaimStatus(@RequestBody tbClaimStatusEntity tbClaimStatusEntity) throws Exception {
-        if(service.addTbClaimStatus(tbClaimStatusEntity)){
+    public MakeResult addTbClaimStatus(@RequestBody tbClaimStatus tbClaimStatus) throws Exception {
+        if(service.addTbClaimStatus(tbClaimStatus)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbClaimStatusController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbClaimStatus(@RequestBody tbClaimStatusEntity tbClaimStatusEntity) throws Exception {
-        if(service.updateTbClaimStatus(tbClaimStatusEntity)){
+    public MakeResult updateTbClaimStatus(@RequestBody tbClaimStatus tbClaimStatus) throws Exception {
+        if(service.updateTbClaimStatus(tbClaimStatus)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbClaimStatusController {
 
     @RequestMapping(value = "/search/{statusCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbClaimStatusEntity> searchTbClaimStatus(@PathVariable("statusCode") String statusCode) throws Exception {
-        tbClaimStatusEntity tbClaimStatusEntity = service.findDetailTbClaimStatus(statusCode);
-        MakeResult<tbClaimStatusEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbClaimStatusEntity == null){
+    public MakeResult<tbClaimStatus> searchTbClaimStatus(@PathVariable("statusCode") String statusCode) throws Exception {
+        tbClaimStatus tbClaimStatus = service.findDetailTbClaimStatus(statusCode);
+        MakeResult<tbClaimStatus> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbClaimStatus == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbClaimStatusEntity);
+        return result.addResults(tbClaimStatus);
     }
 
     @RequestMapping(value = "/delete/{statusCode}", method = RequestMethod.GET)

@@ -2,11 +2,11 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.customerInfoEntityMapper;
+import com.junling.mis.mapper.primary.customerInfoMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
-import com.junling.mis.model.primary.customerInfoEntity;
+import com.junling.mis.model.primary.customerInfo;
 import com.junling.mis.model.secondary.visitApplyPersonEntity;
 import com.junling.mis.model.secondary.visitPersonEntity;
 import com.junling.mis.model.secondary.visitRecordEntity;
@@ -35,7 +35,7 @@ public class SynchronizeCustomerInfo {
     visitPersonEntityMapper visitPersonEntityMapper;
 
     @Autowired
-    customerInfoEntityMapper customerInfoEntityMapper;
+    customerInfoMapper customerInfoEntityMapper;
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
@@ -46,7 +46,7 @@ public class SynchronizeCustomerInfo {
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             visitRecordEntity record = list.get(i);
-            customerInfoEntity customerVisitApplyPersonEntity = new customerInfoEntity();
+            customerInfo customerVisitApplyPersonEntity = new customerInfo();
             visitApplyPersonEntity visitApplyPersonEntity = visitApplyPersonEntityMapper.selectByPrimaryKey(new BigDecimal(record.getApplyPersonId()));
             String applyCustomerNo = GetUUID32.getUUID32();
             customerVisitApplyPersonEntity.setCustomerNo(applyCustomerNo);
@@ -57,7 +57,7 @@ public class SynchronizeCustomerInfo {
             customerInfoEntityMapper.insert(customerVisitApplyPersonEntity);
 
 
-            customerInfoEntity customerVisitPersonEntity = new customerInfoEntity();
+            customerInfo customerVisitPersonEntity = new customerInfo();
             visitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             String customerNo = GetUUID32.getUUID32();
             customerVisitPersonEntity.setCustomerNo(customerNo);

@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.dutySubInfoEntity;
+import com.junling.mis.model.primary.dutySubInfo;
 import com.junling.mis.service.primary.DutySubInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,25 +17,25 @@ public class DutySubInfoServiceImpl implements DutySubInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(DutySubInfoServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.dutySubInfoEntityMapper dutySubInfoEntityMapper;
+	private com.junling.mis.mapper.primary.dutySubInfoMapper dutySubInfoMapper;
 
 	@Override
-	public Boolean addDutySubInfo(dutySubInfoEntity dutySubInfoModel) throws Exception {
-		return dutySubInfoEntityMapper.insert(dutySubInfoModel) > 0;
+	public Boolean addDutySubInfo(dutySubInfo dutySubInfoModel) throws Exception {
+		return dutySubInfoMapper.insert(dutySubInfoModel) > 0;
 	}
 
 	@Override
-	public Boolean updateDutySubInfo(dutySubInfoEntity dutySubInfoEntity) throws Exception {
-		return dutySubInfoEntityMapper.updateByPrimaryKey(dutySubInfoEntity) > 0;
+	public Boolean updateDutySubInfo(dutySubInfo dutySubInfo) throws Exception {
+		return dutySubInfoMapper.updateByPrimaryKey(dutySubInfo) > 0;
 	}
 
 	@Override
-	public dutySubInfoEntity findDetailDutySubInfo(String dutySubId) throws Exception {
-		return dutySubInfoEntityMapper.selectByPrimaryKey(dutySubId);
+	public dutySubInfo findDetailDutySubInfo(String dutySubId) throws Exception {
+		return dutySubInfoMapper.selectByPrimaryKey(dutySubId);
 	}
 
 	@Override
 	public Boolean deleteDutySubInfo(String dutySubId) throws Exception {
-		return dutySubInfoEntityMapper.deleteByPrimaryKey(dutySubId) > 0;
+		return dutySubInfoMapper.deleteByPrimaryKey(dutySubId) > 0;
 	}
 }

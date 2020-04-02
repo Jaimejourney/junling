@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbIcd10Entity;
+import com.junling.mis.model.primary.tbIcd10;
 import com.junling.mis.service.primary.TbIcd10Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbIcd10Controller {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbIcd10(@RequestBody tbIcd10Entity tbIcd10Entity) throws Exception {
-        if(service.addTbIcd10(tbIcd10Entity)){
+    public MakeResult addTbIcd10(@RequestBody tbIcd10 tbIcd10) throws Exception {
+        if(service.addTbIcd10(tbIcd10)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbIcd10Controller {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbIcd10(@RequestBody tbIcd10Entity tbIcd10Entity) throws Exception {
-        if(service.updateTbIcd10(tbIcd10Entity)){
+    public MakeResult updateTbIcd10(@RequestBody tbIcd10 tbIcd10) throws Exception {
+        if(service.updateTbIcd10(tbIcd10)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbIcd10Controller {
 
     @RequestMapping(value = "/search/{icd}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbIcd10Entity> searchTbIcd10(@PathVariable("icd") String icd) throws Exception {
-        tbIcd10Entity tbIcd10Entity = service.findDetailTbIcd10(icd);
-        MakeResult<tbIcd10Entity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbIcd10Entity == null){
+    public MakeResult<tbIcd10> searchTbIcd10(@PathVariable("icd") String icd) throws Exception {
+        tbIcd10 tbIcd10 = service.findDetailTbIcd10(icd);
+        MakeResult<tbIcd10> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbIcd10 == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbIcd10Entity);
+        return result.addResults(tbIcd10);
     }
 
     @RequestMapping(value = "/delete/{icd}", method = RequestMethod.GET)

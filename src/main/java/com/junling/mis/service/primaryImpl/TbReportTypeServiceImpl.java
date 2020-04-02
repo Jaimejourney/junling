@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbReportTypeEntity;
+import com.junling.mis.model.primary.tbReportType;
 import com.junling.mis.service.primary.TbReportTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbReportTypeServiceImpl implements TbReportTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbReportTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbReportTypeEntityMapper tbReportTypeEntityMapper;
+	private com.junling.mis.mapper.primary.tbReportTypeMapper tbReportTypeMapper;
 
 	@Override
-	public Boolean addTbReportType(tbReportTypeEntity tbReportTypeEntity) throws Exception {
-		return tbReportTypeEntityMapper.insert(tbReportTypeEntity)>0;
+	public Boolean addTbReportType(tbReportType tbReportType) throws Exception {
+		return tbReportTypeMapper.insert(tbReportType)>0;
 	}
 
 	@Override
-	public Boolean updateTbReportType(tbReportTypeEntity tbReportTypeEntity) throws Exception {
-		return tbReportTypeEntityMapper.updateByPrimaryKey(tbReportTypeEntity)>0;
+	public Boolean updateTbReportType(tbReportType tbReportType) throws Exception {
+		return tbReportTypeMapper.updateByPrimaryKey(tbReportType)>0;
 	}
 
 	@Override
-	public tbReportTypeEntity findDetailTbReportType(String reportTypeCode) throws Exception {
-		return tbReportTypeEntityMapper.selectByPrimaryKey(reportTypeCode);
+	public tbReportType findDetailTbReportType(String reportTypeCode) throws Exception {
+		return tbReportTypeMapper.selectByPrimaryKey(reportTypeCode);
 	}
 
 	@Override
 	public Boolean deleteTbReportType(String reportTypeCode) throws Exception {
-		return tbReportTypeEntityMapper.deleteByPrimaryKey(reportTypeCode)>0;
+		return tbReportTypeMapper.deleteByPrimaryKey(reportTypeCode)>0;
 	}
 
 //	@Override

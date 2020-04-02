@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbAccidentTypeEntity;
+import com.junling.mis.model.primary.tbAccidentType;
 import com.junling.mis.service.primary.TbAccidentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbAccidentTypeController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbAccidentType(@RequestBody tbAccidentTypeEntity tbAccidentTypeEntity) throws Exception {
-        if(service.addTbAccidentType(tbAccidentTypeEntity)){
+    public MakeResult addTbAccidentType(@RequestBody tbAccidentType tbAccidentType) throws Exception {
+        if(service.addTbAccidentType(tbAccidentType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbAccidentTypeController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbAccidentType(@RequestBody tbAccidentTypeEntity tbAccidentTypeEntity) throws Exception {
-        if(service.updateTbAccidentType(tbAccidentTypeEntity)){
+    public MakeResult updateTbAccidentType(@RequestBody tbAccidentType tbAccidentType) throws Exception {
+        if(service.updateTbAccidentType(tbAccidentType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbAccidentTypeController {
 
     @RequestMapping(value = "/search/{accidentTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbAccidentTypeEntity> searchTbAccidentType(@PathVariable("accidentTypeCode") String accidentTypeCode) throws Exception {
-        tbAccidentTypeEntity tbAccidentTypeEntity = service.findDetailTbAccidentType(accidentTypeCode);
-        MakeResult<tbAccidentTypeEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbAccidentTypeEntity == null){
+    public MakeResult<tbAccidentType> searchTbAccidentType(@PathVariable("accidentTypeCode") String accidentTypeCode) throws Exception {
+        tbAccidentType tbAccidentType = service.findDetailTbAccidentType(accidentTypeCode);
+        MakeResult<tbAccidentType> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbAccidentType == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbAccidentTypeEntity);
+        return result.addResults(tbAccidentType);
     }
 
     @RequestMapping(value = "/delete/{accidentTypeCode}", method = RequestMethod.GET)

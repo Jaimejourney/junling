@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbGenderEntity;
+import com.junling.mis.model.primary.tbGender;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbGenderEntity;
  */
 public interface TbGenderService {
 
-	Boolean addTbGender(tbGenderEntity tbGenderEntity) throws Exception;
+	Boolean addTbGender(tbGender tbGender) throws Exception;
 
-	Boolean updateTbGender(tbGenderEntity tbGenderEntity) throws Exception;
+	Boolean updateTbGender(tbGender tbGender) throws Exception;
 
-	tbGenderEntity findDetailTbGender(String genderCode) throws Exception;
+	tbGender findDetailTbGender(String genderCode) throws Exception;
 
 //	Result listTbGender(TbGenderModel tbGenderModel) throws Exception;
 //

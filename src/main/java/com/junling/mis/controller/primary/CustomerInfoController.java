@@ -3,7 +3,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.customerInfoEntity;
+import com.junling.mis.model.primary.customerInfo;
 import com.junling.mis.service.primary.CustomerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class CustomerInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addCustomerInfo(@RequestBody customerInfoEntity customerInfoEntity) throws Exception {
-        if(service.addCustomerInfo(customerInfoEntity)){
+    public MakeResult addCustomerInfo(@RequestBody customerInfo customerInfo) throws Exception {
+        if(service.addCustomerInfo(customerInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class CustomerInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateCustomerInfo(@RequestBody customerInfoEntity customerInfoEntity) throws Exception {
-        if(service.updateCustomerInfo(customerInfoEntity)){
+    public MakeResult updateCustomerInfo(@RequestBody customerInfo customerInfo) throws Exception {
+        if(service.updateCustomerInfo(customerInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class CustomerInfoController {
 
     @RequestMapping(value = "/search/{customerNo}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<customerInfoEntity> searchCustomerInfo(@PathVariable("customerNo") String customerNo) throws Exception {
-        customerInfoEntity customerInfoEntity = service.findDetailCustomerInfo(customerNo);
-        MakeResult<customerInfoEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(customerInfoEntity == null){
+    public MakeResult<customerInfo> searchCustomerInfo(@PathVariable("customerNo") String customerNo) throws Exception {
+        customerInfo customerInfo = service.findDetailCustomerInfo(customerNo);
+        MakeResult<customerInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(customerInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(customerInfoEntity);
+        return result.addResults(customerInfo);
     }
 
     @RequestMapping(value = "/delete/{customerNo}", method = RequestMethod.GET)

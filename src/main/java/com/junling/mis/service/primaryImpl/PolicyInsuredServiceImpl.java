@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyInsuredEntity;
+import com.junling.mis.model.primary.policyInsured;
 import com.junling.mis.service.primary.PolicyInsuredService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PolicyInsuredServiceImpl implements PolicyInsuredService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyInsuredServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyInsuredEntityMapper policyInsuredEntityMapper;
+	private com.junling.mis.mapper.primary.policyInsuredMapper policyInsuredMapper;
 
 	@Override
-	public Boolean addPolicyInsured(policyInsuredEntity policyInsuredEntity) throws Exception {
-		return policyInsuredEntityMapper.insert(policyInsuredEntity)>0;
+	public Boolean addPolicyInsured(policyInsured policyInsured) throws Exception {
+		return policyInsuredMapper.insert(policyInsured)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyInsured(policyInsuredEntity policyInsuredEntity) throws Exception {
-		return policyInsuredEntityMapper.updateByPrimaryKey(policyInsuredEntity)>0;
+	public Boolean updatePolicyInsured(policyInsured policyInsured) throws Exception {
+		return policyInsuredMapper.updateByPrimaryKey(policyInsured)>0;
 	}
 
 	@Override
-	public policyInsuredEntity findDetailPolicyInsured(String policyInsuredId) throws Exception {
-		return policyInsuredEntityMapper.selectByPrimaryKey(policyInsuredId);
+	public policyInsured findDetailPolicyInsured(String policyInsuredId) throws Exception {
+		return policyInsuredMapper.selectByPrimaryKey(policyInsuredId);
 	}
 
 	@Override
 	public Boolean deletePolicyInsured(String policyInsuredId) throws Exception {
-		return policyInsuredEntityMapper.deleteByPrimaryKey(policyInsuredId)>0;
+		return policyInsuredMapper.deleteByPrimaryKey(policyInsuredId)>0;
 	}
 
 //	@Override

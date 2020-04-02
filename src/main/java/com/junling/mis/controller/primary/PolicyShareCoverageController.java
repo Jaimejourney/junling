@@ -2,8 +2,8 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyShareCoverageEntity;
-import com.junling.mis.model.primary.policyShareCoverageEntityKey;
+import com.junling.mis.model.primary.policyShareCoverage;
+import com.junling.mis.model.primary.policyShareCoverageKey;
 import com.junling.mis.service.primary.PolicyShareCoverageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +18,8 @@ public class PolicyShareCoverageController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyShareCoverage(@RequestBody policyShareCoverageEntity policyShareCoverageEntity) throws Exception {
-        if(service.addPolicyShareCoverage(policyShareCoverageEntity)){
+    public MakeResult addPolicyShareCoverage(@RequestBody policyShareCoverage policyShareCoverage) throws Exception {
+        if(service.addPolicyShareCoverage(policyShareCoverage)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -28,8 +28,8 @@ public class PolicyShareCoverageController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyShareCoverage(@RequestBody policyShareCoverageEntity policyShareCoverageEntity) throws Exception {
-        if(service.updatePolicyShareCoverage(policyShareCoverageEntity)){
+    public MakeResult updatePolicyShareCoverage(@RequestBody policyShareCoverage policyShareCoverage) throws Exception {
+        if(service.updatePolicyShareCoverage(policyShareCoverage)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -38,18 +38,18 @@ public class PolicyShareCoverageController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<policyShareCoverageEntity> searchPolicyShareCoverage(@RequestBody policyShareCoverageEntityKey key) throws Exception {
-        policyShareCoverageEntity policyShareCoverageEntity = service.findDetailPolicyShareCoverage(key);
-        MakeResult<policyShareCoverageEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(policyShareCoverageEntity == null){
+    public MakeResult<policyShareCoverage> searchPolicyShareCoverage(@RequestBody policyShareCoverageKey key) throws Exception {
+        policyShareCoverage policyShareCoverage = service.findDetailPolicyShareCoverage(key);
+        MakeResult<policyShareCoverage> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(policyShareCoverage == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(policyShareCoverageEntity);
+        return result.addResults(policyShareCoverage);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult delPolicyShareCoverage(@RequestBody policyShareCoverageEntityKey key) throws Exception {
+    public MakeResult delPolicyShareCoverage(@RequestBody policyShareCoverageKey key) throws Exception {
         if(service.deletePolicyShareCoverage(key)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{

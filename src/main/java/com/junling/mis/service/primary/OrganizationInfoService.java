@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.organizationInfoEntity;
+import com.junling.mis.model.primary.organizationInfo;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.organizationInfoEntity;
  */
 public interface OrganizationInfoService {
 
-	Boolean addOrganizationInfo(organizationInfoEntity organizationInfoModel) throws Exception;
+	Boolean addOrganizationInfo(organizationInfo organizationInfoModel) throws Exception;
 
-	Boolean updateOrganizationInfo(organizationInfoEntity organizationInfoEntity) throws Exception;
+	Boolean updateOrganizationInfo(organizationInfo organizationInfo) throws Exception;
 
-	organizationInfoEntity findDetailOrganizationInfo(String organizationId) throws Exception;
+	organizationInfo findDetailOrganizationInfo(String organizationId) throws Exception;
 	
 //	Result listOrganizationInfo(OrganizationInfoModel organizationInfoModel) throws Exception;
 //

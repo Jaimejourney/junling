@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.productInfoEntity;
+import com.junling.mis.model.primary.productInfo;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.productInfoEntity;
  */
 public interface ProductInfoService {
 
-	Boolean addProductInfo(productInfoEntity productInfoEntity) throws Exception;
+	Boolean addProductInfo(productInfo productInfo) throws Exception;
 
-	Boolean updateProductInfo(productInfoEntity productInfoEntity) throws Exception;
+	Boolean updateProductInfo(productInfo productInfo) throws Exception;
 
-	productInfoEntity findDetailProductInfo(String productId) throws Exception;
+	productInfo findDetailProductInfo(String productId) throws Exception;
 	
 //	Result listProductInfo(ProductInfoModel productInfoModel) throws Exception;
 //

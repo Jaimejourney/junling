@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbJobEntity;
+import com.junling.mis.model.primary.tbJob;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbJobEntity;
  */
 public interface TbJobService {
 
-	Boolean addTbJob(tbJobEntity tbJobEntity) throws Exception;
+	Boolean addTbJob(tbJob tbJob) throws Exception;
 
-	Boolean updateTbJob(tbJobEntity tbJobEntity) throws Exception;
+	Boolean updateTbJob(tbJob tbJob) throws Exception;
 
-	tbJobEntity findDetailTbJob(String jobCode) throws Exception;
+	tbJob findDetailTbJob(String jobCode) throws Exception;
 	
 //	Result listTbJob(TbJobModel tbJobModel) throws Exception;
 //

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyPublicCoverageEntity;
+import com.junling.mis.model.primary.policyPublicCoverage;
 import com.junling.mis.service.primary.PolicyPublicCoverageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class PolicyPublicCoverageController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyPublicCoverage(@RequestBody policyPublicCoverageEntity policyPublicCoverageEntity) throws Exception {
-        if(service.addPolicyPublicCoverage(policyPublicCoverageEntity)){
+    public MakeResult addPolicyPublicCoverage(@RequestBody policyPublicCoverage policyPublicCoverage) throws Exception {
+        if(service.addPolicyPublicCoverage(policyPublicCoverage)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class PolicyPublicCoverageController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyPublicCoverage(@RequestBody policyPublicCoverageEntity policyPublicCoverageEntity) throws Exception {
-        if(service.updatePolicyPublicCoverage(policyPublicCoverageEntity)){
+    public MakeResult updatePolicyPublicCoverage(@RequestBody policyPublicCoverage policyPublicCoverage) throws Exception {
+        if(service.updatePolicyPublicCoverage(policyPublicCoverage)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class PolicyPublicCoverageController {
 
     @RequestMapping(value = "/search/{policyPublicCoverageId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<policyPublicCoverageEntity> searchPolicyPublicCoverage(@PathVariable("policyPublicCoverageId") String policyPublicCoverageId) throws Exception {
-        policyPublicCoverageEntity policyPublicCoverageEntity = service.findDetailPolicyPublicCoverage(policyPublicCoverageId);
-        MakeResult<policyPublicCoverageEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(policyPublicCoverageEntity == null){
+    public MakeResult<policyPublicCoverage> searchPolicyPublicCoverage(@PathVariable("policyPublicCoverageId") String policyPublicCoverageId) throws Exception {
+        policyPublicCoverage policyPublicCoverage = service.findDetailPolicyPublicCoverage(policyPublicCoverageId);
+        MakeResult<policyPublicCoverage> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(policyPublicCoverage == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(policyPublicCoverageEntity);
+        return result.addResults(policyPublicCoverage);
     }
 
     @RequestMapping(value = "/delete/{policyPublicCoverageId}", method = RequestMethod.GET)

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbJobEntity;
+import com.junling.mis.model.primary.tbJob;
 import com.junling.mis.service.primary.TbJobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbJobController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbJob(@RequestBody tbJobEntity tbJobEntity) throws Exception {
-        if(service.addTbJob(tbJobEntity)){
+    public MakeResult addTbJob(@RequestBody tbJob tbJob) throws Exception {
+        if(service.addTbJob(tbJob)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbJobController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbJob(@RequestBody tbJobEntity tbJobEntity) throws Exception {
-        if(service.updateTbJob(tbJobEntity)){
+    public MakeResult updateTbJob(@RequestBody tbJob tbJob) throws Exception {
+        if(service.updateTbJob(tbJob)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbJobController {
 
     @RequestMapping(value = "/search/{jobCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbJobEntity> searchTbJob(@PathVariable("jobCode") String jobCode) throws Exception {
-        tbJobEntity tbJobEntity = service.findDetailTbJob(jobCode);
-        MakeResult<tbJobEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbJobEntity == null){
+    public MakeResult<tbJob> searchTbJob(@PathVariable("jobCode") String jobCode) throws Exception {
+        tbJob tbJob = service.findDetailTbJob(jobCode);
+        MakeResult<tbJob> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbJob == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbJobEntity);
+        return result.addResults(tbJob);
     }
 
     @RequestMapping(value = "/delete/{jobCode}", method = RequestMethod.GET)

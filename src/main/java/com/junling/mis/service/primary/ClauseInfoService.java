@@ -1,7 +1,7 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.claimInfoEntity;
-import com.junling.mis.model.primary.clauseInfoEntity;
+import com.junling.mis.model.primary.claimInfo;
+import com.junling.mis.model.primary.clauseInfo;
 
 /** 
  * <br/>
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.clauseInfoEntity;
  */
 public interface ClauseInfoService {
 
-	Boolean addClauseInfo(clauseInfoEntity clauseInfoEntity) throws Exception;
+	Boolean addClauseInfo(clauseInfo clauseInfo) throws Exception;
 
-	Boolean updateClauseInfo(clauseInfoEntity clauseInfoEntity) throws Exception;
+	Boolean updateClauseInfo(clauseInfo clauseInfo) throws Exception;
 
-	clauseInfoEntity findDetailClauseInfo(String clauseId) throws Exception;
+	clauseInfo findDetailClauseInfo(String clauseId) throws Exception;
 
 //	Result listClauseInfo(ClauseInfoModel clauseInfoModel) throws Exception;
 //

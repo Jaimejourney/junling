@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.customerInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.customerInfo" >
+    <id column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="customer_level_code" property="customerLevelCode" jdbcType="VARCHAR" />
+    <result column="customer_score" property="customerScore" jdbcType="VARCHAR" />
+    <result column="customer_phone_no" property="customerPhoneNo" jdbcType="VARCHAR" />
+    <result column="birth_district_code" property="birthDistrictCode" jdbcType="VARCHAR" />
+    <result column="district_code" property="districtCode" jdbcType="VARCHAR" />
+    <result column="id_no" property="idNo" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="education_code" property="educationCode" jdbcType="VARCHAR" />
+    <result column="education_school" property="educationSchool" jdbcType="VARCHAR" />
+    <result column="married" property="married" jdbcType="VARCHAR" />
+    <result column="beared" property="beared" jdbcType="VARCHAR" />
+    <result column="name_family" property="nameFamily" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="job_type_code" property="jobTypeCode" jdbcType="VARCHAR" />
+    <result column="resume" property="resume" jdbcType="VARCHAR" />
+    <result column="salary" property="salary" jdbcType="VARCHAR" />
+    <result column="has_social_security" property="hasSocialSecurity" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    customer_no, customer_name, nick_name, customer_level_code, customer_score, customer_phone_no, 
+    birth_district_code, district_code, id_no, id_type, email, address, birthday, gender, 
+    education_code, education_school, married, beared, name_family, nation, job_type_code, 
+    resume, salary, has_social_security, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer_info
+    where customer_no = #{customerNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from customer_info
+    where customer_no = #{customerNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.customerInfo" >
+    insert into customer_info (customer_no, customer_name, nick_name, 
+      customer_level_code, customer_score, customer_phone_no, 
+      birth_district_code, district_code, id_no, 
+      id_type, email, address, 
+      birthday, gender, education_code, 
+      education_school, married, beared, 
+      name_family, nation, job_type_code, 
+      resume, salary, has_social_security, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{customerLevelCode,jdbcType=VARCHAR}, #{customerScore,jdbcType=VARCHAR}, #{customerPhoneNo,jdbcType=VARCHAR}, 
+      #{birthDistrictCode,jdbcType=VARCHAR}, #{districtCode,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{gender,jdbcType=VARCHAR}, #{educationCode,jdbcType=VARCHAR}, 
+      #{educationSchool,jdbcType=VARCHAR}, #{married,jdbcType=VARCHAR}, #{beared,jdbcType=VARCHAR}, 
+      #{nameFamily,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{jobTypeCode,jdbcType=VARCHAR}, 
+      #{resume,jdbcType=VARCHAR}, #{salary,jdbcType=VARCHAR}, #{hasSocialSecurity,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.customerInfo" >
+    insert into customer_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customerNo != null" >
+        customer_no,
+      </if>
+      <if test="customerName != null" >
+        customer_name,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="customerLevelCode != null" >
+        customer_level_code,
+      </if>
+      <if test="customerScore != null" >
+        customer_score,
+      </if>
+      <if test="customerPhoneNo != null" >
+        customer_phone_no,
+      </if>
+      <if test="birthDistrictCode != null" >
+        birth_district_code,
+      </if>
+      <if test="districtCode != null" >
+        district_code,
+      </if>
+      <if test="idNo != null" >
+        id_no,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="educationCode != null" >
+        education_code,
+      </if>
+      <if test="educationSchool != null" >
+        education_school,
+      </if>
+      <if test="married != null" >
+        married,
+      </if>
+      <if test="beared != null" >
+        beared,
+      </if>
+      <if test="nameFamily != null" >
+        name_family,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="jobTypeCode != null" >
+        job_type_code,
+      </if>
+      <if test="resume != null" >
+        resume,
+      </if>
+      <if test="salary != null" >
+        salary,
+      </if>
+      <if test="hasSocialSecurity != null" >
+        has_social_security,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerLevelCode != null" >
+        #{customerLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerScore != null" >
+        #{customerScore,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPhoneNo != null" >
+        #{customerPhoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDistrictCode != null" >
+        #{birthDistrictCode,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null" >
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="educationCode != null" >
+        #{educationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="educationSchool != null" >
+        #{educationSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="married != null" >
+        #{married,jdbcType=VARCHAR},
+      </if>
+      <if test="beared != null" >
+        #{beared,jdbcType=VARCHAR},
+      </if>
+      <if test="nameFamily != null" >
+        #{nameFamily,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTypeCode != null" >
+        #{jobTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resume != null" >
+        #{resume,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null" >
+        #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="hasSocialSecurity != null" >
+        #{hasSocialSecurity,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.customerInfo" >
+    update customer_info
+    <set >
+      <if test="customerName != null" >
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerLevelCode != null" >
+        customer_level_code = #{customerLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerScore != null" >
+        customer_score = #{customerScore,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPhoneNo != null" >
+        customer_phone_no = #{customerPhoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDistrictCode != null" >
+        birth_district_code = #{birthDistrictCode,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null" >
+        district_code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null" >
+        id_no = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="educationCode != null" >
+        education_code = #{educationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="educationSchool != null" >
+        education_school = #{educationSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="married != null" >
+        married = #{married,jdbcType=VARCHAR},
+      </if>
+      <if test="beared != null" >
+        beared = #{beared,jdbcType=VARCHAR},
+      </if>
+      <if test="nameFamily != null" >
+        name_family = #{nameFamily,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTypeCode != null" >
+        job_type_code = #{jobTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resume != null" >
+        resume = #{resume,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null" >
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="hasSocialSecurity != null" >
+        has_social_security = #{hasSocialSecurity,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where customer_no = #{customerNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.customerInfo" >
+    update customer_info
+    set customer_name = #{customerName,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      customer_level_code = #{customerLevelCode,jdbcType=VARCHAR},
+      customer_score = #{customerScore,jdbcType=VARCHAR},
+      customer_phone_no = #{customerPhoneNo,jdbcType=VARCHAR},
+      birth_district_code = #{birthDistrictCode,jdbcType=VARCHAR},
+      district_code = #{districtCode,jdbcType=VARCHAR},
+      id_no = #{idNo,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      gender = #{gender,jdbcType=VARCHAR},
+      education_code = #{educationCode,jdbcType=VARCHAR},
+      education_school = #{educationSchool,jdbcType=VARCHAR},
+      married = #{married,jdbcType=VARCHAR},
+      beared = #{beared,jdbcType=VARCHAR},
+      name_family = #{nameFamily,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      job_type_code = #{jobTypeCode,jdbcType=VARCHAR},
+      resume = #{resume,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      has_social_security = #{hasSocialSecurity,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where customer_no = #{customerNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.pglProductDutyMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.pglProductDuty" >
+    <id column="pgl_product_duty_id" property="pglProductDutyId" jdbcType="VARCHAR" />
+    <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
+    <result column="policy_grade_level_no" property="policyGradeLevelNo" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="duty_id" property="dutyId" jdbcType="VARCHAR" />
+    <result column="pglp_duty_prem" property="pglpDutyPrem" jdbcType="INTEGER" />
+    <result column="pglp_duty_covrage" property="pglpDutyCovrage" jdbcType="INTEGER" />
+    <result column="subsidy_amount" property="subsidyAmount" jdbcType="INTEGER" />
+    <result column="deductible_days" property="deductibleDays" jdbcType="INTEGER" />
+    <result column="pglp_duty_waiting_period" property="pglpDutyWaitingPeriod" jdbcType="INTEGER" />
+    <result column="pglp_duty_deductibles" property="pglpDutyDeductibles" jdbcType="INTEGER" />
+    <result column="pglp_duty_times_deductibles" property="pglpDutyTimesDeductibles" jdbcType="INTEGER" />
+    <result column="pglp_duty_lifelong_deductibles" property="pglpDutyLifelongDeductibles" jdbcType="INTEGER" />
+    <result column="pglp_duty_times_type" property="pglpDutyTimesType" jdbcType="VARCHAR" />
+    <result column="pglp_duty_times" property="pglpDutyTimes" jdbcType="INTEGER" />
+    <result column="pglp_duty_times_day" property="pglpDutyTimesDay" jdbcType="INTEGER" />
+    <result column="pglp_duty_total_days" property="pglpDutyTotalDays" jdbcType="INTEGER" />
+    <result column="pglp_duty_special_contract" property="pglpDutySpecialContract" jdbcType="VARCHAR" />
+    <result column="pglp_duty_times_amonut" property="pglpDutyTimesAmonut" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pgl_product_duty_id, policy_no, policy_grade_level_no, product_id, duty_id, pglp_duty_prem, 
+    pglp_duty_covrage, subsidy_amount, deductible_days, pglp_duty_waiting_period, pglp_duty_deductibles, 
+    pglp_duty_times_deductibles, pglp_duty_lifelong_deductibles, pglp_duty_times_type, 
+    pglp_duty_times, pglp_duty_times_day, pglp_duty_total_days, pglp_duty_special_contract, 
+    pglp_duty_times_amonut, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pgl_product_duty
+    where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pgl_product_duty
+    where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+    insert into pgl_product_duty (pgl_product_duty_id, policy_no, policy_grade_level_no, 
+      product_id, duty_id, pglp_duty_prem, 
+      pglp_duty_covrage, subsidy_amount, deductible_days, 
+      pglp_duty_waiting_period, pglp_duty_deductibles, 
+      pglp_duty_times_deductibles, pglp_duty_lifelong_deductibles, 
+      pglp_duty_times_type, pglp_duty_times, pglp_duty_times_day, 
+      pglp_duty_total_days, pglp_duty_special_contract, 
+      pglp_duty_times_amonut, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{pglProductDutyId,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{policyGradeLevelNo,jdbcType=INTEGER}, 
+      #{productId,jdbcType=VARCHAR}, #{dutyId,jdbcType=VARCHAR}, #{pglpDutyPrem,jdbcType=INTEGER}, 
+      #{pglpDutyCovrage,jdbcType=INTEGER}, #{subsidyAmount,jdbcType=INTEGER}, #{deductibleDays,jdbcType=INTEGER}, 
+      #{pglpDutyWaitingPeriod,jdbcType=INTEGER}, #{pglpDutyDeductibles,jdbcType=INTEGER}, 
+      #{pglpDutyTimesDeductibles,jdbcType=INTEGER}, #{pglpDutyLifelongDeductibles,jdbcType=INTEGER}, 
+      #{pglpDutyTimesType,jdbcType=VARCHAR}, #{pglpDutyTimes,jdbcType=INTEGER}, #{pglpDutyTimesDay,jdbcType=INTEGER}, 
+      #{pglpDutyTotalDays,jdbcType=INTEGER}, #{pglpDutySpecialContract,jdbcType=VARCHAR}, 
+      #{pglpDutyTimesAmonut,jdbcType=INTEGER}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+    insert into pgl_product_duty
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pglProductDutyId != null" >
+        pgl_product_duty_id,
+      </if>
+      <if test="policyNo != null" >
+        policy_no,
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        policy_grade_level_no,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="dutyId != null" >
+        duty_id,
+      </if>
+      <if test="pglpDutyPrem != null" >
+        pglp_duty_prem,
+      </if>
+      <if test="pglpDutyCovrage != null" >
+        pglp_duty_covrage,
+      </if>
+      <if test="subsidyAmount != null" >
+        subsidy_amount,
+      </if>
+      <if test="deductibleDays != null" >
+        deductible_days,
+      </if>
+      <if test="pglpDutyWaitingPeriod != null" >
+        pglp_duty_waiting_period,
+      </if>
+      <if test="pglpDutyDeductibles != null" >
+        pglp_duty_deductibles,
+      </if>
+      <if test="pglpDutyTimesDeductibles != null" >
+        pglp_duty_times_deductibles,
+      </if>
+      <if test="pglpDutyLifelongDeductibles != null" >
+        pglp_duty_lifelong_deductibles,
+      </if>
+      <if test="pglpDutyTimesType != null" >
+        pglp_duty_times_type,
+      </if>
+      <if test="pglpDutyTimes != null" >
+        pglp_duty_times,
+      </if>
+      <if test="pglpDutyTimesDay != null" >
+        pglp_duty_times_day,
+      </if>
+      <if test="pglpDutyTotalDays != null" >
+        pglp_duty_total_days,
+      </if>
+      <if test="pglpDutySpecialContract != null" >
+        pglp_duty_special_contract,
+      </if>
+      <if test="pglpDutyTimesAmonut != null" >
+        pglp_duty_times_amonut,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pglProductDutyId != null" >
+        #{pglProductDutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        #{policyGradeLevelNo,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyId != null" >
+        #{dutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpDutyPrem != null" >
+        #{pglpDutyPrem,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyCovrage != null" >
+        #{pglpDutyCovrage,jdbcType=INTEGER},
+      </if>
+      <if test="subsidyAmount != null" >
+        #{subsidyAmount,jdbcType=INTEGER},
+      </if>
+      <if test="deductibleDays != null" >
+        #{deductibleDays,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyWaitingPeriod != null" >
+        #{pglpDutyWaitingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyDeductibles != null" >
+        #{pglpDutyDeductibles,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTimesDeductibles != null" >
+        #{pglpDutyTimesDeductibles,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyLifelongDeductibles != null" >
+        #{pglpDutyLifelongDeductibles,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTimesType != null" >
+        #{pglpDutyTimesType,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpDutyTimes != null" >
+        #{pglpDutyTimes,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTimesDay != null" >
+        #{pglpDutyTimesDay,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTotalDays != null" >
+        #{pglpDutyTotalDays,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutySpecialContract != null" >
+        #{pglpDutySpecialContract,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpDutyTimesAmonut != null" >
+        #{pglpDutyTimesAmonut,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+    update pgl_product_duty
+    <set >
+      <if test="policyNo != null" >
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyGradeLevelNo != null" >
+        policy_grade_level_no = #{policyGradeLevelNo,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyId != null" >
+        duty_id = #{dutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpDutyPrem != null" >
+        pglp_duty_prem = #{pglpDutyPrem,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyCovrage != null" >
+        pglp_duty_covrage = #{pglpDutyCovrage,jdbcType=INTEGER},
+      </if>
+      <if test="subsidyAmount != null" >
+        subsidy_amount = #{subsidyAmount,jdbcType=INTEGER},
+      </if>
+      <if test="deductibleDays != null" >
+        deductible_days = #{deductibleDays,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyWaitingPeriod != null" >
+        pglp_duty_waiting_period = #{pglpDutyWaitingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyDeductibles != null" >
+        pglp_duty_deductibles = #{pglpDutyDeductibles,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTimesDeductibles != null" >
+        pglp_duty_times_deductibles = #{pglpDutyTimesDeductibles,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyLifelongDeductibles != null" >
+        pglp_duty_lifelong_deductibles = #{pglpDutyLifelongDeductibles,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTimesType != null" >
+        pglp_duty_times_type = #{pglpDutyTimesType,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpDutyTimes != null" >
+        pglp_duty_times = #{pglpDutyTimes,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTimesDay != null" >
+        pglp_duty_times_day = #{pglpDutyTimesDay,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutyTotalDays != null" >
+        pglp_duty_total_days = #{pglpDutyTotalDays,jdbcType=INTEGER},
+      </if>
+      <if test="pglpDutySpecialContract != null" >
+        pglp_duty_special_contract = #{pglpDutySpecialContract,jdbcType=VARCHAR},
+      </if>
+      <if test="pglpDutyTimesAmonut != null" >
+        pglp_duty_times_amonut = #{pglpDutyTimesAmonut,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+    update pgl_product_duty
+    set policy_no = #{policyNo,jdbcType=VARCHAR},
+      policy_grade_level_no = #{policyGradeLevelNo,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=VARCHAR},
+      duty_id = #{dutyId,jdbcType=VARCHAR},
+      pglp_duty_prem = #{pglpDutyPrem,jdbcType=INTEGER},
+      pglp_duty_covrage = #{pglpDutyCovrage,jdbcType=INTEGER},
+      subsidy_amount = #{subsidyAmount,jdbcType=INTEGER},
+      deductible_days = #{deductibleDays,jdbcType=INTEGER},
+      pglp_duty_waiting_period = #{pglpDutyWaitingPeriod,jdbcType=INTEGER},
+      pglp_duty_deductibles = #{pglpDutyDeductibles,jdbcType=INTEGER},
+      pglp_duty_times_deductibles = #{pglpDutyTimesDeductibles,jdbcType=INTEGER},
+      pglp_duty_lifelong_deductibles = #{pglpDutyLifelongDeductibles,jdbcType=INTEGER},
+      pglp_duty_times_type = #{pglpDutyTimesType,jdbcType=VARCHAR},
+      pglp_duty_times = #{pglpDutyTimes,jdbcType=INTEGER},
+      pglp_duty_times_day = #{pglpDutyTimesDay,jdbcType=INTEGER},
+      pglp_duty_total_days = #{pglpDutyTotalDays,jdbcType=INTEGER},
+      pglp_duty_special_contract = #{pglpDutySpecialContract,jdbcType=VARCHAR},
+      pglp_duty_times_amonut = #{pglpDutyTimesAmonut,jdbcType=INTEGER},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.claimWorkFlowEntity;
+import com.junling.mis.model.primary.claimWorkFlow;
 
 
 /** 
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.claimWorkFlowEntity;
  */
 public interface ClaimWorkFlowService {
 
-	Boolean addClaimWorkFlow(claimWorkFlowEntity claimWorkFlowEntity) throws Exception;
+	Boolean addClaimWorkFlow(claimWorkFlow claimWorkFlow) throws Exception;
 
-	Boolean updateClaimWorkFlow(claimWorkFlowEntity claimWorkFlowEntity) throws Exception;
+	Boolean updateClaimWorkFlow(claimWorkFlow claimWorkFlow) throws Exception;
 
-	claimWorkFlowEntity findDetailClaimWorkFlow(String claimWorkFlowId) throws Exception;
+	claimWorkFlow findDetailClaimWorkFlow(String claimWorkFlowId) throws Exception;
 	
 //	Result listClaimWorkFlow(ClaimWorkFlowModel claimWorkFlowModel) throws Exception;
 //

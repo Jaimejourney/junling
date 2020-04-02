@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.tbHospitalDepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbHospitalDepartment" >
+    <id column="hospital_department_id" property="hospitalDepartmentId" jdbcType="VARCHAR" />
+    <result column="hospital_department_name" property="hospitalDepartmentName" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hospital_department_id, hospital_department_name, remark, created_by, created_time, 
+    updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_hospital_department
+    where hospital_department_id = #{hospitalDepartmentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_hospital_department
+    where hospital_department_id = #{hospitalDepartmentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.tbHospitalDepartment" >
+    insert into tb_hospital_department (hospital_department_id, hospital_department_name, 
+      remark, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{hospitalDepartmentId,jdbcType=VARCHAR}, #{hospitalDepartmentName,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbHospitalDepartment" >
+    insert into tb_hospital_department
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hospitalDepartmentId != null" >
+        hospital_department_id,
+      </if>
+      <if test="hospitalDepartmentName != null" >
+        hospital_department_name,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hospitalDepartmentId != null" >
+        #{hospitalDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalDepartmentName != null" >
+        #{hospitalDepartmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbHospitalDepartment" >
+    update tb_hospital_department
+    <set >
+      <if test="hospitalDepartmentName != null" >
+        hospital_department_name = #{hospitalDepartmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where hospital_department_id = #{hospitalDepartmentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbHospitalDepartment" >
+    update tb_hospital_department
+    set hospital_department_name = #{hospitalDepartmentName,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where hospital_department_id = #{hospitalDepartmentId,jdbcType=VARCHAR}
+  </update>
+</mapper>

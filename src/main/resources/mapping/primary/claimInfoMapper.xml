@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.claimInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimInfo" >
+    <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
+    <id column="claim_no" property="claimNo" jdbcType="VARCHAR" />
+    <id column="report_no" property="reportNo" jdbcType="VARCHAR" />
+    <id column="registration_no" property="registrationNo" jdbcType="VARCHAR" />
+    <result column="policy_organization" property="policyOrganization" jdbcType="VARCHAR" />
+    <result column="claim_report_id" property="claimReportId" jdbcType="VARCHAR" />
+    <result column="insure_id" property="insureId" jdbcType="VARCHAR" />
+    <result column="exam_time" property="examTime" jdbcType="TIMESTAMP" />
+    <result column="district_code" property="districtCode" jdbcType="VARCHAR" />
+    <result column="accident_type" property="accidentType" jdbcType="VARCHAR" />
+    <result column="accident_des" property="accidentDes" jdbcType="VARCHAR" />
+    <result column="report_time" property="reportTime" jdbcType="TIMESTAMP" />
+    <result column="report_type" property="reportType" jdbcType="VARCHAR" />
+    <result column="exam_estimate_amount" property="examEstimateAmount" jdbcType="INTEGER" />
+    <result column="exam_amount" property="examAmount" jdbcType="INTEGER" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="filing_time" property="filingTime" jdbcType="TIMESTAMP" />
+    <result column="claim_option" property="claimOption" jdbcType="VARCHAR" />
+    <result column="claim_result" property="claimResult" jdbcType="VARCHAR" />
+    <result column="claim_status" property="claimStatus" jdbcType="VARCHAR" />
+    <result column="claim_amount" property="claimAmount" jdbcType="INTEGER" />
+    <result column="claim_soucre_type" property="claimSoucreType" jdbcType="VARCHAR" />
+    <result column="reject_cause_code" property="rejectCauseCode" jdbcType="VARCHAR" />
+    <result column="reject_cause" property="rejectCause" jdbcType="VARCHAR" />
+    <result column="operation_flr" property="operationFlr" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    claim_info_id, claim_no, report_no, registration_no, policy_organization, claim_report_id, 
+    insure_id, exam_time, district_code, accident_type, accident_des, report_time, report_type, 
+    exam_estimate_amount, exam_amount, end_date, filing_time, claim_option, claim_result, 
+    claim_status, claim_amount, claim_soucre_type, reject_cause_code, reject_cause, operation_flr, 
+    created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimInfoKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_info
+    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+      and claim_no = #{claimNo,jdbcType=VARCHAR}
+      and report_no = #{reportNo,jdbcType=VARCHAR}
+      and registration_no = #{registrationNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimInfoKey" >
+    delete from claim_info
+    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+      and claim_no = #{claimNo,jdbcType=VARCHAR}
+      and report_no = #{reportNo,jdbcType=VARCHAR}
+      and registration_no = #{registrationNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.claimInfo" >
+    insert into claim_info (claim_info_id, claim_no, report_no, 
+      registration_no, policy_organization, claim_report_id, 
+      insure_id, exam_time, district_code, 
+      accident_type, accident_des, report_time, 
+      report_type, exam_estimate_amount, exam_amount, 
+      end_date, filing_time, claim_option, 
+      claim_result, claim_status, claim_amount, 
+      claim_soucre_type, reject_cause_code, reject_cause, 
+      operation_flr, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{claimInfoId,jdbcType=VARCHAR}, #{claimNo,jdbcType=VARCHAR}, #{reportNo,jdbcType=VARCHAR}, 
+      #{registrationNo,jdbcType=VARCHAR}, #{policyOrganization,jdbcType=VARCHAR}, #{claimReportId,jdbcType=VARCHAR}, 
+      #{insureId,jdbcType=VARCHAR}, #{examTime,jdbcType=TIMESTAMP}, #{districtCode,jdbcType=VARCHAR}, 
+      #{accidentType,jdbcType=VARCHAR}, #{accidentDes,jdbcType=VARCHAR}, #{reportTime,jdbcType=TIMESTAMP}, 
+      #{reportType,jdbcType=VARCHAR}, #{examEstimateAmount,jdbcType=INTEGER}, #{examAmount,jdbcType=INTEGER}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{filingTime,jdbcType=TIMESTAMP}, #{claimOption,jdbcType=VARCHAR}, 
+      #{claimResult,jdbcType=VARCHAR}, #{claimStatus,jdbcType=VARCHAR}, #{claimAmount,jdbcType=INTEGER}, 
+      #{claimSoucreType,jdbcType=VARCHAR}, #{rejectCauseCode,jdbcType=VARCHAR}, #{rejectCause,jdbcType=VARCHAR}, 
+      #{operationFlr,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimInfo" >
+    insert into claim_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="claimInfoId != null" >
+        claim_info_id,
+      </if>
+      <if test="claimNo != null" >
+        claim_no,
+      </if>
+      <if test="reportNo != null" >
+        report_no,
+      </if>
+      <if test="registrationNo != null" >
+        registration_no,
+      </if>
+      <if test="policyOrganization != null" >
+        policy_organization,
+      </if>
+      <if test="claimReportId != null" >
+        claim_report_id,
+      </if>
+      <if test="insureId != null" >
+        insure_id,
+      </if>
+      <if test="examTime != null" >
+        exam_time,
+      </if>
+      <if test="districtCode != null" >
+        district_code,
+      </if>
+      <if test="accidentType != null" >
+        accident_type,
+      </if>
+      <if test="accidentDes != null" >
+        accident_des,
+      </if>
+      <if test="reportTime != null" >
+        report_time,
+      </if>
+      <if test="reportType != null" >
+        report_type,
+      </if>
+      <if test="examEstimateAmount != null" >
+        exam_estimate_amount,
+      </if>
+      <if test="examAmount != null" >
+        exam_amount,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="filingTime != null" >
+        filing_time,
+      </if>
+      <if test="claimOption != null" >
+        claim_option,
+      </if>
+      <if test="claimResult != null" >
+        claim_result,
+      </if>
+      <if test="claimStatus != null" >
+        claim_status,
+      </if>
+      <if test="claimAmount != null" >
+        claim_amount,
+      </if>
+      <if test="claimSoucreType != null" >
+        claim_soucre_type,
+      </if>
+      <if test="rejectCauseCode != null" >
+        reject_cause_code,
+      </if>
+      <if test="rejectCause != null" >
+        reject_cause,
+      </if>
+      <if test="operationFlr != null" >
+        operation_flr,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="claimInfoId != null" >
+        #{claimInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null" >
+        #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationNo != null" >
+        #{registrationNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyOrganization != null" >
+        #{policyOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="claimReportId != null" >
+        #{claimReportId,jdbcType=VARCHAR},
+      </if>
+      <if test="insureId != null" >
+        #{insureId,jdbcType=VARCHAR},
+      </if>
+      <if test="examTime != null" >
+        #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="districtCode != null" >
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentType != null" >
+        #{accidentType,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentDes != null" >
+        #{accidentDes,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null" >
+        #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportType != null" >
+        #{reportType,jdbcType=VARCHAR},
+      </if>
+      <if test="examEstimateAmount != null" >
+        #{examEstimateAmount,jdbcType=INTEGER},
+      </if>
+      <if test="examAmount != null" >
+        #{examAmount,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="filingTime != null" >
+        #{filingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="claimOption != null" >
+        #{claimOption,jdbcType=VARCHAR},
+      </if>
+      <if test="claimResult != null" >
+        #{claimResult,jdbcType=VARCHAR},
+      </if>
+      <if test="claimStatus != null" >
+        #{claimStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmount != null" >
+        #{claimAmount,jdbcType=INTEGER},
+      </if>
+      <if test="claimSoucreType != null" >
+        #{claimSoucreType,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectCauseCode != null" >
+        #{rejectCauseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectCause != null" >
+        #{rejectCause,jdbcType=VARCHAR},
+      </if>
+      <if test="operationFlr != null" >
+        #{operationFlr,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimInfo" >
+    update claim_info
+    <set >
+      <if test="policyOrganization != null" >
+        policy_organization = #{policyOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="claimReportId != null" >
+        claim_report_id = #{claimReportId,jdbcType=VARCHAR},
+      </if>
+      <if test="insureId != null" >
+        insure_id = #{insureId,jdbcType=VARCHAR},
+      </if>
+      <if test="examTime != null" >
+        exam_time = #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="districtCode != null" >
+        district_code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentType != null" >
+        accident_type = #{accidentType,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentDes != null" >
+        accident_des = #{accidentDes,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null" >
+        report_time = #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportType != null" >
+        report_type = #{reportType,jdbcType=VARCHAR},
+      </if>
+      <if test="examEstimateAmount != null" >
+        exam_estimate_amount = #{examEstimateAmount,jdbcType=INTEGER},
+      </if>
+      <if test="examAmount != null" >
+        exam_amount = #{examAmount,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="filingTime != null" >
+        filing_time = #{filingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="claimOption != null" >
+        claim_option = #{claimOption,jdbcType=VARCHAR},
+      </if>
+      <if test="claimResult != null" >
+        claim_result = #{claimResult,jdbcType=VARCHAR},
+      </if>
+      <if test="claimStatus != null" >
+        claim_status = #{claimStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="claimAmount != null" >
+        claim_amount = #{claimAmount,jdbcType=INTEGER},
+      </if>
+      <if test="claimSoucreType != null" >
+        claim_soucre_type = #{claimSoucreType,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectCauseCode != null" >
+        reject_cause_code = #{rejectCauseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectCause != null" >
+        reject_cause = #{rejectCause,jdbcType=VARCHAR},
+      </if>
+      <if test="operationFlr != null" >
+        operation_flr = #{operationFlr,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+      and claim_no = #{claimNo,jdbcType=VARCHAR}
+      and report_no = #{reportNo,jdbcType=VARCHAR}
+      and registration_no = #{registrationNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimInfo" >
+    update claim_info
+    set policy_organization = #{policyOrganization,jdbcType=VARCHAR},
+      claim_report_id = #{claimReportId,jdbcType=VARCHAR},
+      insure_id = #{insureId,jdbcType=VARCHAR},
+      exam_time = #{examTime,jdbcType=TIMESTAMP},
+      district_code = #{districtCode,jdbcType=VARCHAR},
+      accident_type = #{accidentType,jdbcType=VARCHAR},
+      accident_des = #{accidentDes,jdbcType=VARCHAR},
+      report_time = #{reportTime,jdbcType=TIMESTAMP},
+      report_type = #{reportType,jdbcType=VARCHAR},
+      exam_estimate_amount = #{examEstimateAmount,jdbcType=INTEGER},
+      exam_amount = #{examAmount,jdbcType=INTEGER},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      filing_time = #{filingTime,jdbcType=TIMESTAMP},
+      claim_option = #{claimOption,jdbcType=VARCHAR},
+      claim_result = #{claimResult,jdbcType=VARCHAR},
+      claim_status = #{claimStatus,jdbcType=VARCHAR},
+      claim_amount = #{claimAmount,jdbcType=INTEGER},
+      claim_soucre_type = #{claimSoucreType,jdbcType=VARCHAR},
+      reject_cause_code = #{rejectCauseCode,jdbcType=VARCHAR},
+      reject_cause = #{rejectCause,jdbcType=VARCHAR},
+      operation_flr = #{operationFlr,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+      and claim_no = #{claimNo,jdbcType=VARCHAR}
+      and report_no = #{reportNo,jdbcType=VARCHAR}
+      and registration_no = #{registrationNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

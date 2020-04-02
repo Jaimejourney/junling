@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.productInfoEntity;
+import com.junling.mis.model.primary.productInfo;
 import com.junling.mis.service.primary.ProductInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(ProductInfoServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.productInfoEntityMapper productInfoEntityMapper;
+	private com.junling.mis.mapper.primary.productInfoMapper productInfoMapper;
 
 	@Override
-	public Boolean addProductInfo(productInfoEntity productInfoEntity) throws Exception {
-		return productInfoEntityMapper.insert(productInfoEntity)>0;
+	public Boolean addProductInfo(productInfo productInfo) throws Exception {
+		return productInfoMapper.insert(productInfo)>0;
 	}
 
 	@Override
-	public Boolean updateProductInfo(productInfoEntity productInfoEntity) throws Exception {
-		return productInfoEntityMapper.updateByPrimaryKey(productInfoEntity) >0;
+	public Boolean updateProductInfo(productInfo productInfo) throws Exception {
+		return productInfoMapper.updateByPrimaryKey(productInfo) >0;
 	}
 
 	@Override
-	public productInfoEntity findDetailProductInfo(String productId) throws Exception {
-		return productInfoEntityMapper.selectByPrimaryKey(productId);
+	public productInfo findDetailProductInfo(String productId) throws Exception {
+		return productInfoMapper.selectByPrimaryKey(productId);
 	}
 
 	@Override
 	public Boolean deleteProductInfo(String productId) throws Exception {
-		return productInfoEntityMapper.deleteByPrimaryKey(productId)>0;
+		return productInfoMapper.deleteByPrimaryKey(productId)>0;
 	}
 
 //	@Override

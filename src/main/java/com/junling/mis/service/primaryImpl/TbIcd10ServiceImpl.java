@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbIcd10Entity;
+import com.junling.mis.model.primary.tbIcd10;
 import com.junling.mis.service.primary.TbIcd10Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbIcd10ServiceImpl implements TbIcd10Service {
 	private final static Logger LOG = LoggerFactory.getLogger(TbIcd10ServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbIcd10EntityMapper tbIcd10EntityMapper;
+	private com.junling.mis.mapper.primary.tbIcd10Mapper tbIcd10Mapper;
 
 	@Override
-	public Boolean addTbIcd10(tbIcd10Entity tbIcd10Entity) throws Exception {
-		return tbIcd10EntityMapper.insert(tbIcd10Entity)>0;
+	public Boolean addTbIcd10(tbIcd10 tbIcd10) throws Exception {
+		return tbIcd10Mapper.insert(tbIcd10)>0;
 	}
 
 	@Override
-	public Boolean updateTbIcd10(tbIcd10Entity tbIcd10Entity) throws Exception {
-		return tbIcd10EntityMapper.updateByPrimaryKey(tbIcd10Entity)>0;
+	public Boolean updateTbIcd10(tbIcd10 tbIcd10) throws Exception {
+		return tbIcd10Mapper.updateByPrimaryKey(tbIcd10)>0;
 	}
 
 	@Override
-	public tbIcd10Entity findDetailTbIcd10(String icd) throws Exception {
-		return tbIcd10EntityMapper.selectByPrimaryKey(icd);
+	public tbIcd10 findDetailTbIcd10(String icd) throws Exception {
+		return tbIcd10Mapper.selectByPrimaryKey(icd);
 	}
 
 	@Override
 	public Boolean deleteTbIcd10(String icd) throws Exception {
-		return tbIcd10EntityMapper.deleteByPrimaryKey(icd)>0;
+		return tbIcd10Mapper.deleteByPrimaryKey(icd)>0;
 	}
 
 //	@Override

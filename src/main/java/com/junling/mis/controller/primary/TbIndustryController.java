@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbIndustrysEntity;
+import com.junling.mis.model.primary.tbIndustrys;
 import com.junling.mis.service.primary.TbIndustrysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbIndustryController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbIndustry(@RequestBody tbIndustrysEntity tbIndustrysEntity) throws Exception {
-        if(service.addTbIndustrys(tbIndustrysEntity)){
+    public MakeResult addTbIndustry(@RequestBody tbIndustrys tbIndustrys) throws Exception {
+        if(service.addTbIndustrys(tbIndustrys)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbIndustryController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbIndustry(@RequestBody tbIndustrysEntity tbIndustrysEntity) throws Exception {
-        if(service.updateTbIndustrys(tbIndustrysEntity)){
+    public MakeResult updateTbIndustry(@RequestBody tbIndustrys tbIndustrys) throws Exception {
+        if(service.updateTbIndustrys(tbIndustrys)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbIndustryController {
 
     @RequestMapping(value = "/search/{industryTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbIndustrysEntity> searchTbIndustry(@PathVariable("industryTypeCode") String industryTypeCode) throws Exception {
-        tbIndustrysEntity tbIndustrysEntity = service.findDetailTbIndustrys(industryTypeCode);
-        MakeResult<tbIndustrysEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbIndustrysEntity == null){
+    public MakeResult<tbIndustrys> searchTbIndustry(@PathVariable("industryTypeCode") String industryTypeCode) throws Exception {
+        tbIndustrys tbIndustrys = service.findDetailTbIndustrys(industryTypeCode);
+        MakeResult<tbIndustrys> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbIndustrys == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbIndustrysEntity);
+        return result.addResults(tbIndustrys);
     }
 
     @RequestMapping(value = "/delete/{industryTypeCode}", method = RequestMethod.GET)

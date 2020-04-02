@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyReinsuranceEntity;
+import com.junling.mis.model.primary.policyReinsurance;
 import com.junling.mis.service.primary.PolicyReinsuranceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PolicyReinsuranceServiceImpl implements PolicyReinsuranceService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyReinsuranceServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyReinsuranceEntityMapper policyReinsuranceEntityMapper;
+	private com.junling.mis.mapper.primary.policyReinsuranceMapper policyReinsuranceMapper;
 
 	@Override
-	public Boolean addPolicyReinsurance(policyReinsuranceEntity policyReinsuranceEntity) throws Exception {
-		return policyReinsuranceEntityMapper.insert(policyReinsuranceEntity)>0;
+	public Boolean addPolicyReinsurance(policyReinsurance policyReinsurance) throws Exception {
+		return policyReinsuranceMapper.insert(policyReinsurance)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyReinsurance(policyReinsuranceEntity policyReinsuranceEntity) throws Exception {
-		return policyReinsuranceEntityMapper.updateByPrimaryKey(policyReinsuranceEntity)>0;
+	public Boolean updatePolicyReinsurance(policyReinsurance policyReinsurance) throws Exception {
+		return policyReinsuranceMapper.updateByPrimaryKey(policyReinsurance)>0;
 	}
 
 	@Override
-	public policyReinsuranceEntity findDetailPolicyReinsurance(String policyReinsuranceId) throws Exception {
-		return policyReinsuranceEntityMapper.selectByPrimaryKey(policyReinsuranceId);
+	public policyReinsurance findDetailPolicyReinsurance(String policyReinsuranceId) throws Exception {
+		return policyReinsuranceMapper.selectByPrimaryKey(policyReinsuranceId);
 	}
 
 	@Override
 	public Boolean deletePolicyReinsurance(String policyReinsuranceId) throws Exception {
-		return policyReinsuranceEntityMapper.deleteByPrimaryKey(policyReinsuranceId)>0;
+		return policyReinsuranceMapper.deleteByPrimaryKey(policyReinsuranceId)>0;
 	}
 
 //	@Override

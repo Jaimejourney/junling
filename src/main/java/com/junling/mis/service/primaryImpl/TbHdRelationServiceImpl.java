@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbHdRelationEntity;
+import com.junling.mis.model.primary.tbHdRelation;
 import com.junling.mis.service.primary.TbHdRelationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbHdRelationServiceImpl implements TbHdRelationService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbHdRelationServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbHdRelationEntityMapper tbHdRelationEntityMapper;
+	private com.junling.mis.mapper.primary.tbHdRelationMapper tbHdRelationMapper;
 
 	@Override
-	public Boolean addTbHdRelation(tbHdRelationEntity tbHdRelationEntity) throws Exception {
-		return tbHdRelationEntityMapper.insert(tbHdRelationEntity)>0;
+	public Boolean addTbHdRelation(tbHdRelation tbHdRelation) throws Exception {
+		return tbHdRelationMapper.insert(tbHdRelation)>0;
 	}
 
 	@Override
-	public Boolean updateTbHdRelation(tbHdRelationEntity tbHdRelationEntity) throws Exception {
-		return tbHdRelationEntityMapper.updateByPrimaryKey(tbHdRelationEntity)>0;
+	public Boolean updateTbHdRelation(tbHdRelation tbHdRelation) throws Exception {
+		return tbHdRelationMapper.updateByPrimaryKey(tbHdRelation)>0;
 	}
 
 	@Override
-	public tbHdRelationEntity findDetailTbHdRelation(String hospitalDepartmentId) throws Exception {
-		return tbHdRelationEntityMapper.selectByPrimaryKey(hospitalDepartmentId);
+	public tbHdRelation findDetailTbHdRelation(String hospitalDepartmentId) throws Exception {
+		return tbHdRelationMapper.selectByPrimaryKey(hospitalDepartmentId);
 	}
 
 	@Override
 	public Boolean deleteTbHdRelation(String hospitalDepartmentId) throws Exception {
-		return tbHdRelationEntityMapper.deleteByPrimaryKey(hospitalDepartmentId)>0;
+		return tbHdRelationMapper.deleteByPrimaryKey(hospitalDepartmentId)>0;
 	}
 //
 //	@Override

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbClaimResultEntity;
+import com.junling.mis.model.primary.tbClaimResult;
 import com.junling.mis.service.primary.TbClaimResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbClaimResultController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbClaimResult(@RequestBody tbClaimResultEntity tbClaimResultEntity) throws Exception {
-        if(service.addTbClaimResult(tbClaimResultEntity)){
+    public MakeResult addTbClaimResult(@RequestBody tbClaimResult tbClaimResult) throws Exception {
+        if(service.addTbClaimResult(tbClaimResult)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbClaimResultController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbClaimResult(@RequestBody tbClaimResultEntity tbClaimResultEntity) throws Exception {
-        if(service.updateTbClaimResult(tbClaimResultEntity)){
+    public MakeResult updateTbClaimResult(@RequestBody tbClaimResult tbClaimResult) throws Exception {
+        if(service.updateTbClaimResult(tbClaimResult)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbClaimResultController {
 
     @RequestMapping(value = "/search/{resultCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbClaimResultEntity> searchTbClaimResult(@PathVariable("resultCode") String resultCode) throws Exception {
-        tbClaimResultEntity tbClaimResultEntity = service.findDetailTbClaimResult(resultCode);
-        MakeResult<tbClaimResultEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbClaimResultEntity == null){
+    public MakeResult<tbClaimResult> searchTbClaimResult(@PathVariable("resultCode") String resultCode) throws Exception {
+        tbClaimResult tbClaimResult = service.findDetailTbClaimResult(resultCode);
+        MakeResult<tbClaimResult> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbClaimResult == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbClaimResultEntity);
+        return result.addResults(tbClaimResult);
     }
 
     @RequestMapping(value = "/delete/{resultCode}", method = RequestMethod.GET)

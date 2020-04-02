@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.pglProductDutyEntity;
+import com.junling.mis.model.primary.pglProductDuty;
 
 
 /** 
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.pglProductDutyEntity;
  */
 public interface PglProductDutyService {
 
-	Boolean addPglProductDuty(pglProductDutyEntity pglProductDutyEntity) throws Exception;
+	Boolean addPglProductDuty(pglProductDuty pglProductDuty) throws Exception;
 
-	Boolean updatePglProductDuty(pglProductDutyEntity pglProductDutyEntity) throws Exception;
+	Boolean updatePglProductDuty(pglProductDuty pglProductDuty) throws Exception;
 
-	pglProductDutyEntity findDetailPglProductDuty(String pglProductDutyId) throws Exception;
+	pglProductDuty findDetailPglProductDuty(String pglProductDutyId) throws Exception;
 //
 //	Result listPglProductDuty(PglProductDutyModel pglProductDutyModel) throws Exception;
 //

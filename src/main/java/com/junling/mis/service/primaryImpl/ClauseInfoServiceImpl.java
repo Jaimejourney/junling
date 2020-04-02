@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.clauseInfoEntityMapper;
-import com.junling.mis.model.primary.clauseInfoEntity;
+import com.junling.mis.mapper.primary.clauseInfoMapper;
+import com.junling.mis.model.primary.clauseInfo;
 import com.junling.mis.service.primary.ClauseInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,26 +19,26 @@ public class ClauseInfoServiceImpl implements ClauseInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(ClauseInfoServiceImpl.class);
 
 	@Resource
-	private clauseInfoEntityMapper clauseInfoEntityMapper;
+	private clauseInfoMapper clauseInfoMapper;
 
 
 	@Override
-	public Boolean addClauseInfo(clauseInfoEntity clauseInfoEntity) throws Exception {
-		return clauseInfoEntityMapper.insert(clauseInfoEntity) > 0;
+	public Boolean addClauseInfo(clauseInfo clauseInfo) throws Exception {
+		return clauseInfoMapper.insert(clauseInfo) > 0;
 	}
 
 	@Override
-	public Boolean updateClauseInfo(clauseInfoEntity clauseInfoEntity) throws Exception {
-		return clauseInfoEntityMapper.updateByPrimaryKey(clauseInfoEntity) > 0;
+	public Boolean updateClauseInfo(clauseInfo clauseInfo) throws Exception {
+		return clauseInfoMapper.updateByPrimaryKey(clauseInfo) > 0;
 	}
 
 	@Override
-	public clauseInfoEntity findDetailClauseInfo(String clauseId) throws Exception {
-		return clauseInfoEntityMapper.selectByPrimaryKey(clauseId);
+	public clauseInfo findDetailClauseInfo(String clauseId) throws Exception {
+		return clauseInfoMapper.selectByPrimaryKey(clauseId);
 	}
 
 	@Override
 	public Boolean deleteClauseInfo(String clauseId) throws Exception {
-		return clauseInfoEntityMapper.deleteByPrimaryKey(clauseId) > 0;
+		return clauseInfoMapper.deleteByPrimaryKey(clauseId) > 0;
 	}
 }

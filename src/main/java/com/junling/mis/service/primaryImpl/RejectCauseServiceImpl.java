@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.rejectCauseEntity;
+import com.junling.mis.model.primary.rejectCause;
 import com.junling.mis.service.primary.RejectCauseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class RejectCauseServiceImpl implements RejectCauseService {
 	private final static Logger LOG = LoggerFactory.getLogger(RejectCauseServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.rejectCauseEntityMapper rejectCauseEntityMapper;
+	private com.junling.mis.mapper.primary.rejectCauseMapper rejectCauseMapper;
 
 	@Override
-	public Boolean addRejectCause(rejectCauseEntity rejectCauseEntity) throws Exception {
-		return rejectCauseEntityMapper.insert(rejectCauseEntity)>0;
+	public Boolean addRejectCause(rejectCause rejectCause) throws Exception {
+		return rejectCauseMapper.insert(rejectCause)>0;
 	}
 
 	@Override
-	public Boolean updateRejectCause(rejectCauseEntity rejectCauseEntity) throws Exception {
-		return rejectCauseEntityMapper.updateByPrimaryKey(rejectCauseEntity)>0;
+	public Boolean updateRejectCause(rejectCause rejectCause) throws Exception {
+		return rejectCauseMapper.updateByPrimaryKey(rejectCause)>0;
 	}
 
 	@Override
-	public rejectCauseEntity findDetailRejectCause(String rejectCauseCode) throws Exception {
-		return rejectCauseEntityMapper.selectByPrimaryKey(rejectCauseCode);
+	public rejectCause findDetailRejectCause(String rejectCauseCode) throws Exception {
+		return rejectCauseMapper.selectByPrimaryKey(rejectCauseCode);
 	}
 
 	@Override
 	public Boolean deleteRejectCause(String rejectCauseCode) throws Exception {
-		return rejectCauseEntityMapper.deleteByPrimaryKey(rejectCauseCode)>0;
+		return rejectCauseMapper.deleteByPrimaryKey(rejectCauseCode)>0;
 	}
 
 //	@Override

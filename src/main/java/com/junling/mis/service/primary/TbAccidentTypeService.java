@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbAccidentTypeEntity;
+import com.junling.mis.model.primary.tbAccidentType;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbAccidentTypeEntity;
  */
 public interface TbAccidentTypeService {
 
-	Boolean addTbAccidentType(tbAccidentTypeEntity tbAccidentTypeEntity) throws Exception;
+	Boolean addTbAccidentType(tbAccidentType tbAccidentType) throws Exception;
 
-	Boolean updateTbAccidentType(tbAccidentTypeEntity tbAccidentTypeEntity) throws Exception;
+	Boolean updateTbAccidentType(tbAccidentType tbAccidentType) throws Exception;
 
-	tbAccidentTypeEntity findDetailTbAccidentType(String accidentTypeCode) throws Exception;
+	tbAccidentType findDetailTbAccidentType(String accidentTypeCode) throws Exception;
 	
 //	Result listTbAccidentType(TbAccidentTypeModel tbAccidentTypeModel) throws Exception;
 //

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.pglProductDutyEntity;
+import com.junling.mis.model.primary.pglProductDuty;
 import com.junling.mis.service.primary.PglProductDutyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class PglProductDutyController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPglProductDuty(@RequestBody pglProductDutyEntity pglProductDutyEntity) throws Exception {
-        if(service.addPglProductDuty(pglProductDutyEntity)){
+    public MakeResult addPglProductDuty(@RequestBody pglProductDuty pglProductDuty) throws Exception {
+        if(service.addPglProductDuty(pglProductDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class PglProductDutyController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePglProductDuty(@RequestBody pglProductDutyEntity pglProductDutyEntity) throws Exception {
-        if(service.updatePglProductDuty(pglProductDutyEntity)){
+    public MakeResult updatePglProductDuty(@RequestBody pglProductDuty pglProductDuty) throws Exception {
+        if(service.updatePglProductDuty(pglProductDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class PglProductDutyController {
 
     @RequestMapping(value = "/search/{pglProductDutyId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<pglProductDutyEntity> searchPglProductDuty(@PathVariable("pglProductDutyId") String pglProductDutyId) throws Exception {
-        pglProductDutyEntity pglProductDutyEntity = service.findDetailPglProductDuty(pglProductDutyId);
-        MakeResult<pglProductDutyEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(pglProductDutyEntity == null){
+    public MakeResult<pglProductDuty> searchPglProductDuty(@PathVariable("pglProductDutyId") String pglProductDutyId) throws Exception {
+        pglProductDuty pglProductDuty = service.findDetailPglProductDuty(pglProductDutyId);
+        MakeResult<pglProductDuty> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(pglProductDuty == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(pglProductDutyEntity);
+        return result.addResults(pglProductDuty);
     }
 
     @RequestMapping(value = "/delete/{pglProductDutyId}", method = RequestMethod.GET)

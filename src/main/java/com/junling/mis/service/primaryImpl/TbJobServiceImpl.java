@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbJobEntity;
+import com.junling.mis.model.primary.tbJob;
 import com.junling.mis.service.primary.TbJobService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbJobServiceImpl implements TbJobService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbJobServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbJobEntityMapper tbJobEntityMapper;
+	private com.junling.mis.mapper.primary.tbJobMapper tbJobMapper;
 
 	@Override
-	public Boolean addTbJob(tbJobEntity tbJobEntity) throws Exception {
-		return tbJobEntityMapper.insert(tbJobEntity)>0;
+	public Boolean addTbJob(tbJob tbJob) throws Exception {
+		return tbJobMapper.insert(tbJob)>0;
 	}
 
 	@Override
-	public Boolean updateTbJob(tbJobEntity tbJobEntity) throws Exception {
-		return tbJobEntityMapper.updateByPrimaryKey(tbJobEntity)>0;
+	public Boolean updateTbJob(tbJob tbJob) throws Exception {
+		return tbJobMapper.updateByPrimaryKey(tbJob)>0;
 	}
 
 	@Override
-	public tbJobEntity findDetailTbJob(String jobCode) throws Exception {
-		return tbJobEntityMapper.selectByPrimaryKey(jobCode);
+	public tbJob findDetailTbJob(String jobCode) throws Exception {
+		return tbJobMapper.selectByPrimaryKey(jobCode);
 	}
 
 	@Override
 	public Boolean deleteTbJob(String jobCode) throws Exception {
-		return tbJobEntityMapper.deleteByPrimaryKey(jobCode)>0 ;
+		return tbJobMapper.deleteByPrimaryKey(jobCode)>0 ;
 	}
 
 //	@Override

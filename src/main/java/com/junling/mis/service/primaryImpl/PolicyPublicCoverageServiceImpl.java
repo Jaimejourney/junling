@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyPublicCoverageEntity;
+import com.junling.mis.model.primary.policyPublicCoverage;
 import com.junling.mis.service.primary.PolicyPublicCoverageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PolicyPublicCoverageServiceImpl implements PolicyPublicCoverageServ
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyPublicCoverageServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyPublicCoverageEntityMapper policyPublicCoverageEntityMapper;
+	private com.junling.mis.mapper.primary.policyPublicCoverageMapper policyPublicCoverageMapper;
 
 	@Override
-	public Boolean addPolicyPublicCoverage(policyPublicCoverageEntity policyPublicCoverageEntity) throws Exception {
-		return policyPublicCoverageEntityMapper.insert(policyPublicCoverageEntity)>0;
+	public Boolean addPolicyPublicCoverage(policyPublicCoverage policyPublicCoverage) throws Exception {
+		return policyPublicCoverageMapper.insert(policyPublicCoverage)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyPublicCoverage(policyPublicCoverageEntity policyPublicCoverageEntity) throws Exception {
-		return policyPublicCoverageEntityMapper.updateByPrimaryKey(policyPublicCoverageEntity)>0;
+	public Boolean updatePolicyPublicCoverage(policyPublicCoverage policyPublicCoverage) throws Exception {
+		return policyPublicCoverageMapper.updateByPrimaryKey(policyPublicCoverage)>0;
 	}
 
 	@Override
-	public policyPublicCoverageEntity findDetailPolicyPublicCoverage(String policyPublicCoverageId) throws Exception {
-		return policyPublicCoverageEntityMapper.selectByPrimaryKey(policyPublicCoverageId);
+	public policyPublicCoverage findDetailPolicyPublicCoverage(String policyPublicCoverageId) throws Exception {
+		return policyPublicCoverageMapper.selectByPrimaryKey(policyPublicCoverageId);
 	}
 
 	@Override
 	public Boolean deletePolicyPublicCoverage(String policyPublicCoverageId) throws Exception {
-		return policyPublicCoverageEntityMapper.deleteByPrimaryKey(policyPublicCoverageId)>0;
+		return policyPublicCoverageMapper.deleteByPrimaryKey(policyPublicCoverageId)>0;
 	}
 
 //	@Override

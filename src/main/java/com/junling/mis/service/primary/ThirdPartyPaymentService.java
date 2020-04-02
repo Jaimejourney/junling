@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.thirdPartyPaymentEntity;
+import com.junling.mis.model.primary.thirdPartyPayment;
 
 ;
 
@@ -12,7 +12,7 @@ import com.junling.mis.model.primary.thirdPartyPaymentEntity;
  */
 public interface ThirdPartyPaymentService {
 
-	Boolean addThirdPartyPayment(thirdPartyPaymentEntity thirdPartyPaymentEntity) throws Exception;
+	Boolean addThirdPartyPayment(thirdPartyPayment thirdPartyPayment) throws Exception;
 
 //	Result updateThirdPartyPayment(ThirdPartyPaymentModel thirdPartyPaymentModel) throws Exception;
 //

@@ -1,10 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.productDutyEntity;
-import com.junling.mis.model.primary.productDutyEntityKey;
-
-;
-
+import com.junling.mis.model.primary.productDuty;
 
 
 /** 
@@ -13,11 +9,11 @@ import com.junling.mis.model.primary.productDutyEntityKey;
  */
 public interface ProductDutyService {
 
-	Boolean addProductDuty(productDutyEntity productDutyEntity) throws Exception;
+	Boolean addProductDuty(productDuty productDuty) throws Exception;
 
-	Boolean updateProductDuty(productDutyEntity productDutyEntity) throws Exception;
+	Boolean updateProductDuty(productDuty productDuty) throws Exception;
 
-	productDutyEntity findDetailProductDuty(productDutyEntityKey key) throws Exception;
+	productDuty findDetailProductDuty(String productDutyId) throws Exception;
 	
 //	Result listProductDuty(ProductDutyModel productDutyModel) throws Exception;
 //
@@ -25,5 +21,5 @@ public interface ProductDutyService {
 //
 //	Result countProductDuty(ProductDutyModel productDutyModel) throws Exception;
 	
-	Boolean deleteProductDuty(productDutyEntityKey key) throws Exception;
+	Boolean deleteProductDuty(String productDutyId) throws Exception;
 }

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.productInfoEntity;
+import com.junling.mis.model.primary.productInfo;
 import com.junling.mis.service.primary.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class ProductInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addProductInfo(@RequestBody productInfoEntity productInfoEntity) throws Exception {
-        if(service.addProductInfo(productInfoEntity)){
+    public MakeResult addProductInfo(@RequestBody productInfo productInfo) throws Exception {
+        if(service.addProductInfo(productInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class ProductInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateProductInfo(@RequestBody productInfoEntity productInfoEntity) throws Exception {
-        if(service.updateProductInfo(productInfoEntity)){
+    public MakeResult updateProductInfo(@RequestBody productInfo productInfo) throws Exception {
+        if(service.updateProductInfo(productInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class ProductInfoController {
 
     @RequestMapping(value = "/search/{productId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<productInfoEntity> searchProductInfo(@PathVariable("productId") String productId) throws Exception {
-        productInfoEntity productInfoEntity = service.findDetailProductInfo(productId);
-        MakeResult<productInfoEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(productInfoEntity == null){
+    public MakeResult<productInfo> searchProductInfo(@PathVariable("productId") String productId) throws Exception {
+        productInfo productInfo = service.findDetailProductInfo(productId);
+        MakeResult<productInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(productInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(productInfoEntity);
+        return result.addResults(productInfo);
     }
 
     @RequestMapping(value = "/delete/{productId}", method = RequestMethod.GET)

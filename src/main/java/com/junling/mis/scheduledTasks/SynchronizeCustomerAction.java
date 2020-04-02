@@ -3,12 +3,12 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.customerActionEntityMapper;
+import com.junling.mis.mapper.primary.customerActionMapper;
 import com.junling.mis.mapper.secondary.hospitalEntityMapper;
 import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
 import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
-import com.junling.mis.model.primary.customerActionEntity;
+import com.junling.mis.model.primary.customerAction;
 import com.junling.mis.model.secondary.visitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,7 @@ public class SynchronizeCustomerAction {
     visitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    customerActionEntityMapper customerActionEntityMapper;
+    customerActionMapper customerActionEntityMapper;
 
     @Autowired
     hospitalEntityMapper hospitalEntityMapper;
@@ -42,7 +42,7 @@ public class SynchronizeCustomerAction {
         System.out.println(list.size());
         for (int i = 0; i < list.size(); i++) {
             visitRecordEntity record = list.get(i);
-            customerActionEntity customerActionEntity = new customerActionEntity();
+            customerAction customerActionEntity = new customerAction();
             String customerActionId = GetUUID32.getUUID32();
             customerActionEntity.setCustomerActionId(customerActionId);
             customerActionEntity.setCustomerId(record.getApplyPersonId());

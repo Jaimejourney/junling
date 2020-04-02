@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.pglProductDutyEntity;
+import com.junling.mis.model.primary.pglProductDuty;
 import com.junling.mis.service.primary.PglProductDutyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class PglProductDutyServiceImpl implements PglProductDutyService {
 	private final static Logger LOG = LoggerFactory.getLogger(PglProductDutyServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.pglProductDutyEntityMapper pglProductDutyEntityMapper;
+	private com.junling.mis.mapper.primary.pglProductDutyMapper pglProductDutyMapper;
 
 	@Override
-	public Boolean addPglProductDuty(pglProductDutyEntity pglProductDutyEntity) throws Exception {
-		return pglProductDutyEntityMapper.insert(pglProductDutyEntity) > 0;
+	public Boolean addPglProductDuty(pglProductDuty pglProductDuty) throws Exception {
+		return pglProductDutyMapper.insert(pglProductDuty) > 0;
 	}
 
 	@Override
-	public Boolean updatePglProductDuty(pglProductDutyEntity pglProductDutyEntity) throws Exception {
-		return pglProductDutyEntityMapper.updateByPrimaryKey(pglProductDutyEntity) > 0;
+	public Boolean updatePglProductDuty(pglProductDuty pglProductDuty) throws Exception {
+		return pglProductDutyMapper.updateByPrimaryKey(pglProductDuty) > 0;
 	}
 
 	@Override
-	public pglProductDutyEntity findDetailPglProductDuty(String pglProductDutyId) throws Exception {
-		return pglProductDutyEntityMapper.selectByPrimaryKey(pglProductDutyId);
+	public pglProductDuty findDetailPglProductDuty(String pglProductDutyId) throws Exception {
+		return pglProductDutyMapper.selectByPrimaryKey(pglProductDutyId);
 	}
 
 	@Override
 	public Boolean deletePglProductDuty(String pglProductDutyId) throws Exception {
-		return pglProductDutyEntityMapper.deleteByPrimaryKey(pglProductDutyId)>0;
+		return pglProductDutyMapper.deleteByPrimaryKey(pglProductDutyId)>0;
 	}
 
 //	@Override

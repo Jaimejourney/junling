@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.pglProductDutyClaimRateEntity;
+import com.junling.mis.mapper.primary.pglpdClaimRateMapper;
+import com.junling.mis.model.primary.pglpdClaimRate;
 import com.junling.mis.service.primary.PglProductDutyClaimRateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +18,27 @@ public class PglProductDutyClaimRateServiceImpl implements PglProductDutyClaimRa
 	private final static Logger LOG = LoggerFactory.getLogger(PglProductDutyClaimRateServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.pglProductDutyClaimRateEntityMapper pglProductDutyClaimRateEntityMapper;
+	private pglpdClaimRateMapper pglpdClaimRateMapper;
+
 
 	@Override
-	public Boolean addPglProductDutyClaimRate(pglProductDutyClaimRateEntity pglProductDutyClaimRateEntity) throws Exception {
-		return pglProductDutyClaimRateEntityMapper.insert(pglProductDutyClaimRateEntity)>0;
+	public Boolean addPglProductDutyClaimRate(pglpdClaimRate pglProductDutyClaimRate) throws Exception {
+		return pglpdClaimRateMapper.insert(pglProductDutyClaimRate) > 0;
 	}
 
 	@Override
-	public Boolean updatePglProductDutyClaimRate(pglProductDutyClaimRateEntity pglProductDutyClaimRateEntity) throws Exception {
-		return pglProductDutyClaimRateEntityMapper.updateByPrimaryKey(pglProductDutyClaimRateEntity) > 0;
+	public Boolean updatePglProductDutyClaimRate(pglpdClaimRate pglProductDutyClaimRate) throws Exception {
+		return pglpdClaimRateMapper.updateByPrimaryKey(pglProductDutyClaimRate) > 0;
 	}
 
 	@Override
-	public pglProductDutyClaimRateEntity findDetailPglProductDutyClaimRate(String pglpdClaimRateId) throws Exception {
-		return pglProductDutyClaimRateEntityMapper.selectByPrimaryKey(pglpdClaimRateId);
+	public pglpdClaimRate findDetailPglProductDutyClaimRate(String pglpdClaimRateId) throws Exception {
+		return pglpdClaimRateMapper.selectByPrimaryKey(pglpdClaimRateId);
 	}
 
 	@Override
 	public Boolean deletePglProductDutyClaimRate(String pglpdClaimRateId) throws Exception {
-		return pglProductDutyClaimRateEntityMapper.deleteByPrimaryKey(pglpdClaimRateId) > 0;
+		return pglpdClaimRateMapper.deleteByPrimaryKey(pglpdClaimRateId) > 0;
 	}
 
 //	@Override

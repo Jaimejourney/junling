@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.organizationActionEntity;
+import com.junling.mis.model.primary.organizationAction;
 import com.junling.mis.service.primary.OrganizationActionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class OrganizationActionServiceImpl implements OrganizationActionService 
 	private final static Logger LOG = LoggerFactory.getLogger(OrganizationActionServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.organizationActionEntityMapper organizationActionEntityMapper;
+	private com.junling.mis.mapper.primary.organizationActionMapper organizationActionMapper;
 
 	@Override
-	public Boolean addOrganizationAction(organizationActionEntity organizationActionEntity) throws Exception {
-		return organizationActionEntityMapper.insert(organizationActionEntity) > 0;
+	public Boolean addOrganizationAction(organizationAction organizationAction) throws Exception {
+		return organizationActionMapper.insert(organizationAction) > 0;
 	}
 
 	@Override
-	public Boolean updateOrganizationAction(organizationActionEntity organizationActionEntity) throws Exception {
-		return organizationActionEntityMapper.updateByPrimaryKey(organizationActionEntity) > 0;
+	public Boolean updateOrganizationAction(organizationAction organizationAction) throws Exception {
+		return organizationActionMapper.updateByPrimaryKey(organizationAction) > 0;
 	}
 
 	@Override
-	public organizationActionEntity findDetailOrganizationAction(String organizationActionId) throws Exception {
-		return organizationActionEntityMapper.selectByPrimaryKey(organizationActionId);
+	public organizationAction findDetailOrganizationAction(String organizationActionId) throws Exception {
+		return organizationActionMapper.selectByPrimaryKey(organizationActionId);
 	}
 
 	@Override
 	public Boolean deleteOrganizationAction(String organizationActionId) throws Exception {
-		return organizationActionEntityMapper.deleteByPrimaryKey(organizationActionId) > 0;
+		return organizationActionMapper.deleteByPrimaryKey(organizationActionId) > 0;
 	}
 
 //	@Override

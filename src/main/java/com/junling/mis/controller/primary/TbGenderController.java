@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbGenderEntity;
+import com.junling.mis.model.primary.tbGender;
 import com.junling.mis.service.primary.TbGenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbGenderController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbGender(@RequestBody tbGenderEntity tbGenderEntity) throws Exception {
-        if(service.addTbGender(tbGenderEntity)){
+    public MakeResult addTbGender(@RequestBody tbGender tbGender) throws Exception {
+        if(service.addTbGender(tbGender)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbGenderController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbGender(@RequestBody tbGenderEntity tbGenderEntity) throws Exception {
-        if(service.updateTbGender(tbGenderEntity)){
+    public MakeResult updateTbGender(@RequestBody tbGender tbGender) throws Exception {
+        if(service.updateTbGender(tbGender)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbGenderController {
 
     @RequestMapping(value = "/search/{genderCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbGenderEntity> searchTbGender(@PathVariable("genderCode") String genderCode) throws Exception {
-        tbGenderEntity tbGenderEntity = service.findDetailTbGender(genderCode);
-        MakeResult<tbGenderEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbGenderEntity == null){
+    public MakeResult<tbGender> searchTbGender(@PathVariable("genderCode") String genderCode) throws Exception {
+        tbGender tbGender = service.findDetailTbGender(genderCode);
+        MakeResult<tbGender> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbGender == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbGenderEntity);
+        return result.addResults(tbGender);
     }
 
     @RequestMapping(value = "/delete/{genderCode}", method = RequestMethod.GET)

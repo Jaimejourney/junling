@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbImageTypeEntity;
+import com.junling.mis.model.primary.tbImageType;
 import com.junling.mis.service.primary.TbImageTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbImageTypeServiceImpl implements TbImageTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbImageTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbImageTypeEntityMapper tbImageTypeEntityMapper;
+	private com.junling.mis.mapper.primary.tbImageTypeMapper tbImageTypeMapper;
 
 	@Override
-	public Boolean addTbImageType(tbImageTypeEntity tbImageTypeEntity) throws Exception {
-		return tbImageTypeEntityMapper.insert(tbImageTypeEntity)>0;
+	public Boolean addTbImageType(tbImageType tbImageType) throws Exception {
+		return tbImageTypeMapper.insert(tbImageType)>0;
 	}
 
 	@Override
-	public Boolean updateTbImageType(tbImageTypeEntity tbImageTypeEntity) throws Exception {
-		return tbImageTypeEntityMapper.updateByPrimaryKey(tbImageTypeEntity)>0;
+	public Boolean updateTbImageType(tbImageType tbImageType) throws Exception {
+		return tbImageTypeMapper.updateByPrimaryKey(tbImageType)>0;
 	}
 
 	@Override
-	public tbImageTypeEntity findDetailTbImageType(String docTypeCode) throws Exception {
-		return tbImageTypeEntityMapper.selectByPrimaryKey(docTypeCode);
+	public tbImageType findDetailTbImageType(String docTypeCode) throws Exception {
+		return tbImageTypeMapper.selectByPrimaryKey(docTypeCode);
 	}
 
 	@Override
 	public Boolean deleteTbImageType(String docTypeCode) throws Exception {
-		return tbImageTypeEntityMapper.deleteByPrimaryKey(docTypeCode)>0;
+		return tbImageTypeMapper.deleteByPrimaryKey(docTypeCode)>0;
 	}
 
 //	@Override

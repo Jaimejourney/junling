@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.gradeLevelEntity;
+import com.junling.mis.model.primary.gradeLevel;
 import com.junling.mis.service.primary.GradeLevelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class GradeLevelServiceImpl implements GradeLevelService {
 	private final static Logger LOG = LoggerFactory.getLogger(GradeLevelServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.gradeLevelEntityMapper gradeLevelEntityMapper;
+	private com.junling.mis.mapper.primary.gradeLevelMapper gradeLevelMapper;
 
 
 	@Override
-	public Boolean addGradeLevel(gradeLevelEntity gradeLevelEntity) throws Exception {
-		return gradeLevelEntityMapper.insert(gradeLevelEntity) > 0;
+	public Boolean addGradeLevel(gradeLevel gradeLevel) throws Exception {
+		return gradeLevelMapper.insert(gradeLevel) > 0;
 	}
 
 	@Override
-	public Boolean updateGradeLevel(gradeLevelEntity gradeLevelEntity) throws Exception {
-		return gradeLevelEntityMapper.updateByPrimaryKey(gradeLevelEntity) > 0;
+	public Boolean updateGradeLevel(gradeLevel gradeLevel) throws Exception {
+		return gradeLevelMapper.updateByPrimaryKey(gradeLevel) > 0;
 	}
 
 	@Override
-	public gradeLevelEntity findDetailGradeLevel(String gradeLevelId) throws Exception {
-		return gradeLevelEntityMapper.selectByPrimaryKey(gradeLevelId);
+	public gradeLevel findDetailGradeLevel(String gradeLevelId) throws Exception {
+		return gradeLevelMapper.selectByPrimaryKey(gradeLevelId);
 	}
 
 	@Override
 	public Boolean deleteGradeLevel(String gradeLevelId) throws Exception {
-		return gradeLevelEntityMapper.deleteByPrimaryKey(gradeLevelId) > 0;
+		return gradeLevelMapper.deleteByPrimaryKey(gradeLevelId) > 0;
 	}
 }

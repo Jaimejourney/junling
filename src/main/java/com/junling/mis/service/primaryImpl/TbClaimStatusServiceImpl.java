@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbClaimStatusEntity;
+import com.junling.mis.model.primary.tbClaimStatus;
 import com.junling.mis.service.primary.TbClaimStatusService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbClaimStatusServiceImpl implements TbClaimStatusService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbClaimStatusServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbClaimStatusEntityMapper tbClaimStatusEntityMapper;
+	private com.junling.mis.mapper.primary.tbClaimStatusMapper tbClaimStatusMapper;
 
 	@Override
-	public Boolean addTbClaimStatus(tbClaimStatusEntity tbClaimStatusEntity) throws Exception {
-		return tbClaimStatusEntityMapper.insert(tbClaimStatusEntity)>0;
+	public Boolean addTbClaimStatus(tbClaimStatus tbClaimStatus) throws Exception {
+		return tbClaimStatusMapper.insert(tbClaimStatus)>0;
 	}
 
 	@Override
-	public Boolean updateTbClaimStatus(tbClaimStatusEntity tbClaimStatusEntity) throws Exception {
-		return tbClaimStatusEntityMapper.updateByPrimaryKey(tbClaimStatusEntity)>0;
+	public Boolean updateTbClaimStatus(tbClaimStatus tbClaimStatus) throws Exception {
+		return tbClaimStatusMapper.updateByPrimaryKey(tbClaimStatus)>0;
 	}
 
 	@Override
-	public tbClaimStatusEntity findDetailTbClaimStatus(String statusCode) throws Exception {
-		return tbClaimStatusEntityMapper.selectByPrimaryKey(statusCode);
+	public tbClaimStatus findDetailTbClaimStatus(String statusCode) throws Exception {
+		return tbClaimStatusMapper.selectByPrimaryKey(statusCode);
 	}
 
 	@Override
 	public Boolean deleteTbClaimStatus(String statusCode) throws Exception {
-		return tbClaimStatusEntityMapper.deleteByPrimaryKey(statusCode)>0;
+		return tbClaimStatusMapper.deleteByPrimaryKey(statusCode)>0;
 	}
 
 //	@Override

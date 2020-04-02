@@ -1,7 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.productDutyEntity;
-import com.junling.mis.model.primary.productDutyEntityKey;
+import com.junling.mis.model.primary.productDuty;
 import com.junling.mis.service.primary.ProductDutyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,28 +17,27 @@ public class ProductDutyServiceImpl implements ProductDutyService {
 	private final static Logger LOG = LoggerFactory.getLogger(ProductDutyServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.productDutyEntityMapper productDutyEntityMapper;
+	private com.junling.mis.mapper.primary.productDutyMapper productDutyMapper;
 
 	@Override
-	public Boolean addProductDuty(productDutyEntity productDutyEntity) throws Exception {
-		return productDutyEntityMapper.insert(productDutyEntity)>0;
+	public Boolean addProductDuty(productDuty productDuty) throws Exception {
+		return productDutyMapper.insert(productDuty)>0;
 	}
 
 	@Override
-	public Boolean updateProductDuty(productDutyEntity productDutyEntity) throws Exception {
-		return productDutyEntityMapper.updateByPrimaryKey(productDutyEntity)>0;
+	public Boolean updateProductDuty(productDuty productDuty) throws Exception {
+		return productDutyMapper.updateByPrimaryKey(productDuty)>0;
 	}
 
 	@Override
-	public productDutyEntity findDetailProductDuty(productDutyEntityKey key) throws Exception {
-		return productDutyEntityMapper.selectByPrimaryKey(key);
+	public productDuty findDetailProductDuty(String productDutyId) throws Exception {
+		return productDutyMapper.selectByPrimaryKey(productDutyId);
 	}
 
 	@Override
-	public Boolean deleteProductDuty(productDutyEntityKey key) throws Exception {
-		return productDutyEntityMapper.deleteByPrimaryKey(key)>0;
+	public Boolean deleteProductDuty(String productDutyId) throws Exception {
+		return productDutyMapper.deleteByPrimaryKey(productDutyId)>0;
 	}
-
 
 //	@Override
 //	public Result addProductDuty(ProductDutyModel productDutyModel) throws Exception {

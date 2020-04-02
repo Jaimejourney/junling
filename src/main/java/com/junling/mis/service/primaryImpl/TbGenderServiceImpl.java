@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbGenderEntity;
+import com.junling.mis.model.primary.tbGender;
 import com.junling.mis.service.primary.TbGenderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbGenderServiceImpl implements TbGenderService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbGenderServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbGenderEntityMapper tbGenderEntityMapper;
+	private com.junling.mis.mapper.primary.tbGenderMapper tbGenderMapper;
 
 	@Override
-	public Boolean addTbGender(tbGenderEntity tbGenderEntity) throws Exception {
-		return tbGenderEntityMapper.insert(tbGenderEntity)>0;
+	public Boolean addTbGender(tbGender tbGender) throws Exception {
+		return tbGenderMapper.insert(tbGender)>0;
 	}
 
 	@Override
-	public Boolean updateTbGender(tbGenderEntity tbGenderEntity) throws Exception {
-		return tbGenderEntityMapper.updateByPrimaryKey(tbGenderEntity)>0;
+	public Boolean updateTbGender(tbGender tbGender) throws Exception {
+		return tbGenderMapper.updateByPrimaryKey(tbGender)>0;
 	}
 
 	@Override
-	public tbGenderEntity findDetailTbGender(String genderCode) throws Exception {
-		return tbGenderEntityMapper.selectByPrimaryKey(genderCode);
+	public tbGender findDetailTbGender(String genderCode) throws Exception {
+		return tbGenderMapper.selectByPrimaryKey(genderCode);
 	}
 
 	@Override
 	public Boolean deleteTbGender(String genderCode) throws Exception {
-		return tbGenderEntityMapper.deleteByPrimaryKey(genderCode)>0;
+		return tbGenderMapper.deleteByPrimaryKey(genderCode)>0;
 	}
 
 //	@Override

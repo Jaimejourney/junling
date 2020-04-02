@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.claimOtherCostMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimOtherCost" >
+    <id column="other_cost_id" property="otherCostId" jdbcType="VARCHAR" />
+    <id column="cost_type" property="costType" jdbcType="VARCHAR" />
+    <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
+    <result column="cost_amount" property="costAmount" jdbcType="INTEGER" />
+    <result column="effect" property="effect" jdbcType="VARCHAR" />
+    <result column="up_time" property="upTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    other_cost_id, cost_type, claim_info_id, cost_amount, effect, up_time, remark, created_by, 
+    created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimOtherCostKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_other_cost
+    where other_cost_id = #{otherCostId,jdbcType=VARCHAR}
+      and cost_type = #{costType,jdbcType=VARCHAR}
+      and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimOtherCostKey" >
+    delete from claim_other_cost
+    where other_cost_id = #{otherCostId,jdbcType=VARCHAR}
+      and cost_type = #{costType,jdbcType=VARCHAR}
+      and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+    insert into claim_other_cost (other_cost_id, cost_type, claim_info_id, 
+      cost_amount, effect, up_time, 
+      remark, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{otherCostId,jdbcType=VARCHAR}, #{costType,jdbcType=VARCHAR}, #{claimInfoId,jdbcType=VARCHAR}, 
+      #{costAmount,jdbcType=INTEGER}, #{effect,jdbcType=VARCHAR}, #{upTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+    insert into claim_other_cost
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="otherCostId != null" >
+        other_cost_id,
+      </if>
+      <if test="costType != null" >
+        cost_type,
+      </if>
+      <if test="claimInfoId != null" >
+        claim_info_id,
+      </if>
+      <if test="costAmount != null" >
+        cost_amount,
+      </if>
+      <if test="effect != null" >
+        effect,
+      </if>
+      <if test="upTime != null" >
+        up_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="otherCostId != null" >
+        #{otherCostId,jdbcType=VARCHAR},
+      </if>
+      <if test="costType != null" >
+        #{costType,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInfoId != null" >
+        #{claimInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="costAmount != null" >
+        #{costAmount,jdbcType=INTEGER},
+      </if>
+      <if test="effect != null" >
+        #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="upTime != null" >
+        #{upTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+    update claim_other_cost
+    <set >
+      <if test="costAmount != null" >
+        cost_amount = #{costAmount,jdbcType=INTEGER},
+      </if>
+      <if test="effect != null" >
+        effect = #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="upTime != null" >
+        up_time = #{upTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where other_cost_id = #{otherCostId,jdbcType=VARCHAR}
+      and cost_type = #{costType,jdbcType=VARCHAR}
+      and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+    update claim_other_cost
+    set cost_amount = #{costAmount,jdbcType=INTEGER},
+      effect = #{effect,jdbcType=VARCHAR},
+      up_time = #{upTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where other_cost_id = #{otherCostId,jdbcType=VARCHAR}
+      and cost_type = #{costType,jdbcType=VARCHAR}
+      and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

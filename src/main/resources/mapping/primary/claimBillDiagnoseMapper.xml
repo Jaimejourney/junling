@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.claimBillDiagnoseMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimBillDiagnose" >
+    <id column="claim_bill_diagnose_id" property="claimBillDiagnoseId" jdbcType="VARCHAR" />
+    <id column="claim_bill_id" property="claimBillId" jdbcType="VARCHAR" />
+    <result column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
+    <result column="claim_no" property="claimNo" jdbcType="VARCHAR" />
+    <result column="report_no" property="reportNo" jdbcType="VARCHAR" />
+    <result column="claim_bill_no" property="claimBillNo" jdbcType="VARCHAR" />
+    <result column="diagnostic_code" property="diagnosticCode" jdbcType="VARCHAR" />
+    <result column="doc_type_parent" property="docTypeParent" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    claim_bill_diagnose_id, claim_bill_id, claim_info_id, claim_no, report_no, claim_bill_no, 
+    diagnostic_code, doc_type_parent, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimBillDiagnoseKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_bill_diagnose
+    where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
+      and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimBillDiagnoseKey" >
+    delete from claim_bill_diagnose
+    where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
+      and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+    insert into claim_bill_diagnose (claim_bill_diagnose_id, claim_bill_id, 
+      claim_info_id, claim_no, report_no, 
+      claim_bill_no, diagnostic_code, doc_type_parent, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{claimBillDiagnoseId,jdbcType=VARCHAR}, #{claimBillId,jdbcType=VARCHAR}, 
+      #{claimInfoId,jdbcType=VARCHAR}, #{claimNo,jdbcType=VARCHAR}, #{reportNo,jdbcType=VARCHAR}, 
+      #{claimBillNo,jdbcType=VARCHAR}, #{diagnosticCode,jdbcType=VARCHAR}, #{docTypeParent,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+    insert into claim_bill_diagnose
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="claimBillDiagnoseId != null" >
+        claim_bill_diagnose_id,
+      </if>
+      <if test="claimBillId != null" >
+        claim_bill_id,
+      </if>
+      <if test="claimInfoId != null" >
+        claim_info_id,
+      </if>
+      <if test="claimNo != null" >
+        claim_no,
+      </if>
+      <if test="reportNo != null" >
+        report_no,
+      </if>
+      <if test="claimBillNo != null" >
+        claim_bill_no,
+      </if>
+      <if test="diagnosticCode != null" >
+        diagnostic_code,
+      </if>
+      <if test="docTypeParent != null" >
+        doc_type_parent,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="claimBillDiagnoseId != null" >
+        #{claimBillDiagnoseId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimBillId != null" >
+        #{claimBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimInfoId != null" >
+        #{claimInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null" >
+        #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimBillNo != null" >
+        #{claimBillNo,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosticCode != null" >
+        #{diagnosticCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docTypeParent != null" >
+        #{docTypeParent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+    update claim_bill_diagnose
+    <set >
+      <if test="claimInfoId != null" >
+        claim_info_id = #{claimInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        claim_no = #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null" >
+        report_no = #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="claimBillNo != null" >
+        claim_bill_no = #{claimBillNo,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosticCode != null" >
+        diagnostic_code = #{diagnosticCode,jdbcType=VARCHAR},
+      </if>
+      <if test="docTypeParent != null" >
+        doc_type_parent = #{docTypeParent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
+      and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+    update claim_bill_diagnose
+    set claim_info_id = #{claimInfoId,jdbcType=VARCHAR},
+      claim_no = #{claimNo,jdbcType=VARCHAR},
+      report_no = #{reportNo,jdbcType=VARCHAR},
+      claim_bill_no = #{claimBillNo,jdbcType=VARCHAR},
+      diagnostic_code = #{diagnosticCode,jdbcType=VARCHAR},
+      doc_type_parent = #{docTypeParent,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
+      and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
+  </update>
+</mapper>

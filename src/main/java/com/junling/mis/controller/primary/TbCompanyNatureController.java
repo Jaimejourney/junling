@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbCompanyNatureEntity;
+import com.junling.mis.model.primary.tbCompanyNature;
 import com.junling.mis.service.primary.TbCompanyNatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbCompanyNatureController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbCompanyNature(@RequestBody tbCompanyNatureEntity tbCompanyNatureEntity) throws Exception {
-        if(service.addTbCompanyNature(tbCompanyNatureEntity)){
+    public MakeResult addTbCompanyNature(@RequestBody tbCompanyNature tbCompanyNature) throws Exception {
+        if(service.addTbCompanyNature(tbCompanyNature)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbCompanyNatureController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbCompanyNature(@RequestBody tbCompanyNatureEntity tbCompanyNatureEntity) throws Exception {
-        if(service.updateTbCompanyNature(tbCompanyNatureEntity)){
+    public MakeResult updateTbCompanyNature(@RequestBody tbCompanyNature tbCompanyNature) throws Exception {
+        if(service.updateTbCompanyNature(tbCompanyNature)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbCompanyNatureController {
 
     @RequestMapping(value = "/search/{tbCompanyCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbCompanyNatureEntity> searchTbCompanyNature(@PathVariable("tbCompanyCode") String tbCompanyCode) throws Exception {
-        tbCompanyNatureEntity tbCompanyNatureEntity = service.findDetailTbCompanyNature(tbCompanyCode);
-        MakeResult<tbCompanyNatureEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbCompanyNatureEntity == null){
+    public MakeResult<tbCompanyNature> searchTbCompanyNature(@PathVariable("tbCompanyCode") String tbCompanyCode) throws Exception {
+        tbCompanyNature tbCompanyNature = service.findDetailTbCompanyNature(tbCompanyCode);
+        MakeResult<tbCompanyNature> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbCompanyNature == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbCompanyNatureEntity);
+        return result.addResults(tbCompanyNature);
     }
 
     @RequestMapping(value = "/delete/{tbCompanyCode}", method = RequestMethod.GET)

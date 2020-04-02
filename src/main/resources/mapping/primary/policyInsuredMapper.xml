@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.policyInsuredMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyInsured" >
+    <id column="policy_insured_id" property="policyInsuredId" jdbcType="VARCHAR" />
+    <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
+    <result column="policy_reinsurance_no" property="policyReinsuranceNo" jdbcType="VARCHAR" />
+    <result column="br_no" property="brNo" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="underwriting_time" property="underwritingTime" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="accept_insurance_time" property="acceptInsuranceTime" jdbcType="TIMESTAMP" />
+    <result column="effect_time" property="effectTime" jdbcType="TIMESTAMP" />
+    <result column="maturity_time" property="maturityTime" jdbcType="TIMESTAMP" />
+    <result column="policy_insured_status" property="policyInsuredStatus" jdbcType="VARCHAR" />
+    <result column="pr_main_person" property="prMainPerson" jdbcType="VARCHAR" />
+    <result column="raltion_main_person" property="raltionMainPerson" jdbcType="VARCHAR" />
+    <result column="insure_age" property="insureAge" jdbcType="INTEGER" />
+    <result column="insure_id" property="insureId" jdbcType="VARCHAR" />
+    <result column="has_social_security" property="hasSocialSecurity" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    policy_insured_id, policy_no, policy_reinsurance_no, br_no, product_id, underwriting_time, 
+    pay_time, accept_insurance_time, effect_time, maturity_time, policy_insured_status, 
+    pr_main_person, raltion_main_person, insure_age, insure_id, has_social_security, 
+    created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from policy_insured
+    where policy_insured_id = #{policyInsuredId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from policy_insured
+    where policy_insured_id = #{policyInsuredId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.policyInsured" >
+    insert into policy_insured (policy_insured_id, policy_no, policy_reinsurance_no, 
+      br_no, product_id, underwriting_time, 
+      pay_time, accept_insurance_time, effect_time, 
+      maturity_time, policy_insured_status, pr_main_person, 
+      raltion_main_person, insure_age, insure_id, 
+      has_social_security, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{policyInsuredId,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, #{policyReinsuranceNo,jdbcType=VARCHAR}, 
+      #{brNo,jdbcType=INTEGER}, #{productId,jdbcType=VARCHAR}, #{underwritingTime,jdbcType=TIMESTAMP}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{acceptInsuranceTime,jdbcType=TIMESTAMP}, #{effectTime,jdbcType=TIMESTAMP}, 
+      #{maturityTime,jdbcType=TIMESTAMP}, #{policyInsuredStatus,jdbcType=VARCHAR}, #{prMainPerson,jdbcType=VARCHAR}, 
+      #{raltionMainPerson,jdbcType=VARCHAR}, #{insureAge,jdbcType=INTEGER}, #{insureId,jdbcType=VARCHAR}, 
+      #{hasSocialSecurity,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyInsured" >
+    insert into policy_insured
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="policyInsuredId != null" >
+        policy_insured_id,
+      </if>
+      <if test="policyNo != null" >
+        policy_no,
+      </if>
+      <if test="policyReinsuranceNo != null" >
+        policy_reinsurance_no,
+      </if>
+      <if test="brNo != null" >
+        br_no,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="underwritingTime != null" >
+        underwriting_time,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="acceptInsuranceTime != null" >
+        accept_insurance_time,
+      </if>
+      <if test="effectTime != null" >
+        effect_time,
+      </if>
+      <if test="maturityTime != null" >
+        maturity_time,
+      </if>
+      <if test="policyInsuredStatus != null" >
+        policy_insured_status,
+      </if>
+      <if test="prMainPerson != null" >
+        pr_main_person,
+      </if>
+      <if test="raltionMainPerson != null" >
+        raltion_main_person,
+      </if>
+      <if test="insureAge != null" >
+        insure_age,
+      </if>
+      <if test="insureId != null" >
+        insure_id,
+      </if>
+      <if test="hasSocialSecurity != null" >
+        has_social_security,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="policyInsuredId != null" >
+        #{policyInsuredId,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyReinsuranceNo != null" >
+        #{policyReinsuranceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="brNo != null" >
+        #{brNo,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="underwritingTime != null" >
+        #{underwritingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptInsuranceTime != null" >
+        #{acceptInsuranceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectTime != null" >
+        #{effectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maturityTime != null" >
+        #{maturityTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policyInsuredStatus != null" >
+        #{policyInsuredStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="prMainPerson != null" >
+        #{prMainPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="raltionMainPerson != null" >
+        #{raltionMainPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAge != null" >
+        #{insureAge,jdbcType=INTEGER},
+      </if>
+      <if test="insureId != null" >
+        #{insureId,jdbcType=VARCHAR},
+      </if>
+      <if test="hasSocialSecurity != null" >
+        #{hasSocialSecurity,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyInsured" >
+    update policy_insured
+    <set >
+      <if test="policyNo != null" >
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyReinsuranceNo != null" >
+        policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="brNo != null" >
+        br_no = #{brNo,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="underwritingTime != null" >
+        underwriting_time = #{underwritingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptInsuranceTime != null" >
+        accept_insurance_time = #{acceptInsuranceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectTime != null" >
+        effect_time = #{effectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maturityTime != null" >
+        maturity_time = #{maturityTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policyInsuredStatus != null" >
+        policy_insured_status = #{policyInsuredStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="prMainPerson != null" >
+        pr_main_person = #{prMainPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="raltionMainPerson != null" >
+        raltion_main_person = #{raltionMainPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAge != null" >
+        insure_age = #{insureAge,jdbcType=INTEGER},
+      </if>
+      <if test="insureId != null" >
+        insure_id = #{insureId,jdbcType=VARCHAR},
+      </if>
+      <if test="hasSocialSecurity != null" >
+        has_social_security = #{hasSocialSecurity,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where policy_insured_id = #{policyInsuredId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyInsured" >
+    update policy_insured
+    set policy_no = #{policyNo,jdbcType=VARCHAR},
+      policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},
+      br_no = #{brNo,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=VARCHAR},
+      underwriting_time = #{underwritingTime,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      accept_insurance_time = #{acceptInsuranceTime,jdbcType=TIMESTAMP},
+      effect_time = #{effectTime,jdbcType=TIMESTAMP},
+      maturity_time = #{maturityTime,jdbcType=TIMESTAMP},
+      policy_insured_status = #{policyInsuredStatus,jdbcType=VARCHAR},
+      pr_main_person = #{prMainPerson,jdbcType=VARCHAR},
+      raltion_main_person = #{raltionMainPerson,jdbcType=VARCHAR},
+      insure_age = #{insureAge,jdbcType=INTEGER},
+      insure_id = #{insureId,jdbcType=VARCHAR},
+      has_social_security = #{hasSocialSecurity,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where policy_insured_id = #{policyInsuredId,jdbcType=VARCHAR}
+  </update>
+</mapper>

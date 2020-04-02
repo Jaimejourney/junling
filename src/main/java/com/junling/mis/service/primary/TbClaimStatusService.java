@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbClaimStatusEntity;
+import com.junling.mis.model.primary.tbClaimStatus;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbClaimStatusEntity;
  */
 public interface TbClaimStatusService {
 
-	Boolean addTbClaimStatus(tbClaimStatusEntity tbClaimStatusEntity) throws Exception;
+	Boolean addTbClaimStatus(tbClaimStatus tbClaimStatus) throws Exception;
 
-	Boolean updateTbClaimStatus(tbClaimStatusEntity tbClaimStatusEntity) throws Exception;
+	Boolean updateTbClaimStatus(tbClaimStatus tbClaimStatus) throws Exception;
 
-	tbClaimStatusEntity findDetailTbClaimStatus(String statusCode) throws Exception;
+	tbClaimStatus findDetailTbClaimStatus(String statusCode) throws Exception;
 
 //	Result listTbClaimStatus(TbClaimStatusModel tbClaimStatusModel) throws Exception;
 //

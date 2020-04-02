@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyBenefitEntity;
+import com.junling.mis.model.primary.policyBenefit;
 import com.junling.mis.service.primary.PolicyBenefitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class PolicyBenefitController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyBenefit(@RequestBody policyBenefitEntity policyBenefitEntity) throws Exception {
-        if(service.addPolicyBenefit(policyBenefitEntity)){
+    public MakeResult addPolicyBenefit(@RequestBody policyBenefit policyBenefit) throws Exception {
+        if(service.addPolicyBenefit(policyBenefit)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class PolicyBenefitController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyBenefit(@RequestBody policyBenefitEntity policyBenefitEntity) throws Exception {
-        if(service.updatePolicyBenefit(policyBenefitEntity)){
+    public MakeResult updatePolicyBenefit(@RequestBody policyBenefit policyBenefit) throws Exception {
+        if(service.updatePolicyBenefit(policyBenefit)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class PolicyBenefitController {
 
     @RequestMapping(value = "/search/{policyBenefitId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<policyBenefitEntity> searchPolicyBenefit(@PathVariable("policyBenefitId") String policyBenefitId) throws Exception {
-        policyBenefitEntity policyBenefitEntity = service.findDetailPolicyBenefit(policyBenefitId);
-        MakeResult<policyBenefitEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(policyBenefitEntity == null){
+    public MakeResult<policyBenefit> searchPolicyBenefit(@PathVariable("policyBenefitId") String policyBenefitId) throws Exception {
+        policyBenefit policyBenefit = service.findDetailPolicyBenefit(policyBenefitId);
+        MakeResult<policyBenefit> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(policyBenefit == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(policyBenefitEntity);
+        return result.addResults(policyBenefit);
     }
 
     @RequestMapping(value = "/delete/{policyBenefitId}", method = RequestMethod.GET)

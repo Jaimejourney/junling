@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.dutyInfoEntity;
+import com.junling.mis.model.primary.dutyInfo;
 import com.junling.mis.service.primary.DutyInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class DutyInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addDutyInfo(@RequestBody dutyInfoEntity dutyInfoEntity) throws Exception {
-        if(service.addDutyInfo(dutyInfoEntity)){
+    public MakeResult addDutyInfo(@RequestBody dutyInfo dutyInfo) throws Exception {
+        if(service.addDutyInfo(dutyInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class DutyInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateDutyInfo(@RequestBody dutyInfoEntity dutyInfoEntity) throws Exception {
-        if(service.updateDutyInfo(dutyInfoEntity)){
+    public MakeResult updateDutyInfo(@RequestBody dutyInfo dutyInfo) throws Exception {
+        if(service.updateDutyInfo(dutyInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class DutyInfoController {
 
     @RequestMapping(value = "/search/{dutyId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<dutyInfoEntity> searchDutyInfo(@PathVariable("dutyId") String dutyId) throws Exception {
-        dutyInfoEntity dutyInfoEntity = service.findDetailDutyInfo(dutyId);
-        MakeResult<dutyInfoEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(dutyInfoEntity == null){
+    public MakeResult<dutyInfo> searchDutyInfo(@PathVariable("dutyId") String dutyId) throws Exception {
+        dutyInfo dutyInfo = service.findDetailDutyInfo(dutyId);
+        MakeResult<dutyInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(dutyInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(dutyInfoEntity);
+        return result.addResults(dutyInfo);
     }
 
     @RequestMapping(value = "/delete/{dutyId}", method = RequestMethod.GET)

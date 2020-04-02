@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbBaseHospitalEntityWithBLOBs;
+import com.junling.mis.mapper.primary.tbBaseHospitalMapper;
+import com.junling.mis.model.primary.tbBaseHospital;
 import com.junling.mis.service.primary.TbBaseHospitalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +18,26 @@ public class TbBaseHospitalServiceImpl implements TbBaseHospitalService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbBaseHospitalServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbBaseHospitalEntityMapper tbBaseHospitalEntityMapper;
+	private tbBaseHospitalMapper tbBaseHospitalMapper;
 
 	@Override
-	public Boolean addTbBaseHospital(tbBaseHospitalEntityWithBLOBs tbBaseHospitalEntityWithBLOBs) throws Exception {
-		return tbBaseHospitalEntityMapper.insert(tbBaseHospitalEntityWithBLOBs)>0;
+	public Boolean addTbBaseHospital(tbBaseHospital tbBaseHospital) throws Exception {
+		return tbBaseHospitalMapper.insert(tbBaseHospital)>0;
 	}
 
 	@Override
-	public Boolean updateTbBaseHospital(tbBaseHospitalEntityWithBLOBs tbBaseHospitalEntityWithBLOBs) throws Exception {
-		return tbBaseHospitalEntityMapper.updateByPrimaryKey(tbBaseHospitalEntityWithBLOBs)>0;
+	public Boolean updateTbBaseHospital(tbBaseHospital tbBaseHospital) throws Exception {
+		return tbBaseHospitalMapper.updateByPrimaryKey(tbBaseHospital)>0;
 	}
 
 	@Override
-	public tbBaseHospitalEntityWithBLOBs findDetailTbBaseHospital(String hospitalId) throws Exception {
-		return tbBaseHospitalEntityMapper.selectByPrimaryKey(hospitalId);
+	public tbBaseHospital findDetailTbBaseHospital(String hospitalId) throws Exception {
+		return tbBaseHospitalMapper.selectByPrimaryKey(hospitalId);
 	}
 
 	@Override
 	public Boolean deleteTbBaseHospital(String hospitalId) throws Exception {
-		return tbBaseHospitalEntityMapper.deleteByPrimaryKey(hospitalId)>0;
+		return tbBaseHospitalMapper.deleteByPrimaryKey(hospitalId)>0;
 	}
 
 

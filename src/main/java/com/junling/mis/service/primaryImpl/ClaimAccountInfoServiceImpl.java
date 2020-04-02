@@ -2,8 +2,9 @@ package com.junling.mis.service.primaryImpl;
 
 
 
-import com.junling.mis.mapper.primary.claimAccountInfoEntityMapper;
-import com.junling.mis.model.primary.claimAccountInfoEntity;
+import com.junling.mis.mapper.primary.claimAccountInfoMapper;
+import com.junling.mis.model.primary.claimAccountInfo;
+import com.junling.mis.model.primary.claimAccountInfoKey;
 import com.junling.mis.service.primary.ClaimAccountInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,26 +23,25 @@ public class ClaimAccountInfoServiceImpl implements ClaimAccountInfoService {
     private final static Logger LOG = LoggerFactory.getLogger(ClaimAccountInfoServiceImpl.class);
 
     @Autowired
-    claimAccountInfoEntityMapper mapper;
+    claimAccountInfoMapper mapper;
 
     @Override
-    public Boolean addClaimAccountInfo(claimAccountInfoEntity claimAccountInfoEntity) throws Exception {
-        return mapper.insert(claimAccountInfoEntity) > 0;
+    public Boolean addClaimAccountInfo(claimAccountInfo claimAccountInfo) throws Exception {
+        return mapper.insert(claimAccountInfo) > 0;
     }
 
     @Override
-    public Boolean updateClaimAccountInfo(claimAccountInfoEntity claimAccountInfoEntity) throws Exception {
-        return mapper.updateByPrimaryKey(claimAccountInfoEntity) > 0;
+    public Boolean updateClaimAccountInfo(claimAccountInfo claimAccountInfo) throws Exception {
+        return mapper.updateByPrimaryKey(claimAccountInfo) > 0;
     }
 
     @Override
-    public claimAccountInfoEntity findDetailClaimAccountInfo(String accountId) throws Exception {
-        return mapper.selectByPrimaryKey(accountId);
+    public claimAccountInfo findDetailClaimAccountInfo(claimAccountInfoKey key) throws Exception {
+        return mapper.selectByPrimaryKey(key);
     }
 
     @Override
-    public Boolean deleteClaimAccountInfo(String accountId) throws Exception {
-        return mapper.deleteByPrimaryKey(accountId) > 0;
+    public Boolean deleteClaimAccountInfo(claimAccountInfoKey key) throws Exception {
+        return mapper.deleteByPrimaryKey(key) > 0;
     }
-
 }

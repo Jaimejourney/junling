@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbHdRelationEntity;
+import com.junling.mis.model.primary.tbHdRelation;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbHdRelationEntity;
  */
 public interface TbHdRelationService {
 
-	Boolean addTbHdRelation(tbHdRelationEntity tbHdRelationEntity) throws Exception;
+	Boolean addTbHdRelation(tbHdRelation tbHdRelationEntity) throws Exception;
 
-	Boolean updateTbHdRelation(tbHdRelationEntity tbHdRelationEntity) throws Exception;
+	Boolean updateTbHdRelation(tbHdRelation tbHdRelationEntity) throws Exception;
 
-	tbHdRelationEntity findDetailTbHdRelation(String hospitalDepartmentId) throws Exception;
+	tbHdRelation findDetailTbHdRelation(String hospitalDepartmentId) throws Exception;
 
 //	Result listTbHdRelation(TbHdRelationModel tbHdRelationModel) throws Exception;
 //

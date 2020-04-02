@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junling.mis.mapper.primary.claimWorkFlowMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimWorkFlow" >
+    <id column="claim_work_flow_id" property="claimWorkFlowId" jdbcType="VARCHAR" />
+    <result column="claim_no" property="claimNo" jdbcType="VARCHAR" />
+    <result column="prem_node" property="premNode" jdbcType="VARCHAR" />
+    <result column="current_node" property="currentNode" jdbcType="VARCHAR" />
+    <result column="customer_id" property="customerId" jdbcType="VARCHAR" />
+    <result column="process_start_time" property="processStartTime" jdbcType="TIMESTAMP" />
+    <result column="process_end_time" property="processEndTime" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    claim_work_flow_id, claim_no, prem_node, current_node, customer_id, process_start_time, 
+    process_end_time, created_by, created_time, updated_by, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from claim_work_flow
+    where claim_work_flow_id = #{claimWorkFlowId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from claim_work_flow
+    where claim_work_flow_id = #{claimWorkFlowId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junling.mis.model.primary.claimWorkFlow" >
+    insert into claim_work_flow (claim_work_flow_id, claim_no, prem_node, 
+      current_node, customer_id, process_start_time, 
+      process_end_time, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{claimWorkFlowId,jdbcType=VARCHAR}, #{claimNo,jdbcType=VARCHAR}, #{premNode,jdbcType=VARCHAR}, 
+      #{currentNode,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{processStartTime,jdbcType=TIMESTAMP}, 
+      #{processEndTime,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimWorkFlow" >
+    insert into claim_work_flow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="claimWorkFlowId != null" >
+        claim_work_flow_id,
+      </if>
+      <if test="claimNo != null" >
+        claim_no,
+      </if>
+      <if test="premNode != null" >
+        prem_node,
+      </if>
+      <if test="currentNode != null" >
+        current_node,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="processStartTime != null" >
+        process_start_time,
+      </if>
+      <if test="processEndTime != null" >
+        process_end_time,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedBy != null" >
+        updated_by,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="claimWorkFlowId != null" >
+        #{claimWorkFlowId,jdbcType=VARCHAR},
+      </if>
+      <if test="claimNo != null" >
+        #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="premNode != null" >
+        #{premNode,jdbcType=VARCHAR},
+      </if>
+      <if test="currentNode != null" >
+        #{currentNode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="processStartTime != null" >
+        #{processStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processEndTime != null" >
+        #{processEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimWorkFlow" >
+    update claim_work_flow
+    <set >
+      <if test="claimNo != null" >
+        claim_no = #{claimNo,jdbcType=VARCHAR},
+      </if>
+      <if test="premNode != null" >
+        prem_node = #{premNode,jdbcType=VARCHAR},
+      </if>
+      <if test="currentNode != null" >
+        current_node = #{currentNode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="processStartTime != null" >
+        process_start_time = #{processStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processEndTime != null" >
+        process_end_time = #{processEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where claim_work_flow_id = #{claimWorkFlowId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimWorkFlow" >
+    update claim_work_flow
+    set claim_no = #{claimNo,jdbcType=VARCHAR},
+      prem_node = #{premNode,jdbcType=VARCHAR},
+      current_node = #{currentNode,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=VARCHAR},
+      process_start_time = #{processStartTime,jdbcType=TIMESTAMP},
+      process_end_time = #{processEndTime,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where claim_work_flow_id = #{claimWorkFlowId,jdbcType=VARCHAR}
+  </update>
+</mapper>

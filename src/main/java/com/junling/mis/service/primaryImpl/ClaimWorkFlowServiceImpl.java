@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.claimWorkFlowEntityMapper;
-import com.junling.mis.model.primary.claimWorkFlowEntity;
+import com.junling.mis.mapper.primary.claimWorkFlowMapper;
+import com.junling.mis.model.primary.claimWorkFlow;
 import com.junling.mis.service.primary.ClaimWorkFlowService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,26 +18,26 @@ public class ClaimWorkFlowServiceImpl implements ClaimWorkFlowService {
 	private final static Logger LOG = LoggerFactory.getLogger(ClaimWorkFlowServiceImpl.class);
 
 	@Resource
-	private claimWorkFlowEntityMapper claimWorkFlowEntityMapper;
+	private claimWorkFlowMapper claimWorkFlowMapper;
 
 
 	@Override
-	public Boolean addClaimWorkFlow(claimWorkFlowEntity claimWorkFlowEntity) throws Exception {
-		return claimWorkFlowEntityMapper.insert(claimWorkFlowEntity) > 0;
+	public Boolean addClaimWorkFlow(claimWorkFlow claimWorkFlow) throws Exception {
+		return claimWorkFlowMapper.insert(claimWorkFlow) > 0;
 	}
 
 	@Override
-	public Boolean updateClaimWorkFlow(claimWorkFlowEntity claimWorkFlowEntity) throws Exception {
-		return claimWorkFlowEntityMapper.updateByPrimaryKey(claimWorkFlowEntity) > 0;
+	public Boolean updateClaimWorkFlow(claimWorkFlow claimWorkFlow) throws Exception {
+		return claimWorkFlowMapper.updateByPrimaryKey(claimWorkFlow) > 0;
 	}
 
 	@Override
-	public claimWorkFlowEntity findDetailClaimWorkFlow(String claimWorkFlowId) throws Exception {
-		return claimWorkFlowEntityMapper.selectByPrimaryKey(claimWorkFlowId);
+	public claimWorkFlow findDetailClaimWorkFlow(String claimWorkFlowId) throws Exception {
+		return claimWorkFlowMapper.selectByPrimaryKey(claimWorkFlowId);
 	}
 
 	@Override
 	public Boolean deleteClaimWorkFlow(String claimWorkFlowId) throws Exception {
-		return claimWorkFlowEntityMapper.deleteByPrimaryKey(claimWorkFlowId) > 0;
+		return claimWorkFlowMapper.deleteByPrimaryKey(claimWorkFlowId) > 0;
 	}
 }

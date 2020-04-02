@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbClaimResultEntity;
+import com.junling.mis.model.primary.tbClaimResult;
 import com.junling.mis.service.primary.TbClaimResultService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbClaimResultServiceImpl implements TbClaimResultService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbClaimResultServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbClaimResultEntityMapper tbClaimResultEntityMapper;
+	private com.junling.mis.mapper.primary.tbClaimResultMapper tbClaimResultMapper;
 
 	@Override
-	public Boolean addTbClaimResult(tbClaimResultEntity tbClaimResultEntity) throws Exception {
-		return tbClaimResultEntityMapper.insert(tbClaimResultEntity)>0;
+	public Boolean addTbClaimResult(tbClaimResult tbClaimResult) throws Exception {
+		return tbClaimResultMapper.insert(tbClaimResult)>0;
 	}
 
 	@Override
-	public Boolean updateTbClaimResult(tbClaimResultEntity tbClaimResultEntity) throws Exception {
-		return tbClaimResultEntityMapper.updateByPrimaryKey(tbClaimResultEntity)>0;
+	public Boolean updateTbClaimResult(tbClaimResult tbClaimResult) throws Exception {
+		return tbClaimResultMapper.updateByPrimaryKey(tbClaimResult)>0;
 	}
 
 	@Override
-	public tbClaimResultEntity findDetailTbClaimResult(String resultCode) throws Exception {
-		return tbClaimResultEntityMapper.selectByPrimaryKey(resultCode);
+	public tbClaimResult findDetailTbClaimResult(String resultCode) throws Exception {
+		return tbClaimResultMapper.selectByPrimaryKey(resultCode);
 	}
 
 	@Override
 	public Boolean deleteTbClaimResult(String resultCode) throws Exception {
-		return tbClaimResultEntityMapper.deleteByPrimaryKey(resultCode)>0;
+		return tbClaimResultMapper.deleteByPrimaryKey(resultCode)>0;
 	}
 //
 //	@Override

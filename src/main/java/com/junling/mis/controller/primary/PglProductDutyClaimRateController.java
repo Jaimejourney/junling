@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.pglProductDutyClaimRateEntity;
+import com.junling.mis.model.primary.pglpdClaimRate;
 import com.junling.mis.service.primary.PglProductDutyClaimRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class PglProductDutyClaimRateController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPglProductDutyClaimRate(@RequestBody pglProductDutyClaimRateEntity pglProductDutyClaimRateEntity) throws Exception {
-        if(service.addPglProductDutyClaimRate(pglProductDutyClaimRateEntity)){
+    public MakeResult addPglProductDutyClaimRate(@RequestBody pglpdClaimRate pglpdClaimRate) throws Exception {
+        if(service.addPglProductDutyClaimRate(pglpdClaimRate)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class PglProductDutyClaimRateController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePglProductDutyClaimRate(@RequestBody pglProductDutyClaimRateEntity pglProductDutyClaimRateEntity) throws Exception {
-        if(service.updatePglProductDutyClaimRate(pglProductDutyClaimRateEntity)){
+    public MakeResult updatePglProductDutyClaimRate(@RequestBody pglpdClaimRate pglpdClaimRate) throws Exception {
+        if(service.updatePglProductDutyClaimRate(pglpdClaimRate)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class PglProductDutyClaimRateController {
 
     @RequestMapping(value = "/search/{pglpdClaimRateId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<pglProductDutyClaimRateEntity> searchPglProductDutyClaimRate(@PathVariable("pglpdClaimRateId") String pglpdClaimRateId) throws Exception {
-        pglProductDutyClaimRateEntity pglProductDutyClaimRateEntity = service.findDetailPglProductDutyClaimRate(pglpdClaimRateId);
-        MakeResult<pglProductDutyClaimRateEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(pglProductDutyClaimRateEntity == null){
+    public MakeResult<pglpdClaimRate> searchPglProductDutyClaimRate(@PathVariable("pglpdClaimRateId") String pglpdClaimRateId) throws Exception {
+        pglpdClaimRate pglProductDutyClaimRate = service.findDetailPglProductDutyClaimRate(pglpdClaimRateId);
+        MakeResult<pglpdClaimRate> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(pglProductDutyClaimRate == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(pglProductDutyClaimRateEntity);
+        return result.addResults(pglProductDutyClaimRate);
     }
 
     @RequestMapping(value = "/delete/{pglpdClaimRateId}", method = RequestMethod.GET)

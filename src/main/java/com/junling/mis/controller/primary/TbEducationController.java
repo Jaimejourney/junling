@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbEducationEntity;
+import com.junling.mis.model.primary.tbEducation;
 import com.junling.mis.service.primary.TbEducationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbEducationController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbEducation(@RequestBody tbEducationEntity tbEducationEntity) throws Exception {
-        if(service.addTbEducation(tbEducationEntity)){
+    public MakeResult addTbEducation(@RequestBody tbEducation tbEducation) throws Exception {
+        if(service.addTbEducation(tbEducation)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbEducationController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbEducation(@RequestBody tbEducationEntity tbEducationEntity) throws Exception {
-        if(service.updateTbEducation(tbEducationEntity)){
+    public MakeResult updateTbEducation(@RequestBody tbEducation tbEducation) throws Exception {
+        if(service.updateTbEducation(tbEducation)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbEducationController {
 
     @RequestMapping(value = "/search/{educationCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbEducationEntity> searchTbEducation(@PathVariable("educationCode") String educationCode) throws Exception {
-        tbEducationEntity tbEducationEntity = service.findDetailTbEducation(educationCode);
-        MakeResult<tbEducationEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbEducationEntity == null){
+    public MakeResult<tbEducation> searchTbEducation(@PathVariable("educationCode") String educationCode) throws Exception {
+        tbEducation tbEducation = service.findDetailTbEducation(educationCode);
+        MakeResult<tbEducation> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbEducation == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbEducationEntity);
+        return result.addResults(tbEducation);
     }
 
     @RequestMapping(value = "/delete/{educationCode}", method = RequestMethod.GET)

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbCustomerLevelEntity;
+import com.junling.mis.model.primary.tbCustomerLevel;
 import com.junling.mis.service.primary.TbCustomerLevelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class TbCustomerLevelController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbCustomerLevel(@RequestBody tbCustomerLevelEntity tbCustomerLevelEntity) throws Exception {
-        if(service.addTbCustomerLevel(tbCustomerLevelEntity)){
+    public MakeResult addTbCustomerLevel(@RequestBody tbCustomerLevel tbCustomerLevel) throws Exception {
+        if(service.addTbCustomerLevel(tbCustomerLevel)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class TbCustomerLevelController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbCustomerLevel(@RequestBody tbCustomerLevelEntity tbCustomerLevelEntity) throws Exception {
-        if(service.updateTbCustomerLevel(tbCustomerLevelEntity)){
+    public MakeResult updateTbCustomerLevel(@RequestBody tbCustomerLevel tbCustomerLevel) throws Exception {
+        if(service.updateTbCustomerLevel(tbCustomerLevel)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class TbCustomerLevelController {
 
     @RequestMapping(value = "/search/{customerLevelCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbCustomerLevelEntity> searchTbCustomerLevel(@PathVariable("customerLevelCode") String customerLevelCode) throws Exception {
-        tbCustomerLevelEntity tbCustomerLevelEntity = service.findDetailTbCustomerLevel(customerLevelCode);
-        MakeResult<tbCustomerLevelEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(tbCustomerLevelEntity == null){
+    public MakeResult<tbCustomerLevel> searchTbCustomerLevel(@PathVariable("customerLevelCode") String customerLevelCode) throws Exception {
+        tbCustomerLevel tbCustomerLevel = service.findDetailTbCustomerLevel(customerLevelCode);
+        MakeResult<tbCustomerLevel> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(tbCustomerLevel == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(tbCustomerLevelEntity);
+        return result.addResults(tbCustomerLevel);
     }
 
     @RequestMapping(value = "/delete/{customerLevelCode}", method = RequestMethod.GET)

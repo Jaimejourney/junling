@@ -2,7 +2,8 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.claimDocEntity;
+import com.junling.mis.model.primary.claimDoc;
+import com.junling.mis.model.primary.claimDocKey;
 import com.junling.mis.service.primary.ClaimDocService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,8 @@ public class ClaimDocController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addClaimDoc(@RequestBody claimDocEntity claimDocEntity) throws Exception {
-        if(service.addClaimDoc(claimDocEntity)){
+    public MakeResult addClaimDoc(@RequestBody claimDoc claimDoc) throws Exception {
+        if(service.addClaimDoc(claimDoc)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,29 +28,29 @@ public class ClaimDocController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateClaimDoc(@RequestBody claimDocEntity claimDocEntity) throws Exception {
-        if(service.updateClaimDoc(claimDocEntity)){
+    public MakeResult updateClaimDoc(@RequestBody claimDoc claimDoc) throws Exception {
+        if(service.updateClaimDoc(claimDoc)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
         }
     }
 
-    @RequestMapping(value = "/search/{docId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<claimDocEntity> searchClaimDoc(@PathVariable("docId") Integer docId) throws Exception {
-        claimDocEntity claimDocEntity = service.findDetailClaimDoc(docId);
-        MakeResult<claimDocEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(claimDocEntity == null){
+    public MakeResult<claimDoc> searchClaimDoc(@RequestBody claimDocKey key) throws Exception {
+        claimDoc claimDoc = service.findDetailClaimDoc(key);
+        MakeResult<claimDoc> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(claimDoc == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(claimDocEntity);
+        return result.addResults(claimDoc);
     }
 
-    @RequestMapping(value = "/delete/{docId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult delClaimDoc(@PathVariable("docId") Integer docId) throws Exception {
-        if(service.deleteClaimDoc(docId)){
+    public MakeResult delClaimDoc(@RequestBody claimDocKey key) throws Exception {
+        if(service.deleteClaimDoc(key)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);

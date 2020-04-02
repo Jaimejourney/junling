@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbClaimSourceTypeEntity;
+import com.junling.mis.model.primary.tbClaimSourceType;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbClaimSourceTypeEntity;
  */
 public interface TbClaimSourceTypeService {
 
-	Boolean addTbClaimSourceType(tbClaimSourceTypeEntity tbClaimSourceTypeEntity) throws Exception;
+	Boolean addTbClaimSourceType(tbClaimSourceType tbClaimSourceType) throws Exception;
 
-	Boolean updateTbClaimSourceType(tbClaimSourceTypeEntity tbClaimSourceTypeEntity) throws Exception;
+	Boolean updateTbClaimSourceType(tbClaimSourceType tbClaimSourceType) throws Exception;
 
-	tbClaimSourceTypeEntity findDetailTbClaimSourceType(String statusCode) throws Exception;
+	tbClaimSourceType findDetailTbClaimSourceType(String statusCode) throws Exception;
 	
 //	Result listTbClaimSourceType(TbClaimSourceTypeModel tbClaimSourceTypeModel) throws Exception;
 //

@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.dutyInfoEntity;
+import com.junling.mis.model.primary.dutyInfo;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.dutyInfoEntity;
  */
 public interface DutyInfoService {
 
-	Boolean addDutyInfo(dutyInfoEntity dutyInfoEntity) throws Exception;
+	Boolean addDutyInfo(dutyInfo dutyInfo) throws Exception;
 
-	Boolean updateDutyInfo(dutyInfoEntity dutyInfoEntity) throws Exception;
+	Boolean updateDutyInfo(dutyInfo dutyInfo) throws Exception;
 //
-	dutyInfoEntity findDetailDutyInfo(String dutyId) throws Exception;
+	dutyInfo findDetailDutyInfo(String dutyId) throws Exception;
 //
 //	Result listDutyInfo(DutyInfoModel dutyInfoModel) throws Exception;
 //

@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.gradeLevelProductEntity;
+import com.junling.mis.model.primary.gradeLevelProduct;
 import com.junling.mis.service.primary.GradeLevelProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class GradeLevelProductController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addGradeLevelProduct(@RequestBody gradeLevelProductEntity gradeLevelProductEntity) throws Exception {
-        if(service.addGradeLevelProduct(gradeLevelProductEntity)){
+    public MakeResult addGradeLevelProduct(@RequestBody gradeLevelProduct gradeLevelProduct) throws Exception {
+        if(service.addGradeLevelProduct(gradeLevelProduct)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -27,8 +27,8 @@ public class GradeLevelProductController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateGradeLevelProduct(@RequestBody gradeLevelProductEntity gradeLevelProductEntity) throws Exception {
-        if(service.updateGradeLevelProduct(gradeLevelProductEntity)){
+    public MakeResult updateGradeLevelProduct(@RequestBody gradeLevelProduct gradeLevelProduct) throws Exception {
+        if(service.updateGradeLevelProduct(gradeLevelProduct)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);
@@ -37,13 +37,13 @@ public class GradeLevelProductController {
 
     @RequestMapping(value = "/search/{gradeLevelProductId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<gradeLevelProductEntity> searchGradeLevelProduct(@PathVariable("gradeLevelProductId") String gradeLevelProductId) throws Exception {
-        gradeLevelProductEntity gradeLevelProductEntity = service.findDetailGradeLevelProduct(gradeLevelProductId);
-        MakeResult<gradeLevelProductEntity> result = MakeResult.createResult(ResultStatus.OK_CODE);
-        if(gradeLevelProductEntity == null){
+    public MakeResult<gradeLevelProduct> searchGradeLevelProduct(@PathVariable("gradeLevelProductId") String gradeLevelProductId) throws Exception {
+        gradeLevelProduct gradeLevelProduct = service.findDetailGradeLevelProduct(gradeLevelProductId);
+        MakeResult<gradeLevelProduct> result = MakeResult.createResult(ResultStatus.OK_CODE);
+        if(gradeLevelProduct == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
-        return result.addResults(gradeLevelProductEntity);
+        return result.addResults(gradeLevelProduct);
     }
 
     @RequestMapping(value = "/delete/{gradeLevelProductId}", method = RequestMethod.GET)

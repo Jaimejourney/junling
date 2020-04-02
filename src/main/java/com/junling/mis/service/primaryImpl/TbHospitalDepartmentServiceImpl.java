@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbHospitalDepartmentEntity;
+import com.junling.mis.model.primary.tbHospitalDepartment;
 import com.junling.mis.service.primary.TbHospitalDepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbHospitalDepartmentServiceImpl implements TbHospitalDepartmentServ
 	private final static Logger LOG = LoggerFactory.getLogger(TbHospitalDepartmentServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbHospitalDepartmentEntityMapper tbHospitalDepartmentEntityMapper;
+	private com.junling.mis.mapper.primary.tbHospitalDepartmentMapper tbHospitalDepartmentMapper;
 
 	@Override
-	public Boolean addTbHospitalDepartment(tbHospitalDepartmentEntity tbHospitalDepartmentEntity) throws Exception {
-		return tbHospitalDepartmentEntityMapper.insert(tbHospitalDepartmentEntity)>0;
+	public Boolean addTbHospitalDepartment(tbHospitalDepartment tbHospitalDepartment) throws Exception {
+		return tbHospitalDepartmentMapper.insert(tbHospitalDepartment)>0;
 	}
 
 	@Override
-	public Boolean updateTbHospitalDepartment(tbHospitalDepartmentEntity tbHospitalDepartmentEntity) throws Exception {
-		return tbHospitalDepartmentEntityMapper.updateByPrimaryKey(tbHospitalDepartmentEntity)>0;
+	public Boolean updateTbHospitalDepartment(tbHospitalDepartment tbHospitalDepartment) throws Exception {
+		return tbHospitalDepartmentMapper.updateByPrimaryKey(tbHospitalDepartment)>0;
 	}
 
 	@Override
-	public tbHospitalDepartmentEntity findDetailTbHospitalDepartment(String hospitalDepartmentId) throws Exception {
-		return tbHospitalDepartmentEntityMapper.selectByPrimaryKey(hospitalDepartmentId);
+	public tbHospitalDepartment findDetailTbHospitalDepartment(String hospitalDepartmentId) throws Exception {
+		return tbHospitalDepartmentMapper.selectByPrimaryKey(hospitalDepartmentId);
 	}
 
 	@Override
 	public Boolean deleteTbHospitalDepartment(String hospitalDepartmentId) throws Exception {
-		return tbHospitalDepartmentEntityMapper.deleteByPrimaryKey(hospitalDepartmentId)>0;
+		return tbHospitalDepartmentMapper.deleteByPrimaryKey(hospitalDepartmentId)>0;
 	}
 
 //	@Override

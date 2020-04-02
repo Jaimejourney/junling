@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbImageTypeEntity;
+import com.junling.mis.model.primary.tbImageType;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbImageTypeEntity;
  */
 public interface TbImageTypeService {
 
-	Boolean addTbImageType(tbImageTypeEntity tbImageTypeEntity) throws Exception;
+	Boolean addTbImageType(tbImageType tbImageType) throws Exception;
 
-	Boolean updateTbImageType(tbImageTypeEntity tbImageTypeEntity) throws Exception;
+	Boolean updateTbImageType(tbImageType tbImageType) throws Exception;
 
-	tbImageTypeEntity findDetailTbImageType(String docTypeCode) throws Exception;
+	tbImageType findDetailTbImageType(String docTypeCode) throws Exception;
 
 //	Result listTbImageType(TbImageTypeModel tbImageTypeModel) throws Exception;
 //

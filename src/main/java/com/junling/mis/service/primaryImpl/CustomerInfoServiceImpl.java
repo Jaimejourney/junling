@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.customerInfoEntityMapper;
-import com.junling.mis.model.primary.customerInfoEntity;
+import com.junling.mis.mapper.primary.customerInfoMapper;
+import com.junling.mis.model.primary.customerInfo;
 import com.junling.mis.service.primary.CustomerInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,26 +18,26 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(CustomerInfoServiceImpl.class);
 
 	@Resource
-	private customerInfoEntityMapper customerInfoEntityMapper;
+	private customerInfoMapper customerInfoMapper;
 
 
 	@Override
-	public Boolean addCustomerInfo(customerInfoEntity customerInfoEntity) throws Exception {
-		return customerInfoEntityMapper.insert(customerInfoEntity) > 0;
+	public Boolean addCustomerInfo(customerInfo customerInfo) throws Exception {
+		return customerInfoMapper.insert(customerInfo) > 0;
 	}
 
 	@Override
-	public Boolean updateCustomerInfo(customerInfoEntity customerInfoEntity) throws Exception {
-		return customerInfoEntityMapper.updateByPrimaryKey(customerInfoEntity) > 0;
+	public Boolean updateCustomerInfo(customerInfo customerInfo) throws Exception {
+		return customerInfoMapper.updateByPrimaryKey(customerInfo) > 0;
 	}
 
 	@Override
-	public customerInfoEntity findDetailCustomerInfo(String customerNo) throws Exception {
-		return customerInfoEntityMapper.selectByPrimaryKey(customerNo);
+	public customerInfo findDetailCustomerInfo(String customerNo) throws Exception {
+		return customerInfoMapper.selectByPrimaryKey(customerNo);
 	}
 
 	@Override
 	public Boolean deleteCustomerInfo(String customerNo) throws Exception {
-		return customerInfoEntityMapper.deleteByPrimaryKey(customerNo) > 0;
+		return customerInfoMapper.deleteByPrimaryKey(customerNo) > 0;
 	}
 }

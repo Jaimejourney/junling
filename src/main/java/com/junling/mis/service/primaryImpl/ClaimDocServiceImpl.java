@@ -1,7 +1,8 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.claimDocEntityMapper;
-import com.junling.mis.model.primary.claimDocEntity;
+import com.junling.mis.mapper.primary.claimDocMapper;
+import com.junling.mis.model.primary.claimDoc;
+import com.junling.mis.model.primary.claimDocKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.junling.mis.service.primary.ClaimDocService;
@@ -18,25 +19,25 @@ public class ClaimDocServiceImpl implements ClaimDocService {
 	private final static Logger LOG = LoggerFactory.getLogger(ClaimDocServiceImpl.class);
 
 	@Resource
-	private claimDocEntityMapper claimDocEntityMapper;
+	private claimDocMapper claimDocMapper;
 
 	@Override
-	public Boolean addClaimDoc(claimDocEntity claimDocEntity) throws Exception {
-		return claimDocEntityMapper.insert(claimDocEntity) > 0;
+	public Boolean addClaimDoc(claimDoc claimDoc) throws Exception {
+		return claimDocMapper.insert(claimDoc) > 0;
 	}
 
 	@Override
-	public Boolean updateClaimDoc(claimDocEntity claimDocEntity) throws Exception {
-		return claimDocEntityMapper.updateByPrimaryKey(claimDocEntity) > 0;
+	public Boolean updateClaimDoc(claimDoc claimDoc) throws Exception {
+		return claimDocMapper.updateByPrimaryKey(claimDoc) > 0;
 	}
 
 	@Override
-	public claimDocEntity findDetailClaimDoc(Integer docId) throws Exception {
-		return claimDocEntityMapper.selectByPrimaryKey(docId);
+	public claimDoc findDetailClaimDoc(claimDocKey key) throws Exception {
+		return claimDocMapper.selectByPrimaryKey(key);
 	}
 
 	@Override
-	public Boolean deleteClaimDoc(Integer docId) throws Exception {
-		return claimDocEntityMapper.deleteByPrimaryKey(docId) > 0;
+	public Boolean deleteClaimDoc(claimDocKey key) throws Exception {
+		return claimDocMapper.deleteByPrimaryKey(key) > 0;
 	}
 }

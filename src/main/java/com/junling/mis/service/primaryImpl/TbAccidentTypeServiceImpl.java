@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbAccidentTypeEntity;
+import com.junling.mis.model.primary.tbAccidentType;
 import com.junling.mis.service.primary.TbAccidentTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbAccidentTypeServiceImpl implements TbAccidentTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbAccidentTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbAccidentTypeEntityMapper tbAccidentTypeEntityMapper;
+	private com.junling.mis.mapper.primary.tbAccidentTypeMapper tbAccidentTypeMapper;
 
 	@Override
-	public Boolean addTbAccidentType(tbAccidentTypeEntity tbAccidentTypeEntity) throws Exception {
-		return tbAccidentTypeEntityMapper.insert(tbAccidentTypeEntity)>0;
+	public Boolean addTbAccidentType(tbAccidentType tbAccidentType) throws Exception {
+		return tbAccidentTypeMapper.insert(tbAccidentType)>0;
 	}
 
 	@Override
-	public Boolean updateTbAccidentType(tbAccidentTypeEntity tbAccidentTypeEntity) throws Exception {
-		return tbAccidentTypeEntityMapper.updateByPrimaryKey(tbAccidentTypeEntity)>0;
+	public Boolean updateTbAccidentType(tbAccidentType tbAccidentType) throws Exception {
+		return tbAccidentTypeMapper.updateByPrimaryKey(tbAccidentType)>0;
 	}
 
 	@Override
-	public tbAccidentTypeEntity findDetailTbAccidentType(String accidentTypeCode) throws Exception {
-		return tbAccidentTypeEntityMapper.selectByPrimaryKey(accidentTypeCode);
+	public tbAccidentType findDetailTbAccidentType(String accidentTypeCode) throws Exception {
+		return tbAccidentTypeMapper.selectByPrimaryKey(accidentTypeCode);
 	}
 
 	@Override
 	public Boolean deleteTbAccidentType(String accidentTypeCode) throws Exception {
-		return tbAccidentTypeEntityMapper.deleteByPrimaryKey(accidentTypeCode)>0;
+		return tbAccidentTypeMapper.deleteByPrimaryKey(accidentTypeCode)>0;
 	}
 
 //	@Override

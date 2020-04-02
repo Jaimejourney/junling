@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyShareCoverageEntity;
-import com.junling.mis.model.primary.policyShareCoverageEntityKey;
+import com.junling.mis.model.primary.policyShareCoverage;
+import com.junling.mis.model.primary.policyShareCoverageKey;
 import com.junling.mis.service.primary.PolicyShareCoverageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,26 +18,26 @@ public class PolicyShareCoverageServiceImpl implements PolicyShareCoverageServic
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyShareCoverageServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyShareCoverageEntityMapper policyShareCoverageEntityMapper;
+	private com.junling.mis.mapper.primary.policyShareCoverageMapper policyShareCoverageMapper;
 
 	@Override
-	public Boolean addPolicyShareCoverage(policyShareCoverageEntity policyShareCoverageEntity) throws Exception {
-		return policyShareCoverageEntityMapper.insert(policyShareCoverageEntity)>0;
+	public Boolean addPolicyShareCoverage(policyShareCoverage policyShareCoverage) throws Exception {
+		return policyShareCoverageMapper.insert(policyShareCoverage)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyShareCoverage(policyShareCoverageEntity policyShareCoverageEntity) throws Exception {
-		return policyShareCoverageEntityMapper.updateByPrimaryKey(policyShareCoverageEntity)>0;
+	public Boolean updatePolicyShareCoverage(policyShareCoverage policyShareCoverage) throws Exception {
+		return policyShareCoverageMapper.updateByPrimaryKey(policyShareCoverage)>0;
 	}
 
 	@Override
-	public policyShareCoverageEntity findDetailPolicyShareCoverage(policyShareCoverageEntityKey key) throws Exception {
-		return policyShareCoverageEntityMapper.selectByPrimaryKey(key);
+	public policyShareCoverage findDetailPolicyShareCoverage(policyShareCoverageKey key) throws Exception {
+		return policyShareCoverageMapper.selectByPrimaryKey(key);
 	}
 
 	@Override
-	public Boolean deletePolicyShareCoverage(policyShareCoverageEntityKey key) throws Exception {
-		return policyShareCoverageEntityMapper.deleteByPrimaryKey(key)>0;
+	public Boolean deletePolicyShareCoverage(policyShareCoverageKey key) throws Exception {
+		return policyShareCoverageMapper.deleteByPrimaryKey(key)>0;
 	}
 
 

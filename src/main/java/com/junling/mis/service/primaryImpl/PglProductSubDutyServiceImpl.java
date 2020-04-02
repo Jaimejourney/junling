@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.pglProductSubDutyEntity;
+import com.junling.mis.mapper.primary.pglProdSubDutyMapper;
+import com.junling.mis.model.primary.pglProdSubDuty;
 import com.junling.mis.service.primary.PglProductSubDutyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +18,26 @@ public class PglProductSubDutyServiceImpl implements PglProductSubDutyService {
 	private final static Logger LOG = LoggerFactory.getLogger(PglProductSubDutyServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.pglProductSubDutyEntityMapper pglProductSubDutyEntityMapper;
+	private pglProdSubDutyMapper pglProdSubDutyMapper;
 
 	@Override
-	public Boolean addPglProductSubDuty(pglProductSubDutyEntity pglProductSubDutyEntity) throws Exception {
-		return pglProductSubDutyEntityMapper.insert(pglProductSubDutyEntity)>0;
+	public Boolean addPglProductSubDuty(pglProdSubDuty pglProductSubDuty) throws Exception {
+		return pglProdSubDutyMapper.insert(pglProductSubDuty)>0;
 	}
 
 	@Override
-	public Boolean updatePglProductSubDuty(pglProductSubDutyEntity pglProductSubDutyEntity) throws Exception {
-		return pglProductSubDutyEntityMapper.updateByPrimaryKey(pglProductSubDutyEntity) > 0;
+	public Boolean updatePglProductSubDuty(pglProdSubDuty pglProductSubDuty) throws Exception {
+		return pglProdSubDutyMapper.updateByPrimaryKey(pglProductSubDuty) > 0;
 	}
 
 	@Override
-	public pglProductSubDutyEntity findDetailPglProductSubDuty(String pglProductSubDutyId) throws Exception {
-		return pglProductSubDutyEntityMapper.selectByPrimaryKey(pglProductSubDutyId);
+	public pglProdSubDuty findDetailPglProductSubDuty(String pglProductSubDutyId) throws Exception {
+		return pglProdSubDutyMapper.selectByPrimaryKey(pglProductSubDutyId);
 	}
 
 	@Override
 	public Boolean deletePglProductSubDuty(String pglProductSubDutyId) throws Exception {
-		return pglProductSubDutyEntityMapper.deleteByPrimaryKey(pglProductSubDutyId) > 0;
+		return pglProdSubDutyMapper.deleteByPrimaryKey(pglProductSubDutyId) > 0;
 	}
 //
 //	@Override

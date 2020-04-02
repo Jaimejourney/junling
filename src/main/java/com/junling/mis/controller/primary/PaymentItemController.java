@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.paymentItemEntity;
+import com.junling.mis.model.primary.paymentItem;
 import com.junling.mis.service.primary.PaymentItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +20,8 @@ public class PaymentItemController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPaymentItem(@RequestBody paymentItemEntity paymentItemEntity) throws Exception {
-        if(service.addPaymentItem(paymentItemEntity)){
+    public MakeResult addPaymentItem(@RequestBody paymentItem paymentItem) throws Exception {
+        if(service.addPaymentItem(paymentItem)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
             return MakeResult.createResult(ResultStatus.OK_WITH_DATA_ERROR);

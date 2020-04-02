@@ -1,6 +1,6 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbCompanyNatureEntity;
+import com.junling.mis.model.primary.tbCompanyNature;
 import com.junling.mis.service.primary.TbCompanyNatureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +17,26 @@ public class TbCompanyNatureServiceImpl implements TbCompanyNatureService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbCompanyNatureServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbCompanyNatureEntityMapper tbCompanyNatureEntityMapper;
+	private com.junling.mis.mapper.primary.tbCompanyNatureMapper tbCompanyNatureMapper;
 
 	@Override
-	public Boolean addTbCompanyNature(tbCompanyNatureEntity tbCompanyNatureEntity) throws Exception {
-		return tbCompanyNatureEntityMapper.insert(tbCompanyNatureEntity)>0;
+	public Boolean addTbCompanyNature(tbCompanyNature tbCompanyNature) throws Exception {
+		return tbCompanyNatureMapper.insert(tbCompanyNature)>0;
 	}
 
 	@Override
-	public Boolean updateTbCompanyNature(tbCompanyNatureEntity tbCompanyNatureEntity) throws Exception {
-		return tbCompanyNatureEntityMapper.updateByPrimaryKey(tbCompanyNatureEntity)>0;
+	public Boolean updateTbCompanyNature(tbCompanyNature tbCompanyNature) throws Exception {
+		return tbCompanyNatureMapper.updateByPrimaryKey(tbCompanyNature)>0;
 	}
 
 	@Override
-	public tbCompanyNatureEntity findDetailTbCompanyNature(String tbCompanyCode) throws Exception {
-		return tbCompanyNatureEntityMapper.selectByPrimaryKey(tbCompanyCode);
+	public tbCompanyNature findDetailTbCompanyNature(String tbCompanyCode) throws Exception {
+		return tbCompanyNatureMapper.selectByPrimaryKey(tbCompanyCode);
 	}
 
 	@Override
 	public Boolean deleteTbCompanyNature(String tbCompanyCode) throws Exception {
-		return tbCompanyNatureEntityMapper.deleteByPrimaryKey(tbCompanyCode)>0;
+		return tbCompanyNatureMapper.deleteByPrimaryKey(tbCompanyCode)>0;
 	}
 
 //	@Override

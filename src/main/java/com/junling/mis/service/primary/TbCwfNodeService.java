@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbCwfNodeEntity;
+import com.junling.mis.model.primary.tbCwfNode;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbCwfNodeEntity;
  */
 public interface TbCwfNodeService {
 
-	Boolean addTbCwfNode(tbCwfNodeEntity tbCwfNodeEntity) throws Exception;
+	Boolean addTbCwfNode(tbCwfNode tbCwfNode) throws Exception;
 
-	Boolean updateTbCwfNode(tbCwfNodeEntity tbCwfNodeEntity) throws Exception;
+	Boolean updateTbCwfNode(tbCwfNode tbCwfNode) throws Exception;
 
-	tbCwfNodeEntity findDetailTbCwfNode(String cwfNode) throws Exception;
+	tbCwfNode findDetailTbCwfNode(String cwfNode) throws Exception;
 	
 //	Result listTbCwfNode(TbCwfNodeModel tbCwfNodeModel) throws Exception;
 //
