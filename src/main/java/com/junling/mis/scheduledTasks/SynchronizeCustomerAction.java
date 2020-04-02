@@ -35,12 +35,11 @@ public class SynchronizeCustomerAction {
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-//        String str="2020-03-08 19:08:10";
-//        Date date =  DatetimeHelper.dateHelper(str);
-        String str = DatetimeHelper.now();
-        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
+
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
+        System.out.println(list.size());
         for (int i = 0; i < list.size(); i++) {
             visitRecordEntity record = list.get(i);
             customerActionEntity customerActionEntity = new customerActionEntity();
@@ -51,13 +50,14 @@ public class SynchronizeCustomerAction {
             customerActionEntity.setActionObject(String.valueOf(record.getPersonId()));
             customerActionEntity.setActionStartTime(DatetimeHelper.dateHelper(record.getApplyTime()));
             customerActionEntity.setActionEndTime(DatetimeHelper.dateHelper(record.getFinishTime()));
-            customerActionEntity.setActionPlace(hospitalEntityMapper.selectByPrimaryKey(Integer.valueOf(record.getHospitalCode())).getHospitalName());
-            customerActionEntity.setActionDes("description");
+            customerActionEntity.setActionPlace("test place");
+            customerActionEntity.setActionDes("1");
             customerActionEntity.setCreatedBy("system test");
             customerActionEntity.setCreatedTime(date);
             customerActionEntity.setUpdatedBy("system test");
             customerActionEntity.setUpdatedTime(date);
             customerActionEntity.setActionType(record.getRelationshipId());
+            customerActionEntityMapper.insert(customerActionEntity);
             System.out.println("success");
         }
     }

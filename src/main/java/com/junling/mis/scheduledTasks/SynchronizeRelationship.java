@@ -33,8 +33,7 @@ public class SynchronizeRelationship {
     public void myTask() throws ParseException {
 //        String str="2020-03-08 19:08:10";
 //        Date date =  DatetimeHelper.dateHelper(str);
-        String str = DatetimeHelper.now();
-        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
@@ -45,13 +44,14 @@ public class SynchronizeRelationship {
             customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());
             customerRelationEntity.setRelationType(record.getRelationshipId());
             customerRelationEntity.setRelationCustomer(String.valueOf(record.getPersonId()));
-            customerRelationEntity.setRelationStartTime(DatetimeHelper.dateHelper(record.getApplyTime()));
-            customerRelationEntity.setRelationEndTime(DatetimeHelper.dateHelper(record.getFinishTime()));
+            customerRelationEntity.setRelationStartTime(DatetimeHelper.dateTransferHelper(record.getApplyTime()));
+            customerRelationEntity.setRelationEndTime(DatetimeHelper.dateTransferHelper(record.getFinishTime()));
             customerRelationEntity.setRelationStatus("1");
             customerRelationEntity.setCreatedBy("sysetem test");
             customerRelationEntity.setCreatedTime(date);
             customerRelationEntity.setUpdatedBy("system test");
             customerRelationEntity.setUpdatedTime(date);
+            customerRelationEntityMapper.insert(customerRelationEntity);
             System.out.println("success");
         }
     }

@@ -44,13 +44,12 @@ public class SynchronizeClaimInfo {
     claimInfoEntityMapper claimInfoEntityMapper;
 
 //0/5 * * * * *
-    @Scheduled(cron = "0/5 * * * * *")
+    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-        String str = DatetimeHelper.now();
-        Date date = DatetimeHelper.dateHelper(str);
-
+        Date date = DatetimeHelper.scheduledDate();
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
+        System.out.println(list.size());
         for (int i = 0; i < list.size(); i++) {
             visitRecordEntity record = list.get(i);
             visitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());

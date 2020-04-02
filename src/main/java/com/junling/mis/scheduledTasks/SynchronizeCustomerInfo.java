@@ -41,8 +41,7 @@ public class SynchronizeCustomerInfo {
     public void myTask() throws ParseException {
 //        String str="2020-03-08 19:08:10";
 //        Date date =  DatetimeHelper.dateHelper(str);
-        String str = DatetimeHelper.now();
-        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
 
         List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
@@ -55,6 +54,7 @@ public class SynchronizeCustomerInfo {
             customerVisitApplyPersonEntity.setCreatedTime(date);
             customerVisitApplyPersonEntity.setUpdatedBy("system test");
             customerVisitApplyPersonEntity.setUpdatedTime(date);
+            customerInfoEntityMapper.insert(customerVisitApplyPersonEntity);
 
 
             customerInfoEntity customerVisitPersonEntity = new customerInfoEntity();
@@ -74,7 +74,7 @@ public class SynchronizeCustomerInfo {
             customerVisitPersonEntity.setUpdatedBy("system test");
             customerVisitPersonEntity.setUpdatedTime(date);
 
-
+            customerInfoEntityMapper.insert(customerVisitPersonEntity);
             System.out.println("success");
         }
     }

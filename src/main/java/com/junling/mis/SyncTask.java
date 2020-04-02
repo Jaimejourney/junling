@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,8 +22,9 @@ public class SyncTask {
 
     @Scheduled(cron = "0/5 * * * * *")
     public void myTask() throws ParseException {
-        String claimInfoId = GetUUID32.getUUID32();
-        System.out.println(claimInfoId);
+//        String claimInfoId = GetUUID32.getUUID32();
+//        System.out.println(claimInfoId);
+
 
 //        String str="2019-03-08 19:08:10";
 //        Date date =  DatetimeHelper.dateHelper(str);

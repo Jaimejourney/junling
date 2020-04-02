@@ -712,7 +712,6 @@
     from visit_record
     <where>
       <if test="start != null">
-        status = 4
         and finish_time &gt;= #{start}
       </if>
     </where>
