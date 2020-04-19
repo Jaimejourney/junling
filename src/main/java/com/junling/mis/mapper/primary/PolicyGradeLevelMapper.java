@@ -11,8 +11,6 @@ public interface PolicyGradeLevelMapper {
 
     PolicyGradeLevel selectByPrimaryKey(String policyGradeLevelId);
 
-    PolicyGradeLevel selectByPrimaryKey(String policyGradeLevelId);
-
     int updateByPrimaryKeySelective(PolicyGradeLevel record);
 
     int updateByPrimaryKey(PolicyGradeLevel record);
