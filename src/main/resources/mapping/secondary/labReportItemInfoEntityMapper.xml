@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.labReportItemInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.LabReportItemInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.LabReportItemInfoEntity" >
     <id column="labItemRcdFlow" property="labitemrcdflow" jdbcType="VARCHAR" />
     <result column="labFlow" property="labflow" jdbcType="VARCHAR" />
     <result column="labRepItemCode" property="labrepitemcode" jdbcType="VARCHAR" />
@@ -30,7 +30,7 @@
     delete from lab_report_item_info
     where labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.LabReportItemInfoEntity" >
     insert into lab_report_item_info (labItemRcdFlow, labFlow, labRepItemCode, 
       labRepItemName, resultType, resultNum, 
       resultText, referenceText, labRepItemUnit, 
@@ -42,7 +42,7 @@
       #{changeflag,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.LabReportItemInfoEntity" >
     insert into lab_report_item_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="labitemrcdflow != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.LabReportItemInfoEntity" >
     update lab_report_item_info
     <set >
       <if test="labflow != null" >
@@ -169,7 +169,7 @@
     </set>
     where labItemRcdFlow = #{labitemrcdflow,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.labReportItemInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.LabReportItemInfoEntity" >
     update lab_report_item_info
     set labFlow = #{labflow,jdbcType=VARCHAR},
       labRepItemCode = #{labrepitemcode,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.returnClaimDetailEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ReturnClaimDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ReturnClaimDetailEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="visit_id" property="visitId" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from return_claim_detail
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ReturnClaimDetailEntity" >
     insert into return_claim_detail (id, visit_id, docuno, 
       return_claim_data, partner_code, data_applicant
       )
@@ -30,7 +30,7 @@
       #{returnClaimData,jdbcType=VARCHAR}, #{partnerCode,jdbcType=VARCHAR}, #{dataApplicant,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ReturnClaimDetailEntity" >
     insert into return_claim_detail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ReturnClaimDetailEntity" >
     update return_claim_detail
     <set >
       <if test="visitId != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.returnClaimDetailEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ReturnClaimDetailEntity" >
     update return_claim_detail
     set visit_id = #{visitId,jdbcType=VARCHAR},
       docuno = #{docuno,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitImgProblemEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitImgProblemEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitImgProblemEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitImgProblemEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="problem_id" property="problemId" jdbcType="INTEGER" />
     <result column="visit_id" property="visitId" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
     delete from visit_img_problem
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitImgProblemEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitImgProblemEntity" >
     insert into visit_img_problem (id, problem_id, visit_id, 
       image_id, pic_key, pic_name, 
       image_type, image_status, image_name, 
@@ -43,7 +43,7 @@
       #{reason,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{optType,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitImgProblemEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitImgProblemEntity" >
     insert into visit_img_problem
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitImgProblemEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitImgProblemEntity" >
     update visit_img_problem
     <set >
       <if test="problemId != null" >
@@ -179,7 +179,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitImgProblemEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitImgProblemEntity" >
     update visit_img_problem
     set problem_id = #{problemId,jdbcType=INTEGER},
       visit_id = #{visitId,jdbcType=VARCHAR},

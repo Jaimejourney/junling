@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.productDuty;
+import com.junling.mis.mapper.primary.ProductDutyMapper;
+import com.junling.mis.model.primary.ProductDuty;
 import com.junling.mis.service.primary.ProductDutyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class ProductDutyServiceImpl implements ProductDutyService {
 	private final static Logger LOG = LoggerFactory.getLogger(ProductDutyServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.productDutyMapper productDutyMapper;
+	private ProductDutyMapper productDutyMapper;
 
 	@Override
-	public Boolean addProductDuty(productDuty productDuty) throws Exception {
+	public Boolean addProductDuty(ProductDuty productDuty) throws Exception {
 		return productDutyMapper.insert(productDuty)>0;
 	}
 
 	@Override
-	public Boolean updateProductDuty(productDuty productDuty) throws Exception {
+	public Boolean updateProductDuty(ProductDuty productDuty) throws Exception {
 		return productDutyMapper.updateByPrimaryKey(productDuty)>0;
 	}
 
 	@Override
-	public productDuty findDetailProductDuty(String productDutyId) throws Exception {
+	public ProductDuty findDetailProductDuty(String productDutyId) throws Exception {
 		return productDutyMapper.selectByPrimaryKey(productDutyId);
 	}
 

@@ -1,23 +1,18 @@
 package com.junling.mis;
 
-import com.junling.mis.common.dateTime.DatetimeHelper;
-import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
-import com.junling.mis.model.secondary.visitRecordEntity;
+import com.junling.mis.mapper.secondary.VisitRecordEntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 @Component
 public class SyncTask {
     @Autowired
-    visitRecordEntityMapper visitRecordEntityMapper;
+    VisitRecordEntityMapper visitRecordEntityMapper;
 
 
     @Scheduled(cron = "0/5 * * * * *")

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimMedicalExpenseEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimMedicalExpenseEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimMedicalExpenseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimMedicalExpenseEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
@@ -46,7 +46,7 @@
     delete from claim_medical_expense
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimMedicalExpenseEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimMedicalExpenseEntity" >
     insert into claim_medical_expense (id, docuno, polno, 
       cvrgno, resev_fld1, hospital_name, 
       bill_type, receiptno, admission_date, 
@@ -66,7 +66,7 @@
       #{adjustAmount,jdbcType=BIGINT}, #{adjustAmountReason,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
       #{updatedDate,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimMedicalExpenseEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimMedicalExpenseEntity" >
     insert into claim_medical_expense
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -229,7 +229,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimMedicalExpenseEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimMedicalExpenseEntity" >
     update claim_medical_expense
     <set >
       <if test="docuno != null" >
@@ -310,7 +310,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimMedicalExpenseEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimMedicalExpenseEntity" >
     update claim_medical_expense
     set docuno = #{docuno,jdbcType=VARCHAR},
       polno = #{polno,jdbcType=VARCHAR},

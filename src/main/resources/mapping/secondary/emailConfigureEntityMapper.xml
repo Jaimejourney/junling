@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.emailConfigureEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.emailConfigureEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.EmailConfigureEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.EmailConfigureEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from email_configure
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.emailConfigureEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.EmailConfigureEntity" >
     insert into email_configure (id, code, name, 
       addressee, copier, status, 
       create_time, update_time)
@@ -32,7 +32,7 @@
       #{addressee,jdbcType=VARCHAR}, #{copier,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.emailConfigureEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.EmailConfigureEntity" >
     insert into email_configure
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.emailConfigureEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.EmailConfigureEntity" >
     update email_configure
     <set >
       <if test="code != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.emailConfigureEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.EmailConfigureEntity" >
     update email_configure
     set code = #{code,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

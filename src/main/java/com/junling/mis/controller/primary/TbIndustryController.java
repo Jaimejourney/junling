@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbIndustrys;
+import com.junling.mis.model.primary.TbIndustrys;
 import com.junling.mis.service.primary.TbIndustrysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbIndustryController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbIndustry(@RequestBody tbIndustrys tbIndustrys) throws Exception {
+    public MakeResult addTbIndustry(@RequestBody TbIndustrys tbIndustrys) throws Exception {
         if(service.addTbIndustrys(tbIndustrys)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbIndustryController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbIndustry(@RequestBody tbIndustrys tbIndustrys) throws Exception {
+    public MakeResult updateTbIndustry(@RequestBody TbIndustrys tbIndustrys) throws Exception {
         if(service.updateTbIndustrys(tbIndustrys)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbIndustryController {
 
     @RequestMapping(value = "/search/{industryTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbIndustrys> searchTbIndustry(@PathVariable("industryTypeCode") String industryTypeCode) throws Exception {
-        tbIndustrys tbIndustrys = service.findDetailTbIndustrys(industryTypeCode);
-        MakeResult<tbIndustrys> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbIndustrys> searchTbIndustry(@PathVariable("industryTypeCode") String industryTypeCode) throws Exception {
+        TbIndustrys tbIndustrys = service.findDetailTbIndustrys(industryTypeCode);
+        MakeResult<TbIndustrys> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbIndustrys == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

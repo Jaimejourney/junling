@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitRecordRenbaojianDetailEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitRecordRenbaojianDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" >
     <id column="visit_id" property="visitId" jdbcType="VARCHAR" />
     <result column="channel_case_no" property="channelCaseNo" jdbcType="VARCHAR" />
     <result column="report_organization" property="reportOrganization" jdbcType="VARCHAR" />
@@ -34,7 +34,7 @@
     <result column="isError" property="iserror" jdbcType="VARCHAR" />
     <result column="send_express_no_time" property="sendExpressNoTime" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" extends="BaseResultMap" >
     <result column="picInfos" property="picinfos" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -59,7 +59,7 @@
     delete from visit_record_renbaojian_detail
     where visit_id = #{visitId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" >
     insert into visit_record_renbaojian_detail (visit_id, channel_case_no, report_organization, 
       policy_no, accident_type, insure_organization, 
       apply_amnt, pic_count, invoice_num, 
@@ -83,7 +83,7 @@
       #{conclusionBasisType,jdbcType=VARCHAR}, #{reopentype,jdbcType=VARCHAR}, #{iserror,jdbcType=VARCHAR}, 
       #{sendExpressNoTime,jdbcType=VARCHAR}, #{picinfos,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" >
     insert into visit_record_renbaojian_detail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="visitId != null" >
@@ -282,7 +282,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" >
     update visit_record_renbaojian_detail
     <set >
       <if test="channelCaseNo != null" >
@@ -381,7 +381,7 @@
     </set>
     where visit_id = #{visitId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" >
     update visit_record_renbaojian_detail
     set channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
       report_organization = #{reportOrganization,jdbcType=VARCHAR},
@@ -416,7 +416,7 @@
       picInfos = #{picinfos,jdbcType=LONGVARCHAR}
     where visit_id = #{visitId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity" >
     update visit_record_renbaojian_detail
     set channel_case_no = #{channelCaseNo,jdbcType=VARCHAR},
       report_organization = #{reportOrganization,jdbcType=VARCHAR},

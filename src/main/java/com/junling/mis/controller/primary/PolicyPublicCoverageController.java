@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyPublicCoverage;
+import com.junling.mis.model.primary.PolicyPublicCoverage;
 import com.junling.mis.service.primary.PolicyPublicCoverageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class PolicyPublicCoverageController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyPublicCoverage(@RequestBody policyPublicCoverage policyPublicCoverage) throws Exception {
+    public MakeResult addPolicyPublicCoverage(@RequestBody PolicyPublicCoverage policyPublicCoverage) throws Exception {
         if(service.addPolicyPublicCoverage(policyPublicCoverage)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class PolicyPublicCoverageController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyPublicCoverage(@RequestBody policyPublicCoverage policyPublicCoverage) throws Exception {
+    public MakeResult updatePolicyPublicCoverage(@RequestBody PolicyPublicCoverage policyPublicCoverage) throws Exception {
         if(service.updatePolicyPublicCoverage(policyPublicCoverage)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class PolicyPublicCoverageController {
 
     @RequestMapping(value = "/search/{policyPublicCoverageId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<policyPublicCoverage> searchPolicyPublicCoverage(@PathVariable("policyPublicCoverageId") String policyPublicCoverageId) throws Exception {
-        policyPublicCoverage policyPublicCoverage = service.findDetailPolicyPublicCoverage(policyPublicCoverageId);
-        MakeResult<policyPublicCoverage> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<PolicyPublicCoverage> searchPolicyPublicCoverage(@PathVariable("policyPublicCoverageId") String policyPublicCoverageId) throws Exception {
+        PolicyPublicCoverage policyPublicCoverage = service.findDetailPolicyPublicCoverage(policyPublicCoverageId);
+        MakeResult<PolicyPublicCoverage> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(policyPublicCoverage == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

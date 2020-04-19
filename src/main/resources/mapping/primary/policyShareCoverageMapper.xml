@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyShareCoverageMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyShareCoverage" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyShareCoverageMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyShareCoverage" >
     <id column="policy_share_coverage_id" property="policyShareCoverageId" jdbcType="VARCHAR" />
     <id column="policy_share_coverage_no" property="policyShareCoverageNo" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
@@ -20,19 +20,19 @@
     product_id, duty_id, sub_duty_id, share_coverage, created_by, created_time, updated_by, 
     updated_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.policyShareCoverageKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.PolicyShareCoverageKey" >
     select 
     <include refid="Base_Column_List" />
     from policy_share_coverage
     where policy_share_coverage_id = #{policyShareCoverageId,jdbcType=VARCHAR}
       and policy_share_coverage_no = #{policyShareCoverageNo,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.policyShareCoverageKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyShareCoverageKey" >
     delete from policy_share_coverage
     where policy_share_coverage_id = #{policyShareCoverageId,jdbcType=VARCHAR}
       and policy_share_coverage_no = #{policyShareCoverageNo,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyShareCoverage" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyShareCoverage" >
     insert into policy_share_coverage (policy_share_coverage_id, policy_share_coverage_no, 
       policy_no, policy_grade_level_no, product_id, 
       duty_id, sub_duty_id, share_coverage, 
@@ -44,7 +44,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyShareCoverage" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyShareCoverage" >
     insert into policy_share_coverage
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="policyShareCoverageId != null" >
@@ -123,7 +123,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyShareCoverage" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyShareCoverage" >
     update policy_share_coverage
     <set >
       <if test="policyNo != null" >
@@ -160,7 +160,7 @@
     where policy_share_coverage_id = #{policyShareCoverageId,jdbcType=VARCHAR}
       and policy_share_coverage_no = #{policyShareCoverageNo,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyShareCoverage" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyShareCoverage" >
     update policy_share_coverage
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_grade_level_no = #{policyGradeLevelNo,jdbcType=INTEGER},

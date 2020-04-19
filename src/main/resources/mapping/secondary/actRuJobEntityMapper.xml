@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actRuJobEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actRuJobEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActRuJobEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActRuJobEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="TYPE_" property="type" jdbcType="VARCHAR" />
@@ -36,7 +36,7 @@
     delete from act_ru_job
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actRuJobEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActRuJobEntity" >
     insert into act_ru_job (ID_, REV_, TYPE_, 
       LOCK_EXP_TIME_, LOCK_OWNER_, EXCLUSIVE_, 
       EXECUTION_ID_, PROCESS_INSTANCE_ID_, PROC_DEF_ID_, 
@@ -52,7 +52,7 @@
       #{handlerCfg,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{tenantId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actRuJobEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActRuJobEntity" >
     insert into act_ru_job
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -167,7 +167,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actRuJobEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActRuJobEntity" >
     update act_ru_job
     <set >
       <if test="rev != null" >
@@ -224,7 +224,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actRuJobEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActRuJobEntity" >
     update act_ru_job
     set REV_ = #{rev,jdbcType=INTEGER},
       TYPE_ = #{type,jdbcType=VARCHAR},

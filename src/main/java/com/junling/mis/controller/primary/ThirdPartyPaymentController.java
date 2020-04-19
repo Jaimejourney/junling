@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.thirdPartyPayment;
+import com.junling.mis.model.primary.ThirdPartyPayment;
 import com.junling.mis.service.primary.ThirdPartyPaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class ThirdPartyPaymentController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addThirdPartyPayment(@RequestBody thirdPartyPayment thirdPartyPayment) throws Exception {
+    public MakeResult addThirdPartyPayment(@RequestBody ThirdPartyPayment thirdPartyPayment) throws Exception {
         if(service.addThirdPartyPayment(thirdPartyPayment)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{

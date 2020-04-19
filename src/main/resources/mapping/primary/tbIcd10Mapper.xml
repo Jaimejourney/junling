@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbIcd10Mapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbIcd10" >
+<mapper namespace="com.junling.mis.mapper.primary.TbIcd10Mapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbIcd10" >
     <id column="icd" property="icd" jdbcType="VARCHAR" />
     <result column="icd_name" property="icdName" jdbcType="VARCHAR" />
     <result column="icd_parent" property="icdParent" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from tb_icd10
     where icd = #{icd,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbIcd10" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbIcd10" >
     insert into tb_icd10 (icd, icd_name, icd_parent, 
       created_by, created_time, updated_by, 
       updated_time)
@@ -31,7 +31,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbIcd10" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbIcd10" >
     insert into tb_icd10
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="icd != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbIcd10" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbIcd10" >
     update tb_icd10
     <set >
       <if test="icdName != null" >
@@ -104,7 +104,7 @@
     </set>
     where icd = #{icd,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbIcd10" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbIcd10" >
     update tb_icd10
     set icd_name = #{icdName,jdbcType=VARCHAR},
       icd_parent = #{icdParent,jdbcType=VARCHAR},

@@ -3,14 +3,13 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.claimInfoMapper;
-import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
-import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
-import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
-import com.junling.mis.mapper.secondary.visitRecordRenbaojianDetailEntityMapper;
-import com.junling.mis.model.primary.claimInfo;
-import com.junling.mis.model.secondary.visitRecordEntity;
-import com.junling.mis.model.secondary.visitRecordRenbaojianDetailEntity;
+import com.junling.mis.mapper.primary.ClaimInfoMapper;
+import com.junling.mis.mapper.secondary.*;
+import com.junling.mis.model.primary.ClaimBillDiagnose;
+import com.junling.mis.model.primary.ClaimInfo;
+import com.junling.mis.model.secondary.ClaimBillDiagnoseEntity;
+import com.junling.mis.model.secondary.VisitRecordEntity;
+import com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,48 +28,57 @@ public class SynchronizeClaimInfo {
 //    private LongIdWorker longIdWorker = IDFactory.createIDWorker();
 
     @Autowired
-    visitRecordEntityMapper visitRecordEntityMapper;
+    VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    visitRecordRenbaojianDetailEntityMapper visitRecordRenbaojianDetailEntityMapper;
+    VisitRecordRenbaojianDetailEntityMapper visitRecordRenbaojianDetailEntityMapper;
 
     @Autowired
-    visitApplyPersonEntityMapper visitApplyPersonEntityMapper;
+    VisitApplyPersonEntityMapper visitApplyPersonEntityMapper;
 
     @Autowired
-    visitPersonEntityMapper visitPersonEntityMapper;
+    VisitPersonEntityMapper visitPersonEntityMapper;
 
     @Autowired
-    claimInfoMapper claimInfoEntityMapper;
+    ClaimInfoMapper claimInfoMapper;
+
+    @Autowired
+    ClaimBillDiagnoseEntityMapper claimBillDiagnoseEntityMapper;
 
 //0/5 * * * * *
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
 
-        List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
-        System.out.println(list.size());
+        List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+
         for (int i = 0; i < list.size(); i++) {
-            visitRecordEntity record = list.get(i);
-            visitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());
-            claimInfo claimInfoEntity = new claimInfo();
+            VisitRecordEntity record = list.get(i);
+            VisitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity= visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());
+            ClaimInfo claimInfo = new ClaimInfo();
             String claimInfoId = GetUUID32.getUUID32();
-            claimInfoEntity.setClaimInfoId(claimInfoId);
-            claimInfoEntity.setClaimNo(record.getId());
-            claimInfoEntity.setRegistrationNo(record.getDocuno());
-            claimInfoEntity.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());
-            claimInfoEntity.setClaimReportId(String.valueOf(record.getPersonId()));
-            claimInfoEntity.setInsureId(record.getApplyPersonId());
-            claimInfoEntity.setAccidentType(visitRecordRenbaojianDetailEntity.getAccidentType());
-            claimInfoEntity.setReportTime(DatetimeHelper.dateHelper(record.getApplyTime()));
-            claimInfoEntity.setClaimStatus(String.valueOf(record.getStatus()));
-            claimInfoEntity.setClaimSoucreType(record.getClaimType());
-            claimInfoEntity.setCreatedBy("SystemTest");
-            claimInfoEntity.setCreatedTime(date);
-            claimInfoEntity.setUpdatedBy("SystemTest");
-            claimInfoEntity.setUpdatedTime(date);
-            claimInfoEntityMapper.insert(claimInfoEntity);
-            System.out.println("success");
+            claimInfo.setClaimInfoId(claimInfoId);
+            claimInfo.setClaimNo(record.getId());
+            claimInfo.setRegistrationNo(record.getDocuno());
+            claimInfo.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());
+            claimInfo.setClaimReportId(String.valueOf(record.getPersonId()));
+            claimInfo.setInsureId(record.getApplyPersonId());
+            claimInfo.setAccidentType(visitRecordRenbaojianDetailEntity.getAccidentType());
+            claimInfo.setReportTime(DatetimeHelper.dateHelper(record.getApplyTime()));
+            claimInfo.setClaimStatus(String.valueOf(record.getStatus()));
+            claimInfo.setClaimSoucreType(record.getClaimType());
+            claimInfo.setCreatedBy("SystemTest");
+            claimInfo.setCreatedTime(date);
+            claimInfo.setUpdatedBy("SystemTest");
+            claimInfo.setUpdatedTime(date);
+            claimInfoMapper.insert(claimInfo);
+            System.out.println("claimInfo success");
         }
+
+        SynchronizeClaimDoc synchronizeClaimDoc = new SynchronizeClaimDoc();
+        synchronizeClaimDoc.myTask();
+
+        SynchronizeClaimBill synchronizeClaimBill = new SynchronizeClaimBill();
+        synchronizeClaimBill.myTask();
     }
 }

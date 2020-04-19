@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyInfo;
+import com.junling.mis.model.primary.PolicyInfo;
 import com.junling.mis.service.primary.PolicyInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class PolicyInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyInfo(@RequestBody policyInfo policyInfo) throws Exception {
+    public MakeResult addPolicyInfo(@RequestBody PolicyInfo policyInfo) throws Exception {
         if(service.addPolicyInfo(policyInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class PolicyInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyInfo(@RequestBody policyInfo policyInfo) throws Exception {
+    public MakeResult updatePolicyInfo(@RequestBody PolicyInfo policyInfo) throws Exception {
         if(service.updatePolicyInfo(policyInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class PolicyInfoController {
 
     @RequestMapping(value = "/search/{policyInfoId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<policyInfo> searchPolicyInfo(@PathVariable("policyInfoId") String policyInfoId) throws Exception {
-        policyInfo policyInfo = service.findDetailPolicyInfo(policyInfoId);
-        MakeResult<policyInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<PolicyInfo> searchPolicyInfo(@PathVariable("policyInfoId") String policyInfoId) throws Exception {
+        PolicyInfo policyInfo = service.findDetailPolicyInfo(policyInfoId);
+        MakeResult<PolicyInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(policyInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

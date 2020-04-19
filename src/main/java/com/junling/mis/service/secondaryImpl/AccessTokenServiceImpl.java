@@ -1,7 +1,7 @@
 package com.junling.mis.service.secondaryImpl;
 
-import com.junling.mis.mapper.secondary.accessTokenEntityMapper;
-import com.junling.mis.model.secondary.accessTokenEntity;
+import com.junling.mis.mapper.secondary.AccessTokenEntityMapper;
+import com.junling.mis.model.secondary.AccessTokenEntity;
 import com.junling.mis.service.secondary.AccessTokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,20 +15,20 @@ public class AccessTokenServiceImpl implements AccessTokenService {
     private final static Logger LOG = LoggerFactory.getLogger(AccessTokenServiceImpl.class);
 
     @Autowired
-    accessTokenEntityMapper mapper;
+    AccessTokenEntityMapper mapper;
 
     @Override
-    public Boolean addAccessToken(accessTokenEntity accessTokenEntity) throws Exception {
+    public Boolean addAccessToken(AccessTokenEntity accessTokenEntity) throws Exception {
         return mapper.insert(accessTokenEntity) > 0;
     }
 
     @Override
-    public Boolean updateAccessToken(accessTokenEntity accessTokenEntity) throws Exception {
+    public Boolean updateAccessToken(AccessTokenEntity accessTokenEntity) throws Exception {
         return mapper.updateByPrimaryKey(accessTokenEntity) > 0;
     }
 
     @Override
-    public accessTokenEntity findDetailAccessToken(String id) throws Exception {
+    public AccessTokenEntity findDetailAccessToken(String id) throws Exception {
         return mapper.selectByPrimaryKey(id);
     }
 

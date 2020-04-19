@@ -1,8 +1,8 @@
 package com.junling.mis.service.primary;
 
 
-import com.junling.mis.model.primary.claimAccountInfo;
-import com.junling.mis.model.primary.claimAccountInfoKey;
+import com.junling.mis.model.primary.ClaimAccountInfo;
+import com.junling.mis.model.primary.ClaimAccountInfoKey;
 
 /**
  * <br/>
@@ -10,11 +10,11 @@ import com.junling.mis.model.primary.claimAccountInfoKey;
  */
 public interface ClaimAccountInfoService {
 
-    Boolean addClaimAccountInfo(claimAccountInfo claimAccountInfoEntity) throws Exception;
+    Boolean addClaimAccountInfo(ClaimAccountInfo claimAccountInfoEntity) throws Exception;
 
-    Boolean updateClaimAccountInfo(claimAccountInfo claimAccountInfoEntity) throws Exception;
+    Boolean updateClaimAccountInfo(ClaimAccountInfo claimAccountInfoEntity) throws Exception;
 //
-    claimAccountInfo findDetailClaimAccountInfo(claimAccountInfoKey key) throws Exception;
+    ClaimAccountInfo findDetailClaimAccountInfo(ClaimAccountInfoKey key) throws Exception;
 //
 //    Result listClaimAccountInfo(ClaimAccountInfoModel claimAccountInfoModel) throws Exception;
 //
@@ -22,5 +22,5 @@ public interface ClaimAccountInfoService {
 //
 //    Result countClaimAccountInfo(ClaimAccountInfoModel claimAccountInfoModel) throws Exception;
 //
-    Boolean deleteClaimAccountInfo(claimAccountInfoKey key) throws Exception;
+    Boolean deleteClaimAccountInfo(ClaimAccountInfoKey key) throws Exception;
 }

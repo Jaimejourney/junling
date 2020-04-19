@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyHealthNote;
+import com.junling.mis.model.primary.PolicyHealthNote;
 import com.junling.mis.service.primary.PolicyHealthNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class PolicyHealthNoteController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyHealthNote(@RequestBody policyHealthNote policyHealthNote) throws Exception {
+    public MakeResult addPolicyHealthNote(@RequestBody PolicyHealthNote policyHealthNote) throws Exception {
         if(service.addPolicyHealthNote(policyHealthNote)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class PolicyHealthNoteController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyHealthNote(@RequestBody policyHealthNote policyHealthNote) throws Exception {
+    public MakeResult updatePolicyHealthNote(@RequestBody PolicyHealthNote policyHealthNote) throws Exception {
         if(service.updatePolicyHealthNote(policyHealthNote)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class PolicyHealthNoteController {
 
     @RequestMapping(value = "/search/{healthNoteId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<policyHealthNote> searchPolicyHealthNote(@PathVariable("healthNoteId") String healthNoteId) throws Exception {
-        policyHealthNote policyHealthNote = service.findDetailPolicyHealthNote(healthNoteId);
-        MakeResult<policyHealthNote> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<PolicyHealthNote> searchPolicyHealthNote(@PathVariable("healthNoteId") String healthNoteId) throws Exception {
+        PolicyHealthNote policyHealthNote = service.findDetailPolicyHealthNote(healthNoteId);
+        MakeResult<PolicyHealthNote> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(policyHealthNote == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

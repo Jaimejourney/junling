@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.organizationAction;
+import com.junling.mis.mapper.primary.OrganizationActionMapper;
+import com.junling.mis.model.primary.OrganizationAction;
 import com.junling.mis.service.primary.OrganizationActionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class OrganizationActionServiceImpl implements OrganizationActionService 
 	private final static Logger LOG = LoggerFactory.getLogger(OrganizationActionServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.organizationActionMapper organizationActionMapper;
+	private OrganizationActionMapper organizationActionMapper;
 
 	@Override
-	public Boolean addOrganizationAction(organizationAction organizationAction) throws Exception {
+	public Boolean addOrganizationAction(OrganizationAction organizationAction) throws Exception {
 		return organizationActionMapper.insert(organizationAction) > 0;
 	}
 
 	@Override
-	public Boolean updateOrganizationAction(organizationAction organizationAction) throws Exception {
+	public Boolean updateOrganizationAction(OrganizationAction organizationAction) throws Exception {
 		return organizationActionMapper.updateByPrimaryKey(organizationAction) > 0;
 	}
 
 	@Override
-	public organizationAction findDetailOrganizationAction(String organizationActionId) throws Exception {
+	public OrganizationAction findDetailOrganizationAction(String organizationActionId) throws Exception {
 		return organizationActionMapper.selectByPrimaryKey(organizationActionId);
 	}
 

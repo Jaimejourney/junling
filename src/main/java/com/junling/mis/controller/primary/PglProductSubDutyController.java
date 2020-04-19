@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.pglProdSubDuty;
+import com.junling.mis.model.primary.PglProdSubDuty;
 import com.junling.mis.service.primary.PglProductSubDutyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class PglProductSubDutyController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPglProductSubDuty(@RequestBody pglProdSubDuty pglProdSubDuty) throws Exception {
+    public MakeResult addPglProductSubDuty(@RequestBody PglProdSubDuty pglProdSubDuty) throws Exception {
         if(service.addPglProductSubDuty(pglProdSubDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class PglProductSubDutyController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePglProductSubDuty(@RequestBody pglProdSubDuty pglProdSubDuty) throws Exception {
+    public MakeResult updatePglProductSubDuty(@RequestBody PglProdSubDuty pglProdSubDuty) throws Exception {
         if(service.updatePglProductSubDuty(pglProdSubDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class PglProductSubDutyController {
 
     @RequestMapping(value = "/search/{pglProductSubDutyId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<pglProdSubDuty> searchPglProductSubDuty(@PathVariable("pglProductSubDutyId") String pglProductSubDutyId) throws Exception {
-        pglProdSubDuty pglProdSubDuty = service.findDetailPglProductSubDuty(pglProductSubDutyId);
-        MakeResult<pglProdSubDuty> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<PglProdSubDuty> searchPglProductSubDuty(@PathVariable("pglProductSubDutyId") String pglProductSubDutyId) throws Exception {
+        PglProdSubDuty pglProdSubDuty = service.findDetailPglProductSubDuty(pglProductSubDutyId);
+        MakeResult<PglProdSubDuty> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(pglProdSubDuty == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

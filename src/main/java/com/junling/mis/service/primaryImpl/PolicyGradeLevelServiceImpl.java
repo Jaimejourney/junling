@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyGradeLevel;
+import com.junling.mis.mapper.primary.PolicyGradeLevelMapper;
+import com.junling.mis.model.primary.PolicyGradeLevel;
 import com.junling.mis.service.primary.PolicyGradeLevelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class PolicyGradeLevelServiceImpl implements PolicyGradeLevelService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyGradeLevelServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyGradeLevelMapper policyGradeLevelMapper;
+	private PolicyGradeLevelMapper policyGradeLevelMapper;
 
 	@Override
-	public Boolean addPolicyGradeLevel(policyGradeLevel policyGradeLevel) throws Exception {
+	public Boolean addPolicyGradeLevel(PolicyGradeLevel policyGradeLevel) throws Exception {
 		return policyGradeLevelMapper.insert(policyGradeLevel)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyGradeLevel(policyGradeLevel policyGradeLevel) throws Exception {
+	public Boolean updatePolicyGradeLevel(PolicyGradeLevel policyGradeLevel) throws Exception {
 		return policyGradeLevelMapper.updateByPrimaryKey(policyGradeLevel)>0;
 	}
 
 	@Override
-	public policyGradeLevel findDetailPolicyGradeLevel(String policyGradeLevelId) throws Exception {
+	public PolicyGradeLevel findDetailPolicyGradeLevel(String policyGradeLevelId) throws Exception {
 		return policyGradeLevelMapper.selectByPrimaryKey(policyGradeLevelId);
 	}
 

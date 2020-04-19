@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.organizationInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.organizationInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.OrganizationInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.OrganizationInfo" >
     <id column="organization_id" property="organizationId" jdbcType="VARCHAR" />
     <result column="organization_no" property="organizationNo" jdbcType="VARCHAR" />
     <result column="organization_name" property="organizationName" jdbcType="VARCHAR" />
@@ -53,7 +53,7 @@
     delete from organization_info
     where organization_id = #{organizationId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.organizationInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.OrganizationInfo" >
     insert into organization_info (organization_id, organization_no, organization_name, 
       organization_status, organization_industry_type, 
       district_code, organization_code, tax_no, 
@@ -79,7 +79,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.organizationInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.OrganizationInfo" >
     insert into organization_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="organizationId != null" >
@@ -278,7 +278,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.organizationInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.OrganizationInfo" >
     update organization_info
     <set >
       <if test="organizationNo != null" >
@@ -377,7 +377,7 @@
     </set>
     where organization_id = #{organizationId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.organizationInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.OrganizationInfo" >
     update organization_info
     set organization_no = #{organizationNo,jdbcType=VARCHAR},
       organization_name = #{organizationName,jdbcType=VARCHAR},

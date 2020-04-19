@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysDictEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysDictEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysDictEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysDictEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="num" property="num" jdbcType="INTEGER" />
     <result column="pid" property="pid" jdbcType="INTEGER" />
@@ -21,13 +21,13 @@
     delete from sys_dict
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysDictEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysDictEntity" >
     insert into sys_dict (id, num, pid, 
       name, tips)
     values (#{id,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
       #{name,jdbcType=VARCHAR}, #{tips,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysDictEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysDictEntity" >
     insert into sys_dict
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysDictEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysDictEntity" >
     update sys_dict
     <set >
       <if test="num != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysDictEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysDictEntity" >
     update sys_dict
     set num = #{num,jdbcType=INTEGER},
       pid = #{pid,jdbcType=INTEGER},

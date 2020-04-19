@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.polClientRelationEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.polClientRelationEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PolClientRelationEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PolClientRelationEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from pol_client_relation
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.polClientRelationEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PolClientRelationEntity" >
     insert into pol_client_relation (id, polno, insured_id, 
       pol_relation, update_poson, update_time, 
       is_delete)
@@ -31,7 +31,7 @@
       #{polRelation,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.polClientRelationEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PolClientRelationEntity" >
     insert into pol_client_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.polClientRelationEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PolClientRelationEntity" >
     update pol_client_relation
     <set >
       <if test="polno != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.polClientRelationEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PolClientRelationEntity" >
     update pol_client_relation
     set polno = #{polno,jdbcType=VARCHAR},
       insured_id = #{insuredId,jdbcType=VARCHAR},

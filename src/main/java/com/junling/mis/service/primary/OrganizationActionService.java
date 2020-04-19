@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.organizationAction;
+import com.junling.mis.model.primary.OrganizationAction;
 
 
 
@@ -11,11 +11,11 @@ import com.junling.mis.model.primary.organizationAction;
  */
 public interface OrganizationActionService {
 
-	Boolean addOrganizationAction(organizationAction organizationAction) throws Exception;
+	Boolean addOrganizationAction(OrganizationAction organizationAction) throws Exception;
 
-	Boolean updateOrganizationAction(organizationAction organizationAction) throws Exception;
+	Boolean updateOrganizationAction(OrganizationAction organizationAction) throws Exception;
 
-	organizationAction findDetailOrganizationAction(String organizationActionId) throws Exception;
+	OrganizationAction findDetailOrganizationAction(String organizationActionId) throws Exception;
 	
 //	Result listOrganizationAction(OrganizationActionModel organizationActionModel) throws Exception;
 //

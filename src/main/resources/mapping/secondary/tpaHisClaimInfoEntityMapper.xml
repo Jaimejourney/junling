@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaHisClaimInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaHisClaimInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaHisClaimInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
@@ -47,7 +47,7 @@
     delete from tpa_his_claim_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaHisClaimInfoEntity" >
     insert into tpa_his_claim_info (id, docuno, insured_id, 
       polno, grade_level, plan_code, 
       benefit_code, exam_amt, deductible_amt, 
@@ -69,7 +69,7 @@
       #{givetypename,jdbcType=VARCHAR}, #{endcasedate,jdbcType=TIMESTAMP}, #{planName,jdbcType=VARCHAR}, 
       #{givereasondesc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaHisClaimInfoEntity" >
     insert into tpa_his_claim_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -244,7 +244,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaHisClaimInfoEntity" >
     update tpa_his_claim_info
     <set >
       <if test="docuno != null" >
@@ -331,7 +331,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaHisClaimInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaHisClaimInfoEntity" >
     update tpa_his_claim_info
     set docuno = #{docuno,jdbcType=VARCHAR},
       insured_id = #{insuredId,jdbcType=VARCHAR},

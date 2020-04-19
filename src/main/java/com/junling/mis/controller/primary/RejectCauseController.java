@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.rejectCause;
+import com.junling.mis.model.primary.RejectCause;
 import com.junling.mis.service.primary.RejectCauseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class RejectCauseController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addRejectCause(@RequestBody rejectCause rejectCause) throws Exception {
+    public MakeResult addRejectCause(@RequestBody RejectCause rejectCause) throws Exception {
         if(service.addRejectCause(rejectCause)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class RejectCauseController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateRejectCause(@RequestBody rejectCause rejectCause) throws Exception {
+    public MakeResult updateRejectCause(@RequestBody RejectCause rejectCause) throws Exception {
         if(service.updateRejectCause(rejectCause)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class RejectCauseController {
 
     @RequestMapping(value = "/search/{rejectCauseCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<rejectCause> searchRejectCause(@PathVariable("rejectCauseCode") String rejectCauseCode) throws Exception {
-        rejectCause rejectCause = service.findDetailRejectCause(rejectCauseCode);
-        MakeResult<rejectCause> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<RejectCause> searchRejectCause(@PathVariable("rejectCauseCode") String rejectCauseCode) throws Exception {
+        RejectCause rejectCause = service.findDetailRejectCause(rejectCauseCode);
+        MakeResult<RejectCause> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(rejectCause == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

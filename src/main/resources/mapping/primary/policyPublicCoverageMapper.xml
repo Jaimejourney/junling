@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyPublicCoverageMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyPublicCoverage" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyPublicCoverageMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyPublicCoverage" >
     <id column="policy_public_coverage_id" property="policyPublicCoverageId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="public_coverage" property="publicCoverage" jdbcType="INTEGER" />
@@ -25,7 +25,7 @@
     delete from policy_public_coverage
     where policy_public_coverage_id = #{policyPublicCoverageId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyPublicCoverage" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyPublicCoverage" >
     insert into policy_public_coverage (policy_public_coverage_id, policy_no, 
       public_coverage, public_coverage_left, created_by, 
       created_time, updated_by, updated_time
@@ -35,7 +35,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyPublicCoverage" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyPublicCoverage" >
     insert into policy_public_coverage
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="policyPublicCoverageId != null" >
@@ -90,7 +90,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyPublicCoverage" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyPublicCoverage" >
     update policy_public_coverage
     <set >
       <if test="policyNo != null" >
@@ -117,7 +117,7 @@
     </set>
     where policy_public_coverage_id = #{policyPublicCoverageId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyPublicCoverage" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyPublicCoverage" >
     update policy_public_coverage
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       public_coverage = #{publicCoverage,jdbcType=INTEGER},

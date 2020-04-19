@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.gradeLevelProduct;
+import com.junling.mis.model.primary.GradeLevelProduct;
 
 /** 
  * <br/>
@@ -8,11 +8,11 @@ import com.junling.mis.model.primary.gradeLevelProduct;
  */
 public interface GradeLevelProductService {
 
-	Boolean addGradeLevelProduct(gradeLevelProduct gradeLevelProduct) throws Exception;
+	Boolean addGradeLevelProduct(GradeLevelProduct gradeLevelProduct) throws Exception;
 
-	Boolean updateGradeLevelProduct(gradeLevelProduct gradeLevelProduct) throws Exception;
+	Boolean updateGradeLevelProduct(GradeLevelProduct gradeLevelProduct) throws Exception;
 
-	gradeLevelProduct findDetailGradeLevelProduct(String gradeLevelProductId) throws Exception;
+	GradeLevelProduct findDetailGradeLevelProduct(String gradeLevelProductId) throws Exception;
 //
 //	Result listGradeLevelProduct(GradeLevelProductModel gradeLevelProductModel) throws Exception;
 //

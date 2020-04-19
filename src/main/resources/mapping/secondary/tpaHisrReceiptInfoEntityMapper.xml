@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaHisrReceiptInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaHisrReceiptInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaHisrReceiptInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from tpa_hisr_receipt_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaHisrReceiptInfoEntity" >
     insert into tpa_hisr_receipt_info (id, docuno, polno, 
       insured_id, CReceiptNo, created_by, 
       created_date, updated_by, updated_date, 
@@ -38,7 +38,7 @@
       #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, 
       #{inhospitaldate,jdbcType=VARCHAR}, #{outhospitaldate,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaHisrReceiptInfoEntity" >
     insert into tpa_hisr_receipt_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaHisrReceiptInfoEntity" >
     update tpa_hisr_receipt_info
     <set >
       <if test="docuno != null" >
@@ -147,7 +147,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaHisrReceiptInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaHisrReceiptInfoEntity" >
     update tpa_hisr_receipt_info
     set docuno = #{docuno,jdbcType=VARCHAR},
       polno = #{polno,jdbcType=VARCHAR},

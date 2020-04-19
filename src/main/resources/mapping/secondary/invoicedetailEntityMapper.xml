@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.invoicedetailEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.invoicedetailEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.InvoicedetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.InvoicedetailEntity" >
     <id column="invoicedetail_id" property="invoicedetailId" jdbcType="BIGINT" />
     <result column="invoicetotality_id" property="invoicetotalityId" jdbcType="BIGINT" />
     <result column="insurDictionaryCode" property="insurdictionarycode" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from invoicedetail
     where invoicedetail_id = #{invoicedetailId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.InvoicedetailEntity" >
     insert into invoicedetail (invoicedetail_id, invoicetotality_id, 
       insurDictionaryCode, dictionaryName, money, 
       created_time, updated_time, sendTradeNum, 
@@ -36,7 +36,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP}, #{sendtradenum,jdbcType=VARCHAR}, 
       #{invoiceno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.InvoicedetailEntity" >
     insert into invoicedetail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="invoicedetailId != null" >
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.InvoicedetailEntity" >
     update invoicedetail
     <set >
       <if test="invoicetotalityId != null" >
@@ -127,7 +127,7 @@
     </set>
     where invoicedetail_id = #{invoicedetailId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.invoicedetailEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.InvoicedetailEntity" >
     update invoicedetail
     set invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT},
       insurDictionaryCode = #{insurdictionarycode,jdbcType=VARCHAR},

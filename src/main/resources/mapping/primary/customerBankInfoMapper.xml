@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.customerBankInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.customerBankInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.CustomerBankInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.CustomerBankInfo" >
     <id column="account_id" property="accountId" jdbcType="VARCHAR" />
     <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
     <result column="account_name" property="accountName" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from customer_bank_info
     where account_id = #{accountId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.customerBankInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.CustomerBankInfo" >
     insert into customer_bank_info (account_id, customer_no, account_name, 
       account_no, bank_no, created_by, 
       created_time, updated_by, updated_time
@@ -36,7 +36,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.customerBankInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.CustomerBankInfo" >
     insert into customer_bank_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="accountId != null" >
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.customerBankInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.CustomerBankInfo" >
     update customer_bank_info
     <set >
       <if test="customerNo != null" >
@@ -127,7 +127,7 @@
     </set>
     where account_id = #{accountId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.customerBankInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.CustomerBankInfo" >
     update customer_bank_info
     set customer_no = #{customerNo,jdbcType=VARCHAR},
       account_name = #{accountName,jdbcType=VARCHAR},

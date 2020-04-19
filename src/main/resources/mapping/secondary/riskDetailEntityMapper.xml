@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.riskDetailEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.riskDetailEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.RiskDetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.RiskDetailEntity" >
     <id column="riskDetailId" property="riskdetailid" jdbcType="INTEGER" />
     <result column="visitPersonId" property="visitpersonid" jdbcType="VARCHAR" />
     <result column="areaName" property="areaname" jdbcType="VARCHAR" />
@@ -30,7 +30,7 @@
     delete from risk_detail
     where riskDetailId = #{riskdetailid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.RiskDetailEntity" >
     insert into risk_detail (riskDetailId, visitPersonId, areaName, 
       originHospitalName, areaCode, inHospitalDay, 
       hospitalName, diagnoseResult, medicalType, 
@@ -42,7 +42,7 @@
       #{hospitalcode,jdbcType=VARCHAR}, #{starttime,jdbcType=BIGINT}, #{endtime,jdbcType=BIGINT}, 
       #{createtime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.RiskDetailEntity" >
     insert into risk_detail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="riskdetailid != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.RiskDetailEntity" >
     update risk_detail
     <set >
       <if test="visitpersonid != null" >
@@ -169,7 +169,7 @@
     </set>
     where riskDetailId = #{riskdetailid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.riskDetailEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.RiskDetailEntity" >
     update risk_detail
     set visitPersonId = #{visitpersonid,jdbcType=VARCHAR},
       areaName = #{areaname,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actReProcdefEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actReProcdefEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActReProcdefEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActReProcdefEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="CATEGORY_" property="category" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
     delete from act_re_procdef
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actReProcdefEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActReProcdefEntity" >
     insert into act_re_procdef (ID_, REV_, CATEGORY_, 
       NAME_, KEY_, VERSION_, 
       DEPLOYMENT_ID_, RESOURCE_NAME_, DGRM_RESOURCE_NAME_, 
@@ -47,7 +47,7 @@
       #{suspensionState,jdbcType=INTEGER}, #{tenantId,jdbcType=VARCHAR}, #{engineVersion,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actReProcdefEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActReProcdefEntity" >
     insert into act_re_procdef
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actReProcdefEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActReProcdefEntity" >
     update act_re_procdef
     <set >
       <if test="rev != null" >
@@ -192,7 +192,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actReProcdefEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActReProcdefEntity" >
     update act_re_procdef
     set REV_ = #{rev,jdbcType=INTEGER},
       CATEGORY_ = #{category,jdbcType=VARCHAR},

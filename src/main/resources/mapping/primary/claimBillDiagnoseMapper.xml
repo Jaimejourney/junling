@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimBillDiagnoseMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimBillDiagnose" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimBillDiagnoseMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimBillDiagnose" >
     <id column="claim_bill_diagnose_id" property="claimBillDiagnoseId" jdbcType="VARCHAR" />
     <id column="claim_bill_id" property="claimBillId" jdbcType="VARCHAR" />
     <result column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
@@ -19,19 +19,19 @@
     claim_bill_diagnose_id, claim_bill_id, claim_info_id, claim_no, report_no, claim_bill_no, 
     diagnostic_code, doc_type_parent, created_by, created_time, updated_by, updated_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimBillDiagnoseKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.ClaimBillDiagnoseKey" >
     select 
     <include refid="Base_Column_List" />
     from claim_bill_diagnose
     where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
       and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimBillDiagnoseKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimBillDiagnoseKey" >
     delete from claim_bill_diagnose
     where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
       and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimBillDiagnose" >
     insert into claim_bill_diagnose (claim_bill_diagnose_id, claim_bill_id, 
       claim_info_id, claim_no, report_no, 
       claim_bill_no, diagnostic_code, doc_type_parent, 
@@ -43,7 +43,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimBillDiagnose" >
     insert into claim_bill_diagnose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="claimBillDiagnoseId != null" >
@@ -122,7 +122,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimBillDiagnose" >
     update claim_bill_diagnose
     <set >
       <if test="claimInfoId != null" >
@@ -159,7 +159,7 @@
     where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
       and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimBillDiagnose" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimBillDiagnose" >
     update claim_bill_diagnose
     set claim_info_id = #{claimInfoId,jdbcType=VARCHAR},
       claim_no = #{claimNo,jdbcType=VARCHAR},

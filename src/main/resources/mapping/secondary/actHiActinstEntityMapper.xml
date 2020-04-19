@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actHiActinstEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actHiActinstEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActHiActinstEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActHiActinstEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="PROC_DEF_ID_" property="procDefId" jdbcType="VARCHAR" />
@@ -34,7 +34,7 @@
     delete from act_hi_actinst
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actHiActinstEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActHiActinstEntity" >
     insert into act_hi_actinst (ID_, REV_, PROC_DEF_ID_, 
       PROC_INST_ID_, EXECUTION_ID_, ACT_ID_, 
       TASK_ID_, CALL_PROC_INST_ID_, ACT_NAME_, 
@@ -48,7 +48,7 @@
       #{endTime,jdbcType=TIMESTAMP}, #{duration,jdbcType=BIGINT}, #{deleteReason,jdbcType=VARCHAR}, 
       #{tenantId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actHiActinstEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActHiActinstEntity" >
     insert into act_hi_actinst
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actHiActinstEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActHiActinstEntity" >
     update act_hi_actinst
     <set >
       <if test="rev != null" >
@@ -202,7 +202,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actHiActinstEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActHiActinstEntity" >
     update act_hi_actinst
     set REV_ = #{rev,jdbcType=INTEGER},
       PROC_DEF_ID_ = #{procDefId,jdbcType=VARCHAR},

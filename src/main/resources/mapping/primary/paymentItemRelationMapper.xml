@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.paymentItemRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.paymentItemRelation" >
+<mapper namespace="com.junling.mis.mapper.primary.PaymentItemRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PaymentItemRelation" >
     <result column="payment_item_code" property="paymentItemCode" jdbcType="VARCHAR" />
     <result column="payment_item_name" property="paymentItemName" jdbcType="VARCHAR" />
     <result column="payment_item_english_name" property="paymentItemEnglishName" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.paymentItemRelation" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PaymentItemRelation" >
     insert into payment_item_relation (payment_item_code, payment_item_name, 
       payment_item_english_name, payment_item_nick_name, 
       payment_item_nick_english_name, payment_item_type, 
@@ -34,7 +34,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.paymentItemRelation" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PaymentItemRelation" >
     insert into payment_item_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="paymentItemCode != null" >

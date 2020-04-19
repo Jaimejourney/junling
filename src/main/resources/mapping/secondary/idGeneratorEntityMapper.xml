@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.idGeneratorEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.idGeneratorEntityKey" >
+<mapper namespace="com.junling.mis.mapper.secondary.IdGeneratorEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.IdGeneratorEntityKey" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <id column="type" property="type" jdbcType="VARCHAR" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.secondary.idGeneratorEntityKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.secondary.IdGeneratorEntityKey" >
     delete from id_generator
     where id = #{id,jdbcType=INTEGER}
       and type = #{type,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.idGeneratorEntityKey" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.IdGeneratorEntityKey" >
     insert into id_generator (id, type)
     values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.idGeneratorEntityKey" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.IdGeneratorEntityKey" >
     insert into id_generator
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

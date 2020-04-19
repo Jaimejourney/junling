@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbGenderMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbGender" >
+<mapper namespace="com.junling.mis.mapper.primary.TbGenderMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbGender" >
     <id column="gender_code" property="genderCode" jdbcType="VARCHAR" />
     <result column="gender_name" property="genderName" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from tb_gender
     where gender_code = #{genderCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbGender" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbGender" >
     insert into tb_gender (gender_code, gender_name, created_by, 
       created_time, updated_by, updated_time
       )
@@ -30,7 +30,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbGender" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbGender" >
     insert into tb_gender
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="genderCode != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbGender" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbGender" >
     update tb_gender
     <set >
       <if test="genderName != null" >
@@ -94,7 +94,7 @@
     </set>
     where gender_code = #{genderCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbGender" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbGender" >
     update tb_gender
     set gender_name = #{genderName,jdbcType=VARCHAR},
       created_by = #{createdBy,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actIdPrivMappingEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdPrivMappingEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActIdPrivMappingEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActIdPrivMappingEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="PRIV_ID_" property="privId" jdbcType="VARCHAR" />
     <result column="USER_ID_" property="userId" jdbcType="VARCHAR" />
@@ -20,13 +20,13 @@
     delete from act_id_priv_mapping
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdPrivMappingEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActIdPrivMappingEntity" >
     insert into act_id_priv_mapping (ID_, PRIV_ID_, USER_ID_, 
       GROUP_ID_)
     values (#{id,jdbcType=VARCHAR}, #{privId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
       #{groupId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdPrivMappingEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActIdPrivMappingEntity" >
     insert into act_id_priv_mapping
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdPrivMappingEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActIdPrivMappingEntity" >
     update act_id_priv_mapping
     <set >
       <if test="privId != null" >
@@ -72,7 +72,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdPrivMappingEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActIdPrivMappingEntity" >
     update act_id_priv_mapping
     set PRIV_ID_ = #{privId,jdbcType=VARCHAR},
       USER_ID_ = #{userId,jdbcType=VARCHAR},

@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbDistrict;
+import com.junling.mis.model.primary.TbDistrict;
 
 ;
 
@@ -12,7 +12,7 @@ import com.junling.mis.model.primary.tbDistrict;
  */
 public interface TbDistrictService {
 
-	Boolean addTbDistrict(tbDistrict tbDistrict) throws Exception;
+	Boolean addTbDistrict(TbDistrict tbDistrict) throws Exception;
 
 //	Boolean updateTbDistrict(tbDistrict tbDistrict) throws Exception;
 //

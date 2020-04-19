@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyInfo" >
     <id column="policy_info_id" property="policyInfoId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="product_id" property="productId" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.policyInfo" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.PolicyInfo" extends="BaseResultMap" >
     <result column="policy_special_contract" property="policySpecialContract" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -54,7 +54,7 @@
     delete from policy_info
     where policy_info_id = #{policyInfoId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyInfo" >
     insert into policy_info (policy_info_id, policy_no, product_id, 
       underwriting_time, pay_time, accept_insurance_time, 
       effect_time, maturity_time, policy_status, 
@@ -76,7 +76,7 @@
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{policySpecialContract,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyInfo" >
     insert into policy_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="policyInfoId != null" >
@@ -245,7 +245,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyInfo" >
     update policy_info
     <set >
       <if test="policyNo != null" >
@@ -329,7 +329,7 @@
     </set>
     where policy_info_id = #{policyInfoId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.policyInfo" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.PolicyInfo" >
     update policy_info
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       product_id = #{productId,jdbcType=VARCHAR},
@@ -359,7 +359,7 @@
       policy_special_contract = #{policySpecialContract,jdbcType=LONGVARCHAR}
     where policy_info_id = #{policyInfoId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyInfo" >
     update policy_info
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       product_id = #{productId,jdbcType=VARCHAR},

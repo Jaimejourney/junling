@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.idTypeTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.idTypeTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.IdTypeTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.IdTypeTblEntity" >
     <id column="id_type" property="idType" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from id_type_tbl
     where id_type = #{idType,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.idTypeTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.IdTypeTblEntity" >
     insert into id_type_tbl (id_type, description, update_poson, 
       update_time, is_delete)
     values (#{idType,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.idTypeTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.IdTypeTblEntity" >
     insert into id_type_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="idType != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.idTypeTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.IdTypeTblEntity" >
     update id_type_tbl
     <set >
       <if test="description != null" >
@@ -82,7 +82,7 @@
     </set>
     where id_type = #{idType,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.idTypeTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.IdTypeTblEntity" >
     update id_type_tbl
     set description = #{description,jdbcType=VARCHAR},
       update_poson = #{updatePoson,jdbcType=VARCHAR},

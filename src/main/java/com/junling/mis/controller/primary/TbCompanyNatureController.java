@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbCompanyNature;
+import com.junling.mis.model.primary.TbCompanyNature;
 import com.junling.mis.service.primary.TbCompanyNatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbCompanyNatureController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbCompanyNature(@RequestBody tbCompanyNature tbCompanyNature) throws Exception {
+    public MakeResult addTbCompanyNature(@RequestBody TbCompanyNature tbCompanyNature) throws Exception {
         if(service.addTbCompanyNature(tbCompanyNature)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbCompanyNatureController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbCompanyNature(@RequestBody tbCompanyNature tbCompanyNature) throws Exception {
+    public MakeResult updateTbCompanyNature(@RequestBody TbCompanyNature tbCompanyNature) throws Exception {
         if(service.updateTbCompanyNature(tbCompanyNature)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbCompanyNatureController {
 
     @RequestMapping(value = "/search/{tbCompanyCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbCompanyNature> searchTbCompanyNature(@PathVariable("tbCompanyCode") String tbCompanyCode) throws Exception {
-        tbCompanyNature tbCompanyNature = service.findDetailTbCompanyNature(tbCompanyCode);
-        MakeResult<tbCompanyNature> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbCompanyNature> searchTbCompanyNature(@PathVariable("tbCompanyCode") String tbCompanyCode) throws Exception {
+        TbCompanyNature tbCompanyNature = service.findDetailTbCompanyNature(tbCompanyCode);
+        MakeResult<TbCompanyNature> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbCompanyNature == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

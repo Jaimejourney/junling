@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.policyGradeLevel;
+import com.junling.mis.model.primary.PolicyGradeLevel;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.policyGradeLevel;
  */
 public interface PolicyGradeLevelService {
 
-	Boolean addPolicyGradeLevel(policyGradeLevel policyGradeLevel) throws Exception;
+	Boolean addPolicyGradeLevel(PolicyGradeLevel policyGradeLevel) throws Exception;
 
-	Boolean updatePolicyGradeLevel(policyGradeLevel policyGradeLevel) throws Exception;
+	Boolean updatePolicyGradeLevel(PolicyGradeLevel policyGradeLevel) throws Exception;
 
-	policyGradeLevel findDetailPolicyGradeLevel(String policyGradeLevelId) throws Exception;
+	PolicyGradeLevel findDetailPolicyGradeLevel(String policyGradeLevelId) throws Exception;
 	
 //	Result listPolicyGradeLevel(PolicyGradeLevelModel policyGradeLevelModel) throws Exception;
 //

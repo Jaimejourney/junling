@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.hospitalizationInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.HospitalizationInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.HospitalizationInfoEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
@@ -41,7 +41,7 @@
     delete from hospitalization_info
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.HospitalizationInfoEntity" >
     insert into hospitalization_info (id, docuno, flow_id, 
       is_yb_patient, region_name_hb, institutional_id, 
       therapy_type_hb, doctor_reg_id, doctor_name, 
@@ -59,7 +59,7 @@
       #{diagnosisCode3Hb,jdbcType=VARCHAR}, #{diagnosisName3Hb,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.HospitalizationInfoEntity" >
     insert into hospitalization_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -198,7 +198,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.HospitalizationInfoEntity" >
     update hospitalization_info
     <set >
       <if test="docuno != null" >
@@ -267,7 +267,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.hospitalizationInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.HospitalizationInfoEntity" >
     update hospitalization_info
     set docuno = #{docuno,jdbcType=VARCHAR},
       flow_id = #{flowId,jdbcType=VARCHAR},

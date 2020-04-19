@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysDeptEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysDeptEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysDeptEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysDeptEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="num" property="num" jdbcType="INTEGER" />
     <result column="pid" property="pid" jdbcType="INTEGER" />
@@ -24,7 +24,7 @@
     delete from sys_dept
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysDeptEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysDeptEntity" >
     insert into sys_dept (id, num, pid, 
       pids, simplename, fullname, 
       tips, version)
@@ -32,7 +32,7 @@
       #{pids,jdbcType=VARCHAR}, #{simplename,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR}, 
       #{tips,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysDeptEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysDeptEntity" >
     insert into sys_dept
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysDeptEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysDeptEntity" >
     update sys_dept
     <set >
       <if test="num != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysDeptEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysDeptEntity" >
     update sys_dept
     set num = #{num,jdbcType=INTEGER},
       pid = #{pid,jdbcType=INTEGER},

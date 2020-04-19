@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbBaseHospital;
+import com.junling.mis.model.primary.TbBaseHospital;
 import com.junling.mis.service.primary.TbBaseHospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbBaseHospitalController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbBaseHospital(@RequestBody tbBaseHospital tbBaseHospital) throws Exception {
+    public MakeResult addTbBaseHospital(@RequestBody TbBaseHospital tbBaseHospital) throws Exception {
         if(service.addTbBaseHospital(tbBaseHospital)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbBaseHospitalController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbBaseHospital(@RequestBody tbBaseHospital tbBaseHospital) throws Exception {
+    public MakeResult updateTbBaseHospital(@RequestBody TbBaseHospital tbBaseHospital) throws Exception {
         if(service.updateTbBaseHospital(tbBaseHospital)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbBaseHospitalController {
 
     @RequestMapping(value = "/search/{hospitalId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbBaseHospital> searchTbBaseHospital(@PathVariable("hospitalId") String hospitalId) throws Exception {
-        tbBaseHospital tbBaseHospital = service.findDetailTbBaseHospital(hospitalId);
-        MakeResult<tbBaseHospital> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbBaseHospital> searchTbBaseHospital(@PathVariable("hospitalId") String hospitalId) throws Exception {
+        TbBaseHospital tbBaseHospital = service.findDetailTbBaseHospital(hospitalId);
+        MakeResult<TbBaseHospital> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbBaseHospital == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

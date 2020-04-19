@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.itemHospitalRelationEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.itemHospitalRelationEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ItemHospitalRelationEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ItemHospitalRelationEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="item_group_code" property="itemGroupCode" jdbcType="VARCHAR" />
     <result column="hospital_code" property="hospitalCode" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from item_hospital_relation
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.itemHospitalRelationEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ItemHospitalRelationEntity" >
     insert into item_hospital_relation (id, item_group_code, hospital_code, 
       update_poson, update_time, is_delete
       )
@@ -30,7 +30,7 @@
       #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.itemHospitalRelationEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ItemHospitalRelationEntity" >
     insert into item_hospital_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.itemHospitalRelationEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ItemHospitalRelationEntity" >
     update item_hospital_relation
     <set >
       <if test="itemGroupCode != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.itemHospitalRelationEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ItemHospitalRelationEntity" >
     update item_hospital_relation
     set item_group_code = #{itemGroupCode,jdbcType=VARCHAR},
       hospital_code = #{hospitalCode,jdbcType=VARCHAR},

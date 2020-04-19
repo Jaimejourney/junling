@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysRoleEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysRoleEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysRoleEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysRoleEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="num" property="num" jdbcType="INTEGER" />
     <result column="pid" property="pid" jdbcType="INTEGER" />
@@ -23,7 +23,7 @@
     delete from sys_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysRoleEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysRoleEntity" >
     insert into sys_role (id, num, pid, 
       name, deptid, tips, 
       version)
@@ -31,7 +31,7 @@
       #{name,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER}, #{tips,jdbcType=VARCHAR}, 
       #{version,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysRoleEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysRoleEntity" >
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysRoleEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysRoleEntity" >
     update sys_role
     <set >
       <if test="num != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysRoleEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysRoleEntity" >
     update sys_role
     set num = #{num,jdbcType=INTEGER},
       pid = #{pid,jdbcType=INTEGER},

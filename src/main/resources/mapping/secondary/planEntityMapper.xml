@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.planEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.planEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PlanEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PlanEntity" >
     <id column="plan_code" property="planCode" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="is_direct" property="isDirect" jdbcType="VARCHAR" />
@@ -19,13 +19,13 @@
     delete from plan
     where plan_code = #{planCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.planEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PlanEntity" >
     insert into plan (plan_code, description, is_direct
       )
     values (#{planCode,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{isDirect,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.planEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PlanEntity" >
     insert into plan
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="planCode != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.planEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PlanEntity" >
     update plan
     <set >
       <if test="description != null" >
@@ -62,7 +62,7 @@
     </set>
     where plan_code = #{planCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.planEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PlanEntity" >
     update plan
     set description = #{description,jdbcType=VARCHAR},
       is_direct = #{isDirect,jdbcType=VARCHAR}

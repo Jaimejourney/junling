@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.errorLogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.errorLogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ErrorLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ErrorLogEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="visit_id" property="visitId" jdbcType="VARCHAR" />
     <result column="error_code" property="errorCode" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from error_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.errorLogEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ErrorLogEntity" >
     insert into error_log (id, visit_id, error_code, 
       error_msg, service_name, create_time, 
       update_time, status)
@@ -32,7 +32,7 @@
       #{errorMsg,jdbcType=VARCHAR}, #{serviceName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.errorLogEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ErrorLogEntity" >
     insert into error_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.errorLogEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ErrorLogEntity" >
     update error_log
     <set >
       <if test="visitId != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.errorLogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ErrorLogEntity" >
     update error_log
     set visit_id = #{visitId,jdbcType=VARCHAR},
       error_code = #{errorCode,jdbcType=VARCHAR},

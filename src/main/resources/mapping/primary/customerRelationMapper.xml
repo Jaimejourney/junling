@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.customerRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.customerRelation" >
+<mapper namespace="com.junling.mis.mapper.primary.CustomerRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.CustomerRelation" >
     <id column="customer_relation_id" property="customerRelationId" jdbcType="VARCHAR" />
     <result column="customer_organization_id" property="customerOrganizationId" jdbcType="VARCHAR" />
     <result column="relation_type" property="relationType" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from customer_relation
     where customer_relation_id = #{customerRelationId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.customerRelation" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.CustomerRelation" >
     insert into customer_relation (customer_relation_id, customer_organization_id, 
       relation_type, relation_customer, relation_start_time, 
       relation_end_time, relation_status, created_by, 
@@ -41,7 +41,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.customerRelation" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.CustomerRelation" >
     insert into customer_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="customerRelationId != null" >
@@ -114,7 +114,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.customerRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.CustomerRelation" >
     update customer_relation
     <set >
       <if test="customerOrganizationId != null" >
@@ -150,7 +150,7 @@
     </set>
     where customer_relation_id = #{customerRelationId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.customerRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.CustomerRelation" >
     update customer_relation
     set customer_organization_id = #{customerOrganizationId,jdbcType=VARCHAR},
       relation_type = #{relationType,jdbcType=VARCHAR},

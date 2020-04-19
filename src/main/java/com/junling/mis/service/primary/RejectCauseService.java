@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.rejectCause;
+import com.junling.mis.model.primary.RejectCause;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.rejectCause;
  */
 public interface RejectCauseService {
 
-	Boolean addRejectCause(rejectCause rejectCause) throws Exception;
+	Boolean addRejectCause(RejectCause rejectCause) throws Exception;
 
-	Boolean updateRejectCause(rejectCause rejectCause) throws Exception;
+	Boolean updateRejectCause(RejectCause rejectCause) throws Exception;
 
-	rejectCause findDetailRejectCause(String rejectCauseCode) throws Exception;
+	RejectCause findDetailRejectCause(String rejectCauseCode) throws Exception;
 	
 //	Result listRejectCause(RejectCauseModel rejectCauseModel) throws Exception;
 //

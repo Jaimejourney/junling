@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.pglpsdClaimRateMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.pglpsdClaimRate" >
+<mapper namespace="com.junling.mis.mapper.primary.PglpsdClaimRateMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PglpsdClaimRate" >
     <id column="pglpsd_claim_rate_id" property="pglpsdClaimRateId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_grade_level_no" property="policyGradeLevelNo" jdbcType="INTEGER" />
@@ -35,7 +35,7 @@
     delete from pglpsd_claim_rate
     where pglpsd_claim_rate_id = #{pglpsdClaimRateId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.pglpsdClaimRate" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PglpsdClaimRate" >
     insert into pglpsd_claim_rate (pglpsd_claim_rate_id, policy_no, policy_grade_level_no, 
       product_id, duty_id, sub_duty_id, 
       pglpsd_start_claim_amount, pglpsd_next_claim_amount, 
@@ -51,7 +51,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.pglpsdClaimRate" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PglpsdClaimRate" >
     insert into pglpsd_claim_rate
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pglpsdClaimRateId != null" >
@@ -154,7 +154,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.pglpsdClaimRate" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PglpsdClaimRate" >
     update pglpsd_claim_rate
     <set >
       <if test="policyNo != null" >
@@ -205,7 +205,7 @@
     </set>
     where pglpsd_claim_rate_id = #{pglpsdClaimRateId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.pglpsdClaimRate" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PglpsdClaimRate" >
     update pglpsd_claim_rate
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_grade_level_no = #{policyGradeLevelNo,jdbcType=INTEGER},

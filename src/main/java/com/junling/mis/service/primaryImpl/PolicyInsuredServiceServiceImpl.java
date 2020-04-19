@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyInsuredService;
+import com.junling.mis.mapper.primary.PolicyInsuredServiceMapper;
+import com.junling.mis.model.primary.PolicyInsuredService;
 import com.junling.mis.service.primary.PolicyInsuredServiceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class PolicyInsuredServiceServiceImpl implements PolicyInsuredServiceServ
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyInsuredServiceServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyInsuredServiceMapper policyInsuredServiceMapper;
+	private PolicyInsuredServiceMapper policyInsuredServiceMapper;
 
 	@Override
-	public Boolean addPolicyInsuredService(policyInsuredService policyInsuredService) throws Exception {
+	public Boolean addPolicyInsuredService(PolicyInsuredService policyInsuredService) throws Exception {
 		return policyInsuredServiceMapper.insert(policyInsuredService)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyInsuredService(policyInsuredService policyInsuredService) throws Exception {
+	public Boolean updatePolicyInsuredService(PolicyInsuredService policyInsuredService) throws Exception {
 		return policyInsuredServiceMapper.updateByPrimaryKey(policyInsuredService)>0;
 	}
 
 	@Override
-	public policyInsuredService findDetailPolicyInsuredService(String policyInsuredServiceId) throws Exception {
+	public PolicyInsuredService findDetailPolicyInsuredService(String policyInsuredServiceId) throws Exception {
 		return policyInsuredServiceMapper.selectByPrimaryKey(policyInsuredServiceId);
 	}
 

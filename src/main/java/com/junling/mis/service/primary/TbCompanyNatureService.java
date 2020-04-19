@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbCompanyNature;
+import com.junling.mis.model.primary.TbCompanyNature;
 
 ;
 
@@ -11,11 +11,11 @@ import com.junling.mis.model.primary.tbCompanyNature;
  */
 public interface TbCompanyNatureService {
 
-	Boolean addTbCompanyNature(tbCompanyNature tbCompanyNature) throws Exception;
+	Boolean addTbCompanyNature(TbCompanyNature tbCompanyNature) throws Exception;
 
-	Boolean updateTbCompanyNature(tbCompanyNature tbCompanyNature) throws Exception;
+	Boolean updateTbCompanyNature(TbCompanyNature tbCompanyNature) throws Exception;
 
-	tbCompanyNature findDetailTbCompanyNature(String tbCompanyCode) throws Exception;
+	TbCompanyNature findDetailTbCompanyNature(String tbCompanyCode) throws Exception;
 //
 //	Result listTbCompanyNature(TbCompanyNatureModel tbCompanyNatureModel) throws Exception;
 //

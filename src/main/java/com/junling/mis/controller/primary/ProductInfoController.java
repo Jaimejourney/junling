@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.productInfo;
+import com.junling.mis.model.primary.ProductInfo;
 import com.junling.mis.service.primary.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class ProductInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addProductInfo(@RequestBody productInfo productInfo) throws Exception {
+    public MakeResult addProductInfo(@RequestBody ProductInfo productInfo) throws Exception {
         if(service.addProductInfo(productInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class ProductInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateProductInfo(@RequestBody productInfo productInfo) throws Exception {
+    public MakeResult updateProductInfo(@RequestBody ProductInfo productInfo) throws Exception {
         if(service.updateProductInfo(productInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class ProductInfoController {
 
     @RequestMapping(value = "/search/{productId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<productInfo> searchProductInfo(@PathVariable("productId") String productId) throws Exception {
-        productInfo productInfo = service.findDetailProductInfo(productId);
-        MakeResult<productInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<ProductInfo> searchProductInfo(@PathVariable("productId") String productId) throws Exception {
+        ProductInfo productInfo = service.findDetailProductInfo(productId);
+        MakeResult<ProductInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(productInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

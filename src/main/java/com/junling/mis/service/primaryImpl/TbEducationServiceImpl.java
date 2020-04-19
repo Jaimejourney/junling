@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbEducation;
+import com.junling.mis.mapper.primary.TbEducationMapper;
+import com.junling.mis.model.primary.TbEducation;
 import com.junling.mis.service.primary.TbEducationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbEducationServiceImpl implements TbEducationService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbEducationServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbEducationMapper tbEducationMapper;
+	private TbEducationMapper tbEducationMapper;
 
 	@Override
-	public Boolean addTbEducation(tbEducation tbEducation) throws Exception {
+	public Boolean addTbEducation(TbEducation tbEducation) throws Exception {
 		return tbEducationMapper.insert(tbEducation)>0;
 	}
 
 	@Override
-	public Boolean updateTbEducation(tbEducation tbEducation) throws Exception {
+	public Boolean updateTbEducation(TbEducation tbEducation) throws Exception {
 		return tbEducationMapper.updateByPrimaryKey(tbEducation)>0;
 	}
 
 	@Override
-	public tbEducation findDetailTbEducation(String educationCode) throws Exception {
+	public TbEducation findDetailTbEducation(String educationCode) throws Exception {
 		return tbEducationMapper.selectByPrimaryKey(educationCode);
 	}
 

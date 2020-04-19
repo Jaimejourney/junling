@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbEducation;
+import com.junling.mis.model.primary.TbEducation;
 
 ;
 
@@ -11,11 +11,11 @@ import com.junling.mis.model.primary.tbEducation;
  */
 public interface TbEducationService {
 
-	Boolean addTbEducation(tbEducation tbEducation) throws Exception;
+	Boolean addTbEducation(TbEducation tbEducation) throws Exception;
 
-	Boolean updateTbEducation(tbEducation tbEducation) throws Exception;
+	Boolean updateTbEducation(TbEducation tbEducation) throws Exception;
 
-	tbEducation findDetailTbEducation(String educationCode) throws Exception;
+	TbEducation findDetailTbEducation(String educationCode) throws Exception;
 	
 //	Result listTbEducation(TbEducationModel tbEducationModel) throws Exception;
 //

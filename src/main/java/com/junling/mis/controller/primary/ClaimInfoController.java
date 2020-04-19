@@ -2,8 +2,8 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.claimInfo;
-import com.junling.mis.model.primary.claimInfoKey;
+import com.junling.mis.model.primary.ClaimInfo;
+import com.junling.mis.model.primary.ClaimInfoKey;
 import com.junling.mis.service.primary.ClaimInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class ClaimInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addClaimInfo(@RequestBody claimInfo claimInfo) throws Exception {
+    public MakeResult addClaimInfo(@RequestBody ClaimInfo claimInfo) throws Exception {
         if(service.addClaimInfo(claimInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -28,7 +28,7 @@ public class ClaimInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateClaimInfo(@RequestBody claimInfo claimInfo) throws Exception {
+    public MakeResult updateClaimInfo(@RequestBody ClaimInfo claimInfo) throws Exception {
         if(service.updateClaimInfo(claimInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -38,9 +38,9 @@ public class ClaimInfoController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<claimInfo> searchClaimInfo(@RequestBody claimInfoKey key) throws Exception {
-        claimInfo claimInfo = service.findDetailClaimInfo(key);
-        MakeResult<claimInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<ClaimInfo> searchClaimInfo(@RequestBody ClaimInfoKey key) throws Exception {
+        ClaimInfo claimInfo = service.findDetailClaimInfo(key);
+        MakeResult<ClaimInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(claimInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
@@ -49,7 +49,7 @@ public class ClaimInfoController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult delClaimInfo(@RequestBody claimInfoKey key) throws Exception {
+    public MakeResult delClaimInfo(@RequestBody ClaimInfoKey key) throws Exception {
         if(service.deleteClaimInfo(key)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{

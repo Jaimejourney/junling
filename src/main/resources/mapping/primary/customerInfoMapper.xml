@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.customerInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.customerInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.CustomerInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.CustomerInfo" >
     <id column="customer_no" property="customerNo" jdbcType="VARCHAR" />
     <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
     <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
@@ -47,7 +47,7 @@
     delete from customer_info
     where customer_no = #{customerNo,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.customerInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.CustomerInfo" >
     insert into customer_info (customer_no, customer_name, nick_name, 
       customer_level_code, customer_score, customer_phone_no, 
       birth_district_code, district_code, id_no, 
@@ -69,7 +69,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.customerInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.CustomerInfo" >
     insert into customer_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="customerNo != null" >
@@ -244,7 +244,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.customerInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.CustomerInfo" >
     update customer_info
     <set >
       <if test="customerName != null" >
@@ -331,7 +331,7 @@
     </set>
     where customer_no = #{customerNo,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.customerInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.CustomerInfo" >
     update customer_info
     set customer_name = #{customerName,jdbcType=VARCHAR},
       nick_name = #{nickName,jdbcType=VARCHAR},

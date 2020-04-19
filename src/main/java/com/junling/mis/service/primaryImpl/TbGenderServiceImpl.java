@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbGender;
+import com.junling.mis.mapper.primary.TbGenderMapper;
+import com.junling.mis.model.primary.TbGender;
 import com.junling.mis.service.primary.TbGenderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbGenderServiceImpl implements TbGenderService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbGenderServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbGenderMapper tbGenderMapper;
+	private TbGenderMapper tbGenderMapper;
 
 	@Override
-	public Boolean addTbGender(tbGender tbGender) throws Exception {
+	public Boolean addTbGender(TbGender tbGender) throws Exception {
 		return tbGenderMapper.insert(tbGender)>0;
 	}
 
 	@Override
-	public Boolean updateTbGender(tbGender tbGender) throws Exception {
+	public Boolean updateTbGender(TbGender tbGender) throws Exception {
 		return tbGenderMapper.updateByPrimaryKey(tbGender)>0;
 	}
 
 	@Override
-	public tbGender findDetailTbGender(String genderCode) throws Exception {
+	public TbGender findDetailTbGender(String genderCode) throws Exception {
 		return tbGenderMapper.selectByPrimaryKey(genderCode);
 	}
 

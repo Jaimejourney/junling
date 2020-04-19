@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimMainEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimMainEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimMainEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimMainEntity" >
     <id column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
     <result column="docu_status" property="docuStatus" jdbcType="VARCHAR" />
@@ -35,7 +35,7 @@
     <result column="signAutoCheck" property="signautocheck" jdbcType="VARCHAR" />
     <result column="deathProblem" property="deathproblem" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.claimMainEntityWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.ClaimMainEntityWithBLOBs" extends="BaseResultMap" >
     <result column="reply_opin" property="replyOpin" jdbcType="LONGVARCHAR" />
     <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -61,7 +61,7 @@
     delete from claim_main
     where docuno = #{docuno,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimMainEntityWithBLOBs" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimMainEntityWithBLOBs" >
     insert into claim_main (docuno, insured_id, docu_status, 
       docu_date, exam_date, end_date, 
       is_direct_bill, exam_amt, exam_result, 
@@ -87,7 +87,7 @@
       #{signautocheck,jdbcType=VARCHAR}, #{deathproblem,jdbcType=VARCHAR}, #{replyOpin,jdbcType=LONGVARCHAR}, 
       #{remark,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimMainEntityWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimMainEntityWithBLOBs" >
     insert into claim_main
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="docuno != null" >
@@ -298,7 +298,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimMainEntityWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimMainEntityWithBLOBs" >
     update claim_main
     <set >
       <if test="insuredId != null" >
@@ -403,7 +403,7 @@
     </set>
     where docuno = #{docuno,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.claimMainEntityWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.ClaimMainEntityWithBLOBs" >
     update claim_main
     set insured_id = #{insuredId,jdbcType=VARCHAR},
       docu_status = #{docuStatus,jdbcType=VARCHAR},
@@ -440,7 +440,7 @@
       remark = #{remark,jdbcType=LONGVARCHAR}
     where docuno = #{docuno,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimMainEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimMainEntity" >
     update claim_main
     set insured_id = #{insuredId,jdbcType=VARCHAR},
       docu_status = #{docuStatus,jdbcType=VARCHAR},

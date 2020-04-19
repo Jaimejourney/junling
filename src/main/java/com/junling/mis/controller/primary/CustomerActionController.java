@@ -3,7 +3,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.customerAction;
+import com.junling.mis.model.primary.CustomerAction;
 import com.junling.mis.service.primary.CustomerActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class CustomerActionController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addCustomerAction(@RequestBody customerAction customerAction) throws Exception {
+    public MakeResult addCustomerAction(@RequestBody CustomerAction customerAction) throws Exception {
         if(service.addCustomerAction(customerAction)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -28,7 +28,7 @@ public class CustomerActionController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateCustomerAction(@RequestBody customerAction customerAction) throws Exception {
+    public MakeResult updateCustomerAction(@RequestBody CustomerAction customerAction) throws Exception {
         if(service.updateCustomerAction(customerAction)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -38,9 +38,9 @@ public class CustomerActionController {
 
     @RequestMapping(value = "/search/{customerActionId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<customerAction> searchCustomerAction(@PathVariable("customerActionId") String customerActionId) throws Exception {
-        customerAction customerAction = service.findDetailCustomerAction(customerActionId);
-        MakeResult<customerAction> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<CustomerAction> searchCustomerAction(@PathVariable("customerActionId") String customerActionId) throws Exception {
+        CustomerAction customerAction = service.findDetailCustomerAction(customerActionId);
+        MakeResult<CustomerAction> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(customerAction == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

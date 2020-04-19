@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaClientPolInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaClientPolInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaClientPolInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaClientPolInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="certno" property="certno" jdbcType="VARCHAR" />
@@ -26,11 +26,17 @@
     from tpa_client_pol_info
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByPolNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tpa_client_pol_info
+    where polno = #{polNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tpa_client_pol_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaClientPolInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaClientPolInfoEntity" >
     insert into tpa_client_pol_info (id, polno, certno, 
       insured_id, source, source_desc, 
       product_code, plancode, riskcode, 
@@ -42,7 +48,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaClientPolInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaClientPolInfoEntity" >
     insert into tpa_client_pol_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,7 +133,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaClientPolInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaClientPolInfoEntity" >
     update tpa_client_pol_info
     <set >
       <if test="polno != null" >
@@ -169,7 +175,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaClientPolInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaClientPolInfoEntity" >
     update tpa_client_pol_info
     set polno = #{polno,jdbcType=VARCHAR},
       certno = #{certno,jdbcType=VARCHAR},

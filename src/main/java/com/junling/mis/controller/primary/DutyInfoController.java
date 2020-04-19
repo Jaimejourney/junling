@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.dutyInfo;
+import com.junling.mis.model.primary.DutyInfo;
 import com.junling.mis.service.primary.DutyInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class DutyInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addDutyInfo(@RequestBody dutyInfo dutyInfo) throws Exception {
+    public MakeResult addDutyInfo(@RequestBody DutyInfo dutyInfo) throws Exception {
         if(service.addDutyInfo(dutyInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class DutyInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateDutyInfo(@RequestBody dutyInfo dutyInfo) throws Exception {
+    public MakeResult updateDutyInfo(@RequestBody DutyInfo dutyInfo) throws Exception {
         if(service.updateDutyInfo(dutyInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class DutyInfoController {
 
     @RequestMapping(value = "/search/{dutyId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<dutyInfo> searchDutyInfo(@PathVariable("dutyId") String dutyId) throws Exception {
-        dutyInfo dutyInfo = service.findDetailDutyInfo(dutyId);
-        MakeResult<dutyInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<DutyInfo> searchDutyInfo(@PathVariable("dutyId") String dutyId) throws Exception {
+        DutyInfo dutyInfo = service.findDetailDutyInfo(dutyId);
+        MakeResult<DutyInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(dutyInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

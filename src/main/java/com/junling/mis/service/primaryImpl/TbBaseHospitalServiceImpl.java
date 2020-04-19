@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.tbBaseHospitalMapper;
-import com.junling.mis.model.primary.tbBaseHospital;
+import com.junling.mis.mapper.primary.TbBaseHospitalMapper;
+import com.junling.mis.model.primary.TbBaseHospital;
 import com.junling.mis.service.primary.TbBaseHospitalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,20 +18,20 @@ public class TbBaseHospitalServiceImpl implements TbBaseHospitalService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbBaseHospitalServiceImpl.class);
 
 	@Resource
-	private tbBaseHospitalMapper tbBaseHospitalMapper;
+	private TbBaseHospitalMapper tbBaseHospitalMapper;
 
 	@Override
-	public Boolean addTbBaseHospital(tbBaseHospital tbBaseHospital) throws Exception {
+	public Boolean addTbBaseHospital(TbBaseHospital tbBaseHospital) throws Exception {
 		return tbBaseHospitalMapper.insert(tbBaseHospital)>0;
 	}
 
 	@Override
-	public Boolean updateTbBaseHospital(tbBaseHospital tbBaseHospital) throws Exception {
+	public Boolean updateTbBaseHospital(TbBaseHospital tbBaseHospital) throws Exception {
 		return tbBaseHospitalMapper.updateByPrimaryKey(tbBaseHospital)>0;
 	}
 
 	@Override
-	public tbBaseHospital findDetailTbBaseHospital(String hospitalId) throws Exception {
+	public TbBaseHospital findDetailTbBaseHospital(String hospitalId) throws Exception {
 		return tbBaseHospitalMapper.selectByPrimaryKey(hospitalId);
 	}
 

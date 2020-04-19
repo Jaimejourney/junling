@@ -3,8 +3,8 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.claimBill;
-import com.junling.mis.model.primary.claimBillKey;
+import com.junling.mis.model.primary.ClaimBill;
+import com.junling.mis.model.primary.ClaimBillKey;
 import com.junling.mis.service.primary.ClaimBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class ClaimBillController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addClaimBill(@RequestBody claimBill claimBill) throws Exception {
+    public MakeResult addClaimBill(@RequestBody ClaimBill claimBill) throws Exception {
         if(service.addClaimBill(claimBill)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -31,7 +31,7 @@ public class ClaimBillController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateClaimBill(@RequestBody claimBill claimBill) throws Exception {
+    public MakeResult updateClaimBill(@RequestBody ClaimBill claimBill) throws Exception {
         if(service.updateClaimBill(claimBill)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -41,9 +41,9 @@ public class ClaimBillController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<claimBill> searchClaimBill(@RequestBody claimBillKey key) throws Exception {
-        claimBill claimBill = service.findDetailClaimBill(key);
-        MakeResult<claimBill> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<ClaimBill> searchClaimBill(@RequestBody ClaimBillKey key) throws Exception {
+        ClaimBill claimBill = service.findDetailClaimBill(key);
+        MakeResult<ClaimBill> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(claimBill == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
@@ -52,7 +52,7 @@ public class ClaimBillController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult delClaimBill(@RequestBody claimBillKey key) throws Exception {
+    public MakeResult delClaimBill(@RequestBody ClaimBillKey key) throws Exception {
         if(service.deleteClaimBill(key)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{

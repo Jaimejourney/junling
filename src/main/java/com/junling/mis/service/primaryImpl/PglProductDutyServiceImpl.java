@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.pglProductDuty;
+import com.junling.mis.mapper.primary.PglProductDutyMapper;
+import com.junling.mis.model.primary.PglProductDuty;
 import com.junling.mis.service.primary.PglProductDutyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class PglProductDutyServiceImpl implements PglProductDutyService {
 	private final static Logger LOG = LoggerFactory.getLogger(PglProductDutyServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.pglProductDutyMapper pglProductDutyMapper;
+	private PglProductDutyMapper pglProductDutyMapper;
 
 	@Override
-	public Boolean addPglProductDuty(pglProductDuty pglProductDuty) throws Exception {
+	public Boolean addPglProductDuty(PglProductDuty pglProductDuty) throws Exception {
 		return pglProductDutyMapper.insert(pglProductDuty) > 0;
 	}
 
 	@Override
-	public Boolean updatePglProductDuty(pglProductDuty pglProductDuty) throws Exception {
+	public Boolean updatePglProductDuty(PglProductDuty pglProductDuty) throws Exception {
 		return pglProductDutyMapper.updateByPrimaryKey(pglProductDuty) > 0;
 	}
 
 	@Override
-	public pglProductDuty findDetailPglProductDuty(String pglProductDutyId) throws Exception {
+	public PglProductDuty findDetailPglProductDuty(String pglProductDutyId) throws Exception {
 		return pglProductDutyMapper.selectByPrimaryKey(pglProductDutyId);
 	}
 

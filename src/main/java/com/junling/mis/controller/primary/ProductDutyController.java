@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.productDuty;
+import com.junling.mis.model.primary.ProductDuty;
 import com.junling.mis.service.primary.ProductDutyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class ProductDutyController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addProductDuty(@RequestBody productDuty productDuty) throws Exception {
+    public MakeResult addProductDuty(@RequestBody ProductDuty productDuty) throws Exception {
         if(service.addProductDuty(productDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -30,7 +30,7 @@ public class ProductDutyController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateProductDuty(@RequestBody productDuty productDuty) throws Exception {
+    public MakeResult updateProductDuty(@RequestBody ProductDuty productDuty) throws Exception {
         if(service.updateProductDuty(productDuty)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -40,9 +40,9 @@ public class ProductDutyController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<productDuty> searchProductDuty(@RequestBody String productDutyId) throws Exception {
-        productDuty productDuty = service.findDetailProductDuty(productDutyId);
-        MakeResult<productDuty> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<ProductDuty> searchProductDuty(@RequestBody String productDutyId) throws Exception {
+        ProductDuty productDuty = service.findDetailProductDuty(productDutyId);
+        MakeResult<ProductDuty> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(productDuty == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

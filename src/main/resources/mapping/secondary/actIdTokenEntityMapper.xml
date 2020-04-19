@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actIdTokenEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdTokenEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActIdTokenEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActIdTokenEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="TOKEN_VALUE_" property="tokenValue" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from act_id_token
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActIdTokenEntity" >
     insert into act_id_token (ID_, REV_, TOKEN_VALUE_, 
       TOKEN_DATE_, IP_ADDRESS_, USER_AGENT_, 
       USER_ID_, TOKEN_DATA_)
@@ -32,7 +32,7 @@
       #{tokenDate,jdbcType=TIMESTAMP}, #{ipAddress,jdbcType=VARCHAR}, #{userAgent,jdbcType=VARCHAR}, 
       #{userId,jdbcType=VARCHAR}, #{tokenData,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActIdTokenEntity" >
     insert into act_id_token
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActIdTokenEntity" >
     update act_id_token
     <set >
       <if test="rev != null" >
@@ -114,7 +114,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdTokenEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActIdTokenEntity" >
     update act_id_token
     set REV_ = #{rev,jdbcType=INTEGER},
       TOKEN_VALUE_ = #{tokenValue,jdbcType=VARCHAR},

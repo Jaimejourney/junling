@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbRelation;
+import com.junling.mis.model.primary.TbRelation;
 import com.junling.mis.service.primary.TbRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbRelationController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbRelation(@RequestBody tbRelation tbRelation) throws Exception {
+    public MakeResult addTbRelation(@RequestBody TbRelation tbRelation) throws Exception {
         if(service.addTbRelation(tbRelation)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbRelationController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbRelation(@RequestBody tbRelation tbRelation) throws Exception {
+    public MakeResult updateTbRelation(@RequestBody TbRelation tbRelation) throws Exception {
         if(service.updateTbRelation(tbRelation)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbRelationController {
 
     @RequestMapping(value = "/search/{relationCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbRelation> searchTbRelation(@PathVariable("relationCode") String relationCode) throws Exception {
-        tbRelation tbRelation = service.findDetailTbRelation(relationCode);
-        MakeResult<tbRelation> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbRelation> searchTbRelation(@PathVariable("relationCode") String relationCode) throws Exception {
+        TbRelation tbRelation = service.findDetailTbRelation(relationCode);
+        MakeResult<TbRelation> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbRelation == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

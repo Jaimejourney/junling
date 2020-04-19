@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.customerInfoMapper;
-import com.junling.mis.model.primary.customerInfo;
+import com.junling.mis.mapper.primary.CustomerInfoMapper;
+import com.junling.mis.model.primary.CustomerInfo;
 import com.junling.mis.service.primary.CustomerInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,21 +18,21 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(CustomerInfoServiceImpl.class);
 
 	@Resource
-	private customerInfoMapper customerInfoMapper;
+	private CustomerInfoMapper customerInfoMapper;
 
 
 	@Override
-	public Boolean addCustomerInfo(customerInfo customerInfo) throws Exception {
+	public Boolean addCustomerInfo(CustomerInfo customerInfo) throws Exception {
 		return customerInfoMapper.insert(customerInfo) > 0;
 	}
 
 	@Override
-	public Boolean updateCustomerInfo(customerInfo customerInfo) throws Exception {
+	public Boolean updateCustomerInfo(CustomerInfo customerInfo) throws Exception {
 		return customerInfoMapper.updateByPrimaryKey(customerInfo) > 0;
 	}
 
 	@Override
-	public customerInfo findDetailCustomerInfo(String customerNo) throws Exception {
+	public CustomerInfo findDetailCustomerInfo(String customerNo) throws Exception {
 		return customerInfoMapper.selectByPrimaryKey(customerNo);
 	}
 

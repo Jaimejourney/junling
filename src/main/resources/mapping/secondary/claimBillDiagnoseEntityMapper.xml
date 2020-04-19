@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimBillDiagnoseEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimBillDiagnoseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimBillDiagnoseEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="seqno" property="seqno" jdbcType="VARCHAR" />
     <result column="diagnose_code" property="diagnoseCode" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from claim_bill_diagnose
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimBillDiagnoseEntity" >
     insert into claim_bill_diagnose (id, seqno, diagnose_code, 
       update_poson, update_time, is_delete, 
       diagnose_name, receiptNo, accno, 
@@ -37,7 +37,7 @@
       #{diagnoseName,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, #{accno,jdbcType=VARCHAR}, 
       #{docuno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimBillDiagnoseEntity" >
     insert into claim_bill_diagnose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimBillDiagnoseEntity" >
     update claim_bill_diagnose
     <set >
       <if test="seqno != null" >
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillDiagnoseEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimBillDiagnoseEntity" >
     update claim_bill_diagnose
     set seqno = #{seqno,jdbcType=VARCHAR},
       diagnose_code = #{diagnoseCode,jdbcType=VARCHAR},

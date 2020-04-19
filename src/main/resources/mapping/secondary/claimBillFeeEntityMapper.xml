@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimBillFeeEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillFeeEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimBillFeeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimBillFeeEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="accno" property="accno" jdbcType="VARCHAR" />
@@ -32,11 +32,17 @@
     from claim_bill_fee
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByDocuno" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_bill_fee
+    where docuno = #{docuno,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from claim_bill_fee
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimBillFeeEntity" >
     insert into claim_bill_fee (id, docuno, accno, 
       receiptno, feeitemType, feeitemName, 
       sumfeeAmt, selfAmt, preAmt, 
@@ -52,7 +58,7 @@
       #{updateddate,jdbcType=TIMESTAMP}, #{polno,jdbcType=VARCHAR}, #{benefitCode,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimBillFeeEntity" >
     insert into claim_bill_fee
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -167,7 +173,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimBillFeeEntity" >
     update claim_bill_fee
     <set >
       <if test="docuno != null" >
@@ -224,7 +230,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillFeeEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimBillFeeEntity" >
     update claim_bill_fee
     set docuno = #{docuno,jdbcType=VARCHAR},
       accno = #{accno,jdbcType=VARCHAR},

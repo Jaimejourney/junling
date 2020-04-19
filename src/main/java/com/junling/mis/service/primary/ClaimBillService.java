@@ -1,7 +1,7 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.claimBill;
-import com.junling.mis.model.primary.claimBillKey;
+import com.junling.mis.model.primary.ClaimBill;
+import com.junling.mis.model.primary.ClaimBillKey;
 
 /** 
  * <br/>
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.claimBillKey;
  */
 public interface ClaimBillService {
 
-	Boolean addClaimBill(claimBill claimBill) throws Exception;
+	Boolean addClaimBill(ClaimBill claimBill) throws Exception;
 
-	Boolean updateClaimBill(claimBill claimBill) throws Exception;
+	Boolean updateClaimBill(ClaimBill claimBill) throws Exception;
 
-	claimBill findDetailClaimBill(claimBillKey key) throws Exception;
+	ClaimBill findDetailClaimBill(ClaimBillKey key) throws Exception;
 	
 //	Result listClaimBill(ClaimBillModel claimBillModel) throws Exception;
 //
@@ -21,5 +21,5 @@ public interface ClaimBillService {
 //
 //	Result countClaimBill(ClaimBillModel claimBillModel) throws Exception;
 	
-	 Boolean deleteClaimBill(claimBillKey key) throws Exception;
+	 Boolean deleteClaimBill(ClaimBillKey key) throws Exception;
 }

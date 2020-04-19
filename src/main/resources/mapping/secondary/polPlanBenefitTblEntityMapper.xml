@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.polPlanBenefitTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.polPlanBenefitTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PolPlanBenefitTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PolPlanBenefitTblEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from pol_plan_benefit_tbl
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.polPlanBenefitTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PolPlanBenefitTblEntity" >
     insert into pol_plan_benefit_tbl (id, polno, plan_code, 
       benefit_code, grade_level, update_poson, 
       update_time, is_delete)
@@ -32,7 +32,7 @@
       #{benefitCode,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.polPlanBenefitTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PolPlanBenefitTblEntity" >
     insert into pol_plan_benefit_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.polPlanBenefitTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PolPlanBenefitTblEntity" >
     update pol_plan_benefit_tbl
     <set >
       <if test="polno != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.polPlanBenefitTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PolPlanBenefitTblEntity" >
     update pol_plan_benefit_tbl
     set polno = #{polno,jdbcType=VARCHAR},
       plan_code = #{planCode,jdbcType=VARCHAR},

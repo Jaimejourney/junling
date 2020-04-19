@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actRuIdentitylinkEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actRuIdentitylinkEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActRuIdentitylinkEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActRuIdentitylinkEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="GROUP_ID_" property="groupId" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from act_ru_identitylink
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actRuIdentitylinkEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActRuIdentitylinkEntity" >
     insert into act_ru_identitylink (ID_, REV_, GROUP_ID_, 
       TYPE_, USER_ID_, TASK_ID_, 
       PROC_INST_ID_, PROC_DEF_ID_)
@@ -32,7 +32,7 @@
       #{type,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, 
       #{procInstId,jdbcType=VARCHAR}, #{procDefId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actRuIdentitylinkEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActRuIdentitylinkEntity" >
     insert into act_ru_identitylink
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actRuIdentitylinkEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActRuIdentitylinkEntity" >
     update act_ru_identitylink
     <set >
       <if test="rev != null" >
@@ -114,7 +114,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actRuIdentitylinkEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActRuIdentitylinkEntity" >
     update act_ru_identitylink
     set REV_ = #{rev,jdbcType=INTEGER},
       GROUP_ID_ = #{groupId,jdbcType=VARCHAR},

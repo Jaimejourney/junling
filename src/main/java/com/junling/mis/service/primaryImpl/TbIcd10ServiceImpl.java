@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbIcd10;
+import com.junling.mis.mapper.primary.TbIcd10Mapper;
+import com.junling.mis.model.primary.TbIcd10;
 import com.junling.mis.service.primary.TbIcd10Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbIcd10ServiceImpl implements TbIcd10Service {
 	private final static Logger LOG = LoggerFactory.getLogger(TbIcd10ServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbIcd10Mapper tbIcd10Mapper;
+	private TbIcd10Mapper tbIcd10Mapper;
 
 	@Override
-	public Boolean addTbIcd10(tbIcd10 tbIcd10) throws Exception {
+	public Boolean addTbIcd10(TbIcd10 tbIcd10) throws Exception {
 		return tbIcd10Mapper.insert(tbIcd10)>0;
 	}
 
 	@Override
-	public Boolean updateTbIcd10(tbIcd10 tbIcd10) throws Exception {
+	public Boolean updateTbIcd10(TbIcd10 tbIcd10) throws Exception {
 		return tbIcd10Mapper.updateByPrimaryKey(tbIcd10)>0;
 	}
 
 	@Override
-	public tbIcd10 findDetailTbIcd10(String icd) throws Exception {
+	public TbIcd10 findDetailTbIcd10(String icd) throws Exception {
 		return tbIcd10Mapper.selectByPrimaryKey(icd);
 	}
 

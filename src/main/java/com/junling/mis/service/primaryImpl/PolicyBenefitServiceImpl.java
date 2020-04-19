@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyBenefit;
+import com.junling.mis.mapper.primary.PolicyBenefitMapper;
+import com.junling.mis.model.primary.PolicyBenefit;
 import com.junling.mis.service.primary.PolicyBenefitService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class PolicyBenefitServiceImpl implements PolicyBenefitService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyBenefitServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyBenefitMapper policyBenefitMapper;
+	private PolicyBenefitMapper policyBenefitMapper;
 
 	@Override
-	public Boolean addPolicyBenefit(policyBenefit policyBenefitModel) throws Exception {
+	public Boolean addPolicyBenefit(PolicyBenefit policyBenefitModel) throws Exception {
 		return policyBenefitMapper.insert(policyBenefitModel) > 0;
 	}
 
 	@Override
-	public Boolean updatePolicyBenefit(policyBenefit policyBenefit) throws Exception {
+	public Boolean updatePolicyBenefit(PolicyBenefit policyBenefit) throws Exception {
 		return policyBenefitMapper.updateByPrimaryKey(policyBenefit) > 0;
 	}
 
 	@Override
-	public policyBenefit findDetailPolicyBenefit(String policyBenefitId) throws Exception {
+	public PolicyBenefit findDetailPolicyBenefit(String policyBenefitId) throws Exception {
 		return policyBenefitMapper.selectByPrimaryKey(policyBenefitId);
 	}
 

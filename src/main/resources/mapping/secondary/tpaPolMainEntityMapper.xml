@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaPolMainEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolMainEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaPolMainEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaPolMainEntity" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="insured_name" property="insuredName" jdbcType="VARCHAR" />
@@ -34,11 +34,17 @@
     from tpa_pol_main
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectByPolNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tpa_pol_main
+    where polno = #{polNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from tpa_pol_main
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaPolMainEntity" >
     insert into tpa_pol_main (id, polno, insured_name, 
       premium, eff_date, matu_date, 
       pol_status, pol_type, special_agreement, 
@@ -54,7 +60,7 @@
       #{sourceDesc,jdbcType=VARCHAR}, #{grpContno,jdbcType=VARCHAR}, #{xbidentification,jdbcType=VARCHAR}, 
       #{ybidentification,jdbcType=VARCHAR}, #{oldPolno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaPolMainEntity" >
     insert into tpa_pol_main
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -181,7 +187,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaPolMainEntity" >
     update tpa_pol_main
     <set >
       <if test="polno != null" >
@@ -244,7 +250,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolMainEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaPolMainEntity" >
     update tpa_pol_main
     set polno = #{polno,jdbcType=VARCHAR},
       insured_name = #{insuredName,jdbcType=VARCHAR},

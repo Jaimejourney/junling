@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyInfo;
+import com.junling.mis.mapper.primary.PolicyInfoMapper;
+import com.junling.mis.model.primary.PolicyInfo;
 import com.junling.mis.service.primary.PolicyInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class PolicyInfoServiceImpl implements PolicyInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyInfoServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyInfoMapper policyInfoMapper;
+	private PolicyInfoMapper policyInfoMapper;
 
 	@Override
-	public Boolean addPolicyInfo(policyInfo policyInfo) throws Exception {
+	public Boolean addPolicyInfo(PolicyInfo policyInfo) throws Exception {
 		return policyInfoMapper.insert(policyInfo) > 0;
 	}
 
 	@Override
-	public Boolean updatePolicyInfo(policyInfo policyInfo) throws Exception {
+	public Boolean updatePolicyInfo(PolicyInfo policyInfo) throws Exception {
 		return policyInfoMapper.updateByPrimaryKey(policyInfo) > 0;
 	}
 
 	@Override
-	public policyInfo findDetailPolicyInfo(String policyInfoId) throws Exception {
+	public PolicyInfo findDetailPolicyInfo(String policyInfoId) throws Exception {
 		return policyInfoMapper.selectByPrimaryKey(policyInfoId);
 	}
 

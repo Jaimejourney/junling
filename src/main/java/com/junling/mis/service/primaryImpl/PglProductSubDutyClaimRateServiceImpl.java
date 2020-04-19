@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.pglpsdClaimRateMapper;
-import com.junling.mis.model.primary.pglpsdClaimRate;
+import com.junling.mis.mapper.primary.PglpsdClaimRateMapper;
+import com.junling.mis.model.primary.PglpsdClaimRate;
 import com.junling.mis.service.primary.PglProductSubDutyClaimRateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,20 +18,20 @@ public class PglProductSubDutyClaimRateServiceImpl implements PglProductSubDutyC
 	private final static Logger LOG = LoggerFactory.getLogger(PglProductSubDutyClaimRateServiceImpl.class);
 
 	@Resource
-	private pglpsdClaimRateMapper pglpsdClaimRateMapper;
+	private PglpsdClaimRateMapper pglpsdClaimRateMapper;
 
 	@Override
-	public Boolean addPglProductSubDutyClaimRate(pglpsdClaimRate pglpsdClaimRate) throws Exception {
+	public Boolean addPglProductSubDutyClaimRate(PglpsdClaimRate pglpsdClaimRate) throws Exception {
 		return pglpsdClaimRateMapper.insert(pglpsdClaimRate) > 0;
 	}
 
 	@Override
-	public Boolean updatePglProductSubDutyClaimRate(pglpsdClaimRate pglpsdClaimRate) throws Exception {
+	public Boolean updatePglProductSubDutyClaimRate(PglpsdClaimRate pglpsdClaimRate) throws Exception {
 		return pglpsdClaimRateMapper.updateByPrimaryKey(pglpsdClaimRate) > 0;
 	}
 
 	@Override
-	public pglpsdClaimRate findDetailPglProductSubDutyClaimRate(String pglpsdClaimRateId) throws Exception {
+	public PglpsdClaimRate findDetailPglProductSubDutyClaimRate(String pglpsdClaimRateId) throws Exception {
 		return pglpsdClaimRateMapper.selectByPrimaryKey(pglpsdClaimRateId);
 	}
 

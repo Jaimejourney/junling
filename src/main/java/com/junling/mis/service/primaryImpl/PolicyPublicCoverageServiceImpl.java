@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyPublicCoverage;
+import com.junling.mis.mapper.primary.PolicyPublicCoverageMapper;
+import com.junling.mis.model.primary.PolicyPublicCoverage;
 import com.junling.mis.service.primary.PolicyPublicCoverageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class PolicyPublicCoverageServiceImpl implements PolicyPublicCoverageServ
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyPublicCoverageServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyPublicCoverageMapper policyPublicCoverageMapper;
+	private PolicyPublicCoverageMapper policyPublicCoverageMapper;
 
 	@Override
-	public Boolean addPolicyPublicCoverage(policyPublicCoverage policyPublicCoverage) throws Exception {
+	public Boolean addPolicyPublicCoverage(PolicyPublicCoverage policyPublicCoverage) throws Exception {
 		return policyPublicCoverageMapper.insert(policyPublicCoverage)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyPublicCoverage(policyPublicCoverage policyPublicCoverage) throws Exception {
+	public Boolean updatePolicyPublicCoverage(PolicyPublicCoverage policyPublicCoverage) throws Exception {
 		return policyPublicCoverageMapper.updateByPrimaryKey(policyPublicCoverage)>0;
 	}
 
 	@Override
-	public policyPublicCoverage findDetailPolicyPublicCoverage(String policyPublicCoverageId) throws Exception {
+	public PolicyPublicCoverage findDetailPolicyPublicCoverage(String policyPublicCoverageId) throws Exception {
 		return policyPublicCoverageMapper.selectByPrimaryKey(policyPublicCoverageId);
 	}
 

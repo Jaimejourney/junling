@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbHdRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbHdRelation" >
+<mapper namespace="com.junling.mis.mapper.primary.TbHdRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbHdRelation" >
     <id column="hospital_department_id" property="hospitalDepartmentId" jdbcType="VARCHAR" />
     <result column="hospital_id" property="hospitalId" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from tb_hd_relation
     where hospital_department_id = #{hospitalDepartmentId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbHdRelation" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbHdRelation" >
     insert into tb_hd_relation (hospital_department_id, hospital_id, 
       remark, created_by, created_time, 
       updated_by, updated_time)
@@ -32,7 +32,7 @@
       #{remark,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbHdRelation" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbHdRelation" >
     insert into tb_hd_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="hospitalDepartmentId != null" >
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbHdRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbHdRelation" >
     update tb_hd_relation
     <set >
       <if test="hospitalId != null" >
@@ -105,7 +105,7 @@
     </set>
     where hospital_department_id = #{hospitalDepartmentId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbHdRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbHdRelation" >
     update tb_hd_relation
     set hospital_id = #{hospitalId,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},

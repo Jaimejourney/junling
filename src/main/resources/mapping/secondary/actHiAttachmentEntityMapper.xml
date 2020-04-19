@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actHiAttachmentEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actHiAttachmentEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActHiAttachmentEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActHiAttachmentEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="USER_ID_" property="userId" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from act_hi_attachment
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actHiAttachmentEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActHiAttachmentEntity" >
     insert into act_hi_attachment (ID_, REV_, USER_ID_, 
       NAME_, DESCRIPTION_, TYPE_, 
       TASK_ID_, PROC_INST_ID_, URL_, 
@@ -38,7 +38,7 @@
       #{taskId,jdbcType=VARCHAR}, #{procInstId,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
       #{contentId,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actHiAttachmentEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActHiAttachmentEntity" >
     insert into act_hi_attachment
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actHiAttachmentEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActHiAttachmentEntity" >
     update act_hi_attachment
     <set >
       <if test="rev != null" >
@@ -147,7 +147,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actHiAttachmentEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActHiAttachmentEntity" >
     update act_hi_attachment
     set REV_ = #{rev,jdbcType=INTEGER},
       USER_ID_ = #{userId,jdbcType=VARCHAR},

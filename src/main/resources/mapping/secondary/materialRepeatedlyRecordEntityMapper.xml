@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.materialRepeatedlyRecordEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.materialRepeatedlyRecordEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.MaterialRepeatedlyRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.MaterialRepeatedlyRecordEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="push_message" property="pushMessage" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from material_repeatedly_record
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.materialRepeatedlyRecordEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.MaterialRepeatedlyRecordEntity" >
     insert into material_repeatedly_record (id, docuno, push_message, 
       push_status, upload_img, create_time, 
       update_time)
@@ -31,7 +31,7 @@
       #{pushStatus,jdbcType=VARCHAR}, #{uploadImg,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.materialRepeatedlyRecordEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.MaterialRepeatedlyRecordEntity" >
     insert into material_repeatedly_record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.materialRepeatedlyRecordEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.MaterialRepeatedlyRecordEntity" >
     update material_repeatedly_record
     <set >
       <if test="docuno != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.materialRepeatedlyRecordEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.MaterialRepeatedlyRecordEntity" >
     update material_repeatedly_record
     set docuno = #{docuno,jdbcType=VARCHAR},
       push_message = #{pushMessage,jdbcType=VARCHAR},

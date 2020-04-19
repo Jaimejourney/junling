@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbEducationMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbEducation" >
+<mapper namespace="com.junling.mis.mapper.primary.TbEducationMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbEducation" >
     <id column="education_code" property="educationCode" jdbcType="VARCHAR" />
     <result column="education_name" property="educationName" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from tb_education
     where education_code = #{educationCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbEducation" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbEducation" >
     insert into tb_education (education_code, education_name, created_by, 
       created_time, updated_by, updated_time
       )
@@ -30,7 +30,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbEducation" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbEducation" >
     insert into tb_education
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="educationCode != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbEducation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbEducation" >
     update tb_education
     <set >
       <if test="educationName != null" >
@@ -94,7 +94,7 @@
     </set>
     where education_code = #{educationCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbEducation" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbEducation" >
     update tb_education
     set education_name = #{educationName,jdbcType=VARCHAR},
       created_by = #{createdBy,jdbcType=VARCHAR},

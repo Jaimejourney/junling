@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimDocMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimDoc" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimDocMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimDoc" >
     <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
     <id column="claim_no" property="claimNo" jdbcType="VARCHAR" />
     <result column="doc_type_code" property="docTypeCode" jdbcType="VARCHAR" />
@@ -17,19 +17,19 @@
     claim_info_id, claim_no, doc_type_code, doc_sub_type_code, doc_url, doc_no, created_by, 
     created_time, updated_by, updated_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimDocKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.ClaimDocKey" >
     select 
     <include refid="Base_Column_List" />
     from claim_doc
     where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and claim_no = #{claimNo,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimDocKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimDocKey" >
     delete from claim_doc
     where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and claim_no = #{claimNo,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimDoc" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimDoc" >
     insert into claim_doc (claim_info_id, claim_no, doc_type_code, 
       doc_sub_type_code, doc_url, doc_no, 
       created_by, created_time, updated_by, 
@@ -39,7 +39,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimDoc" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimDoc" >
     insert into claim_doc
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="claimInfoId != null" >
@@ -106,7 +106,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimDoc" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimDoc" >
     update claim_doc
     <set >
       <if test="docTypeCode != null" >
@@ -137,7 +137,7 @@
     where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and claim_no = #{claimNo,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimDoc" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimDoc" >
     update claim_doc
     set doc_type_code = #{docTypeCode,jdbcType=VARCHAR},
       doc_sub_type_code = #{docSubTypeCode,jdbcType=VARCHAR},

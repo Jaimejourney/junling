@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.accessTokenEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.accessTokenEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.AccessTokenEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.AccessTokenEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="access_token" property="accessToken" jdbcType="VARCHAR" />
     <result column="token_type" property="tokenType" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from access_token
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.accessTokenEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.AccessTokenEntity" >
     insert into access_token (id, access_token, token_type, 
       expires_in, scope, jti
       )
@@ -30,7 +30,7 @@
       #{expiresIn,jdbcType=INTEGER}, #{scope,jdbcType=VARCHAR}, #{jti,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.accessTokenEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.AccessTokenEntity" >
     insert into access_token
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.accessTokenEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.AccessTokenEntity" >
     update access_token
     <set >
       <if test="accessToken != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.accessTokenEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.AccessTokenEntity" >
     update access_token
     set access_token = #{accessToken,jdbcType=VARCHAR},
       token_type = #{tokenType,jdbcType=VARCHAR},

@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.rejectCause;
+import com.junling.mis.mapper.primary.RejectCauseMapper;
+import com.junling.mis.model.primary.RejectCause;
 import com.junling.mis.service.primary.RejectCauseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class RejectCauseServiceImpl implements RejectCauseService {
 	private final static Logger LOG = LoggerFactory.getLogger(RejectCauseServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.rejectCauseMapper rejectCauseMapper;
+	private RejectCauseMapper rejectCauseMapper;
 
 	@Override
-	public Boolean addRejectCause(rejectCause rejectCause) throws Exception {
+	public Boolean addRejectCause(RejectCause rejectCause) throws Exception {
 		return rejectCauseMapper.insert(rejectCause)>0;
 	}
 
 	@Override
-	public Boolean updateRejectCause(rejectCause rejectCause) throws Exception {
+	public Boolean updateRejectCause(RejectCause rejectCause) throws Exception {
 		return rejectCauseMapper.updateByPrimaryKey(rejectCause)>0;
 	}
 
 	@Override
-	public rejectCause findDetailRejectCause(String rejectCauseCode) throws Exception {
+	public RejectCause findDetailRejectCause(String rejectCauseCode) throws Exception {
 		return rejectCauseMapper.selectByPrimaryKey(rejectCauseCode);
 	}
 

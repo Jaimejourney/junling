@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbDistrict;
+import com.junling.mis.mapper.primary.TbDistrictMapper;
+import com.junling.mis.model.primary.TbDistrict;
 import com.junling.mis.service.primary.TbDistrictService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +18,10 @@ public class TbDistrictServiceImpl implements TbDistrictService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbDistrictServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbDistrictMapper tbDistrictMapper;
+	private TbDistrictMapper tbDistrictMapper;
 
 	@Override
-	public Boolean addTbDistrict(tbDistrict tbDistrict) throws Exception {
+	public Boolean addTbDistrict(TbDistrict tbDistrict) throws Exception {
 		return tbDistrictMapper.insert(tbDistrict)>0;
 	}
 

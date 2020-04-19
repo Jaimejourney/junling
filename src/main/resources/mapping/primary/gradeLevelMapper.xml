@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.gradeLevelMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.gradeLevel" >
+<mapper namespace="com.junling.mis.mapper.primary.GradeLevelMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.GradeLevel" >
     <id column="grade_level_id" property="gradeLevelId" jdbcType="VARCHAR" />
     <result column="grade_level_no" property="gradeLevelNo" jdbcType="VARCHAR" />
     <result column="organization_id" property="organizationId" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.gradeLevel" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.GradeLevel" extends="BaseResultMap" >
     <result column="grade_level_des" property="gradeLevelDes" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -41,7 +41,7 @@
     delete from grade_level
     where grade_level_id = #{gradeLevelId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.gradeLevel" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.GradeLevel" >
     insert into grade_level (grade_level_id, grade_level_no, organization_id, 
       grade_level_name, grade_level_type, grade_level_start_time, 
       grade_level_end_time, grade_level_status, 
@@ -55,7 +55,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP}, #{gradeLevelDes,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.gradeLevel" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.GradeLevel" >
     insert into grade_level
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="gradeLevelId != null" >
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.gradeLevel" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.GradeLevel" >
     update grade_level
     <set >
       <if test="gradeLevelNo != null" >
@@ -209,7 +209,7 @@
     </set>
     where grade_level_id = #{gradeLevelId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.gradeLevel" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.GradeLevel" >
     update grade_level
     set grade_level_no = #{gradeLevelNo,jdbcType=VARCHAR},
       organization_id = #{organizationId,jdbcType=VARCHAR},
@@ -228,7 +228,7 @@
       grade_level_des = #{gradeLevelDes,jdbcType=LONGVARCHAR}
     where grade_level_id = #{gradeLevelId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.gradeLevel" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.GradeLevel" >
     update grade_level
     set grade_level_no = #{gradeLevelNo,jdbcType=VARCHAR},
       organization_id = #{organizationId,jdbcType=VARCHAR},

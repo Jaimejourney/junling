@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.operationInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.operationInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.OperationInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.OperationInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
     <result column="medicalNum" property="medicalnum" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from operation_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.operationInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.OperationInfoEntity" >
     insert into operation_info (id, sendTradeNum, medicalNum, 
       operationCode, operationName, created_date, 
       updated_date)
@@ -31,7 +31,7 @@
       #{operationcode,jdbcType=VARCHAR}, #{operationname,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
       #{updatedDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.operationInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.OperationInfoEntity" >
     insert into operation_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.operationInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.OperationInfoEntity" >
     update operation_info
     <set >
       <if test="sendtradenum != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.operationInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.OperationInfoEntity" >
     update operation_info
     set sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
       medicalNum = #{medicalnum,jdbcType=VARCHAR},

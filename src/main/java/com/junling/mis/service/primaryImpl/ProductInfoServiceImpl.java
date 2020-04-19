@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.productInfo;
+import com.junling.mis.mapper.primary.ProductInfoMapper;
+import com.junling.mis.model.primary.ProductInfo;
 import com.junling.mis.service.primary.ProductInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(ProductInfoServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.productInfoMapper productInfoMapper;
+	private ProductInfoMapper productInfoMapper;
 
 	@Override
-	public Boolean addProductInfo(productInfo productInfo) throws Exception {
+	public Boolean addProductInfo(ProductInfo productInfo) throws Exception {
 		return productInfoMapper.insert(productInfo)>0;
 	}
 
 	@Override
-	public Boolean updateProductInfo(productInfo productInfo) throws Exception {
+	public Boolean updateProductInfo(ProductInfo productInfo) throws Exception {
 		return productInfoMapper.updateByPrimaryKey(productInfo) >0;
 	}
 
 	@Override
-	public productInfo findDetailProductInfo(String productId) throws Exception {
+	public ProductInfo findDetailProductInfo(String productId) throws Exception {
 		return productInfoMapper.selectByPrimaryKey(productId);
 	}
 

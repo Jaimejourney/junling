@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysOperationLogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysOperationLogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysOperationLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysOperationLogEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="logtype" property="logtype" jdbcType="VARCHAR" />
     <result column="logname" property="logname" jdbcType="VARCHAR" />
@@ -10,7 +10,7 @@
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="succeed" property="succeed" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.sysOperationLogEntityWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.SysOperationLogEntityWithBLOBs" extends="BaseResultMap" >
     <result column="method" property="method" jdbcType="LONGVARCHAR" />
     <result column="message" property="message" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -32,7 +32,7 @@
     delete from sys_operation_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysOperationLogEntityWithBLOBs" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysOperationLogEntityWithBLOBs" >
     insert into sys_operation_log (id, logtype, logname, 
       userid, classname, createtime, 
       succeed, method, message
@@ -42,7 +42,7 @@
       #{succeed,jdbcType=VARCHAR}, #{method,jdbcType=LONGVARCHAR}, #{message,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysOperationLogEntityWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysOperationLogEntityWithBLOBs" >
     insert into sys_operation_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysOperationLogEntityWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysOperationLogEntityWithBLOBs" >
     update sys_operation_log
     <set >
       <if test="logtype != null" >
@@ -133,7 +133,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.sysOperationLogEntityWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.SysOperationLogEntityWithBLOBs" >
     update sys_operation_log
     set logtype = #{logtype,jdbcType=VARCHAR},
       logname = #{logname,jdbcType=VARCHAR},
@@ -145,7 +145,7 @@
       message = #{message,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysOperationLogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysOperationLogEntity" >
     update sys_operation_log
     set logtype = #{logtype,jdbcType=VARCHAR},
       logname = #{logname,jdbcType=VARCHAR},

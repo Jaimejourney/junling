@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbBank;
+import com.junling.mis.model.primary.TbBank;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbBank;
  */
 public interface TbBankService {
 
-	Boolean addTbBank(tbBank tbBank) throws Exception;
+	Boolean addTbBank(TbBank tbBank) throws Exception;
 
-	Boolean updateTbBank(tbBank tbBank) throws Exception;
+	Boolean updateTbBank(TbBank tbBank) throws Exception;
 
-	tbBank findDetailTbBank(String bankCode) throws Exception;
+	TbBank findDetailTbBank(String bankCode) throws Exception;
 	
 //	Result listTbBank(TbBankModel tbBankModel) throws Exception;
 //

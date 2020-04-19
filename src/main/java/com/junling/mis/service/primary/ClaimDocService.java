@@ -1,7 +1,7 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.claimDoc;
-import com.junling.mis.model.primary.claimDocKey;
+import com.junling.mis.model.primary.ClaimDoc;
+import com.junling.mis.model.primary.ClaimDocKey;
 
 /** 
  * <br/>
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.claimDocKey;
  */
 public interface ClaimDocService {
 
-	Boolean addClaimDoc(claimDoc claimDoc) throws Exception;
+	Boolean addClaimDoc(ClaimDoc claimDoc) throws Exception;
 
-	Boolean updateClaimDoc(claimDoc claimDoc) throws Exception;
+	Boolean updateClaimDoc(ClaimDoc claimDoc) throws Exception;
 
-	claimDoc findDetailClaimDoc(claimDocKey key) throws Exception;
+	ClaimDoc findDetailClaimDoc(ClaimDocKey key) throws Exception;
 
 //	Result listClaimDoc(ClaimDocModel claimDocModel) throws Exception;
 //
@@ -21,5 +21,5 @@ public interface ClaimDocService {
 //
 //	Result countClaimDoc(ClaimDocModel claimDocModel) throws Exception;
 	
-	Boolean deleteClaimDoc(claimDocKey key) throws Exception;
+	Boolean deleteClaimDoc(ClaimDocKey key) throws Exception;
 }

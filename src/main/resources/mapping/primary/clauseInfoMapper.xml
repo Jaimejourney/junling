@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.clauseInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.clauseInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.ClauseInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClauseInfo" >
     <id column="clause_id" property="clauseId" jdbcType="VARCHAR" />
     <result column="organization_id" property="organizationId" jdbcType="VARCHAR" />
     <result column="clause_code" property="clauseCode" jdbcType="VARCHAR" />
@@ -15,7 +15,7 @@
     <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.clauseInfo" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.ClauseInfo" extends="BaseResultMap" >
     <result column="clause_des" property="clauseDes" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -37,7 +37,7 @@
     delete from clause_info
     where clause_id = #{clauseId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.clauseInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClauseInfo" >
     insert into clause_info (clause_id, organization_id, clause_code, 
       clause_name, clause_type, clause_start_time, 
       clause_end_time, clause_status, created_by, 
@@ -49,7 +49,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, 
       #{clauseDes,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.clauseInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClauseInfo" >
     insert into clause_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="clauseId != null" >
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.clauseInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClauseInfo" >
     update clause_info
     <set >
       <if test="organizationId != null" >
@@ -176,7 +176,7 @@
     </set>
     where clause_id = #{clauseId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.clauseInfo" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.ClauseInfo" >
     update clause_info
     set organization_id = #{organizationId,jdbcType=VARCHAR},
       clause_code = #{clauseCode,jdbcType=VARCHAR},
@@ -192,7 +192,7 @@
       clause_des = #{clauseDes,jdbcType=LONGVARCHAR}
     where clause_id = #{clauseId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.clauseInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClauseInfo" >
     update clause_info
     set organization_id = #{organizationId,jdbcType=VARCHAR},
       clause_code = #{clauseCode,jdbcType=VARCHAR},

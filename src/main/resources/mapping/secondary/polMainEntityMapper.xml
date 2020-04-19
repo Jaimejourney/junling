@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.polMainEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.polMainEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PolMainEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PolMainEntity" >
     <id column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="eff_date" property="effDate" jdbcType="TIMESTAMP" />
     <result column="matu_date" property="matuDate" jdbcType="TIMESTAMP" />
@@ -21,13 +21,13 @@
     delete from pol_main
     where polno = #{polno,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PolMainEntity" >
     insert into pol_main (polno, eff_date, matu_date, 
       pol_status, pol_type)
     values (#{polno,jdbcType=VARCHAR}, #{effDate,jdbcType=TIMESTAMP}, #{matuDate,jdbcType=TIMESTAMP}, 
       #{polStatus,jdbcType=VARCHAR}, #{polType,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PolMainEntity" >
     insert into pol_main
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="polno != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PolMainEntity" >
     update pol_main
     <set >
       <if test="effDate != null" >
@@ -82,7 +82,7 @@
     </set>
     where polno = #{polno,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.polMainEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PolMainEntity" >
     update pol_main
     set eff_date = #{effDate,jdbcType=TIMESTAMP},
       matu_date = #{matuDate,jdbcType=TIMESTAMP},

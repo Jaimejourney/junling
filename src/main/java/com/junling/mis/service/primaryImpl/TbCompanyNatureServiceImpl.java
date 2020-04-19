@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbCompanyNature;
+import com.junling.mis.mapper.primary.TbCompanyNatureMapper;
+import com.junling.mis.model.primary.TbCompanyNature;
 import com.junling.mis.service.primary.TbCompanyNatureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbCompanyNatureServiceImpl implements TbCompanyNatureService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbCompanyNatureServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbCompanyNatureMapper tbCompanyNatureMapper;
+	private TbCompanyNatureMapper tbCompanyNatureMapper;
 
 	@Override
-	public Boolean addTbCompanyNature(tbCompanyNature tbCompanyNature) throws Exception {
+	public Boolean addTbCompanyNature(TbCompanyNature tbCompanyNature) throws Exception {
 		return tbCompanyNatureMapper.insert(tbCompanyNature)>0;
 	}
 
 	@Override
-	public Boolean updateTbCompanyNature(tbCompanyNature tbCompanyNature) throws Exception {
+	public Boolean updateTbCompanyNature(TbCompanyNature tbCompanyNature) throws Exception {
 		return tbCompanyNatureMapper.updateByPrimaryKey(tbCompanyNature)>0;
 	}
 
 	@Override
-	public tbCompanyNature findDetailTbCompanyNature(String tbCompanyCode) throws Exception {
+	public TbCompanyNature findDetailTbCompanyNature(String tbCompanyCode) throws Exception {
 		return tbCompanyNatureMapper.selectByPrimaryKey(tbCompanyCode);
 	}
 

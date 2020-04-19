@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.paymentItem;
+import com.junling.mis.model.primary.PaymentItem;
 
 ;
 
@@ -12,7 +12,7 @@ import com.junling.mis.model.primary.paymentItem;
  */
 public interface PaymentItemService {
 
-	Boolean addPaymentItem(paymentItem paymentItem) throws Exception;
+	Boolean addPaymentItem(PaymentItem paymentItem) throws Exception;
 
 //	Result updatePaymentItem(PaymentItemModel paymentItemModel) throws Exception;
 //

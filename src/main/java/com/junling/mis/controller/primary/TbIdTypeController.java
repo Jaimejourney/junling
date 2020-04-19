@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbIdType;
+import com.junling.mis.model.primary.TbIdType;
 import com.junling.mis.service.primary.TbIdTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbIdTypeController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbIdType(@RequestBody tbIdType tbIdType) throws Exception {
+    public MakeResult addTbIdType(@RequestBody TbIdType tbIdType) throws Exception {
         if(service.addTbIdType(tbIdType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbIdTypeController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbIdType(@RequestBody tbIdType tbIdType) throws Exception {
+    public MakeResult updateTbIdType(@RequestBody TbIdType tbIdType) throws Exception {
         if(service.updateTbIdType(tbIdType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbIdTypeController {
 
     @RequestMapping(value = "/search/{idTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbIdType> searchTbIdType(@PathVariable("idTypeCode") String idTypeCode) throws Exception {
-        tbIdType tbIdType = service.findDetailTbIdType(idTypeCode);
-        MakeResult<tbIdType> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbIdType> searchTbIdType(@PathVariable("idTypeCode") String idTypeCode) throws Exception {
+        TbIdType tbIdType = service.findDetailTbIdType(idTypeCode);
+        MakeResult<TbIdType> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbIdType == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

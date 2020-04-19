@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actReDeploymentEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actReDeploymentEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActReDeploymentEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActReDeploymentEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="NAME_" property="name" jdbcType="VARCHAR" />
     <result column="CATEGORY_" property="category" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from act_re_deployment
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActReDeploymentEntity" >
     insert into act_re_deployment (ID_, NAME_, CATEGORY_, 
       KEY_, TENANT_ID_, DEPLOY_TIME_, 
       ENGINE_VERSION_)
@@ -31,7 +31,7 @@
       #{key,jdbcType=VARCHAR}, #{tenantId,jdbcType=VARCHAR}, #{deployTime,jdbcType=TIMESTAMP}, 
       #{engineVersion,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActReDeploymentEntity" >
     insert into act_re_deployment
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActReDeploymentEntity" >
     update act_re_deployment
     <set >
       <if test="name != null" >
@@ -104,7 +104,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actReDeploymentEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActReDeploymentEntity" >
     update act_re_deployment
     set NAME_ = #{name,jdbcType=VARCHAR},
       CATEGORY_ = #{category,jdbcType=VARCHAR},

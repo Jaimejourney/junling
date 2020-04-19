@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.itemTypeTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.itemTypeTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ItemTypeTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ItemTypeTblEntity" >
     <id column="item_type_code" property="itemTypeCode" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from item_type_tbl
     where item_type_code = #{itemTypeCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ItemTypeTblEntity" >
     insert into item_type_tbl (item_type_code, description, update_poson, 
       update_time, is_delete)
     values (#{itemTypeCode,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ItemTypeTblEntity" >
     insert into item_type_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="itemTypeCode != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ItemTypeTblEntity" >
     update item_type_tbl
     <set >
       <if test="description != null" >
@@ -82,7 +82,7 @@
     </set>
     where item_type_code = #{itemTypeCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.itemTypeTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ItemTypeTblEntity" >
     update item_type_tbl
     set description = #{description,jdbcType=VARCHAR},
       update_poson = #{updatePoson,jdbcType=VARCHAR},

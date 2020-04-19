@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitApplyPersonEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitApplyPersonEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitApplyPersonEntity" >
     <id column="id" property="id" jdbcType="DECIMAL" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
     delete from visit_apply_person
     where id = #{id,jdbcType=DECIMAL}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitApplyPersonEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitApplyPersonEntity" >
     insert into visit_apply_person (id, openid, name, 
       phone, email, create_time, 
       last_time, card_id, update_by, 
@@ -43,7 +43,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, #{postcode,jdbcType=VARCHAR}, 
       #{contactAddress,jdbcType=VARCHAR}, #{contactCerttype,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitApplyPersonEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitApplyPersonEntity" >
     insert into visit_apply_person
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitApplyPersonEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitApplyPersonEntity" >
     update visit_apply_person
     <set >
       <if test="openid != null" >
@@ -179,7 +179,7 @@
     </set>
     where id = #{id,jdbcType=DECIMAL}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitApplyPersonEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitApplyPersonEntity" >
     update visit_apply_person
     set openid = #{openid,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.prescribedetailEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.prescribedetailEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PrescribedetailEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PrescribedetailEntity" >
     <id column="prescribedetail_id" property="prescribedetailId" jdbcType="BIGINT" />
     <result column="card_id" property="cardId" jdbcType="VARCHAR" />
     <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
@@ -83,7 +83,7 @@
     delete from prescribedetail
     where prescribedetail_id = #{prescribedetailId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PrescribedetailEntity" >
     insert into prescribedetail (prescribedetail_id, card_id, sendTradeNum, 
       listCat, medicalItemCat, itemLevel, 
       recipeNum, recipeSerialNum, recipeDate, 
@@ -127,7 +127,7 @@
       #{hospitalname,jdbcType=VARCHAR}, #{invoiceno,jdbcType=VARCHAR}, #{billnum,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PrescribedetailEntity" >
     insert into prescribedetail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="prescribedetailId != null" >
@@ -488,7 +488,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PrescribedetailEntity" >
     update prescribedetail
     <set >
       <if test="cardId != null" >
@@ -668,7 +668,7 @@
     </set>
     where prescribedetail_id = #{prescribedetailId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.prescribedetailEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PrescribedetailEntity" >
     update prescribedetail
     set card_id = #{cardId,jdbcType=VARCHAR},
       sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},

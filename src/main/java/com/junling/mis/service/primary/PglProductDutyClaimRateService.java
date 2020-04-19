@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.pglpdClaimRate;
+import com.junling.mis.model.primary.PglpdClaimRate;
 
 
 
@@ -9,11 +9,11 @@ import com.junling.mis.model.primary.pglpdClaimRate;
  * Created by yikaiZhu on 2020/03/16
  */
 public interface PglProductDutyClaimRateService {
-	Boolean addPglProductDutyClaimRate(pglpdClaimRate pglProductDutyClaimRate) throws Exception;
+	Boolean addPglProductDutyClaimRate(PglpdClaimRate pglProductDutyClaimRate) throws Exception;
 
-	Boolean updatePglProductDutyClaimRate(pglpdClaimRate pglProductDutyClaimRate) throws Exception;
+	Boolean updatePglProductDutyClaimRate(PglpdClaimRate pglProductDutyClaimRate) throws Exception;
 
-	pglpdClaimRate findDetailPglProductDutyClaimRate(String pglpdClaimRateId) throws Exception;
+	PglpdClaimRate findDetailPglProductDutyClaimRate(String pglpdClaimRateId) throws Exception;
 	
 //	Result listPglProductDutyClaimRate(PglProductDutyClaimRateModel pglProductDutyClaimRateModel) throws Exception;
 //

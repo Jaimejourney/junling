@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbBank;
+import com.junling.mis.model.primary.TbBank;
 import com.junling.mis.service.primary.TbBankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbBankController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbBank(@RequestBody tbBank tbBank) throws Exception {
+    public MakeResult addTbBank(@RequestBody TbBank tbBank) throws Exception {
         if(service.addTbBank(tbBank)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbBankController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbBank(@RequestBody tbBank tbBank) throws Exception {
+    public MakeResult updateTbBank(@RequestBody TbBank tbBank) throws Exception {
         if(service.updateTbBank(tbBank)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbBankController {
 
     @RequestMapping(value = "/search/{bankCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbBank> searchTbBank(@PathVariable("bankCode") String bankCode) throws Exception {
-        tbBank tbBank = service.findDetailTbBank(bankCode);
-        MakeResult<tbBank> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbBank> searchTbBank(@PathVariable("bankCode") String bankCode) throws Exception {
+        TbBank tbBank = service.findDetailTbBank(bankCode);
+        MakeResult<TbBank> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbBank == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

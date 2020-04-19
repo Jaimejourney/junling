@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.partnerInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.partnerInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PartnerInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PartnerInfoEntity" >
     <id column="partner_id" property="partnerId" jdbcType="VARCHAR" />
     <result column="private_key" property="privateKey" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -25,7 +25,7 @@
     delete from partner_info
     where partner_id = #{partnerId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.partnerInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PartnerInfoEntity" >
     insert into partner_info (partner_id, private_key, create_time, 
       address, partner_type, update_poson, 
       update_time, is_delete)
@@ -33,7 +33,7 @@
       #{address,jdbcType=VARCHAR}, #{partnerType,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.partnerInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PartnerInfoEntity" >
     insert into partner_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="partnerId != null" >
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.partnerInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PartnerInfoEntity" >
     update partner_info
     <set >
       <if test="privateKey != null" >
@@ -115,7 +115,7 @@
     </set>
     where partner_id = #{partnerId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.partnerInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PartnerInfoEntity" >
     update partner_info
     set private_key = #{privateKey,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},

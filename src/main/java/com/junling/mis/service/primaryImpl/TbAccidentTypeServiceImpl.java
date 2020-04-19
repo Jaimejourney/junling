@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbAccidentType;
+import com.junling.mis.mapper.primary.TbAccidentTypeMapper;
+import com.junling.mis.model.primary.TbAccidentType;
 import com.junling.mis.service.primary.TbAccidentTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbAccidentTypeServiceImpl implements TbAccidentTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbAccidentTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbAccidentTypeMapper tbAccidentTypeMapper;
+	private TbAccidentTypeMapper tbAccidentTypeMapper;
 
 	@Override
-	public Boolean addTbAccidentType(tbAccidentType tbAccidentType) throws Exception {
+	public Boolean addTbAccidentType(TbAccidentType tbAccidentType) throws Exception {
 		return tbAccidentTypeMapper.insert(tbAccidentType)>0;
 	}
 
 	@Override
-	public Boolean updateTbAccidentType(tbAccidentType tbAccidentType) throws Exception {
+	public Boolean updateTbAccidentType(TbAccidentType tbAccidentType) throws Exception {
 		return tbAccidentTypeMapper.updateByPrimaryKey(tbAccidentType)>0;
 	}
 
 	@Override
-	public tbAccidentType findDetailTbAccidentType(String accidentTypeCode) throws Exception {
+	public TbAccidentType findDetailTbAccidentType(String accidentTypeCode) throws Exception {
 		return tbAccidentTypeMapper.selectByPrimaryKey(accidentTypeCode);
 	}
 

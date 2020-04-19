@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.paymentItem;
+import com.junling.mis.mapper.primary.PaymentItemMapper;
+import com.junling.mis.model.primary.PaymentItem;
 import com.junling.mis.service.primary.PaymentItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +18,10 @@ public class PaymentItemServiceImpl implements PaymentItemService {
 	private final static Logger LOG = LoggerFactory.getLogger(PaymentItemServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.paymentItemMapper paymentItemMapper;
+	private PaymentItemMapper paymentItemMapper;
 
 	@Override
-	public Boolean addPaymentItem(paymentItem paymentItem) throws Exception {
+	public Boolean addPaymentItem(PaymentItem paymentItem) throws Exception {
 		return paymentItemMapper.insert(paymentItem) > 0;
 	}
 //

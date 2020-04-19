@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.reportExcessRecordEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ReportExcessRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ReportExcessRecordEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="person_card_id" property="personCardId" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from report_excess_record
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ReportExcessRecordEntity" >
     insert into report_excess_record (id, docuno, person_card_id, 
       polno, createdDate, updatedDate
       )
@@ -30,7 +30,7 @@
       #{polno,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ReportExcessRecordEntity" >
     insert into report_excess_record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ReportExcessRecordEntity" >
     update report_excess_record
     <set >
       <if test="docuno != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.reportExcessRecordEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ReportExcessRecordEntity" >
     update report_excess_record
     set docuno = #{docuno,jdbcType=VARCHAR},
       person_card_id = #{personCardId,jdbcType=VARCHAR},

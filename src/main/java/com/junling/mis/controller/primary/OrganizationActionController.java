@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.organizationAction;
+import com.junling.mis.model.primary.OrganizationAction;
 import com.junling.mis.service.primary.OrganizationActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class OrganizationActionController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addOrganizationAction(@RequestBody organizationAction organizationAction) throws Exception {
+    public MakeResult addOrganizationAction(@RequestBody OrganizationAction organizationAction) throws Exception {
         if(service.addOrganizationAction(organizationAction)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class OrganizationActionController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateOrganizationAction(@RequestBody organizationAction organizationAction) throws Exception {
+    public MakeResult updateOrganizationAction(@RequestBody OrganizationAction organizationAction) throws Exception {
         if(service.updateOrganizationAction(organizationAction)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class OrganizationActionController {
 
     @RequestMapping(value = "/search/{organizationActionId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<organizationAction> searchOrganizationAction(@PathVariable("organizationActionId") String organizationActionId) throws Exception {
-        organizationAction organizationAction = service.findDetailOrganizationAction(organizationActionId);
-        MakeResult<organizationAction> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<OrganizationAction> searchOrganizationAction(@PathVariable("organizationActionId") String organizationActionId) throws Exception {
+        OrganizationAction organizationAction = service.findDetailOrganizationAction(organizationActionId);
+        MakeResult<OrganizationAction> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(organizationAction == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

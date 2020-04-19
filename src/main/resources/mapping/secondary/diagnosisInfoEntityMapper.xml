@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.diagnosisInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.DiagnosisInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.DiagnosisInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="cardId" property="cardid" jdbcType="VARCHAR" />
     <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
@@ -39,7 +39,7 @@
     delete from diagnosis_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.DiagnosisInfoEntity" >
     insert into diagnosis_info (id, cardId, sendTradeNum, 
       diagnosisType, uniDiagnosisType, diagnosisNo, 
       uniDiagnosisCode, diagnosisName, uniDiagnosisName, 
@@ -57,7 +57,7 @@
       #{dischdiagnosiscode,jdbcType=VARCHAR}, #{dischdiagnosisname,jdbcType=VARCHAR}, 
       #{inhosdiagnosis,jdbcType=VARCHAR}, #{invoiceno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.DiagnosisInfoEntity" >
     insert into diagnosis_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -184,7 +184,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.DiagnosisInfoEntity" >
     update diagnosis_info
     <set >
       <if test="cardid != null" >
@@ -247,7 +247,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.diagnosisInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.DiagnosisInfoEntity" >
     update diagnosis_info
     set cardId = #{cardid,jdbcType=VARCHAR},
       sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},

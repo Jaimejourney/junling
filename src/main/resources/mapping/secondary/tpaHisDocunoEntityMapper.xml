@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaHisDocunoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaHisDocunoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaHisDocunoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaHisDocunoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="refusereason" property="refusereason" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from tpa_his_docuno
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaHisDocunoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaHisDocunoEntity" >
     insert into tpa_his_docuno (id, docuno, refusereason, 
       created_date, updated_date)
     values (#{id,jdbcType=INTEGER}, #{docuno,jdbcType=VARCHAR}, #{refusereason,jdbcType=VARCHAR}, 
       #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaHisDocunoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaHisDocunoEntity" >
     insert into tpa_his_docuno
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaHisDocunoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaHisDocunoEntity" >
     update tpa_his_docuno
     <set >
       <if test="docuno != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaHisDocunoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaHisDocunoEntity" >
     update tpa_his_docuno
     set docuno = #{docuno,jdbcType=VARCHAR},
       refusereason = #{refusereason,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaErrorInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaErrorInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaErrorInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaErrorInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="request_id" property="requestId" jdbcType="VARCHAR" />
     <result column="token" property="token" jdbcType="VARCHAR" />
@@ -14,7 +14,7 @@
     <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
     <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.tpaErrorInfoEntity" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.TpaErrorInfoEntity" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -36,7 +36,7 @@
     delete from tpa_error_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaErrorInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaErrorInfoEntity" >
     insert into tpa_error_info (id, request_id, token, 
       partner_id, tran_code, err_msg, 
       create_by, created_date, update_by, 
@@ -48,7 +48,7 @@
       #{updatedDate,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaErrorInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaErrorInfoEntity" >
     insert into tpa_error_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaErrorInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaErrorInfoEntity" >
     update tpa_error_info
     <set >
       <if test="requestId != null" >
@@ -166,7 +166,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.tpaErrorInfoEntity" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.TpaErrorInfoEntity" >
     update tpa_error_info
     set request_id = #{requestId,jdbcType=VARCHAR},
       token = #{token,jdbcType=VARCHAR},
@@ -181,7 +181,7 @@
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaErrorInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaErrorInfoEntity" >
     update tpa_error_info
     set request_id = #{requestId,jdbcType=VARCHAR},
       token = #{token,jdbcType=VARCHAR},

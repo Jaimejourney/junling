@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitImgAnXinEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitImgAnXinEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitImgAnXinEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="image_id" property="imageId" jdbcType="BIGINT" />
     <result column="pic_key" property="picKey" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from visit_img_an_xin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitImgAnXinEntity" >
     insert into visit_img_an_xin (id, image_id, pic_key, 
       image_type, image_status, from_img_url, 
       image_url, create_time, update_time, 
@@ -38,7 +38,7 @@
       #{imageUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{userId,jdbcType=VARCHAR}, #{fasdImgUrl,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitImgAnXinEntity" >
     insert into visit_img_an_xin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitImgAnXinEntity" >
     update visit_img_an_xin
     <set >
       <if test="imageId != null" >
@@ -147,7 +147,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitImgAnXinEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitImgAnXinEntity" >
     update visit_img_an_xin
     set image_id = #{imageId,jdbcType=BIGINT},
       pic_key = #{picKey,jdbcType=VARCHAR},

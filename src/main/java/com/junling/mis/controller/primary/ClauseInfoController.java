@@ -3,7 +3,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.clauseInfo;
+import com.junling.mis.model.primary.ClauseInfo;
 import com.junling.mis.service.primary.ClauseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class ClauseInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addClauseInfo(@RequestBody clauseInfo clauseInfo) throws Exception {
+    public MakeResult addClauseInfo(@RequestBody ClauseInfo clauseInfo) throws Exception {
         if(service.addClauseInfo(clauseInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -28,7 +28,7 @@ public class ClauseInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateClauseInfo(@RequestBody clauseInfo clauseInfo) throws Exception {
+    public MakeResult updateClauseInfo(@RequestBody ClauseInfo clauseInfo) throws Exception {
         if(service.updateClauseInfo(clauseInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -38,9 +38,9 @@ public class ClauseInfoController {
 
     @RequestMapping(value = "/search/{clauseId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<clauseInfo> searchClauseInfo(@PathVariable("clauseId") String clauseId) throws Exception {
-        clauseInfo clauseInfo = service.findDetailClauseInfo(clauseId);
-        MakeResult<clauseInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<ClauseInfo> searchClauseInfo(@PathVariable("clauseId") String clauseId) throws Exception {
+        ClauseInfo clauseInfo = service.findDetailClauseInfo(clauseId);
+        MakeResult<ClauseInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(clauseInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

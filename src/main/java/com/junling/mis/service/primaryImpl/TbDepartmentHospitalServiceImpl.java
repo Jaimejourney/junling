@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.tbHospitalDepartmentMapper;
-import com.junling.mis.model.primary.tbHospitalDepartment;
+import com.junling.mis.mapper.primary.TbHospitalDepartmentMapper;
+import com.junling.mis.model.primary.TbHospitalDepartment;
 import com.junling.mis.service.primary.TbDepartmentHospitalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,20 +18,20 @@ public class TbDepartmentHospitalServiceImpl implements TbDepartmentHospitalServ
 	private final static Logger LOG = LoggerFactory.getLogger(TbDepartmentHospitalServiceImpl.class);
 
 	@Resource
-	private tbHospitalDepartmentMapper tbHospitalDepartmentMapper;
+	private TbHospitalDepartmentMapper tbHospitalDepartmentMapper;
 
 	@Override
-	public Boolean addTbDepartmentHospital(tbHospitalDepartment tbHospitalDepartment) throws Exception {
+	public Boolean addTbDepartmentHospital(TbHospitalDepartment tbHospitalDepartment) throws Exception {
 		return tbHospitalDepartmentMapper.insert(tbHospitalDepartment) > 0;
 	}
 
 	@Override
-	public Boolean updateTbDepartmentHospital(tbHospitalDepartment tbHospitalDepartment) throws Exception {
+	public Boolean updateTbDepartmentHospital(TbHospitalDepartment tbHospitalDepartment) throws Exception {
 		return tbHospitalDepartmentMapper.updateByPrimaryKey(tbHospitalDepartment)>0;
 	}
 
 	@Override
-	public tbHospitalDepartment findDetailTbDepartmentHospital(String departmentId) throws Exception {
+	public TbHospitalDepartment findDetailTbDepartmentHospital(String departmentId) throws Exception {
 		return tbHospitalDepartmentMapper.selectByPrimaryKey(departmentId);
 	}
 

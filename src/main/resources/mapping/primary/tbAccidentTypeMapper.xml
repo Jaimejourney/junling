@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbAccidentTypeMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbAccidentType" >
+<mapper namespace="com.junling.mis.mapper.primary.TbAccidentTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbAccidentType" >
     <id column="accident_type_code" property="accidentTypeCode" jdbcType="VARCHAR" />
     <result column="accident_type_name" property="accidentTypeName" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from tb_accident_type
     where accident_type_code = #{accidentTypeCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbAccidentType" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbAccidentType" >
     insert into tb_accident_type (accident_type_code, accident_type_name, 
       created_by, created_time, updated_by, 
       updated_time)
@@ -30,7 +30,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbAccidentType" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbAccidentType" >
     insert into tb_accident_type
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="accidentTypeCode != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbAccidentType" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbAccidentType" >
     update tb_accident_type
     <set >
       <if test="accidentTypeName != null" >
@@ -94,7 +94,7 @@
     </set>
     where accident_type_code = #{accidentTypeCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbAccidentType" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbAccidentType" >
     update tb_accident_type
     set accident_type_name = #{accidentTypeName,jdbcType=VARCHAR},
       created_by = #{createdBy,jdbcType=VARCHAR},

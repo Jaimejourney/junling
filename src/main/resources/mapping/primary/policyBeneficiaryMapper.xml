@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyBeneficiaryMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyBeneficiary" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyBeneficiaryMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyBeneficiary" >
     <id column="policy_beneficiary_id" property="policyBeneficiaryId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_reinsurance_no" property="policyReinsuranceNo" jdbcType="VARCHAR" />
@@ -35,7 +35,7 @@
     delete from policy_beneficiary
     where policy_beneficiary_id = #{policyBeneficiaryId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyBeneficiary" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyBeneficiary" >
     insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, 
       br_no, insure_id, grade_level_id, 
       product_id, duty_id, policy_beneficiary_type, 
@@ -51,7 +51,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyBeneficiary" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyBeneficiary" >
     insert into policy_beneficiary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="policyBeneficiaryId != null" >
@@ -160,7 +160,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyBeneficiary" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyBeneficiary" >
     update policy_beneficiary
     <set >
       <if test="policyNo != null" >
@@ -214,7 +214,7 @@
     </set>
     where policy_beneficiary_id = #{policyBeneficiaryId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyBeneficiary" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyBeneficiary" >
     update policy_beneficiary
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},

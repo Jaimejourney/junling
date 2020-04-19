@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbCustomerLevel;
+import com.junling.mis.model.primary.TbCustomerLevel;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbCustomerLevel;
  */
 public interface TbCustomerLevelService {
 
-	Boolean addTbCustomerLevel(tbCustomerLevel tbCustomerLevel) throws Exception;
+	Boolean addTbCustomerLevel(TbCustomerLevel tbCustomerLevel) throws Exception;
 
-	Boolean updateTbCustomerLevel(tbCustomerLevel tbCustomerLevel) throws Exception;
+	Boolean updateTbCustomerLevel(TbCustomerLevel tbCustomerLevel) throws Exception;
 
-	tbCustomerLevel findDetailTbCustomerLevel(String customerLevelCode) throws Exception;
+	TbCustomerLevel findDetailTbCustomerLevel(String customerLevelCode) throws Exception;
 	
 //	Result listTbCustomerLevel(TbCustomerLevelModel tbCustomerLevelModel) throws Exception;
 //

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.clientEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.clientEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClientEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClientEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="clientno" property="clientno" jdbcType="VARCHAR" />
     <result column="id_type" property="idType" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
     delete from client
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.clientEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClientEntity" >
     insert into client (id, clientno, id_type, 
       idno, name, gender, 
       address, birth_date, mobile, 
@@ -43,7 +43,7 @@
       #{zipCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.clientEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClientEntity" >
     insert into client
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.clientEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClientEntity" >
     update client
     <set >
       <if test="clientno != null" >
@@ -179,7 +179,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.clientEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClientEntity" >
     update client
     set clientno = #{clientno,jdbcType=VARCHAR},
       id_type = #{idType,jdbcType=VARCHAR},

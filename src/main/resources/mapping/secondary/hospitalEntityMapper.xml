@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.hospitalEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.hospitalEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.HospitalEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.HospitalEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="hospital_code" property="hospitalCode" jdbcType="VARCHAR" />
     <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from hospital
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.hospitalEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.HospitalEntity" >
     insert into hospital (id, hospital_code, hospital_name, 
       hospital_grade, claim_type, hospital_type, 
       affiliated)
@@ -31,7 +31,7 @@
       #{hospitalGrade,jdbcType=VARCHAR}, #{claimType,jdbcType=INTEGER}, #{hospitalType,jdbcType=VARCHAR}, 
       #{affiliated,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.hospitalEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.HospitalEntity" >
     insert into hospital
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.hospitalEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.HospitalEntity" >
     update hospital
     <set >
       <if test="hospitalCode != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.hospitalEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.HospitalEntity" >
     update hospital
     set hospital_code = #{hospitalCode,jdbcType=VARCHAR},
       hospital_name = #{hospitalName,jdbcType=VARCHAR},

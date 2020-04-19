@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.gradeLevelProduct;
+import com.junling.mis.model.primary.GradeLevelProduct;
 import com.junling.mis.service.primary.GradeLevelProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class GradeLevelProductController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addGradeLevelProduct(@RequestBody gradeLevelProduct gradeLevelProduct) throws Exception {
+    public MakeResult addGradeLevelProduct(@RequestBody GradeLevelProduct gradeLevelProduct) throws Exception {
         if(service.addGradeLevelProduct(gradeLevelProduct)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class GradeLevelProductController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateGradeLevelProduct(@RequestBody gradeLevelProduct gradeLevelProduct) throws Exception {
+    public MakeResult updateGradeLevelProduct(@RequestBody GradeLevelProduct gradeLevelProduct) throws Exception {
         if(service.updateGradeLevelProduct(gradeLevelProduct)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class GradeLevelProductController {
 
     @RequestMapping(value = "/search/{gradeLevelProductId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<gradeLevelProduct> searchGradeLevelProduct(@PathVariable("gradeLevelProductId") String gradeLevelProductId) throws Exception {
-        gradeLevelProduct gradeLevelProduct = service.findDetailGradeLevelProduct(gradeLevelProductId);
-        MakeResult<gradeLevelProduct> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<GradeLevelProduct> searchGradeLevelProduct(@PathVariable("gradeLevelProductId") String gradeLevelProductId) throws Exception {
+        GradeLevelProduct gradeLevelProduct = service.findDetailGradeLevelProduct(gradeLevelProductId);
+        MakeResult<GradeLevelProduct> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(gradeLevelProduct == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

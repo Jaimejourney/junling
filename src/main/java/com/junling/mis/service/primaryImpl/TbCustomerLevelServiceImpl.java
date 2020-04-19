@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbCustomerLevel;
+import com.junling.mis.mapper.primary.TbCustomerLevelMapper;
+import com.junling.mis.model.primary.TbCustomerLevel;
 import com.junling.mis.service.primary.TbCustomerLevelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbCustomerLevelServiceImpl implements TbCustomerLevelService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbCustomerLevelServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbCustomerLevelMapper tbCustomerLevelMapper;
+	private TbCustomerLevelMapper tbCustomerLevelMapper;
 
 	@Override
-	public Boolean addTbCustomerLevel(tbCustomerLevel tbCustomerLevel) throws Exception {
+	public Boolean addTbCustomerLevel(TbCustomerLevel tbCustomerLevel) throws Exception {
 		return tbCustomerLevelMapper.insert(tbCustomerLevel)>0;
 	}
 
 	@Override
-	public Boolean updateTbCustomerLevel(tbCustomerLevel tbCustomerLevel) throws Exception {
+	public Boolean updateTbCustomerLevel(TbCustomerLevel tbCustomerLevel) throws Exception {
 		return tbCustomerLevelMapper.updateByPrimaryKey(tbCustomerLevel)>0;
 	}
 
 	@Override
-	public tbCustomerLevel findDetailTbCustomerLevel(String customerLevelCode) throws Exception {
+	public TbCustomerLevel findDetailTbCustomerLevel(String customerLevelCode) throws Exception {
 		return tbCustomerLevelMapper.selectByPrimaryKey(customerLevelCode);
 	}
 

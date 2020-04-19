@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.funSwitchEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.funSwitchEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.FunSwitchEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.FunSwitchEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="funName" property="funname" jdbcType="VARCHAR" />
     <result column="version" property="version" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from fun_switch
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.FunSwitchEntity" >
     insert into fun_switch (id, funName, version, 
       createdBy, updatedBy, createdDate, 
       updatedDate)
@@ -31,7 +31,7 @@
       #{createdby,jdbcType=VARCHAR}, #{updatedby,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, 
       #{updateddate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.FunSwitchEntity" >
     insert into fun_switch
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.FunSwitchEntity" >
     update fun_switch
     <set >
       <if test="funname != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.funSwitchEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.FunSwitchEntity" >
     update fun_switch
     set funName = #{funname,jdbcType=VARCHAR},
       version = #{version,jdbcType=VARCHAR},

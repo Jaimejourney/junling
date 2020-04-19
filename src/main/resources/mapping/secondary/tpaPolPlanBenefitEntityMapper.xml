@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaPolPlanBenefitEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaPolPlanBenefitEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaPolPlanBenefitEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="grade_level" property="gradeLevel" jdbcType="INTEGER" />
@@ -50,13 +50,19 @@
     select 
     <include refid="Base_Column_List" />
     from tpa_pol_plan_benefit
+    where polno = #{polNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPolNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tpa_pol_plan_benefit
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tpa_pol_plan_benefit
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaPolPlanBenefitEntity" >
     insert into tpa_pol_plan_benefit (id, polno, grade_level, 
       plan_code, benefit_code, description, 
       max_amount, subsidy_amount, waiting_period, 
@@ -84,7 +90,7 @@
       #{dutyAmnt,jdbcType=DOUBLE}, #{riskName,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaPolPlanBenefitEntity" >
     insert into tpa_pol_plan_benefit
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -301,7 +307,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaPolPlanBenefitEntity" >
     update tpa_pol_plan_benefit
     <set >
       <if test="polno != null" >
@@ -409,7 +415,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolPlanBenefitEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaPolPlanBenefitEntity" >
     update tpa_pol_plan_benefit
     set polno = #{polno,jdbcType=VARCHAR},
       grade_level = #{gradeLevel,jdbcType=INTEGER},

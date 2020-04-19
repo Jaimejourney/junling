@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyGradeLevelProMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyGradeLevelPro" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyGradeLevelProMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyGradeLevelPro" >
     <id column="pgl_product_id" property="pglProductId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_grade_level_no" property="policyGradeLevelNo" jdbcType="INTEGER" />
@@ -30,7 +30,7 @@
     delete from policy_grade_level_pro
     where pgl_product_id = #{pglProductId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyGradeLevelPro" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyGradeLevelPro" >
     insert into policy_grade_level_pro (pgl_product_id, policy_no, policy_grade_level_no, 
       product_id, pgl_product_total_prem, pgl_product_base_coverage, 
       pgl_product_des, pgl_product_special_contract, 
@@ -42,7 +42,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyGradeLevelPro" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyGradeLevelPro" >
     insert into policy_grade_level_pro
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pglProductId != null" >
@@ -121,7 +121,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyGradeLevelPro" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyGradeLevelPro" >
     update policy_grade_level_pro
     <set >
       <if test="policyNo != null" >
@@ -160,7 +160,7 @@
     </set>
     where pgl_product_id = #{pglProductId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyGradeLevelPro" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyGradeLevelPro" >
     update policy_grade_level_pro
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_grade_level_no = #{policyGradeLevelNo,jdbcType=INTEGER},

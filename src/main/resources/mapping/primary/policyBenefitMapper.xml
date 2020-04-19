@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyBenefitMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyBenefit" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyBenefitMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyBenefit" >
     <id column="policy_benefit_id" property="policyBenefitId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_reinsurance_no" property="policyReinsuranceNo" jdbcType="VARCHAR" />
@@ -21,7 +21,7 @@
     <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.policyBenefit" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.PolicyBenefit" extends="BaseResultMap" >
     <result column="pb_special_contract" property="pbSpecialContract" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -44,7 +44,7 @@
     delete from policy_benefit
     where policy_benefit_id = #{policyBenefitId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyBenefit" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyBenefit" >
     insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, 
       br_no, insure_id, grade_level_id, 
       product_id, duty_id, underwriting_time, 
@@ -60,7 +60,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, 
       #{pbSpecialContract,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyBenefit" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyBenefit" >
     insert into policy_benefit
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="policyBenefitId != null" >
@@ -181,7 +181,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyBenefit" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyBenefit" >
     update policy_benefit
     <set >
       <if test="policyNo != null" >
@@ -241,7 +241,7 @@
     </set>
     where policy_benefit_id = #{policyBenefitId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.policyBenefit" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.PolicyBenefit" >
     update policy_benefit
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},
@@ -263,7 +263,7 @@
       pb_special_contract = #{pbSpecialContract,jdbcType=LONGVARCHAR}
     where policy_benefit_id = #{policyBenefitId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyBenefit" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyBenefit" >
     update policy_benefit
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},

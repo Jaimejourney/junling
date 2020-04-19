@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.thirdPartyPayment;
+import com.junling.mis.mapper.primary.ThirdPartyPaymentMapper;
+import com.junling.mis.model.primary.ThirdPartyPayment;
 import com.junling.mis.service.primary.ThirdPartyPaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +18,10 @@ public class ThirdPartyPaymentServiceImpl implements ThirdPartyPaymentService {
 	private final static Logger LOG = LoggerFactory.getLogger(ThirdPartyPaymentServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.thirdPartyPaymentMapper thirdPartyPaymentMapper;
+	private ThirdPartyPaymentMapper thirdPartyPaymentMapper;
 
 	@Override
-	public Boolean addThirdPartyPayment(thirdPartyPayment thirdPartyPayment) throws Exception {
+	public Boolean addThirdPartyPayment(ThirdPartyPayment thirdPartyPayment) throws Exception {
 		return thirdPartyPaymentMapper.insert(thirdPartyPayment)>0;
 	}
 

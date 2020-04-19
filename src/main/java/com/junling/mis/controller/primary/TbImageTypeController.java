@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbImageType;
+import com.junling.mis.model.primary.TbImageType;
 import com.junling.mis.service.primary.TbImageTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbImageTypeController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbImageType(@RequestBody tbImageType tbImageType) throws Exception {
+    public MakeResult addTbImageType(@RequestBody TbImageType tbImageType) throws Exception {
         if(service.addTbImageType(tbImageType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbImageTypeController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbImageType(@RequestBody tbImageType tbImageType) throws Exception {
+    public MakeResult updateTbImageType(@RequestBody TbImageType tbImageType) throws Exception {
         if(service.updateTbImageType(tbImageType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbImageTypeController {
 
     @RequestMapping(value = "/search/{docTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbImageType> searchTbImageType(@PathVariable("docTypeCode") String docTypeCode) throws Exception {
-        tbImageType tbImageType = service.findDetailTbImageType(docTypeCode);
-        MakeResult<tbImageType> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbImageType> searchTbImageType(@PathVariable("docTypeCode") String docTypeCode) throws Exception {
+        TbImageType tbImageType = service.findDetailTbImageType(docTypeCode);
+        MakeResult<TbImageType> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbImageType == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

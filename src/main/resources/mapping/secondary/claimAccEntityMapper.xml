@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimAccEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimAccEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimAccEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimAccEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="accno" property="accno" jdbcType="VARCHAR" />
@@ -37,7 +37,7 @@
     delete from claim_acc
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimAccEntity" >
     insert into claim_acc (id, docuno, accno, 
       accDate, accType, accProviceCode, 
       accCityCode, accCountyCode, accPlace, 
@@ -53,7 +53,7 @@
       #{majordiseasename,jdbcType=VARCHAR}, #{majordiseasecode,jdbcType=VARCHAR}, #{confirmdate,jdbcType=DATE}, 
       #{paidamnt,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimAccEntity" >
     insert into claim_acc
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -174,7 +174,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimAccEntity" >
     update claim_acc
     <set >
       <if test="docuno != null" >
@@ -234,7 +234,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimAccEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimAccEntity" >
     update claim_acc
     set docuno = #{docuno,jdbcType=VARCHAR},
       accno = #{accno,jdbcType=VARCHAR},

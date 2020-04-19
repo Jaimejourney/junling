@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbJob;
+import com.junling.mis.mapper.primary.TbJobMapper;
+import com.junling.mis.model.primary.TbJob;
 import com.junling.mis.service.primary.TbJobService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbJobServiceImpl implements TbJobService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbJobServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbJobMapper tbJobMapper;
+	private TbJobMapper tbJobMapper;
 
 	@Override
-	public Boolean addTbJob(tbJob tbJob) throws Exception {
+	public Boolean addTbJob(TbJob tbJob) throws Exception {
 		return tbJobMapper.insert(tbJob)>0;
 	}
 
 	@Override
-	public Boolean updateTbJob(tbJob tbJob) throws Exception {
+	public Boolean updateTbJob(TbJob tbJob) throws Exception {
 		return tbJobMapper.updateByPrimaryKey(tbJob)>0;
 	}
 
 	@Override
-	public tbJob findDetailTbJob(String jobCode) throws Exception {
+	public TbJob findDetailTbJob(String jobCode) throws Exception {
 		return tbJobMapper.selectByPrimaryKey(jobCode);
 	}
 

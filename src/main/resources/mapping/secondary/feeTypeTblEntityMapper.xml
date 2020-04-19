@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.feeTypeTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.feeTypeTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.FeeTypeTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.FeeTypeTblEntity" >
     <id column="fee_type" property="feeType" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from fee_type_tbl
     where fee_type = #{feeType,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.feeTypeTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.FeeTypeTblEntity" >
     insert into fee_type_tbl (fee_type, description, update_poson, 
       update_time, is_delete)
     values (#{feeType,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.feeTypeTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.FeeTypeTblEntity" >
     insert into fee_type_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="feeType != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.feeTypeTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.FeeTypeTblEntity" >
     update fee_type_tbl
     <set >
       <if test="description != null" >
@@ -82,7 +82,7 @@
     </set>
     where fee_type = #{feeType,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.feeTypeTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.FeeTypeTblEntity" >
     update fee_type_tbl
     set description = #{description,jdbcType=VARCHAR},
       update_poson = #{updatePoson,jdbcType=VARCHAR},

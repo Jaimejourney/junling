@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.everyDataPendingEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.everyDataPendingEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.EveryDataPendingEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.EveryDataPendingEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="dates" property="dates" jdbcType="VARCHAR" />
     <result column="auditPending" property="auditpending" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@
     delete from every_data_pending
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.EveryDataPendingEntity" >
     insert into every_data_pending (id, dates, auditPending, 
       approvePending, qualityPending, settlePending, 
       createTime, updateTime)
@@ -33,7 +33,7 @@
       #{approvepending,jdbcType=VARCHAR}, #{qualitypending,jdbcType=VARCHAR}, #{settlepending,jdbcType=VARCHAR}, 
       #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.EveryDataPendingEntity" >
     insert into every_data_pending
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.EveryDataPendingEntity" >
     update every_data_pending
     <set >
       <if test="dates != null" >
@@ -115,7 +115,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.everyDataPendingEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.EveryDataPendingEntity" >
     update every_data_pending
     set dates = #{dates,jdbcType=VARCHAR},
       auditPending = #{auditpending,jdbcType=VARCHAR},

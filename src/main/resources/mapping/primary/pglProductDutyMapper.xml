@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.pglProductDutyMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.pglProductDuty" >
+<mapper namespace="com.junling.mis.mapper.primary.PglProductDutyMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PglProductDuty" >
     <id column="pgl_product_duty_id" property="pglProductDutyId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_grade_level_no" property="policyGradeLevelNo" jdbcType="INTEGER" />
@@ -43,7 +43,7 @@
     delete from pgl_product_duty
     where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PglProductDuty" >
     insert into pgl_product_duty (pgl_product_duty_id, policy_no, policy_grade_level_no, 
       product_id, duty_id, pglp_duty_prem, 
       pglp_duty_covrage, subsidy_amount, deductible_days, 
@@ -63,7 +63,7 @@
       #{pglpDutyTimesAmonut,jdbcType=INTEGER}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PglProductDuty" >
     insert into pgl_product_duty
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pglProductDutyId != null" >
@@ -208,7 +208,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PglProductDuty" >
     update pgl_product_duty
     <set >
       <if test="policyNo != null" >
@@ -280,7 +280,7 @@
     </set>
     where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.pglProductDuty" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PglProductDuty" >
     update pgl_product_duty
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_grade_level_no = #{policyGradeLevelNo,jdbcType=INTEGER},

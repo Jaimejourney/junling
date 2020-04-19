@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbClaimResult;
+import com.junling.mis.mapper.primary.TbClaimResultMapper;
+import com.junling.mis.model.primary.TbClaimResult;
 import com.junling.mis.service.primary.TbClaimResultService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbClaimResultServiceImpl implements TbClaimResultService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbClaimResultServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbClaimResultMapper tbClaimResultMapper;
+	private TbClaimResultMapper tbClaimResultMapper;
 
 	@Override
-	public Boolean addTbClaimResult(tbClaimResult tbClaimResult) throws Exception {
+	public Boolean addTbClaimResult(TbClaimResult tbClaimResult) throws Exception {
 		return tbClaimResultMapper.insert(tbClaimResult)>0;
 	}
 
 	@Override
-	public Boolean updateTbClaimResult(tbClaimResult tbClaimResult) throws Exception {
+	public Boolean updateTbClaimResult(TbClaimResult tbClaimResult) throws Exception {
 		return tbClaimResultMapper.updateByPrimaryKey(tbClaimResult)>0;
 	}
 
 	@Override
-	public tbClaimResult findDetailTbClaimResult(String resultCode) throws Exception {
+	public TbClaimResult findDetailTbClaimResult(String resultCode) throws Exception {
 		return tbClaimResultMapper.selectByPrimaryKey(resultCode);
 	}
 

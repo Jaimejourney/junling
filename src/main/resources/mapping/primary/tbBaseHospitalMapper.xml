@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbBaseHospitalMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbBaseHospital" >
+<mapper namespace="com.junling.mis.mapper.primary.TbBaseHospitalMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbBaseHospital" >
     <id column="hospital_id" property="hospitalId" jdbcType="VARCHAR" />
     <result column="province_or_state" property="provinceOrState" jdbcType="VARCHAR" />
     <result column="city_or_district" property="cityOrDistrict" jdbcType="VARCHAR" />
@@ -34,7 +34,7 @@
     delete from tb_base_hospital
     where hospital_id = #{hospitalId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbBaseHospital" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbBaseHospital" >
     insert into tb_base_hospital (hospital_id, province_or_state, city_or_district, 
       county_or_district, district_code, hospital_name, 
       another_name, address, nature, 
@@ -48,7 +48,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbBaseHospital" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbBaseHospital" >
     insert into tb_base_hospital
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="hospitalId != null" >
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbBaseHospital" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbBaseHospital" >
     update tb_base_hospital
     <set >
       <if test="provinceOrState != null" >
@@ -202,7 +202,7 @@
     </set>
     where hospital_id = #{hospitalId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbBaseHospital" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbBaseHospital" >
     update tb_base_hospital
     set province_or_state = #{provinceOrState,jdbcType=VARCHAR},
       city_or_district = #{cityOrDistrict,jdbcType=VARCHAR},

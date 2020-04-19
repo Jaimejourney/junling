@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.policyGradeLevelProMapper;
-import com.junling.mis.model.primary.policyGradeLevelPro;
+import com.junling.mis.mapper.primary.PolicyGradeLevelProMapper;
+import com.junling.mis.model.primary.PolicyGradeLevelPro;
 import com.junling.mis.service.primary.PolicyGradeLevelProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,20 +18,20 @@ public class PolicyGradeLevelProductServiceImpl implements PolicyGradeLevelProdu
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyGradeLevelProductServiceImpl.class);
 
 	@Resource
-	private policyGradeLevelProMapper policyGradeLevelProMapper;
+	private PolicyGradeLevelProMapper policyGradeLevelProMapper;
 
 	@Override
-	public Boolean addPolicyGradeLevelProduct(policyGradeLevelPro policyGradeLevelProduct) throws Exception {
+	public Boolean addPolicyGradeLevelProduct(PolicyGradeLevelPro policyGradeLevelProduct) throws Exception {
 		return policyGradeLevelProMapper.insert(policyGradeLevelProduct)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyGradeLevelProduct(policyGradeLevelPro policyGradeLevelProduct) throws Exception {
+	public Boolean updatePolicyGradeLevelProduct(PolicyGradeLevelPro policyGradeLevelProduct) throws Exception {
 		return policyGradeLevelProMapper.updateByPrimaryKey(policyGradeLevelProduct) > 0;
 	}
 
 	@Override
-	public policyGradeLevelPro findDetailPolicyGradeLevelProduct(String pglProductId) throws Exception {
+	public PolicyGradeLevelPro findDetailPolicyGradeLevelProduct(String pglProductId) throws Exception {
 		return policyGradeLevelProMapper.selectByPrimaryKey(pglProductId);
 	}
 

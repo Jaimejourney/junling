@@ -1,7 +1,8 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.policyShareCoverage;
-import com.junling.mis.model.primary.policyShareCoverageKey;
+import com.junling.mis.mapper.primary.PolicyShareCoverageMapper;
+import com.junling.mis.model.primary.PolicyShareCoverage;
+import com.junling.mis.model.primary.PolicyShareCoverageKey;
 import com.junling.mis.service.primary.PolicyShareCoverageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,25 +19,25 @@ public class PolicyShareCoverageServiceImpl implements PolicyShareCoverageServic
 	private final static Logger LOG = LoggerFactory.getLogger(PolicyShareCoverageServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.policyShareCoverageMapper policyShareCoverageMapper;
+	private PolicyShareCoverageMapper policyShareCoverageMapper;
 
 	@Override
-	public Boolean addPolicyShareCoverage(policyShareCoverage policyShareCoverage) throws Exception {
+	public Boolean addPolicyShareCoverage(PolicyShareCoverage policyShareCoverage) throws Exception {
 		return policyShareCoverageMapper.insert(policyShareCoverage)>0;
 	}
 
 	@Override
-	public Boolean updatePolicyShareCoverage(policyShareCoverage policyShareCoverage) throws Exception {
+	public Boolean updatePolicyShareCoverage(PolicyShareCoverage policyShareCoverage) throws Exception {
 		return policyShareCoverageMapper.updateByPrimaryKey(policyShareCoverage)>0;
 	}
 
 	@Override
-	public policyShareCoverage findDetailPolicyShareCoverage(policyShareCoverageKey key) throws Exception {
+	public PolicyShareCoverage findDetailPolicyShareCoverage(PolicyShareCoverageKey key) throws Exception {
 		return policyShareCoverageMapper.selectByPrimaryKey(key);
 	}
 
 	@Override
-	public Boolean deletePolicyShareCoverage(policyShareCoverageKey key) throws Exception {
+	public Boolean deletePolicyShareCoverage(PolicyShareCoverageKey key) throws Exception {
 		return policyShareCoverageMapper.deleteByPrimaryKey(key)>0;
 	}
 

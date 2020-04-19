@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.userVisitInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.userVisitInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.UserVisitInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.UserVisitInfoEntity" >
     <id column="visit_id" property="visitId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
@@ -20,13 +20,13 @@
     delete from user_visit_info
     where visit_id = #{visitId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.userVisitInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.UserVisitInfoEntity" >
     insert into user_visit_info (visit_id, user_id, created_date, 
       updated_date)
     values (#{visitId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{createdDate,jdbcType=TIMESTAMP}, 
       #{updatedDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.userVisitInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.UserVisitInfoEntity" >
     insert into user_visit_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="visitId != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.userVisitInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.UserVisitInfoEntity" >
     update user_visit_info
     <set >
       <if test="userId != null" >
@@ -72,7 +72,7 @@
     </set>
     where visit_id = #{visitId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.userVisitInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.UserVisitInfoEntity" >
     update user_visit_info
     set user_id = #{userId,jdbcType=INTEGER},
       created_date = #{createdDate,jdbcType=TIMESTAMP},

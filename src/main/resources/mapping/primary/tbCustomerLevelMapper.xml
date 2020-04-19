@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbCustomerLevelMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbCustomerLevel" >
+<mapper namespace="com.junling.mis.mapper.primary.TbCustomerLevelMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbCustomerLevel" >
     <id column="customer_level_code" property="customerLevelCode" jdbcType="VARCHAR" />
     <result column="customer_level_name" property="customerLevelName" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from tb_customer_level
     where customer_level_code = #{customerLevelCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbCustomerLevel" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbCustomerLevel" >
     insert into tb_customer_level (customer_level_code, customer_level_name, 
       created_by, created_time, updated_by, 
       updated_time)
@@ -30,7 +30,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbCustomerLevel" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbCustomerLevel" >
     insert into tb_customer_level
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="customerLevelCode != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbCustomerLevel" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbCustomerLevel" >
     update tb_customer_level
     <set >
       <if test="customerLevelName != null" >
@@ -94,7 +94,7 @@
     </set>
     where customer_level_code = #{customerLevelCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbCustomerLevel" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbCustomerLevel" >
     update tb_customer_level
     set customer_level_name = #{customerLevelName,jdbcType=VARCHAR},
       created_by = #{createdBy,jdbcType=VARCHAR},

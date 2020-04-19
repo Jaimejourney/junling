@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actIdUserEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdUserEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActIdUserEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActIdUserEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="FIRST_" property="first" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from act_id_user
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdUserEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActIdUserEntity" >
     insert into act_id_user (ID_, REV_, FIRST_, 
       LAST_, EMAIL_, PWD_, PICTURE_ID_
       )
@@ -31,7 +31,7 @@
       #{last,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{pictureId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdUserEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActIdUserEntity" >
     insert into act_id_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdUserEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActIdUserEntity" >
     update act_id_user
     <set >
       <if test="rev != null" >
@@ -104,7 +104,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdUserEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActIdUserEntity" >
     update act_id_user
     set REV_ = #{rev,jdbcType=INTEGER},
       FIRST_ = #{first,jdbcType=VARCHAR},

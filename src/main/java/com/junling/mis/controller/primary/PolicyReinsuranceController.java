@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.policyReinsurance;
+import com.junling.mis.model.primary.PolicyReinsurance;
 import com.junling.mis.service.primary.PolicyReinsuranceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class PolicyReinsuranceController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPolicyReinsurance(@RequestBody policyReinsurance policyReinsurance) throws Exception {
+    public MakeResult addPolicyReinsurance(@RequestBody PolicyReinsurance policyReinsurance) throws Exception {
         if(service.addPolicyReinsurance(policyReinsurance)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class PolicyReinsuranceController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePolicyReinsurance(@RequestBody policyReinsurance policyReinsurance) throws Exception {
+    public MakeResult updatePolicyReinsurance(@RequestBody PolicyReinsurance policyReinsurance) throws Exception {
         if(service.updatePolicyReinsurance(policyReinsurance)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class PolicyReinsuranceController {
 
     @RequestMapping(value = "/search/{policyReinsuranceId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<policyReinsurance> searchPolicyReinsurance(@PathVariable("policyReinsuranceId") String policyReinsuranceId) throws Exception {
-        policyReinsurance policyReinsurance = service.findDetailPolicyReinsurance(policyReinsuranceId);
-        MakeResult<policyReinsurance> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<PolicyReinsurance> searchPolicyReinsurance(@PathVariable("policyReinsuranceId") String policyReinsuranceId) throws Exception {
+        PolicyReinsurance policyReinsurance = service.findDetailPolicyReinsurance(policyReinsuranceId);
+        MakeResult<PolicyReinsurance> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(policyReinsurance == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

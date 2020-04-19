@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.organizationInfoMapper;
-import com.junling.mis.model.primary.organizationInfo;
+import com.junling.mis.mapper.primary.OrganizationInfoMapper;
+import com.junling.mis.model.primary.OrganizationInfo;
 import com.junling.mis.service.primary.OrganizationInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,20 +18,20 @@ public class OrganizationInfoServiceImpl implements OrganizationInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(OrganizationInfoServiceImpl.class);
 
 	@Resource
-	private organizationInfoMapper organizationInfoMapper;
+	private OrganizationInfoMapper organizationInfoMapper;
 
 	@Override
-	public Boolean addOrganizationInfo(organizationInfo organizationInfoModel) throws Exception {
+	public Boolean addOrganizationInfo(OrganizationInfo organizationInfoModel) throws Exception {
 		return organizationInfoMapper.insert(organizationInfoModel) > 0;
 	}
 
 	@Override
-	public Boolean updateOrganizationInfo(organizationInfo organizationInfo) throws Exception {
+	public Boolean updateOrganizationInfo(OrganizationInfo organizationInfo) throws Exception {
 		return organizationInfoMapper.updateByPrimaryKey(organizationInfo) > 0;
 	}
 
 	@Override
-	public organizationInfo findDetailOrganizationInfo(String organizationId) throws Exception {
+	public OrganizationInfo findDetailOrganizationInfo(String organizationId) throws Exception {
 		return organizationInfoMapper.selectByPrimaryKey(organizationId);
 	}
 

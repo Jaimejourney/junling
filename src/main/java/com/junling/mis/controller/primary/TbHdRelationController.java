@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbHdRelation;
+import com.junling.mis.model.primary.TbHdRelation;
 import com.junling.mis.service.primary.TbHdRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbHdRelationController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbHdRelation(@RequestBody tbHdRelation tbHdRelation) throws Exception {
+    public MakeResult addTbHdRelation(@RequestBody TbHdRelation tbHdRelation) throws Exception {
         if(service.addTbHdRelation(tbHdRelation)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbHdRelationController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbHdRelation(@RequestBody tbHdRelation tbHdRelation) throws Exception {
+    public MakeResult updateTbHdRelation(@RequestBody TbHdRelation tbHdRelation) throws Exception {
         if(service.updateTbHdRelation(tbHdRelation)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbHdRelationController {
 
     @RequestMapping(value = "/search/{hospitalDepartmentId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbHdRelation> searchTbHdRelation(@PathVariable("hospitalDepartmentId") String hospitalDepartmentId) throws Exception {
-        tbHdRelation tbHdRelation = service.findDetailTbHdRelation(hospitalDepartmentId);
-        MakeResult<tbHdRelation> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbHdRelation> searchTbHdRelation(@PathVariable("hospitalDepartmentId") String hospitalDepartmentId) throws Exception {
+        TbHdRelation tbHdRelation = service.findDetailTbHdRelation(hospitalDepartmentId);
+        MakeResult<TbHdRelation> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbHdRelation == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

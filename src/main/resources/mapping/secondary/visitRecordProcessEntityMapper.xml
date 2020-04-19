@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitRecordProcessEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitRecordProcessEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitRecordProcessEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitRecordProcessEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="visitId" property="visitid" jdbcType="VARCHAR" />
     <result column="caseStage" property="casestage" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from visit_record_process
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitRecordProcessEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitRecordProcessEntity" >
     insert into visit_record_process (id, visitId, caseStage, 
       status, desc, createTime
       )
@@ -30,7 +30,7 @@
       #{status,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitRecordProcessEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitRecordProcessEntity" >
     insert into visit_record_process
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitRecordProcessEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitRecordProcessEntity" >
     update visit_record_process
     <set >
       <if test="visitid != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitRecordProcessEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitRecordProcessEntity" >
     update visit_record_process
     set visitId = #{visitid,jdbcType=VARCHAR},
       caseStage = #{casestage,jdbcType=VARCHAR},

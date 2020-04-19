@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.productDutyMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.productDuty" >
+<mapper namespace="com.junling.mis.mapper.primary.ProductDutyMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ProductDuty" >
     <id column="product_duty_id" property="productDutyId" jdbcType="VARCHAR" />
     <result column="product_id" property="productId" jdbcType="VARCHAR" />
     <result column="duty_id" property="dutyId" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@
     delete from product_duty
     where product_duty_id = #{productDutyId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.productDuty" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ProductDuty" >
     insert into product_duty (product_duty_id, product_id, duty_id, 
       required, created_by, created_time, 
       updated_by, updated_time)
@@ -33,7 +33,7 @@
       #{required,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.productDuty" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ProductDuty" >
     insert into product_duty
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="productDutyId != null" >
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.productDuty" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ProductDuty" >
     update product_duty
     <set >
       <if test="productId != null" >
@@ -115,7 +115,7 @@
     </set>
     where product_duty_id = #{productDutyId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.productDuty" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ProductDuty" >
     update product_duty
     set product_id = #{productId,jdbcType=VARCHAR},
       duty_id = #{dutyId,jdbcType=VARCHAR},

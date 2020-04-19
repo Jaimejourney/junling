@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimCalOutcomeEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimCalOutcomeEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimCalOutcomeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimCalOutcomeEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="outcome_id" property="outcomeId" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from claim_cal_outcome
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimCalOutcomeEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimCalOutcomeEntity" >
     insert into claim_cal_outcome (id, docuno, outcome_id, 
       create_time, update_poson, update_time, 
       is_delete)
@@ -31,7 +31,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimCalOutcomeEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimCalOutcomeEntity" >
     insert into claim_cal_outcome
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimCalOutcomeEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimCalOutcomeEntity" >
     update claim_cal_outcome
     <set >
       <if test="docuno != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimCalOutcomeEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimCalOutcomeEntity" >
     update claim_cal_outcome
     set docuno = #{docuno,jdbcType=VARCHAR},
       outcome_id = #{outcomeId,jdbcType=VARCHAR},

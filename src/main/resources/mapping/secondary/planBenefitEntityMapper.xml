@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.planBenefitEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.planBenefitEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PlanBenefitEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PlanBenefitEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="plan_code" property="planCode" jdbcType="VARCHAR" />
     <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from plan_benefit
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PlanBenefitEntity" >
     insert into plan_benefit (id, plan_code, grade_level, 
       benefit_code, deductible_amout, deductible_type, 
       pay_rate, max_amount, waiting_period, 
@@ -41,7 +41,7 @@
       #{accidentWaitingPeriod,jdbcType=BIGINT}, #{status,jdbcType=VARCHAR}, #{punishPayRate,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PlanBenefitEntity" >
     insert into plan_benefit
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PlanBenefitEntity" >
     update plan_benefit
     <set >
       <if test="planCode != null" >
@@ -159,7 +159,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.planBenefitEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PlanBenefitEntity" >
     update plan_benefit
     set plan_code = #{planCode,jdbcType=VARCHAR},
       grade_level = #{gradeLevel,jdbcType=VARCHAR},

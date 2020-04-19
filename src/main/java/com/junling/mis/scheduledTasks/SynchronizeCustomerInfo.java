@@ -2,14 +2,14 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.customerInfoMapper;
-import com.junling.mis.mapper.secondary.visitApplyPersonEntityMapper;
-import com.junling.mis.mapper.secondary.visitPersonEntityMapper;
-import com.junling.mis.mapper.secondary.visitRecordEntityMapper;
-import com.junling.mis.model.primary.customerInfo;
-import com.junling.mis.model.secondary.visitApplyPersonEntity;
-import com.junling.mis.model.secondary.visitPersonEntity;
-import com.junling.mis.model.secondary.visitRecordEntity;
+import com.junling.mis.mapper.primary.CustomerInfoMapper;
+import com.junling.mis.mapper.secondary.VisitApplyPersonEntityMapper;
+import com.junling.mis.mapper.secondary.VisitPersonEntityMapper;
+import com.junling.mis.mapper.secondary.VisitRecordEntityMapper;
+import com.junling.mis.model.primary.CustomerInfo;
+import com.junling.mis.model.secondary.VisitApplyPersonEntity;
+import com.junling.mis.model.secondary.VisitPersonEntity;
+import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,30 +26,40 @@ public class SynchronizeCustomerInfo {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizeCustomerInfo.class);
 
     @Autowired
-    visitRecordEntityMapper visitRecordEntityMapper;
+    VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    visitApplyPersonEntityMapper visitApplyPersonEntityMapper;
+    VisitApplyPersonEntityMapper visitApplyPersonEntityMapper;
 
     @Autowired
-    visitPersonEntityMapper visitPersonEntityMapper;
+    VisitPersonEntityMapper visitPersonEntityMapper;
 
     @Autowired
-    customerInfoMapper customerInfoEntityMapper;
+    CustomerInfoMapper customerInfoEntityMapper;
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
+
 //        String str="2020-03-08 19:08:10";
 //        Date date =  DatetimeHelper.dateHelper(str);
         Date date = DatetimeHelper.scheduledDate();
 
-        List<visitRecordEntity> list = visitRecordEntityMapper.search((date));
+        List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+
         for (int i = 0; i < list.size(); i++) {
-            visitRecordEntity record = list.get(i);
-            customerInfo customerVisitApplyPersonEntity = new customerInfo();
-            visitApplyPersonEntity visitApplyPersonEntity = visitApplyPersonEntityMapper.selectByPrimaryKey(new BigDecimal(record.getApplyPersonId()));
+            VisitRecordEntity record = list.get(i);
+            CustomerInfo customerVisitApplyPersonEntity = new CustomerInfo();
+            VisitApplyPersonEntity visitApplyPersonEntity = visitApplyPersonEntityMapper.selectByPrimaryKey(new BigDecimal(record.getApplyPersonId()));
             String applyCustomerNo = GetUUID32.getUUID32();
             customerVisitApplyPersonEntity.setCustomerNo(applyCustomerNo);
+            //姓名
+            customerVisitApplyPersonEntity.setCustomerName(visitApplyPersonEntity.getName());
+            //手机号
+            customerVisitApplyPersonEntity.setCustomerPhoneNo(visitApplyPersonEntity.getPhone());
+            //邮箱
+            customerVisitApplyPersonEntity.setEmail(visitApplyPersonEntity.getEmail());
+            //证件号
+            customerVisitApplyPersonEntity.setIdNo(visitApplyPersonEntity.getCardId());
             customerVisitApplyPersonEntity.setCreatedBy("system test");
             customerVisitApplyPersonEntity.setCreatedTime(date);
             customerVisitApplyPersonEntity.setUpdatedBy("system test");
@@ -57,8 +67,8 @@ public class SynchronizeCustomerInfo {
             customerInfoEntityMapper.insert(customerVisitApplyPersonEntity);
 
 
-            customerInfo customerVisitPersonEntity = new customerInfo();
-            visitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            CustomerInfo customerVisitPersonEntity = new CustomerInfo();
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             String customerNo = GetUUID32.getUUID32();
             customerVisitPersonEntity.setCustomerNo(customerNo);
             //姓名
@@ -75,7 +85,7 @@ public class SynchronizeCustomerInfo {
             customerVisitPersonEntity.setUpdatedTime(date);
 
             customerInfoEntityMapper.insert(customerVisitPersonEntity);
-            System.out.println("success");
+            System.out.println("customerInfo success");
         }
     }
 }

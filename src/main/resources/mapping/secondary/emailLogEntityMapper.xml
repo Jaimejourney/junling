@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.emailLogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.emailLogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.EmailLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.EmailLogEntity" >
     <id column="email_log_id" property="emailLogId" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="person_name" property="personName" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from email_log
     where email_log_id = #{emailLogId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.EmailLogEntity" >
     insert into email_log (email_log_id, title, person_name, 
       person_email, status, msg
       )
@@ -30,7 +30,7 @@
       #{personEmail,jdbcType=VARCHAR}, #{status,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.EmailLogEntity" >
     insert into email_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="emailLogId != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.EmailLogEntity" >
     update email_log
     <set >
       <if test="title != null" >
@@ -94,7 +94,7 @@
     </set>
     where email_log_id = #{emailLogId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.emailLogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.EmailLogEntity" >
     update email_log
     set title = #{title,jdbcType=VARCHAR},
       person_name = #{personName,jdbcType=VARCHAR},

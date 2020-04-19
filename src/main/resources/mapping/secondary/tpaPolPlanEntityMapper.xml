@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaPolPlanEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaPolPlanEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaPolPlanEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
     <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
@@ -31,11 +31,17 @@
     from tpa_pol_plan
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByPolNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tpa_pol_plan
+    where polno = #{polNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tpa_pol_plan
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaPolPlanEntity" >
     insert into tpa_pol_plan (id, polno, grade_level, 
       plan_code, description, sum_ins, 
       single_disease_ins, all_life_ins, plan_status, 
@@ -49,7 +55,7 @@
       #{updatedDate,jdbcType=TIMESTAMP}, #{productCode,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
       #{riskCode,jdbcType=VARCHAR}, #{riskName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaPolPlanEntity" >
     insert into tpa_pol_plan
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -158,7 +164,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaPolPlanEntity" >
     update tpa_pol_plan
     <set >
       <if test="polno != null" >
@@ -212,7 +218,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaPolPlanEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaPolPlanEntity" >
     update tpa_pol_plan
     set polno = #{polno,jdbcType=VARCHAR},
       grade_level = #{gradeLevel,jdbcType=VARCHAR},

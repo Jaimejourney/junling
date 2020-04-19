@@ -1,7 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.customerActionMapper;
-import com.junling.mis.model.primary.customerAction;
+import com.junling.mis.mapper.primary.CustomerActionMapper;
+import com.junling.mis.model.primary.CustomerAction;
 import com.junling.mis.service.primary.CustomerActionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,21 +19,21 @@ public class CustomerActionServiceImpl implements CustomerActionService {
 	private final static Logger LOG = LoggerFactory.getLogger(CustomerActionServiceImpl.class);
 
 	@Resource
-	private customerActionMapper customerActionMapper;
+	private CustomerActionMapper customerActionMapper;
 
 
 	@Override
-	public Boolean addCustomerAction(customerAction customerAction) throws Exception {
+	public Boolean addCustomerAction(CustomerAction customerAction) throws Exception {
 		return customerActionMapper.insert(customerAction) > 0;
 	}
 
 	@Override
-	public Boolean updateCustomerAction(customerAction customerAction) throws Exception {
+	public Boolean updateCustomerAction(CustomerAction customerAction) throws Exception {
 		return customerActionMapper.updateByPrimaryKey(customerAction) > 0;
 	}
 
 	@Override
-	public customerAction findDetailCustomerAction(String customerActionId) throws Exception {
+	public CustomerAction findDetailCustomerAction(String customerActionId) throws Exception {
 		return customerActionMapper.selectByPrimaryKey(customerActionId);
 	}
 

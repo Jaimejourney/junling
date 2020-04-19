@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tradeLogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tradeLogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TradeLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TradeLogEntity" >
     <id column="tradeNo" property="tradeno" jdbcType="VARCHAR" />
     <result column="patientName" property="patientname" jdbcType="VARCHAR" />
     <result column="idCardNo" property="idcardno" jdbcType="VARCHAR" />
@@ -20,13 +20,13 @@
     delete from trade_log
     where tradeNo = #{tradeno,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tradeLogEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TradeLogEntity" >
     insert into trade_log (tradeNo, patientName, idCardNo, 
       bussId)
     values (#{tradeno,jdbcType=VARCHAR}, #{patientname,jdbcType=VARCHAR}, #{idcardno,jdbcType=VARCHAR}, 
       #{bussid,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tradeLogEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TradeLogEntity" >
     insert into trade_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="tradeno != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tradeLogEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TradeLogEntity" >
     update trade_log
     <set >
       <if test="patientname != null" >
@@ -72,7 +72,7 @@
     </set>
     where tradeNo = #{tradeno,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tradeLogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TradeLogEntity" >
     update trade_log
     set patientName = #{patientname,jdbcType=VARCHAR},
       idCardNo = #{idcardno,jdbcType=VARCHAR},

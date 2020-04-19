@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimLiabCalEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimLiabCalEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimLiabCalEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimLiabCalEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
@@ -40,11 +40,17 @@
     from claim_liab_cal
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="selectByDocuno" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_liab_cal
+    where docuno = #{docuno,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from claim_liab_cal
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimLiabCalEntity" >
     insert into claim_liab_cal (id, docuno, polno, 
       plan_code, grade_level, benefit_code, 
       cal_amt, exam_amt, deductible_amt, 
@@ -64,7 +70,7 @@
       #{benefitName,jdbcType=VARCHAR}, #{examcomment,jdbcType=VARCHAR}, #{planName,jdbcType=VARCHAR}, 
       #{paidamnt,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimLiabCalEntity" >
     insert into claim_liab_cal
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -221,7 +227,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimLiabCalEntity" >
     update claim_liab_cal
     <set >
       <if test="docuno != null" >
@@ -299,7 +305,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimLiabCalEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimLiabCalEntity" >
     update claim_liab_cal
     set docuno = #{docuno,jdbcType=VARCHAR},
       polno = #{polno,jdbcType=VARCHAR},

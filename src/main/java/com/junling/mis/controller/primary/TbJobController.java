@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbJob;
+import com.junling.mis.model.primary.TbJob;
 import com.junling.mis.service.primary.TbJobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbJobController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbJob(@RequestBody tbJob tbJob) throws Exception {
+    public MakeResult addTbJob(@RequestBody TbJob tbJob) throws Exception {
         if(service.addTbJob(tbJob)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbJobController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbJob(@RequestBody tbJob tbJob) throws Exception {
+    public MakeResult updateTbJob(@RequestBody TbJob tbJob) throws Exception {
         if(service.updateTbJob(tbJob)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbJobController {
 
     @RequestMapping(value = "/search/{jobCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbJob> searchTbJob(@PathVariable("jobCode") String jobCode) throws Exception {
-        tbJob tbJob = service.findDetailTbJob(jobCode);
-        MakeResult<tbJob> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbJob> searchTbJob(@PathVariable("jobCode") String jobCode) throws Exception {
+        TbJob tbJob = service.findDetailTbJob(jobCode);
+        MakeResult<TbJob> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbJob == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

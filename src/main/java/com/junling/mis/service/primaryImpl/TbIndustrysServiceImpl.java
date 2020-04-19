@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbIndustrys;
+import com.junling.mis.mapper.primary.TbIndustrysMapper;
+import com.junling.mis.model.primary.TbIndustrys;
 import com.junling.mis.service.primary.TbIndustrysService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbIndustrysServiceImpl implements TbIndustrysService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbIndustrysServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbIndustrysMapper tbIndustrysMapper;
+	private TbIndustrysMapper tbIndustrysMapper;
 
 	@Override
-	public Boolean addTbIndustrys(tbIndustrys tbIndustrys) throws Exception {
+	public Boolean addTbIndustrys(TbIndustrys tbIndustrys) throws Exception {
 		return tbIndustrysMapper.insert(tbIndustrys)>0;
 	}
 
 	@Override
-	public Boolean updateTbIndustrys(tbIndustrys tbIndustrys) throws Exception {
+	public Boolean updateTbIndustrys(TbIndustrys tbIndustrys) throws Exception {
 		return tbIndustrysMapper.updateByPrimaryKey(tbIndustrys)>0;
 	}
 
 	@Override
-	public tbIndustrys findDetailTbIndustrys(String industryTypeCode) throws Exception {
+	public TbIndustrys findDetailTbIndustrys(String industryTypeCode) throws Exception {
 		return tbIndustrysMapper.selectByPrimaryKey(industryTypeCode);
 	}
 

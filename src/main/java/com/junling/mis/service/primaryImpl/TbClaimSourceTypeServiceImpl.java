@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbClaimSourceType;
+import com.junling.mis.mapper.primary.TbClaimSourceTypeMapper;
+import com.junling.mis.model.primary.TbClaimSourceType;
 import com.junling.mis.service.primary.TbClaimSourceTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbClaimSourceTypeServiceImpl implements TbClaimSourceTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbClaimSourceTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbClaimSourceTypeMapper tbClaimSourceTypeMapper;
+	private TbClaimSourceTypeMapper tbClaimSourceTypeMapper;
 
 	@Override
-	public Boolean addTbClaimSourceType(tbClaimSourceType tbClaimSourceType) throws Exception {
+	public Boolean addTbClaimSourceType(TbClaimSourceType tbClaimSourceType) throws Exception {
 		return tbClaimSourceTypeMapper.insert(tbClaimSourceType)>0;
 	}
 
 	@Override
-	public Boolean updateTbClaimSourceType(tbClaimSourceType tbClaimSourceType) throws Exception {
+	public Boolean updateTbClaimSourceType(TbClaimSourceType tbClaimSourceType) throws Exception {
 		return tbClaimSourceTypeMapper.updateByPrimaryKey(tbClaimSourceType)>0;
 	}
 
 	@Override
-	public tbClaimSourceType findDetailTbClaimSourceType(String statusCode) throws Exception {
+	public TbClaimSourceType findDetailTbClaimSourceType(String statusCode) throws Exception {
 		return tbClaimSourceTypeMapper.selectByPrimaryKey(statusCode);
 	}
 

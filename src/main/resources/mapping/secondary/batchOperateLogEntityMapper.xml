@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.batchOperateLogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.batchOperateLogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.BatchOperateLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.BatchOperateLogEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="operate_time" property="operateTime" jdbcType="TIMESTAMP" />
     <result column="polno" property="polno" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from batch_operate_log
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.BatchOperateLogEntity" >
     insert into batch_operate_log (id, operate_time, polno, 
       batch_type, batch_file_name, result, 
       result_status, update_poson, update_time, 
@@ -37,7 +37,7 @@
       #{resultStatus,jdbcType=TINYINT}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.BatchOperateLogEntity" >
     insert into batch_operate_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.BatchOperateLogEntity" >
     update batch_operate_log
     <set >
       <if test="operateTime != null" >
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.batchOperateLogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.BatchOperateLogEntity" >
     update batch_operate_log
     set operate_time = #{operateTime,jdbcType=TIMESTAMP},
       polno = #{polno,jdbcType=VARCHAR},

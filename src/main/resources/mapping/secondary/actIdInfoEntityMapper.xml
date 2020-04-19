@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actIdInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actIdInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActIdInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActIdInfoEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="USER_ID_" property="userId" jdbcType="VARCHAR" />
@@ -10,7 +10,7 @@
     <result column="VALUE_" property="value" jdbcType="VARCHAR" />
     <result column="PARENT_ID_" property="parentId" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.actIdInfoEntity" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.ActIdInfoEntity" extends="BaseResultMap" >
     <result column="PASSWORD_" property="password" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -31,7 +31,7 @@
     delete from act_id_info
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActIdInfoEntity" >
     insert into act_id_info (ID_, REV_, USER_ID_, 
       TYPE_, KEY_, VALUE_, PARENT_ID_, 
       PASSWORD_)
@@ -39,7 +39,7 @@
       #{type,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
       #{password,jdbcType=LONGVARBINARY})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActIdInfoEntity" >
     insert into act_id_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActIdInfoEntity" >
     update act_id_info
     <set >
       <if test="rev != null" >
@@ -121,7 +121,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.ActIdInfoEntity" >
     update act_id_info
     set REV_ = #{rev,jdbcType=INTEGER},
       USER_ID_ = #{userId,jdbcType=VARCHAR},
@@ -132,7 +132,7 @@
       PASSWORD_ = #{password,jdbcType=LONGVARBINARY}
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actIdInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActIdInfoEntity" >
     update act_id_info
     set REV_ = #{rev,jdbcType=INTEGER},
       USER_ID_ = #{userId,jdbcType=VARCHAR},

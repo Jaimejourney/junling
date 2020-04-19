@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimBillMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimBill" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimBillMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimBill" >
     <id column="claim_bill_id" property="claimBillId" jdbcType="VARCHAR" />
     <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
     <result column="claim_bill_no" property="claimBillNo" jdbcType="VARCHAR" />
@@ -45,19 +45,25 @@
     third_party_payment_amount, personal_amount, individual_payment, personal_payment_amount, 
     cash_paid_amount
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimBillKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.ClaimBillKey" >
     select 
     <include refid="Base_Column_List" />
     from claim_bill
     where claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimBillKey" >
+  <select id="selectByClaimInfoId" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_bill
+    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimBillKey" >
     delete from claim_bill
     where claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimBill" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimBill" >
     insert into claim_bill (claim_bill_id, claim_info_id, claim_bill_no, 
       hospital_code, clinic_date, flow_id, 
       admission_date, discharge_date, hospital_days, 
@@ -83,7 +89,7 @@
       #{personalAmount,jdbcType=INTEGER}, #{individualPayment,jdbcType=INTEGER}, #{personalPaymentAmount,jdbcType=INTEGER}, 
       #{cashPaidAmount,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimBill" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimBill" >
     insert into claim_bill
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="claimBillId != null" >
@@ -288,7 +294,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimBill" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimBill" >
     update claim_bill
     <set >
       <if test="claimBillNo != null" >
@@ -388,7 +394,7 @@
     where claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimBill" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimBill" >
     update claim_bill
     set claim_bill_no = #{claimBillNo,jdbcType=VARCHAR},
       hospital_code = #{hospitalCode,jdbcType=VARCHAR},

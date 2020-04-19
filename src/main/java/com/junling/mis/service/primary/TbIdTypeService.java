@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbIdType;
+import com.junling.mis.model.primary.TbIdType;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.tbIdType;
  */
 public interface TbIdTypeService {
 
-	Boolean addTbIdType(tbIdType tbIdType) throws Exception;
+	Boolean addTbIdType(TbIdType tbIdType) throws Exception;
 
-	Boolean updateTbIdType(tbIdType tbIdType) throws Exception;
+	Boolean updateTbIdType(TbIdType tbIdType) throws Exception;
 
-	tbIdType findDetailTbIdType(String idTypeCode) throws Exception;
+	TbIdType findDetailTbIdType(String idTypeCode) throws Exception;
 
 //	Result listTbIdType(TbIdTypeModel tbIdTypeModel) throws Exception;
 //

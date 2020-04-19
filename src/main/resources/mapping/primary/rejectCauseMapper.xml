@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.rejectCauseMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.rejectCause" >
+<mapper namespace="com.junling.mis.mapper.primary.RejectCauseMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.RejectCause" >
     <id column="reject_cause_code" property="rejectCauseCode" jdbcType="VARCHAR" />
     <result column="reject_cause_name" property="rejectCauseName" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from reject_cause
     where reject_cause_code = #{rejectCauseCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.rejectCause" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.RejectCause" >
     insert into reject_cause (reject_cause_code, reject_cause_name, 
       created_by, created_time, updated_by, 
       updated_time)
@@ -30,7 +30,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.rejectCause" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.RejectCause" >
     insert into reject_cause
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="rejectCauseCode != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.rejectCause" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.RejectCause" >
     update reject_cause
     <set >
       <if test="rejectCauseName != null" >
@@ -94,7 +94,7 @@
     </set>
     where reject_cause_code = #{rejectCauseCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.rejectCause" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.RejectCause" >
     update reject_cause
     set reject_cause_name = #{rejectCauseName,jdbcType=VARCHAR},
       created_by = #{createdBy,jdbcType=VARCHAR},

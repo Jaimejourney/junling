@@ -2,8 +2,8 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.claimAccountInfo;
-import com.junling.mis.model.primary.claimAccountInfoKey;
+import com.junling.mis.model.primary.ClaimAccountInfo;
+import com.junling.mis.model.primary.ClaimAccountInfoKey;
 import com.junling.mis.service.primary.ClaimAccountInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class ClaimAccountInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addClaimAccount(@RequestBody claimAccountInfo c) throws Exception {
+    public MakeResult addClaimAccount(@RequestBody ClaimAccountInfo c) throws Exception {
         if(service.addClaimAccountInfo(c)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -28,7 +28,7 @@ public class ClaimAccountInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateClaimAccount(@RequestBody claimAccountInfo c) throws Exception {
+    public MakeResult updateClaimAccount(@RequestBody ClaimAccountInfo c) throws Exception {
         if(service.updateClaimAccountInfo(c)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -38,9 +38,9 @@ public class ClaimAccountInfoController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult<claimAccountInfo> searchClaimAccount(@RequestBody claimAccountInfoKey key) throws Exception {
-        claimAccountInfo claimAccountInfo = service.findDetailClaimAccountInfo(key);
-        MakeResult<claimAccountInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<ClaimAccountInfo> searchClaimAccount(@RequestBody ClaimAccountInfoKey key) throws Exception {
+        ClaimAccountInfo claimAccountInfo = service.findDetailClaimAccountInfo(key);
+        MakeResult<ClaimAccountInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(claimAccountInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }
@@ -49,7 +49,7 @@ public class ClaimAccountInfoController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult delClaimAccount(@RequestBody claimAccountInfoKey key) throws Exception {
+    public MakeResult delClaimAccount(@RequestBody ClaimAccountInfoKey key) throws Exception {
        if(service.deleteClaimAccountInfo(key)){
            return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbCwfNodeMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbCwfNode" >
+<mapper namespace="com.junling.mis.mapper.primary.TbCwfNodeMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbCwfNode" >
     <id column="cwf_node" property="cwfNode" jdbcType="VARCHAR" />
     <result column="cwf_node_name" property="cwfNodeName" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from tb_cwf_node
     where cwf_node = #{cwfNode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbCwfNode" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbCwfNode" >
     insert into tb_cwf_node (cwf_node, cwf_node_name, created_by, 
       created_time, updated_by, updated_time
       )
@@ -30,7 +30,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbCwfNode" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbCwfNode" >
     insert into tb_cwf_node
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="cwfNode != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbCwfNode" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbCwfNode" >
     update tb_cwf_node
     <set >
       <if test="cwfNodeName != null" >
@@ -94,7 +94,7 @@
     </set>
     where cwf_node = #{cwfNode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbCwfNode" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbCwfNode" >
     update tb_cwf_node
     set cwf_node_name = #{cwfNodeName,jdbcType=VARCHAR},
       created_by = #{createdBy,jdbcType=VARCHAR},

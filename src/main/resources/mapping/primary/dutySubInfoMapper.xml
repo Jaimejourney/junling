@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.dutySubInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.dutySubInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.DutySubInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.DutySubInfo" >
     <id column="duty_sub_id" property="dutySubId" jdbcType="VARCHAR" />
     <result column="duty_sub_code" property="dutySubCode" jdbcType="VARCHAR" />
     <result column="duty_sub_name" property="dutySubName" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from duty_sub_info
     where duty_sub_id = #{dutySubId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.dutySubInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.DutySubInfo" >
     insert into duty_sub_info (duty_sub_id, duty_sub_code, duty_sub_name, 
       duty_sub_type, duty_id, required, 
       created_by, created_time, updated_by, 
@@ -37,7 +37,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.dutySubInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.DutySubInfo" >
     insert into duty_sub_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="dutySubId != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.dutySubInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.DutySubInfo" >
     update duty_sub_info
     <set >
       <if test="dutySubCode != null" >
@@ -137,7 +137,7 @@
     </set>
     where duty_sub_id = #{dutySubId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.dutySubInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.DutySubInfo" >
     update duty_sub_info
     set duty_sub_code = #{dutySubCode,jdbcType=VARCHAR},
       duty_sub_name = #{dutySubName,jdbcType=VARCHAR},

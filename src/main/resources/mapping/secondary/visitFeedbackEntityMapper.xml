@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitFeedbackEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitFeedbackEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitFeedbackEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitFeedbackEntity" >
     <id column="id" property="id" jdbcType="DECIMAL" />
     <result column="record_id" property="recordId" jdbcType="VARCHAR" />
     <result column="indemnity_id" property="indemnityId" jdbcType="VARCHAR" />
@@ -46,7 +46,7 @@
     delete from visit_feedback
     where id = #{id,jdbcType=DECIMAL}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitFeedbackEntity" >
     insert into visit_feedback (id, record_id, indemnity_id, 
       unit_id, corporate_name, customer_time, 
       is_urgent, case_id, insurer_rel, 
@@ -68,7 +68,7 @@
       #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitFeedbackEntity" >
     insert into visit_feedback
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -237,7 +237,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitFeedbackEntity" >
     update visit_feedback
     <set >
       <if test="recordId != null" >
@@ -321,7 +321,7 @@
     </set>
     where id = #{id,jdbcType=DECIMAL}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitFeedbackEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitFeedbackEntity" >
     update visit_feedback
     set record_id = #{recordId,jdbcType=VARCHAR},
       indemnity_id = #{indemnityId,jdbcType=VARCHAR},

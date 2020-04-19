@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbReportType;
+import com.junling.mis.mapper.primary.TbReportTypeMapper;
+import com.junling.mis.model.primary.TbReportType;
 import com.junling.mis.service.primary.TbReportTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbReportTypeServiceImpl implements TbReportTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbReportTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbReportTypeMapper tbReportTypeMapper;
+	private TbReportTypeMapper tbReportTypeMapper;
 
 	@Override
-	public Boolean addTbReportType(tbReportType tbReportType) throws Exception {
+	public Boolean addTbReportType(TbReportType tbReportType) throws Exception {
 		return tbReportTypeMapper.insert(tbReportType)>0;
 	}
 
 	@Override
-	public Boolean updateTbReportType(tbReportType tbReportType) throws Exception {
+	public Boolean updateTbReportType(TbReportType tbReportType) throws Exception {
 		return tbReportTypeMapper.updateByPrimaryKey(tbReportType)>0;
 	}
 
 	@Override
-	public tbReportType findDetailTbReportType(String reportTypeCode) throws Exception {
+	public TbReportType findDetailTbReportType(String reportTypeCode) throws Exception {
 		return tbReportTypeMapper.selectByPrimaryKey(reportTypeCode);
 	}
 

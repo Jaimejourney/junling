@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actReModelEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actReModelEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActReModelEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActReModelEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="NAME_" property="name" jdbcType="VARCHAR" />
@@ -30,7 +30,7 @@
     delete from act_re_model
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actReModelEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActReModelEntity" >
     insert into act_re_model (ID_, REV_, NAME_, 
       KEY_, CATEGORY_, CREATE_TIME_, 
       LAST_UPDATE_TIME_, VERSION_, META_INFO_, 
@@ -42,7 +42,7 @@
       #{deploymentId,jdbcType=VARCHAR}, #{editorSourceValueId,jdbcType=VARCHAR}, #{editorSourceExtraValueId,jdbcType=VARCHAR}, 
       #{tenantId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actReModelEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActReModelEntity" >
     insert into act_re_model
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actReModelEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActReModelEntity" >
     update act_re_model
     <set >
       <if test="rev != null" >
@@ -169,7 +169,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actReModelEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActReModelEntity" >
     update act_re_model
     set REV_ = #{rev,jdbcType=INTEGER},
       NAME_ = #{name,jdbcType=VARCHAR},

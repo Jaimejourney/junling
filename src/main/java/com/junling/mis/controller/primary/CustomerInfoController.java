@@ -3,7 +3,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.customerInfo;
+import com.junling.mis.model.primary.CustomerInfo;
 import com.junling.mis.service.primary.CustomerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class CustomerInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addCustomerInfo(@RequestBody customerInfo customerInfo) throws Exception {
+    public MakeResult addCustomerInfo(@RequestBody CustomerInfo customerInfo) throws Exception {
         if(service.addCustomerInfo(customerInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class CustomerInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateCustomerInfo(@RequestBody customerInfo customerInfo) throws Exception {
+    public MakeResult updateCustomerInfo(@RequestBody CustomerInfo customerInfo) throws Exception {
         if(service.updateCustomerInfo(customerInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class CustomerInfoController {
 
     @RequestMapping(value = "/search/{customerNo}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<customerInfo> searchCustomerInfo(@PathVariable("customerNo") String customerNo) throws Exception {
-        customerInfo customerInfo = service.findDetailCustomerInfo(customerNo);
-        MakeResult<customerInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<CustomerInfo> searchCustomerInfo(@PathVariable("customerNo") String customerNo) throws Exception {
+        CustomerInfo customerInfo = service.findDetailCustomerInfo(customerNo);
+        MakeResult<CustomerInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(customerInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

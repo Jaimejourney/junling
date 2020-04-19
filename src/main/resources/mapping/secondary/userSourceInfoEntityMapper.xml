@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.userSourceInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.userSourceInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.UserSourceInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.UserSourceInfoEntity" >
     <id column="user_id" property="userId" jdbcType="VARCHAR" />
     <id column="source" property="source" jdbcType="VARCHAR" />
     <result column="id" property="id" jdbcType="INTEGER" />
@@ -16,19 +16,19 @@
     user_id, source, id, source_desc, created_by, created_date, updated_by, updated_date, 
     case_type
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.secondary.userSourceInfoEntityKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.secondary.UserSourceInfoEntityKey" >
     select 
     <include refid="Base_Column_List" />
     from user_source_info
     where user_id = #{userId,jdbcType=VARCHAR}
       and source = #{source,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.secondary.userSourceInfoEntityKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.secondary.UserSourceInfoEntityKey" >
     delete from user_source_info
     where user_id = #{userId,jdbcType=VARCHAR}
       and source = #{source,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.userSourceInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.UserSourceInfoEntity" >
     insert into user_source_info (user_id, source, id, 
       source_desc, created_by, created_date, 
       updated_by, updated_date, case_type
@@ -38,7 +38,7 @@
       #{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP}, #{caseType,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.userSourceInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.UserSourceInfoEntity" >
     insert into user_source_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -99,7 +99,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.userSourceInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.UserSourceInfoEntity" >
     update user_source_info
     <set >
       <if test="id != null" >
@@ -127,7 +127,7 @@
     where user_id = #{userId,jdbcType=VARCHAR}
       and source = #{source,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.userSourceInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.UserSourceInfoEntity" >
     update user_source_info
     set id = #{id,jdbcType=INTEGER},
       source_desc = #{sourceDesc,jdbcType=VARCHAR},

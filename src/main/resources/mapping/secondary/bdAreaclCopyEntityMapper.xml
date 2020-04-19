@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.bdAreaclCopyEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.bdAreaclCopyEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.BdAreaclCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.BdAreaclCopyEntity" >
     <result column="CODE" property="code" jdbcType="VARCHAR" />
     <result column="CREATIONTIME" property="creationtime" jdbcType="VARCHAR" />
     <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
@@ -32,7 +32,7 @@
     <result column="TS" property="ts" jdbcType="VARCHAR" />
     <result column="T_MODIFY_TM" property="tModifyTm" jdbcType="TIMESTAMP" />
   </resultMap>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.bdAreaclCopyEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.BdAreaclCopyEntity" >
     insert into bd_areacl_copy (CODE, CREATIONTIME, CREATOR, 
       DATAORIGINFLAG, DEF1, DEF2, 
       DEF3, DEF4, DEF5, DR, 
@@ -54,7 +54,7 @@
       #{pkOrg,jdbcType=VARCHAR}, #{seq,jdbcType=VARCHAR}, #{ts,jdbcType=VARCHAR}, #{tModifyTm,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.bdAreaclCopyEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.BdAreaclCopyEntity" >
     insert into bd_areacl_copy
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="code != null" >

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.scheduleTaskCopyEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ScheduleTaskCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" >
     <id column="requst_id" property="requstId" jdbcType="VARCHAR" />
     <result column="business_key" property="businessKey" jdbcType="VARCHAR" />
     <result column="business_type" property="businessType" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     <result column="case_type" property="caseType" jdbcType="VARCHAR" />
     <result column="channel_case_no" property="channelCaseNo" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.scheduleTaskCopyEntity" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -46,7 +46,7 @@
     delete from schedule_task_copy
     where requst_id = #{requstId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" >
     insert into schedule_task_copy (requst_id, business_key, business_type, 
       status, err_msg, is_lock, created_by, 
       created_date, updated_by, updated_date, 
@@ -62,7 +62,7 @@
       #{source,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{caseType,jdbcType=VARCHAR}, 
       #{channelCaseNo,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" >
     insert into schedule_task_copy
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="requstId != null" >
@@ -195,7 +195,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" >
     update schedule_task_copy
     <set >
       <if test="businessKey != null" >
@@ -261,7 +261,7 @@
     </set>
     where requst_id = #{requstId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" >
     update schedule_task_copy
     set business_key = #{businessKey,jdbcType=VARCHAR},
       business_type = #{businessType,jdbcType=VARCHAR},
@@ -285,7 +285,7 @@
       content = #{content,jdbcType=LONGVARCHAR}
     where requst_id = #{requstId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.scheduleTaskCopyEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ScheduleTaskCopyEntity" >
     update schedule_task_copy
     set business_key = #{businessKey,jdbcType=VARCHAR},
       business_type = #{businessType,jdbcType=VARCHAR},

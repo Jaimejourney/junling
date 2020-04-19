@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.invoicetotalityEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.invoicetotalityEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.InvoicetotalityEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.InvoicetotalityEntity" >
     <id column="invoicetotality_id" property="invoicetotalityId" jdbcType="BIGINT" />
     <result column="card_id" property="cardId" jdbcType="VARCHAR" />
     <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
@@ -75,7 +75,7 @@
     delete from invoicetotality
     where invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.InvoicetotalityEntity" >
     insert into invoicetotality (invoicetotality_id, card_id, sendTradeNum, 
       name, sex, age, inHospitalNum, 
       inHosDate, dischDate, hospitalDay, 
@@ -111,7 +111,7 @@
       #{costcategory,jdbcType=VARCHAR}, #{unicostcategory,jdbcType=VARCHAR}, #{unidepartment,jdbcType=VARCHAR}, 
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.InvoicetotalityEntity" >
     insert into invoicetotality
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="invoicetotalityId != null" >
@@ -424,7 +424,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.InvoicetotalityEntity" >
     update invoicetotality
     <set >
       <if test="cardId != null" >
@@ -580,7 +580,7 @@
     </set>
     where invoicetotality_id = #{invoicetotalityId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.invoicetotalityEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.InvoicetotalityEntity" >
     update invoicetotality
     set card_id = #{cardId,jdbcType=VARCHAR},
       sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},

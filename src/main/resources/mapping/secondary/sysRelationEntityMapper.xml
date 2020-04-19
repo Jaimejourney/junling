@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysRelationEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysRelationEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysRelationEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysRelationEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="menuid" property="menuid" jdbcType="BIGINT" />
     <result column="roleid" property="roleid" jdbcType="INTEGER" />
@@ -19,13 +19,13 @@
     delete from sys_relation
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysRelationEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysRelationEntity" >
     insert into sys_relation (id, menuid, roleid
       )
     values (#{id,jdbcType=INTEGER}, #{menuid,jdbcType=BIGINT}, #{roleid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysRelationEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysRelationEntity" >
     insert into sys_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysRelationEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysRelationEntity" >
     update sys_relation
     <set >
       <if test="menuid != null" >
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysRelationEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysRelationEntity" >
     update sys_relation
     set menuid = #{menuid,jdbcType=BIGINT},
       roleid = #{roleid,jdbcType=INTEGER}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimBenefitBillEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimBenefitBillEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimBenefitBillEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="accno" property="accno" jdbcType="VARCHAR" />
@@ -46,7 +46,7 @@
     delete from claim_benefit_bill
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimBenefitBillEntity" >
     insert into claim_benefit_bill (id, docuno, accno, 
       polno, receiptno, riskCode, 
       riskName, benefitCode, benefitName, 
@@ -68,7 +68,7 @@
       #{adjustamountreason,jdbcType=VARCHAR}, #{reasonamountsum,jdbcType=DECIMAL}, #{originalthirdamount,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimBenefitBillEntity" >
     insert into claim_benefit_bill
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -237,7 +237,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimBenefitBillEntity" >
     update claim_benefit_bill
     <set >
       <if test="docuno != null" >
@@ -321,7 +321,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBenefitBillEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimBenefitBillEntity" >
     update claim_benefit_bill
     set docuno = #{docuno,jdbcType=VARCHAR},
       accno = #{accno,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysLoginLogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysLoginLogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysLoginLogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysLoginLogEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="logname" property="logname" jdbcType="VARCHAR" />
     <result column="userid" property="userid" jdbcType="INTEGER" />
@@ -9,7 +9,7 @@
     <result column="succeed" property="succeed" jdbcType="VARCHAR" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.sysLoginLogEntity" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.SysLoginLogEntity" extends="BaseResultMap" >
     <result column="message" property="message" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -30,7 +30,7 @@
     delete from sys_login_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysLoginLogEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysLoginLogEntity" >
     insert into sys_login_log (id, logname, userid, 
       createtime, succeed, ip, 
       message)
@@ -38,7 +38,7 @@
       #{createtime,jdbcType=TIMESTAMP}, #{succeed,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
       #{message,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysLoginLogEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysLoginLogEntity" >
     insert into sys_login_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysLoginLogEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysLoginLogEntity" >
     update sys_login_log
     <set >
       <if test="logname != null" >
@@ -111,7 +111,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.sysLoginLogEntity" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.SysLoginLogEntity" >
     update sys_login_log
     set logname = #{logname,jdbcType=VARCHAR},
       userid = #{userid,jdbcType=INTEGER},
@@ -121,7 +121,7 @@
       message = #{message,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysLoginLogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysLoginLogEntity" >
     update sys_login_log
     set logname = #{logname,jdbcType=VARCHAR},
       userid = #{userid,jdbcType=INTEGER},

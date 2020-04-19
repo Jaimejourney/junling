@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbClaimResult;
+import com.junling.mis.model.primary.TbClaimResult;
 import com.junling.mis.service.primary.TbClaimResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbClaimResultController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbClaimResult(@RequestBody tbClaimResult tbClaimResult) throws Exception {
+    public MakeResult addTbClaimResult(@RequestBody TbClaimResult tbClaimResult) throws Exception {
         if(service.addTbClaimResult(tbClaimResult)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbClaimResultController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbClaimResult(@RequestBody tbClaimResult tbClaimResult) throws Exception {
+    public MakeResult updateTbClaimResult(@RequestBody TbClaimResult tbClaimResult) throws Exception {
         if(service.updateTbClaimResult(tbClaimResult)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbClaimResultController {
 
     @RequestMapping(value = "/search/{resultCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbClaimResult> searchTbClaimResult(@PathVariable("resultCode") String resultCode) throws Exception {
-        tbClaimResult tbClaimResult = service.findDetailTbClaimResult(resultCode);
-        MakeResult<tbClaimResult> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbClaimResult> searchTbClaimResult(@PathVariable("resultCode") String resultCode) throws Exception {
+        TbClaimResult tbClaimResult = service.findDetailTbClaimResult(resultCode);
+        MakeResult<TbClaimResult> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbClaimResult == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

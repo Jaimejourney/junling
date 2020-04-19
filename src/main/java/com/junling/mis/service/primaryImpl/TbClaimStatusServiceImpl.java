@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbClaimStatus;
+import com.junling.mis.mapper.primary.TbClaimStatusMapper;
+import com.junling.mis.model.primary.TbClaimStatus;
 import com.junling.mis.service.primary.TbClaimStatusService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbClaimStatusServiceImpl implements TbClaimStatusService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbClaimStatusServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbClaimStatusMapper tbClaimStatusMapper;
+	private TbClaimStatusMapper tbClaimStatusMapper;
 
 	@Override
-	public Boolean addTbClaimStatus(tbClaimStatus tbClaimStatus) throws Exception {
+	public Boolean addTbClaimStatus(TbClaimStatus tbClaimStatus) throws Exception {
 		return tbClaimStatusMapper.insert(tbClaimStatus)>0;
 	}
 
 	@Override
-	public Boolean updateTbClaimStatus(tbClaimStatus tbClaimStatus) throws Exception {
+	public Boolean updateTbClaimStatus(TbClaimStatus tbClaimStatus) throws Exception {
 		return tbClaimStatusMapper.updateByPrimaryKey(tbClaimStatus)>0;
 	}
 
 	@Override
-	public tbClaimStatus findDetailTbClaimStatus(String statusCode) throws Exception {
+	public TbClaimStatus findDetailTbClaimStatus(String statusCode) throws Exception {
 		return tbClaimStatusMapper.selectByPrimaryKey(statusCode);
 	}
 

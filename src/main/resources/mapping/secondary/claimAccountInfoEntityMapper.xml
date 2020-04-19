@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimAccountInfoEntity1Mapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimAccountInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimAccountInfoEntity1Mapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimAccountInfoEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
@@ -44,11 +44,17 @@
     from claim_account_info
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="selectByDocuno" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_account_info
+    where docuno = #{docuno,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from claim_account_info
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimAccountInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimAccountInfoEntity" >
     insert into claim_account_info (id, docuno, insured_id, 
       bank_name, bankno, account_no, 
       account_name, update_poson, update_time, 
@@ -70,7 +76,7 @@
       #{amt,jdbcType=BIGINT}, #{payeeType,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
       #{caseGetCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimAccountInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimAccountInfoEntity" >
     insert into claim_account_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -251,7 +257,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimAccountInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimAccountInfoEntity" >
     update claim_account_info
     <set >
       <if test="docuno != null" >
@@ -341,7 +347,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimAccountInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimAccountInfoEntity" >
     update claim_account_info
     set docuno = #{docuno,jdbcType=VARCHAR},
       insured_id = #{insuredId,jdbcType=VARCHAR},

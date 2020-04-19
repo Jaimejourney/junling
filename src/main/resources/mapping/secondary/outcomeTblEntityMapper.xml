@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.outcomeTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.outcomeTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.OutcomeTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.OutcomeTblEntity" >
     <id column="outcome_id" property="outcomeId" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from outcome_tbl
     where outcome_id = #{outcomeId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.outcomeTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.OutcomeTblEntity" >
     insert into outcome_tbl (outcome_id, description, update_poson, 
       update_time, is_delete)
     values (#{outcomeId,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.outcomeTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.OutcomeTblEntity" >
     insert into outcome_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="outcomeId != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.outcomeTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.OutcomeTblEntity" >
     update outcome_tbl
     <set >
       <if test="description != null" >
@@ -82,7 +82,7 @@
     </set>
     where outcome_id = #{outcomeId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.outcomeTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.OutcomeTblEntity" >
     update outcome_tbl
     set description = #{description,jdbcType=VARCHAR},
       update_poson = #{updatePoson,jdbcType=VARCHAR},

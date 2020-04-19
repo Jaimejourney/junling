@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.table1EntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.table1Entity" >
+<mapper namespace="com.junling.mis.mapper.secondary.Table1EntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.Table1Entity" >
     <id column="ID" property="id" jdbcType="VARCHAR" />
     <result column="报案号" property="报案号" jdbcType="VARCHAR" />
     <result column="沛合案件号" property="沛合案件号" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from table_1
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.table1Entity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.Table1Entity" >
     insert into table_1 (ID, 报案号, 沛合案件号, 
       人保健案件号, 报案姓名, 报案证件号码, 
       险种名称, 保单号码, 报案时间, 赔付金额, 
@@ -39,7 +39,7 @@
       #{险种名称,jdbcType=VARCHAR}, #{保单号码,jdbcType=VARCHAR}, #{报案时间,jdbcType=VARCHAR}, #{赔付金额,jdbcType=VARCHAR}, 
       #{发票数,jdbcType=VARCHAR}, #{超10张发票,jdbcType=VARCHAR}, #{初审用户名,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.table1Entity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.Table1Entity" >
     insert into table_1
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -124,7 +124,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.table1Entity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.Table1Entity" >
     update table_1
     <set >
       <if test="报案号 != null" >
@@ -166,7 +166,7 @@
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.table1Entity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.Table1Entity" >
     update table_1
     set 报案号 = #{报案号,jdbcType=VARCHAR},
       沛合案件号 = #{沛合案件号,jdbcType=VARCHAR},

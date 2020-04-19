@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbIdType;
+import com.junling.mis.mapper.primary.TbIdTypeMapper;
+import com.junling.mis.model.primary.TbIdType;
 import com.junling.mis.service.primary.TbIdTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbIdTypeServiceImpl implements TbIdTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbIdTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbIdTypeMapper tbIdTypeMapper;
+	private TbIdTypeMapper tbIdTypeMapper;
 
 	@Override
-	public Boolean addTbIdType(tbIdType tbIdType) throws Exception {
+	public Boolean addTbIdType(TbIdType tbIdType) throws Exception {
 		return tbIdTypeMapper.insert(tbIdType)>0;
 	}
 
 	@Override
-	public Boolean updateTbIdType(tbIdType tbIdType) throws Exception {
+	public Boolean updateTbIdType(TbIdType tbIdType) throws Exception {
 		return tbIdTypeMapper.updateByPrimaryKey(tbIdType)>0;
 	}
 
 	@Override
-	public tbIdType findDetailTbIdType(String idTypeCode) throws Exception {
+	public TbIdType findDetailTbIdType(String idTypeCode) throws Exception {
 		return tbIdTypeMapper.selectByPrimaryKey(idTypeCode);
 	}
 

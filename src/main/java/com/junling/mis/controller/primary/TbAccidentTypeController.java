@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbAccidentType;
+import com.junling.mis.model.primary.TbAccidentType;
 import com.junling.mis.service.primary.TbAccidentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbAccidentTypeController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbAccidentType(@RequestBody tbAccidentType tbAccidentType) throws Exception {
+    public MakeResult addTbAccidentType(@RequestBody TbAccidentType tbAccidentType) throws Exception {
         if(service.addTbAccidentType(tbAccidentType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbAccidentTypeController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbAccidentType(@RequestBody tbAccidentType tbAccidentType) throws Exception {
+    public MakeResult updateTbAccidentType(@RequestBody TbAccidentType tbAccidentType) throws Exception {
         if(service.updateTbAccidentType(tbAccidentType)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbAccidentTypeController {
 
     @RequestMapping(value = "/search/{accidentTypeCode}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbAccidentType> searchTbAccidentType(@PathVariable("accidentTypeCode") String accidentTypeCode) throws Exception {
-        tbAccidentType tbAccidentType = service.findDetailTbAccidentType(accidentTypeCode);
-        MakeResult<tbAccidentType> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbAccidentType> searchTbAccidentType(@PathVariable("accidentTypeCode") String accidentTypeCode) throws Exception {
+        TbAccidentType tbAccidentType = service.findDetailTbAccidentType(accidentTypeCode);
+        MakeResult<TbAccidentType> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbAccidentType == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

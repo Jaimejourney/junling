@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.polStatusTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.polStatusTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.PolStatusTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.PolStatusTblEntity" >
     <id column="pol_status" property="polStatus" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="update_poson" property="updatePoson" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from pol_status_tbl
     where pol_status = #{polStatus,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.polStatusTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.PolStatusTblEntity" >
     insert into pol_status_tbl (pol_status, description, update_poson, 
       update_time, is_delete)
     values (#{polStatus,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.polStatusTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.PolStatusTblEntity" >
     insert into pol_status_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="polStatus != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.polStatusTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.PolStatusTblEntity" >
     update pol_status_tbl
     <set >
       <if test="description != null" >
@@ -82,7 +82,7 @@
     </set>
     where pol_status = #{polStatus,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.polStatusTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.PolStatusTblEntity" >
     update pol_status_tbl
     set description = #{description,jdbcType=VARCHAR},
       update_poson = #{updatePoson,jdbcType=VARCHAR},

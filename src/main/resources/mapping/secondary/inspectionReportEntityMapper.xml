@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.inspectionReportEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.inspectionReportEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.InspectionReportEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.InspectionReportEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="flow_id" property="flowId" jdbcType="VARCHAR" />
     <result column="recordFlow" property="recordflow" jdbcType="VARCHAR" />
@@ -47,7 +47,7 @@
     delete from inspection_report
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.InspectionReportEntity" >
     insert into inspection_report (id, flow_id, recordFlow, 
       examRptFlow, examName, examDiagnose, 
       examReporterCode, examReporter, examTime, 
@@ -69,7 +69,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.InspectionReportEntity" >
     insert into inspection_report
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -244,7 +244,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.InspectionReportEntity" >
     update inspection_report
     <set >
       <if test="flowId != null" >
@@ -331,7 +331,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.inspectionReportEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.InspectionReportEntity" >
     update inspection_report
     set flow_id = #{flowId,jdbcType=VARCHAR},
       recordFlow = #{recordflow,jdbcType=VARCHAR},

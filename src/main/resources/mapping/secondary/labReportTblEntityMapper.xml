@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.labReportTblEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.labReportTblEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.LabReportTblEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.LabReportTblEntity" >
     <id column="labFlow" property="labflow" jdbcType="VARCHAR" />
     <result column="recordFlow" property="recordflow" jdbcType="VARCHAR" />
     <result column="pid" property="pid" jdbcType="VARCHAR" />
@@ -42,7 +42,7 @@
     delete from lab_report_tbl
     where labFlow = #{labflow,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.LabReportTblEntity" >
     insert into lab_report_tbl (labFlow, recordFlow, pid, 
       labRepName, labApplyTime, labApplierCode, 
       labApplierName, applierDeptCode, applierDept, 
@@ -60,7 +60,7 @@
       #{remark,jdbcType=VARCHAR}, #{inoutflag,jdbcType=VARCHAR}, #{updatePoson,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.LabReportTblEntity" >
     insert into lab_report_tbl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="labflow != null" >
@@ -205,7 +205,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.LabReportTblEntity" >
     update lab_report_tbl
     <set >
       <if test="recordflow != null" >
@@ -277,7 +277,7 @@
     </set>
     where labFlow = #{labflow,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.labReportTblEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.LabReportTblEntity" >
     update lab_report_tbl
     set recordFlow = #{recordflow,jdbcType=VARCHAR},
       pid = #{pid,jdbcType=VARCHAR},

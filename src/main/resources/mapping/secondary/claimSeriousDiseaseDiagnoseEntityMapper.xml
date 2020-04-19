@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimSeriousDiseaseDiagnoseEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimSeriousDiseaseDiagnoseEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimSeriousDiseaseDiagnoseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimSeriousDiseaseDiagnoseEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="accno" property="accno" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from claim_serious_disease_diagnose
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseDiagnoseEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimSeriousDiseaseDiagnoseEntity" >
     insert into claim_serious_disease_diagnose (id, docuno, accno, 
       seriousDiseaseCode, diagnoseCode, diagnoseName, 
       createdDate, updatedDate)
@@ -32,7 +32,7 @@
       #{seriousdiseasecode,jdbcType=VARCHAR}, #{diagnosecode,jdbcType=VARCHAR}, #{diagnosename,jdbcType=VARCHAR}, 
       #{createddate,jdbcType=TIMESTAMP}, #{updateddate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseDiagnoseEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimSeriousDiseaseDiagnoseEntity" >
     insert into claim_serious_disease_diagnose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseDiagnoseEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimSeriousDiseaseDiagnoseEntity" >
     update claim_serious_disease_diagnose
     <set >
       <if test="docuno != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimSeriousDiseaseDiagnoseEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimSeriousDiseaseDiagnoseEntity" >
     update claim_serious_disease_diagnose
     set docuno = #{docuno,jdbcType=VARCHAR},
       accno = #{accno,jdbcType=VARCHAR},

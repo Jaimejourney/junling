@@ -2,9 +2,9 @@ package com.junling.mis.service.primaryImpl;
 
 
 
-import com.junling.mis.mapper.primary.claimAccountInfoMapper;
-import com.junling.mis.model.primary.claimAccountInfo;
-import com.junling.mis.model.primary.claimAccountInfoKey;
+import com.junling.mis.mapper.primary.ClaimAccountInfoMapper;
+import com.junling.mis.model.primary.ClaimAccountInfo;
+import com.junling.mis.model.primary.ClaimAccountInfoKey;
 import com.junling.mis.service.primary.ClaimAccountInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,25 +23,25 @@ public class ClaimAccountInfoServiceImpl implements ClaimAccountInfoService {
     private final static Logger LOG = LoggerFactory.getLogger(ClaimAccountInfoServiceImpl.class);
 
     @Autowired
-    claimAccountInfoMapper mapper;
+    ClaimAccountInfoMapper mapper;
 
     @Override
-    public Boolean addClaimAccountInfo(claimAccountInfo claimAccountInfo) throws Exception {
+    public Boolean addClaimAccountInfo(ClaimAccountInfo claimAccountInfo) throws Exception {
         return mapper.insert(claimAccountInfo) > 0;
     }
 
     @Override
-    public Boolean updateClaimAccountInfo(claimAccountInfo claimAccountInfo) throws Exception {
+    public Boolean updateClaimAccountInfo(ClaimAccountInfo claimAccountInfo) throws Exception {
         return mapper.updateByPrimaryKey(claimAccountInfo) > 0;
     }
 
     @Override
-    public claimAccountInfo findDetailClaimAccountInfo(claimAccountInfoKey key) throws Exception {
+    public ClaimAccountInfo findDetailClaimAccountInfo(ClaimAccountInfoKey key) throws Exception {
         return mapper.selectByPrimaryKey(key);
     }
 
     @Override
-    public Boolean deleteClaimAccountInfo(claimAccountInfoKey key) throws Exception {
+    public Boolean deleteClaimAccountInfo(ClaimAccountInfoKey key) throws Exception {
         return mapper.deleteByPrimaryKey(key) > 0;
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.sysMenuCopyEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.sysMenuCopyEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SysMenuCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SysMenuCopyEntity" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="pcode" property="pcode" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from sys_menu_copy
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.sysMenuCopyEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SysMenuCopyEntity" >
     insert into sys_menu_copy (id, code, pcode, 
       pcodes, name, icon, 
       url, num, levels, ismenu, 
@@ -41,7 +41,7 @@
       #{tips,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{isopen,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.sysMenuCopyEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SysMenuCopyEntity" >
     insert into sys_menu_copy
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -126,7 +126,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.sysMenuCopyEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.SysMenuCopyEntity" >
     update sys_menu_copy
     <set >
       <if test="code != null" >
@@ -168,7 +168,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.sysMenuCopyEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.SysMenuCopyEntity" >
     update sys_menu_copy
     set code = #{code,jdbcType=VARCHAR},
       pcode = #{pcode,jdbcType=VARCHAR},

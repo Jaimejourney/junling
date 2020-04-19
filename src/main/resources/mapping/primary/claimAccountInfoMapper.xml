@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimAccountInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimAccountInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimAccountInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimAccountInfo" >
     <id column="account_id" property="accountId" jdbcType="VARCHAR" />
     <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
     <id column="account_name" property="accountName" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     account_id, claim_info_id, account_name, account_no, bank_no, pay_amonut, pay_time, 
     created_by, created_time, updated_by, updated_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimAccountInfoKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.ClaimAccountInfoKey" >
     select 
     <include refid="Base_Column_List" />
     from claim_account_info
@@ -26,13 +26,13 @@
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and account_name = #{accountName,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimAccountInfoKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimAccountInfoKey" >
     delete from claim_account_info
     where account_id = #{accountId,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and account_name = #{accountName,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimAccountInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimAccountInfo" >
     insert into claim_account_info (account_id, claim_info_id, account_name, 
       account_no, bank_no, pay_amonut, 
       pay_time, created_by, created_time, 
@@ -42,7 +42,7 @@
       #{payTime,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimAccountInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimAccountInfo" >
     insert into claim_account_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="accountId != null" >
@@ -115,7 +115,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimAccountInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimAccountInfo" >
     update claim_account_info
     <set >
       <if test="accountNo != null" >
@@ -147,7 +147,7 @@
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and account_name = #{accountName,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimAccountInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimAccountInfo" >
     update claim_account_info
     set account_no = #{accountNo,jdbcType=VARCHAR},
       bank_no = #{bankNo,jdbcType=VARCHAR},

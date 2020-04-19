@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimInfo" >
     <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
     <id column="claim_no" property="claimNo" jdbcType="VARCHAR" />
     <id column="report_no" property="reportNo" jdbcType="VARCHAR" />
@@ -39,23 +39,29 @@
     claim_status, claim_amount, claim_soucre_type, reject_cause_code, reject_cause, operation_flr, 
     created_by, created_time, updated_by, updated_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimInfoKey" >
-    select 
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.ClaimInfoKey" >
+  select
+  <include refid="Base_Column_List" />
+  from claim_info
+  where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  and claim_no = #{claimNo,jdbcType=VARCHAR}
+  and report_no = #{reportNo,jdbcType=VARCHAR}
+  and registration_no = #{registrationNo,jdbcType=VARCHAR}
+</select>
+  <select id="selectByClaimNo" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.String" >
+    select
     <include refid="Base_Column_List" />
     from claim_info
-    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
-      and claim_no = #{claimNo,jdbcType=VARCHAR}
-      and report_no = #{reportNo,jdbcType=VARCHAR}
-      and registration_no = #{registrationNo,jdbcType=VARCHAR}
+    where claim_no = #{claimNo,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimInfoKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimInfoKey" >
     delete from claim_info
     where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and claim_no = #{claimNo,jdbcType=VARCHAR}
       and report_no = #{reportNo,jdbcType=VARCHAR}
       and registration_no = #{registrationNo,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimInfo" >
     insert into claim_info (claim_info_id, claim_no, report_no, 
       registration_no, policy_organization, claim_report_id, 
       insure_id, exam_time, district_code, 
@@ -77,7 +83,7 @@
       #{operationFlr,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimInfo" >
     insert into claim_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="claimInfoId != null" >
@@ -258,7 +264,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimInfo" >
     update claim_info
     <set >
       <if test="policyOrganization != null" >
@@ -342,7 +348,7 @@
       and report_no = #{reportNo,jdbcType=VARCHAR}
       and registration_no = #{registrationNo,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimInfo" >
     update claim_info
     set policy_organization = #{policyOrganization,jdbcType=VARCHAR},
       claim_report_id = #{claimReportId,jdbcType=VARCHAR},

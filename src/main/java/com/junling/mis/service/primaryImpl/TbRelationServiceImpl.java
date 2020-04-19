@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbRelation;
+import com.junling.mis.mapper.primary.TbRelationMapper;
+import com.junling.mis.model.primary.TbRelation;
 import com.junling.mis.service.primary.TbRelationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbRelationServiceImpl implements TbRelationService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbRelationServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbRelationMapper tbRelationMapper;
+	private TbRelationMapper tbRelationMapper;
 
 	@Override
-	public Boolean addTbRelation(tbRelation tbRelation) throws Exception {
+	public Boolean addTbRelation(TbRelation tbRelation) throws Exception {
 		return tbRelationMapper.insert(tbRelation)>0;
 	}
 
 	@Override
-	public Boolean updateTbRelation(tbRelation tbRelation) throws Exception {
+	public Boolean updateTbRelation(TbRelation tbRelation) throws Exception {
 		return tbRelationMapper.updateByPrimaryKey(tbRelation)>0;
 	}
 
 	@Override
-	public tbRelation findDetailTbRelation(String relationCode) throws Exception {
+	public TbRelation findDetailTbRelation(String relationCode) throws Exception {
 		return tbRelationMapper.selectByPrimaryKey(relationCode);
 	}
 

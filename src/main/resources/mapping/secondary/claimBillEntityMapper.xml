@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.claimBillEntity1Mapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.claimBillEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ClaimBillEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ClaimBillEntity" >
     <id column="seqno" property="seqno" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
     <result column="billId" property="billid" jdbcType="VARCHAR" />
@@ -91,11 +91,17 @@
     from claim_bill
     where seqno = #{seqno,jdbcType=VARCHAR}
   </select>
+  <select id="selectByDocuno" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_bill
+    where docuno = #{docuno,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from claim_bill
     where seqno = #{seqno,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ClaimBillEntity" >
     insert into claim_bill (seqno, docuno, billId, 
       hospital_code, bill_amt, bill_type, 
       admission_date, discharge_date, hospital_days, 
@@ -147,7 +153,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{payRate,jdbcType=BIGINT}, #{deductibleAmount,jdbcType=BIGINT}, 
       #{refuseamt,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ClaimBillEntity" >
     insert into claim_bill
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="seqno != null" >
@@ -562,7 +568,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ClaimBillEntity" >
     update claim_bill
     <set >
       <if test="docuno != null" >
@@ -769,7 +775,7 @@
     </set>
     where seqno = #{seqno,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.claimBillEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ClaimBillEntity" >
     update claim_bill
     set docuno = #{docuno,jdbcType=VARCHAR},
       billId = #{billid,jdbcType=VARCHAR},

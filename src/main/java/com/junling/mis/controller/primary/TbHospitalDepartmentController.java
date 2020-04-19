@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.tbHospitalDepartment;
+import com.junling.mis.model.primary.TbHospitalDepartment;
 import com.junling.mis.service.primary.TbHospitalDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class TbHospitalDepartmentController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addTbHospitalDepartment(@RequestBody tbHospitalDepartment tbHospitalDepartment) throws Exception {
+    public MakeResult addTbHospitalDepartment(@RequestBody TbHospitalDepartment tbHospitalDepartment) throws Exception {
         if(service.addTbHospitalDepartment(tbHospitalDepartment)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class TbHospitalDepartmentController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateTbHospitalDepartment(@RequestBody tbHospitalDepartment tbHospitalDepartment) throws Exception {
+    public MakeResult updateTbHospitalDepartment(@RequestBody TbHospitalDepartment tbHospitalDepartment) throws Exception {
         if(service.updateTbHospitalDepartment(tbHospitalDepartment)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class TbHospitalDepartmentController {
 
     @RequestMapping(value = "/search/{hospitalDepartmentId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<tbHospitalDepartment> searchTbHospitalDepartment(@PathVariable("hospitalDepartmentId") String hospitalDepartmentId) throws Exception {
-        tbHospitalDepartment tbHospitalDepartment = service.findDetailTbHospitalDepartment(hospitalDepartmentId);
-        MakeResult<tbHospitalDepartment> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<TbHospitalDepartment> searchTbHospitalDepartment(@PathVariable("hospitalDepartmentId") String hospitalDepartmentId) throws Exception {
+        TbHospitalDepartment tbHospitalDepartment = service.findDetailTbHospitalDepartment(hospitalDepartmentId);
+        MakeResult<TbHospitalDepartment> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(tbHospitalDepartment == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

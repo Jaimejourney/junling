@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbDistrictMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbDistrict" >
+<mapper namespace="com.junling.mis.mapper.primary.TbDistrictMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbDistrict" >
     <id column="district_code" property="districtCode" jdbcType="VARCHAR" />
     <result column="district_name" property="districtName" jdbcType="VARCHAR" />
     <result column="district_parent" property="districtParent" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from tb_district
     where district_code = #{districtCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbDistrict" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbDistrict" >
     insert into tb_district (district_code, district_name, district_parent, 
       province_code, district_level, created_by, 
       created_time, updated_by, updated_time
@@ -36,7 +36,7 @@
       #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbDistrict" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbDistrict" >
     insert into tb_district
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="districtCode != null" >
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbDistrict" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbDistrict" >
     update tb_district
     <set >
       <if test="districtName != null" >
@@ -127,7 +127,7 @@
     </set>
     where district_code = #{districtCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbDistrict" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbDistrict" >
     update tb_district
     set district_name = #{districtName,jdbcType=VARCHAR},
       district_parent = #{districtParent,jdbcType=VARCHAR},

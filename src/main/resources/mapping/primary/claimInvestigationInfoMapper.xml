@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimInvestigationInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimInvestigationInfo" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimInvestigationInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimInvestigationInfo" >
     <id column="claim_investigation_info_id" property="claimInvestigationInfoId" jdbcType="VARCHAR" />
     <result column="claim_no" property="claimNo" jdbcType="VARCHAR" />
     <result column="apply_time" property="applyTime" jdbcType="VARCHAR" />
@@ -32,7 +32,7 @@
     delete from claim_investigation_info
     where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimInvestigationInfo" >
     insert into claim_investigation_info (claim_investigation_info_id, claim_no, 
       apply_time, description, user_id, 
       reply, reply_time, investigation_conclusion, 
@@ -46,7 +46,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimInvestigationInfo" >
     insert into claim_investigation_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="claimInvestigationInfoId != null" >
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimInvestigationInfo" >
     update claim_investigation_info
     <set >
       <if test="claimNo != null" >
@@ -182,7 +182,7 @@
     </set>
     where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimInvestigationInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimInvestigationInfo" >
     update claim_investigation_info
     set claim_no = #{claimNo,jdbcType=VARCHAR},
       apply_time = #{applyTime,jdbcType=VARCHAR},

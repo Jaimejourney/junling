@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.tpaClientEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.tpaClientEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.TpaClientEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.TpaClientEntity" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="grade_level" property="gradeLevel" jdbcType="VARCHAR" />
     <result column="clientno" property="clientno" jdbcType="VARCHAR" />
@@ -37,11 +37,17 @@
     from tpa_client
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectByMainInsuredId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tpa_client
+    where main_insured_id = #{mainInsuredId,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from tpa_client
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.TpaClientEntity" >
     insert into tpa_client (id, grade_level, clientno, 
       id_type, idno, name, 
       gender, address, birth_date, 
@@ -59,7 +65,7 @@
       #{mainIdType,jdbcType=VARCHAR}, #{mainIdno,jdbcType=VARCHAR}, #{mainName,jdbcType=VARCHAR}, 
       #{mainGender,jdbcType=VARCHAR}, #{mainBirthDate,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.TpaClientEntity" >
     insert into tpa_client
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -204,7 +210,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.TpaClientEntity" >
     update tpa_client
     <set >
       <if test="gradeLevel != null" >
@@ -276,7 +282,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.tpaClientEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.TpaClientEntity" >
     update tpa_client
     set grade_level = #{gradeLevel,jdbcType=VARCHAR},
       clientno = #{clientno,jdbcType=VARCHAR},

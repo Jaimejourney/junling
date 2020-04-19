@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitRecordEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitRecordEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitRecordEntity" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
     <result column="apply_type" property="applyType" jdbcType="VARCHAR" />
@@ -80,7 +80,7 @@
     delete from visit_record
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitRecordEntity" >
     insert into visit_record (id, openid, apply_type, 
       claim_type, visit_time, accident_time, 
       person_id, image_id, bank_id, 
@@ -122,7 +122,7 @@
       #{needpushdeathremarkflag,jdbcType=VARCHAR}, #{approveBy,jdbcType=VARCHAR}, #{isSyncCaseAttr,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitRecordEntity" >
     insert into visit_record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -471,7 +471,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitRecordEntity" >
     update visit_record
     <set >
       <if test="openid != null" >
@@ -645,7 +645,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitRecordEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitRecordEntity" >
     update visit_record
     set openid = #{openid,jdbcType=VARCHAR},
       apply_type = #{applyType,jdbcType=VARCHAR},

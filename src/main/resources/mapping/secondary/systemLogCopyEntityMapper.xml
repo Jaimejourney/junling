@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.systemLogCopyEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.systemLogCopyEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.SystemLogCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.SystemLogCopyEntity" >
     <result column="log_id" property="logId" jdbcType="VARCHAR" />
     <result column="method_name" property="methodName" jdbcType="VARCHAR" />
     <result column="request_ip" property="requestIp" jdbcType="VARCHAR" />
@@ -10,7 +10,7 @@
     <result column="response_time" property="responseTime" jdbcType="VARCHAR" />
     <result column="request_user" property="requestUser" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.systemLogCopyEntityWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.SystemLogCopyEntityWithBLOBs" extends="BaseResultMap" >
     <result column="request_arguments" property="requestArguments" jdbcType="LONGVARCHAR" />
     <result column="response_exception" property="responseException" jdbcType="LONGVARCHAR" />
     <result column="response_result" property="responseResult" jdbcType="LONGVARCHAR" />
@@ -18,7 +18,7 @@
   <sql id="Blob_Column_List" >
     request_arguments, response_exception, response_result
   </sql>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.systemLogCopyEntityWithBLOBs" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.SystemLogCopyEntityWithBLOBs" >
     insert into system_log_copy (log_id, method_name, request_ip, 
       request_url, request_date, response_time, 
       request_user, request_arguments, response_exception, 
@@ -28,7 +28,7 @@
       #{requestUser,jdbcType=VARCHAR}, #{requestArguments,jdbcType=LONGVARCHAR}, #{responseException,jdbcType=LONGVARCHAR}, 
       #{responseResult,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.systemLogCopyEntityWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.SystemLogCopyEntityWithBLOBs" >
     insert into system_log_copy
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="logId != null" >

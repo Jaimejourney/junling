@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.tbIndustrysMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.tbIndustrys" >
+<mapper namespace="com.junling.mis.mapper.primary.TbIndustrysMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.TbIndustrys" >
     <id column="industry_type_code" property="industryTypeCode" jdbcType="VARCHAR" />
     <result column="industry_type_name" property="industryTypeName" jdbcType="VARCHAR" />
     <result column="industry_type_parent" property="industryTypeParent" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from tb_industrys
     where industry_type_code = #{industryTypeCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.tbIndustrys" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.TbIndustrys" >
     insert into tb_industrys (industry_type_code, industry_type_name, 
       industry_type_parent, industry_type_level, 
       industry_type_remark, created_by, created_time, 
@@ -36,7 +36,7 @@
       #{industryTypeRemark,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.tbIndustrys" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.TbIndustrys" >
     insert into tb_industrys
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="industryTypeCode != null" >
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.tbIndustrys" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.TbIndustrys" >
     update tb_industrys
     <set >
       <if test="industryTypeName != null" >
@@ -127,7 +127,7 @@
     </set>
     where industry_type_code = #{industryTypeCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.tbIndustrys" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.TbIndustrys" >
     update tb_industrys
     set industry_type_name = #{industryTypeName,jdbcType=VARCHAR},
       industry_type_parent = #{industryTypeParent,jdbcType=VARCHAR},

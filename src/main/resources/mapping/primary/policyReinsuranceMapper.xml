@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyReinsuranceMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyReinsurance" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyReinsuranceMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyReinsurance" >
     <id column="policy_reinsurance_id" property="policyReinsuranceId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_reinsurance_no" property="policyReinsuranceNo" jdbcType="VARCHAR" />
@@ -21,7 +21,7 @@
     <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.policyReinsurance" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.primary.PolicyReinsurance" extends="BaseResultMap" >
     <result column="pb_special_contract" property="pbSpecialContract" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -45,7 +45,7 @@
     delete from policy_reinsurance
     where policy_reinsurance_id = #{policyReinsuranceId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyReinsurance" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyReinsurance" >
     insert into policy_reinsurance (policy_reinsurance_id, policy_no, policy_reinsurance_no, 
       br_no, product_id, underwriting_time, 
       pay_time, accept_insurance_time, effect_time, 
@@ -61,7 +61,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP}, #{pbSpecialContract,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyReinsurance" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyReinsurance" >
     insert into policy_reinsurance
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="policyReinsuranceId != null" >
@@ -182,7 +182,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyReinsurance" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyReinsurance" >
     update policy_reinsurance
     <set >
       <if test="policyNo != null" >
@@ -242,7 +242,7 @@
     </set>
     where policy_reinsurance_id = #{policyReinsuranceId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.policyReinsurance" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.primary.PolicyReinsurance" >
     update policy_reinsurance
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},
@@ -264,7 +264,7 @@
       pb_special_contract = #{pbSpecialContract,jdbcType=LONGVARCHAR}
     where policy_reinsurance_id = #{policyReinsuranceId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyReinsurance" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyReinsurance" >
     update policy_reinsurance
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},

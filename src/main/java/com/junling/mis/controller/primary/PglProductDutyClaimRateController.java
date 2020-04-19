@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.pglpdClaimRate;
+import com.junling.mis.model.primary.PglpdClaimRate;
 import com.junling.mis.service.primary.PglProductDutyClaimRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class PglProductDutyClaimRateController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addPglProductDutyClaimRate(@RequestBody pglpdClaimRate pglpdClaimRate) throws Exception {
+    public MakeResult addPglProductDutyClaimRate(@RequestBody PglpdClaimRate pglpdClaimRate) throws Exception {
         if(service.addPglProductDutyClaimRate(pglpdClaimRate)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class PglProductDutyClaimRateController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updatePglProductDutyClaimRate(@RequestBody pglpdClaimRate pglpdClaimRate) throws Exception {
+    public MakeResult updatePglProductDutyClaimRate(@RequestBody PglpdClaimRate pglpdClaimRate) throws Exception {
         if(service.updatePglProductDutyClaimRate(pglpdClaimRate)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class PglProductDutyClaimRateController {
 
     @RequestMapping(value = "/search/{pglpdClaimRateId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<pglpdClaimRate> searchPglProductDutyClaimRate(@PathVariable("pglpdClaimRateId") String pglpdClaimRateId) throws Exception {
-        pglpdClaimRate pglProductDutyClaimRate = service.findDetailPglProductDutyClaimRate(pglpdClaimRateId);
-        MakeResult<pglpdClaimRate> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<PglpdClaimRate> searchPglProductDutyClaimRate(@PathVariable("pglpdClaimRateId") String pglpdClaimRateId) throws Exception {
+        PglpdClaimRate pglProductDutyClaimRate = service.findDetailPglProductDutyClaimRate(pglpdClaimRateId);
+        MakeResult<PglpdClaimRate> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(pglProductDutyClaimRate == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

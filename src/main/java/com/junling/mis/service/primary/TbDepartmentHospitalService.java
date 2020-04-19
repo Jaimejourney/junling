@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbHospitalDepartment;
+import com.junling.mis.model.primary.TbHospitalDepartment;
 
 ;
 
@@ -11,11 +11,11 @@ import com.junling.mis.model.primary.tbHospitalDepartment;
  */
 public interface TbDepartmentHospitalService {
 
-	Boolean addTbDepartmentHospital(tbHospitalDepartment tbHospitalDepartment) throws Exception;
+	Boolean addTbDepartmentHospital(TbHospitalDepartment tbHospitalDepartment) throws Exception;
 
-	Boolean updateTbDepartmentHospital(tbHospitalDepartment tbHospitalDepartment) throws Exception;
+	Boolean updateTbDepartmentHospital(TbHospitalDepartment tbHospitalDepartment) throws Exception;
 
-	tbHospitalDepartment findDetailTbDepartmentHospital(String departmentId) throws Exception;
+	TbHospitalDepartment findDetailTbDepartmentHospital(String departmentId) throws Exception;
 	
 //	Result listTbDepartmentHospital(TbDepartmentHospitalModel tbDepartmentHospitalModel) throws Exception;
 //

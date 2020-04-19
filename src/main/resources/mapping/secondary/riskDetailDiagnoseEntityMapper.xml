@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.riskDetailDiagnoseEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.RiskDetailDiagnoseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.RiskDetailDiagnoseEntity" >
     <id column="diagnoseId" property="diagnoseid" jdbcType="INTEGER" />
     <result column="riskDetailId" property="riskdetailid" jdbcType="INTEGER" />
     <result column="diagnoseName" property="diagnosename" jdbcType="VARCHAR" />
@@ -20,13 +20,13 @@
     delete from risk_detail_diagnose
     where diagnoseId = #{diagnoseid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.RiskDetailDiagnoseEntity" >
     insert into risk_detail_diagnose (diagnoseId, riskDetailId, diagnoseName, 
       diagnoseType)
     values (#{diagnoseid,jdbcType=INTEGER}, #{riskdetailid,jdbcType=INTEGER}, #{diagnosename,jdbcType=VARCHAR}, 
       #{diagnosetype,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.RiskDetailDiagnoseEntity" >
     insert into risk_detail_diagnose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="diagnoseid != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.RiskDetailDiagnoseEntity" >
     update risk_detail_diagnose
     <set >
       <if test="riskdetailid != null" >
@@ -72,7 +72,7 @@
     </set>
     where diagnoseId = #{diagnoseid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.riskDetailDiagnoseEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.RiskDetailDiagnoseEntity" >
     update risk_detail_diagnose
     set riskDetailId = #{riskdetailid,jdbcType=INTEGER},
       diagnoseName = #{diagnosename,jdbcType=VARCHAR},

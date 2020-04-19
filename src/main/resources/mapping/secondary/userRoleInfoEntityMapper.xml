@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.userRoleInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.userRoleInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.UserRoleInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.UserRoleInfoEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
     <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
@@ -20,13 +20,13 @@
     delete from user_role_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.userRoleInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.UserRoleInfoEntity" >
     insert into user_role_info (id, role_name, created_date, 
       updated_date)
     values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
       #{updatedDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.userRoleInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.UserRoleInfoEntity" >
     insert into user_role_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.userRoleInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.UserRoleInfoEntity" >
     update user_role_info
     <set >
       <if test="roleName != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.userRoleInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.UserRoleInfoEntity" >
     update user_role_info
     set role_name = #{roleName,jdbcType=VARCHAR},
       created_date = #{createdDate,jdbcType=TIMESTAMP},

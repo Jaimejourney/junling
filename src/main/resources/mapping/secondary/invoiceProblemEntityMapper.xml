@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.invoiceProblemEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.invoiceProblemEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.InvoiceProblemEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.InvoiceProblemEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
     <result column="docuno" property="docuno" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from invoice_problem
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.InvoiceProblemEntity" >
     insert into invoice_problem (id, sendTradeNum, docuno, 
       invoiceNO, sign_back_type, sign_back_desc, 
       created_by, created_date, updated_by, 
@@ -37,7 +37,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.InvoiceProblemEntity" >
     insert into invoice_problem
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.InvoiceProblemEntity" >
     update invoice_problem
     <set >
       <if test="sendtradenum != null" >
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.invoiceProblemEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.InvoiceProblemEntity" >
     update invoice_problem
     set sendTradeNum = #{sendtradenum,jdbcType=VARCHAR},
       docuno = #{docuno,jdbcType=VARCHAR},

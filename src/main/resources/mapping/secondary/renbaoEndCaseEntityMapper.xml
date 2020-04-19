@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.renbaoEndCaseEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.RenbaoEndCaseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.RenbaoEndCaseEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="CaseNo" property="caseno" jdbcType="VARCHAR" />
     <result column="Contno" property="contno" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from renbao_end_case
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.RenbaoEndCaseEntity" >
     insert into renbao_end_case (id, CaseNo, Contno, 
       IdNo, EndCaseDate, CLAIMNO, 
       OutDutyAmnt, RealPay, createdDate, 
@@ -37,7 +37,7 @@
       #{outdutyamnt,jdbcType=VARCHAR}, #{realpay,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, 
       #{updateddate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.RenbaoEndCaseEntity" >
     insert into renbao_end_case
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.RenbaoEndCaseEntity" >
     update renbao_end_case
     <set >
       <if test="caseno != null" >
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.renbaoEndCaseEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.RenbaoEndCaseEntity" >
     update renbao_end_case
     set CaseNo = #{caseno,jdbcType=VARCHAR},
       Contno = #{contno,jdbcType=VARCHAR},

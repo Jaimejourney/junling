@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.visitPersonEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.visitPersonEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.VisitPersonEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.VisitPersonEntity" >
     <id column="id" property="id" jdbcType="DECIMAL" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
     delete from visit_person
     where id = #{id,jdbcType=DECIMAL}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.VisitPersonEntity" >
     insert into visit_person (id, openid, name, 
       phone, email, create_time, 
       last_time, card_id, update_poson, 
@@ -47,7 +47,7 @@
       #{calculateChannel,jdbcType=VARCHAR}, #{riskDetail,jdbcType=VARCHAR}, #{riskName,jdbcType=VARCHAR}, 
       #{riskResult,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.VisitPersonEntity" >
     insert into visit_person
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -150,7 +150,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.VisitPersonEntity" >
     update visit_person
     <set >
       <if test="openid != null" >
@@ -201,7 +201,7 @@
     </set>
     where id = #{id,jdbcType=DECIMAL}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.visitPersonEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.VisitPersonEntity" >
     update visit_person
     set openid = #{openid,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

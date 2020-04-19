@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.bdAreaclEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.bdAreaclEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.BdAreaclEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.BdAreaclEntity" >
     <result column="CODE" property="code" jdbcType="VARCHAR" />
     <result column="CREATIONTIME" property="creationtime" jdbcType="VARCHAR" />
     <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
@@ -35,7 +35,7 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
   </resultMap>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.bdAreaclEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.BdAreaclEntity" >
     insert into bd_areacl (CODE, CREATIONTIME, CREATOR, 
       DATAORIGINFLAG, DEF1, DEF2, 
       DEF3, DEF4, DEF5, DR, 
@@ -59,7 +59,7 @@
       #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.bdAreaclEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.BdAreaclEntity" >
     insert into bd_areacl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="code != null" >

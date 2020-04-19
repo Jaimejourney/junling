@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.policyHealthNoteMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.policyHealthNote" >
+<mapper namespace="com.junling.mis.mapper.primary.PolicyHealthNoteMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.PolicyHealthNote" >
     <id column="health_id" property="healthId" jdbcType="VARCHAR" />
     <result column="policy_no" property="policyNo" jdbcType="VARCHAR" />
     <result column="policy_reinsurance_no" property="policyReinsuranceNo" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from policy_health_note
     where health_id = #{healthId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.policyHealthNote" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.PolicyHealthNote" >
     insert into policy_health_note (health_id, policy_no, policy_reinsurance_no, 
       br_no, insure_id, health_note_id, 
       health_note_result, created_by, created_time, 
@@ -38,7 +38,7 @@
       #{healthNoteResult,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.policyHealthNote" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.PolicyHealthNote" >
     insert into policy_health_note
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="healthId != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.policyHealthNote" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.PolicyHealthNote" >
     update policy_health_note
     <set >
       <if test="policyNo != null" >
@@ -147,7 +147,7 @@
     </set>
     where health_id = #{healthId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.policyHealthNote" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.PolicyHealthNote" >
     update policy_health_note
     set policy_no = #{policyNo,jdbcType=VARCHAR},
       policy_reinsurance_no = #{policyReinsuranceNo,jdbcType=VARCHAR},

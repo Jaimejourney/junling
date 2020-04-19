@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.dutySubInfo;
+import com.junling.mis.mapper.primary.DutySubInfoMapper;
+import com.junling.mis.model.primary.DutySubInfo;
 import com.junling.mis.service.primary.DutySubInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class DutySubInfoServiceImpl implements DutySubInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(DutySubInfoServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.dutySubInfoMapper dutySubInfoMapper;
+	private DutySubInfoMapper dutySubInfoMapper;
 
 	@Override
-	public Boolean addDutySubInfo(dutySubInfo dutySubInfoModel) throws Exception {
+	public Boolean addDutySubInfo(DutySubInfo dutySubInfoModel) throws Exception {
 		return dutySubInfoMapper.insert(dutySubInfoModel) > 0;
 	}
 
 	@Override
-	public Boolean updateDutySubInfo(dutySubInfo dutySubInfo) throws Exception {
+	public Boolean updateDutySubInfo(DutySubInfo dutySubInfo) throws Exception {
 		return dutySubInfoMapper.updateByPrimaryKey(dutySubInfo) > 0;
 	}
 
 	@Override
-	public dutySubInfo findDetailDutySubInfo(String dutySubId) throws Exception {
+	public DutySubInfo findDetailDutySubInfo(String dutySubId) throws Exception {
 		return dutySubInfoMapper.selectByPrimaryKey(dutySubId);
 	}
 

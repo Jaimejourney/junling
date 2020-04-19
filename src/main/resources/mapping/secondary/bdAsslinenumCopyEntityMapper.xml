@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.bdAsslinenumCopyEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.bdAsslinenumCopyEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.BdAsslinenumCopyEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.BdAsslinenumCopyEntity" >
     <result column="BANKTYPE" property="banktype" jdbcType="VARCHAR" />
     <result column="CODE" property="code" jdbcType="VARCHAR" />
     <result column="CREATIONTIME" property="creationtime" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     <result column="TS" property="ts" jdbcType="VARCHAR" />
     <result column="T_MODIFY_TM" property="tModifyTm" jdbcType="TIMESTAMP" />
   </resultMap>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.bdAsslinenumCopyEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.BdAsslinenumCopyEntity" >
     insert into bd_asslinenum_copy (BANKTYPE, CODE, CREATIONTIME, 
       CREATOR, DR, MEMO, 
       MODIFIEDTIME, MODIFIER, NAME, 
@@ -38,7 +38,7 @@
       #{pkGroup,jdbcType=VARCHAR}, #{pkOrg,jdbcType=VARCHAR}, #{ts,jdbcType=VARCHAR}, 
       #{tModifyTm,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.bdAsslinenumCopyEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.BdAsslinenumCopyEntity" >
     insert into bd_asslinenum_copy
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="banktype != null" >

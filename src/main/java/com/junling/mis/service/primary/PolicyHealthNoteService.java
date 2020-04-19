@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.policyHealthNote;
+import com.junling.mis.model.primary.PolicyHealthNote;
 
 ;
 
@@ -12,11 +12,11 @@ import com.junling.mis.model.primary.policyHealthNote;
  */
 public interface PolicyHealthNoteService {
 
-	Boolean addPolicyHealthNote(policyHealthNote policyHealthNote) throws Exception;
+	Boolean addPolicyHealthNote(PolicyHealthNote policyHealthNote) throws Exception;
 
-	Boolean updatePolicyHealthNote(policyHealthNote policyHealthNote) throws Exception;
+	Boolean updatePolicyHealthNote(PolicyHealthNote policyHealthNote) throws Exception;
 
-	policyHealthNote findDetailPolicyHealthNote(String healthNoteId) throws Exception;
+	PolicyHealthNote findDetailPolicyHealthNote(String healthNoteId) throws Exception;
 	
 //	Result listPolicyHealthNote(PolicyHealthNoteModel policyHealthNoteModel) throws Exception;
 //

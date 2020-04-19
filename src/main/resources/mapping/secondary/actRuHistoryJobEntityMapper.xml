@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actRuHistoryJobEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActRuHistoryJobEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActRuHistoryJobEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
     <result column="LOCK_EXP_TIME_" property="lockExpTime" jdbcType="TIMESTAMP" />
@@ -29,7 +29,7 @@
     delete from act_ru_history_job
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActRuHistoryJobEntity" >
     insert into act_ru_history_job (ID_, REV_, LOCK_EXP_TIME_, 
       LOCK_OWNER_, RETRIES_, EXCEPTION_STACK_ID_, 
       EXCEPTION_MSG_, HANDLER_TYPE_, HANDLER_CFG_, 
@@ -41,7 +41,7 @@
       #{advHandlerCfgId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{tenantId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActRuHistoryJobEntity" >
     insert into act_ru_history_job
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActRuHistoryJobEntity" >
     update act_ru_history_job
     <set >
       <if test="rev != null" >
@@ -159,7 +159,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actRuHistoryJobEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActRuHistoryJobEntity" >
     update act_ru_history_job
     set REV_ = #{rev,jdbcType=INTEGER},
       LOCK_EXP_TIME_ = #{lockExpTime,jdbcType=TIMESTAMP},

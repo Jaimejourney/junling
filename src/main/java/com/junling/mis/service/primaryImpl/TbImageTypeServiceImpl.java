@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbImageType;
+import com.junling.mis.mapper.primary.TbImageTypeMapper;
+import com.junling.mis.model.primary.TbImageType;
 import com.junling.mis.service.primary.TbImageTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbImageTypeServiceImpl implements TbImageTypeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbImageTypeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbImageTypeMapper tbImageTypeMapper;
+	private TbImageTypeMapper tbImageTypeMapper;
 
 	@Override
-	public Boolean addTbImageType(tbImageType tbImageType) throws Exception {
+	public Boolean addTbImageType(TbImageType tbImageType) throws Exception {
 		return tbImageTypeMapper.insert(tbImageType)>0;
 	}
 
 	@Override
-	public Boolean updateTbImageType(tbImageType tbImageType) throws Exception {
+	public Boolean updateTbImageType(TbImageType tbImageType) throws Exception {
 		return tbImageTypeMapper.updateByPrimaryKey(tbImageType)>0;
 	}
 
 	@Override
-	public tbImageType findDetailTbImageType(String docTypeCode) throws Exception {
+	public TbImageType findDetailTbImageType(String docTypeCode) throws Exception {
 		return tbImageTypeMapper.selectByPrimaryKey(docTypeCode);
 	}
 

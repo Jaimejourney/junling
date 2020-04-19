@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.primary.claimOtherCostMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.claimOtherCost" >
+<mapper namespace="com.junling.mis.mapper.primary.ClaimOtherCostMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.primary.ClaimOtherCost" >
     <id column="other_cost_id" property="otherCostId" jdbcType="VARCHAR" />
     <id column="cost_type" property="costType" jdbcType="VARCHAR" />
     <id column="claim_info_id" property="claimInfoId" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     other_cost_id, cost_type, claim_info_id, cost_amount, effect, up_time, remark, created_by, 
     created_time, updated_by, updated_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.claimOtherCostKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.ClaimOtherCostKey" >
     select 
     <include refid="Base_Column_List" />
     from claim_other_cost
@@ -26,13 +26,13 @@
       and cost_type = #{costType,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.claimOtherCostKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimOtherCostKey" >
     delete from claim_other_cost
     where other_cost_id = #{otherCostId,jdbcType=VARCHAR}
       and cost_type = #{costType,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+  <insert id="insert" parameterType="com.junling.mis.model.primary.ClaimOtherCost" >
     insert into claim_other_cost (other_cost_id, cost_type, claim_info_id, 
       cost_amount, effect, up_time, 
       remark, created_by, created_time, 
@@ -42,7 +42,7 @@
       #{remark,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.primary.ClaimOtherCost" >
     insert into claim_other_cost
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="otherCostId != null" >
@@ -115,7 +115,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.primary.ClaimOtherCost" >
     update claim_other_cost
     <set >
       <if test="costAmount != null" >
@@ -147,7 +147,7 @@
       and cost_type = #{costType,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.claimOtherCost" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimOtherCost" >
     update claim_other_cost
     set cost_amount = #{costAmount,jdbcType=INTEGER},
       effect = #{effect,jdbcType=VARCHAR},

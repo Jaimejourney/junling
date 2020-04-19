@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.actProcdefInfoEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.actProcdefInfoEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ActProcdefInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ActProcdefInfoEntity" >
     <id column="ID_" property="id" jdbcType="VARCHAR" />
     <result column="PROC_DEF_ID_" property="procDefId" jdbcType="VARCHAR" />
     <result column="REV_" property="rev" jdbcType="INTEGER" />
@@ -20,13 +20,13 @@
     delete from act_procdef_info
     where ID_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.actProcdefInfoEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ActProcdefInfoEntity" >
     insert into act_procdef_info (ID_, PROC_DEF_ID_, REV_, 
       INFO_JSON_ID_)
     values (#{id,jdbcType=VARCHAR}, #{procDefId,jdbcType=VARCHAR}, #{rev,jdbcType=INTEGER}, 
       #{infoJsonId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.actProcdefInfoEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ActProcdefInfoEntity" >
     insert into act_procdef_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.actProcdefInfoEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ActProcdefInfoEntity" >
     update act_procdef_info
     <set >
       <if test="procDefId != null" >
@@ -72,7 +72,7 @@
     </set>
     where ID_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.actProcdefInfoEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ActProcdefInfoEntity" >
     update act_procdef_info
     set PROC_DEF_ID_ = #{procDefId,jdbcType=VARCHAR},
       REV_ = #{rev,jdbcType=INTEGER},

@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.tbCwfNode;
+import com.junling.mis.mapper.primary.TbCwfNodeMapper;
+import com.junling.mis.model.primary.TbCwfNode;
 import com.junling.mis.service.primary.TbCwfNodeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class TbCwfNodeServiceImpl implements TbCwfNodeService {
 	private final static Logger LOG = LoggerFactory.getLogger(TbCwfNodeServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.tbCwfNodeMapper tbCwfNodeMapper;
+	private TbCwfNodeMapper tbCwfNodeMapper;
 
 	@Override
-	public Boolean addTbCwfNode(tbCwfNode tbCwfNode) throws Exception {
+	public Boolean addTbCwfNode(TbCwfNode tbCwfNode) throws Exception {
 		return tbCwfNodeMapper.insert(tbCwfNode) > 0;
 	}
 
 	@Override
-	public Boolean updateTbCwfNode(tbCwfNode tbCwfNode) throws Exception {
+	public Boolean updateTbCwfNode(TbCwfNode tbCwfNode) throws Exception {
 		return tbCwfNodeMapper.updateByPrimaryKey(tbCwfNode) > 0;
 	}
 
 	@Override
-	public tbCwfNode findDetailTbCwfNode(String cwfNode) throws Exception {
+	public TbCwfNode findDetailTbCwfNode(String cwfNode) throws Exception {
 		return tbCwfNodeMapper.selectByPrimaryKey(cwfNode);
 	}
 

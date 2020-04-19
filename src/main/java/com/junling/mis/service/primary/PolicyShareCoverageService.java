@@ -1,7 +1,7 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.policyShareCoverage;
-import com.junling.mis.model.primary.policyShareCoverageKey;
+import com.junling.mis.model.primary.PolicyShareCoverage;
+import com.junling.mis.model.primary.PolicyShareCoverageKey;
 
 ;
 
@@ -13,11 +13,11 @@ import com.junling.mis.model.primary.policyShareCoverageKey;
  */
 public interface PolicyShareCoverageService {
 
-	Boolean addPolicyShareCoverage(policyShareCoverage policyShareCoverage) throws Exception;
+	Boolean addPolicyShareCoverage(PolicyShareCoverage policyShareCoverage) throws Exception;
 
-	Boolean updatePolicyShareCoverage(policyShareCoverage policyShareCoverage) throws Exception;
+	Boolean updatePolicyShareCoverage(PolicyShareCoverage policyShareCoverage) throws Exception;
 
-	policyShareCoverage findDetailPolicyShareCoverage(policyShareCoverageKey key) throws Exception;
+	PolicyShareCoverage findDetailPolicyShareCoverage(PolicyShareCoverageKey key) throws Exception;
 	
 //	Result listPolicyShareCoverage(PolicyShareCoverageModel policyShareCoverageModel) throws Exception;
 //
@@ -25,5 +25,5 @@ public interface PolicyShareCoverageService {
 //
 //	Result countPolicyShareCoverage(PolicyShareCoverageModel policyShareCoverageModel) throws Exception;
 	
-	Boolean deletePolicyShareCoverage(policyShareCoverageKey key) throws Exception;
+	Boolean deletePolicyShareCoverage(PolicyShareCoverageKey key) throws Exception;
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.electronicMedicalEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.electronicMedicalEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.ElectronicMedicalEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.ElectronicMedicalEntity" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="medicalNum" property="medicalnum" jdbcType="VARCHAR" />
     <result column="hospitalRecordId" property="hospitalrecordid" jdbcType="VARCHAR" />
@@ -16,7 +16,7 @@
     <result column="updated_date" property="updatedDate" jdbcType="TIMESTAMP" />
     <result column="sendTradeNum" property="sendtradenum" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.junling.mis.model.secondary.ElectronicMedicalEntityWithBLOBs" extends="BaseResultMap" >
     <result column="historyPresentIllness" property="historypresentillness" jdbcType="LONGVARCHAR" />
     <result column="pastDiseaseHistory" property="pastdiseasehistory" jdbcType="LONGVARCHAR" />
     <result column="personalHistory" property="personalhistory" jdbcType="LONGVARCHAR" />
@@ -49,7 +49,7 @@
     delete from electronic_medical
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.ElectronicMedicalEntityWithBLOBs" >
     insert into electronic_medical (id, medicalNum, hospitalRecordId, 
       inHospitalNum, cheifComplaint, medicalAbstract, 
       physicalExamination, juniorCollege, auxiliaryExamination, 
@@ -71,7 +71,7 @@
       #{attendingphysician,jdbcType=LONGVARCHAR}, #{dischargestatus,jdbcType=LONGVARCHAR}, 
       #{dischargeorder,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.ElectronicMedicalEntityWithBLOBs" >
     insert into electronic_medical
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -216,7 +216,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.ElectronicMedicalEntityWithBLOBs" >
     update electronic_medical
     <set >
       <if test="medicalnum != null" >
@@ -288,7 +288,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.electronicMedicalEntityWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.junling.mis.model.secondary.ElectronicMedicalEntityWithBLOBs" >
     update electronic_medical
     set medicalNum = #{medicalnum,jdbcType=VARCHAR},
       hospitalRecordId = #{hospitalrecordid,jdbcType=VARCHAR},
@@ -314,7 +314,7 @@
       dischargeOrder = #{dischargeorder,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.electronicMedicalEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.ElectronicMedicalEntity" >
     update electronic_medical
     set medicalNum = #{medicalnum,jdbcType=VARCHAR},
       hospitalRecordId = #{hospitalrecordid,jdbcType=VARCHAR},

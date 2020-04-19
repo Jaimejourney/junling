@@ -1,6 +1,7 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.model.primary.gradeLevelProduct;
+import com.junling.mis.mapper.primary.GradeLevelProductMapper;
+import com.junling.mis.model.primary.GradeLevelProduct;
 import com.junling.mis.service.primary.GradeLevelProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,20 @@ public class GradeLevelProductServiceImpl implements GradeLevelProductService {
 	private final static Logger LOG = LoggerFactory.getLogger(GradeLevelProductServiceImpl.class);
 
 	@Resource
-	private com.junling.mis.mapper.primary.gradeLevelProductMapper gradeLevelProductMapper;
+	private GradeLevelProductMapper gradeLevelProductMapper;
 
 	@Override
-	public Boolean addGradeLevelProduct(gradeLevelProduct gradeLevelProduct) throws Exception {
+	public Boolean addGradeLevelProduct(GradeLevelProduct gradeLevelProduct) throws Exception {
 		return gradeLevelProductMapper.insert(gradeLevelProduct) > 0;
 	}
 
 	@Override
-	public Boolean updateGradeLevelProduct(gradeLevelProduct gradeLevelProduct) throws Exception {
+	public Boolean updateGradeLevelProduct(GradeLevelProduct gradeLevelProduct) throws Exception {
 		return gradeLevelProductMapper.updateByPrimaryKey(gradeLevelProduct) > 0;
 	}
 
 	@Override
-	public gradeLevelProduct findDetailGradeLevelProduct(String gradeLevelProductId) throws Exception {
+	public GradeLevelProduct findDetailGradeLevelProduct(String gradeLevelProductId) throws Exception {
 		return gradeLevelProductMapper.selectByPrimaryKey(gradeLevelProductId);
 	}
 

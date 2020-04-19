@@ -1,7 +1,7 @@
 package com.junling.mis.service.secondary;
 
 
-import com.junling.mis.model.secondary.accessTokenEntity;
+import com.junling.mis.model.secondary.AccessTokenEntity;
 
 /**
  * <br/>
@@ -9,11 +9,11 @@ import com.junling.mis.model.secondary.accessTokenEntity;
  */
 public interface AccessTokenService {
 
-    Boolean addAccessToken(accessTokenEntity AccessTokenEntity) throws Exception;
+    Boolean addAccessToken(AccessTokenEntity AccessTokenEntity) throws Exception;
 
-    Boolean updateAccessToken(accessTokenEntity AccessTokenEntity) throws Exception;
+    Boolean updateAccessToken(AccessTokenEntity AccessTokenEntity) throws Exception;
 //
-    accessTokenEntity findDetailAccessToken(String id) throws Exception;
+    AccessTokenEntity findDetailAccessToken(String id) throws Exception;
 //
 //    Result listAccessToken(AccessTokenModel AccessTokenModel) throws Exception;
 //

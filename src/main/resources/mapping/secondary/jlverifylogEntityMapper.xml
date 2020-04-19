@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.jlverifylogEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.jlverifylogEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.JlverifylogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.JlverifylogEntity" >
     <id column="jl_verify_seq" property="jlVerifySeq" jdbcType="VARCHAR" />
     <result column="insured_id" property="insuredId" jdbcType="VARCHAR" />
     <result column="hos_code_hb" property="hosCodeHb" jdbcType="VARCHAR" />
@@ -30,7 +30,7 @@
     delete from jlverifylog
     where jl_verify_seq = #{jlVerifySeq,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.JlverifylogEntity" >
     insert into jlverifylog (jl_verify_seq, insured_id, hos_code_hb, 
       flow_id, docuno, seqno, 
       jl_result, status, partner_id, 
@@ -42,7 +42,7 @@
       #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}, 
       #{visitRecordId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.JlverifylogEntity" >
     insert into jlverifylog
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="jlVerifySeq != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.junling.mis.model.secondary.JlverifylogEntity" >
     update jlverifylog
     <set >
       <if test="insuredId != null" >
@@ -169,7 +169,7 @@
     </set>
     where jl_verify_seq = #{jlVerifySeq,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.jlverifylogEntity" >
+  <update id="updateByPrimaryKey" parameterType="com.junling.mis.model.secondary.JlverifylogEntity" >
     update jlverifylog
     set insured_id = #{insuredId,jdbcType=VARCHAR},
       hos_code_hb = #{hosCodeHb,jdbcType=VARCHAR},

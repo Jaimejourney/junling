@@ -1,6 +1,6 @@
 package com.junling.mis.service.primary;
 
-import com.junling.mis.model.primary.tbIndustrys;
+import com.junling.mis.model.primary.TbIndustrys;
 
 
 
@@ -10,11 +10,11 @@ import com.junling.mis.model.primary.tbIndustrys;
  */
 public interface TbIndustrysService {
 
-	Boolean addTbIndustrys(tbIndustrys tbIndustrys) throws Exception;
+	Boolean addTbIndustrys(TbIndustrys tbIndustrys) throws Exception;
 
-	Boolean updateTbIndustrys(tbIndustrys tbIndustrys) throws Exception;
+	Boolean updateTbIndustrys(TbIndustrys tbIndustrys) throws Exception;
 
-	tbIndustrys findDetailTbIndustrys(String industryTypeCode) throws Exception;
+	TbIndustrys findDetailTbIndustrys(String industryTypeCode) throws Exception;
 	
 //	Result listTbIndustrys(TbIndustrysModel tbIndustrysModel) throws Exception;
 //

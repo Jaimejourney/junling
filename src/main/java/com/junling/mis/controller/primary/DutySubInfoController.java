@@ -2,7 +2,7 @@ package com.junling.mis.controller.primary;
 
 import com.junling.mis.common.constants.ResultStatus;
 import com.junling.mis.common.result.MakeResult;
-import com.junling.mis.model.primary.dutySubInfo;
+import com.junling.mis.model.primary.DutySubInfo;
 import com.junling.mis.service.primary.DutySubInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class DutySubInfoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult addDutySubInfo(@RequestBody dutySubInfo dutySubInfo) throws Exception {
+    public MakeResult addDutySubInfo(@RequestBody DutySubInfo dutySubInfo) throws Exception {
         if(service.addDutySubInfo(dutySubInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -27,7 +27,7 @@ public class DutySubInfoController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public MakeResult updateDutySubInfo(@RequestBody dutySubInfo dutySubInfo) throws Exception {
+    public MakeResult updateDutySubInfo(@RequestBody DutySubInfo dutySubInfo) throws Exception {
         if(service.updateDutySubInfo(dutySubInfo)){
             return MakeResult.createResult(ResultStatus.OK_CODE);
         }else{
@@ -37,9 +37,9 @@ public class DutySubInfoController {
 
     @RequestMapping(value = "/search/{dutySubId}", method = RequestMethod.GET)
     @ResponseBody
-    public MakeResult<dutySubInfo> searchDutySubInfo(@PathVariable("dutySubId") String dutySubId) throws Exception {
-        dutySubInfo dutySubInfo = service.findDetailDutySubInfo(dutySubId);
-        MakeResult<dutySubInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
+    public MakeResult<DutySubInfo> searchDutySubInfo(@PathVariable("dutySubId") String dutySubId) throws Exception {
+        DutySubInfo dutySubInfo = service.findDetailDutySubInfo(dutySubId);
+        MakeResult<DutySubInfo> result = MakeResult.createResult(ResultStatus.OK_CODE);
         if(dutySubInfo == null){
             result.setCode(ResultStatus.ERROR_RESULT);
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.junling.mis.mapper.secondary.bdBanktypeEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.bdBanktypeEntity" >
+<mapper namespace="com.junling.mis.mapper.secondary.BdBanktypeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.junling.mis.model.secondary.BdBanktypeEntity" >
     <result column="CODE" property="code" jdbcType="VARCHAR" />
     <result column="CREATIONTIME" property="creationtime" jdbcType="VARCHAR" />
     <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="is_delete" property="isDelete" jdbcType="BIGINT" />
   </resultMap>
-  <insert id="insert" parameterType="com.junling.mis.model.secondary.bdBanktypeEntity" >
+  <insert id="insert" parameterType="com.junling.mis.model.secondary.BdBanktypeEntity" >
     insert into bd_banktype (CODE, CREATIONTIME, CREATOR, 
       DATAORIGINFLAG, DEF1, DEF2, 
       DEF3, DEF4, DEF5, DR, 
@@ -53,7 +53,7 @@
       #{updatePoson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.bdBanktypeEntity" >
+  <insert id="insertSelective" parameterType="com.junling.mis.model.secondary.BdBanktypeEntity" >
     insert into bd_banktype
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="code != null" >

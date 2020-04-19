@@ -1,8 +1,8 @@
 package com.junling.mis.service.primaryImpl;
 
-import com.junling.mis.mapper.primary.claimInfoMapper;
-import com.junling.mis.model.primary.claimInfo;
-import com.junling.mis.model.primary.claimInfoKey;
+import com.junling.mis.mapper.primary.ClaimInfoMapper;
+import com.junling.mis.model.primary.ClaimInfo;
+import com.junling.mis.model.primary.ClaimInfoKey;
 import com.junling.mis.service.primary.ClaimInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,26 +19,26 @@ public class ClaimInfoServiceImpl implements ClaimInfoService {
 	private final static Logger LOG = LoggerFactory.getLogger(ClaimInfoServiceImpl.class);
 
 	@Resource
-	claimInfoMapper claimInfoMapper;
+	ClaimInfoMapper claimInfoMapper;
 
 
 	@Override
-	public Boolean addClaimInfo(claimInfo claimInfo) throws Exception {
+	public Boolean addClaimInfo(ClaimInfo claimInfo) throws Exception {
 		return claimInfoMapper.insert(claimInfo) > 0;
 	}
 
 	@Override
-	public Boolean updateClaimInfo(claimInfo claimInfo) throws Exception {
+	public Boolean updateClaimInfo(ClaimInfo claimInfo) throws Exception {
 		return claimInfoMapper.updateByPrimaryKey(claimInfo) > 0;
 	}
 
 	@Override
-	public claimInfo findDetailClaimInfo(claimInfoKey key) throws Exception {
+	public ClaimInfo findDetailClaimInfo(ClaimInfoKey key) throws Exception {
 		return claimInfoMapper.selectByPrimaryKey(key);
 	}
 
 	@Override
-	public Boolean deleteClaimInfo(claimInfoKey key) throws Exception {
+	public Boolean deleteClaimInfo(ClaimInfoKey key) throws Exception {
 		return claimInfoMapper.deleteByPrimaryKey(key) > 0;
 	}
 }
