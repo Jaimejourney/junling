@@ -25,12 +25,6 @@ public class SynchronizePolicyInfo {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    TpaClientEntityMapper tpaClientEntityMapper;
-
-    @Autowired
-    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
-
-    @Autowired
     TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
@@ -41,33 +35,44 @@ public class SynchronizePolicyInfo {
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
+
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByMainInsuredId(String.valueOf(record.getPersonId()));
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
-            TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            PolicyInfo policyInfo = new PolicyInfo();
-            String policyInfoId = GetUUID32.getUUID32();
-            policyInfo.setPolicyInfoId(policyInfoId);
-            policyInfo.setPolicyNo(record.getClientPolIds());
-            policyInfo.setProductId(tpaPolPlanEntity.getProductCode());
-            policyInfo.setPolicyOrganization("待加");
-            policyInfo.setIsRenew("待加");
-            policyInfo.setRenewPolicyNo("待加");
-            policyInfo.setPolicyPayType("待加");
+            try {
+            TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(record.getClientPolIds());
+            TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
 
+                LOG.info("报单表");
+                PolicyInfo policyInfo = new PolicyInfo();
+                String policyInfoId = GetUUID32.getUUID32();
+                policyInfo.setPolicyInfoId(policyInfoId);
+                policyInfo.setPolicyNo(record.getClientPolIds());
+                policyInfo.setProductId(tpaPolPlanEntity.getProductCode());
+                policyInfo.setPolicyOrganization(record.getPartner());
+                if(tpaPolMainEntity.getOldPolno() != null){
+                    //是续保
+                    policyInfo.setIsRenew("1");
+                    policyInfo.setRenewPolicyNo(tpaPolMainEntity.getOldPolno());
+                }else{
+                    //不是续保
+                    policyInfo.setIsRenew("0");
+                    policyInfo.setRenewPolicyNo("无");
+                }
 
-
-            policyInfo.setCreatedBy("SystemTest");
-            policyInfo.setCreatedTime(date);
-            policyInfo.setUpdatedBy("SystemTest");
-            policyInfo.setUpdatedTime(date);
-            System.out.println("policyInfo success");
+                policyInfo.setPolicyPayType("待加");
+                policyInfo.setCreatedBy("SystemTest");
+                policyInfo.setCreatedTime(date);
+                policyInfo.setUpdatedBy("SystemTest");
+                policyInfo.setUpdatedTime(date);
+                policyInfoMapper.insert(policyInfo);
+            }catch (Exception e){
+                LOG.info("保存数据库异常");
+            }
         }
+        System.out.println("policyInfo success");
     }
 
 }

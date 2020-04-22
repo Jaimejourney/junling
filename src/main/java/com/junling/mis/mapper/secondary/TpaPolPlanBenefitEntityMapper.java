@@ -2,6 +2,8 @@ package com.junling.mis.mapper.secondary;
 
 import com.junling.mis.model.secondary.TpaPolPlanBenefitEntity;
 
+import java.util.List;
+
 public interface TpaPolPlanBenefitEntityMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -11,7 +13,7 @@ public interface TpaPolPlanBenefitEntityMapper {
 
     TpaPolPlanBenefitEntity selectByPrimaryKey(Integer id);
 
-    TpaPolPlanBenefitEntity selectByPolNo(String polNo);
+    List<TpaPolPlanBenefitEntity> selectByPolNo(String polNo);
 
     int updateByPrimaryKeySelective(TpaPolPlanBenefitEntity record);
 

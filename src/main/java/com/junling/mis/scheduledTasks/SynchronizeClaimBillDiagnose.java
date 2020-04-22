@@ -1,7 +1,6 @@
 package com.junling.mis.scheduledTasks;
 
 
-
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.ClaimBillDiagnoseMapper;
@@ -38,30 +37,37 @@ public class SynchronizeClaimBillDiagnose {
     @Autowired
     ClaimBillMapper claimBillMapper;
 
-//    @Scheduled(cron = "0 0 */24 * * *")
+    //    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-        Date date = DatetimeHelper.scheduledDate();
+        String str = "2020-04-08 19:08:10";
+        Date date = DatetimeHelper.dateHelper(str);
+//        Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
-            ClaimBill claimBill = claimBillMapper.selectByClaimInfoId(claimInfo.getClaimInfoId());
-            ClaimBillDiagnose claimBillDiagnose = new ClaimBillDiagnose();
-            String claimBillDiagnoseId = GetUUID32.getUUID32();
-            claimBillDiagnose.setClaimBillDiagnoseId(claimBillDiagnoseId);
-            claimBillDiagnose.setClaimInfoId(claimInfo.getClaimInfoId());
-            claimBillDiagnose.setClaimNo(record.getId());
-            claimBillDiagnose.setClaimBillId(claimBill.getClaimBillId());
-            claimBillDiagnose.setClaimBillNo(claimBill.getClaimBillNo());
-            claimBillDiagnose.setDocTypeParent("待加");
-            claimBillDiagnose.setCreatedBy("SystemTest");
-            claimBillDiagnose.setCreatedTime(date);
-            claimBillDiagnose.setUpdatedBy("SystemTest");
-            claimBillDiagnose.setUpdatedTime(date);
-            claimBillDiagnoseMapper.insert(claimBillDiagnose);
-            System.out.println("success");
+            try {
+                LOG.info("保存账单疾病表");
+                ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
+                ClaimBill claimBill = claimBillMapper.selectByClaimInfoId(claimInfo.getClaimInfoId());
+                ClaimBillDiagnose claimBillDiagnose = new ClaimBillDiagnose();
+                String claimBillDiagnoseId = GetUUID32.getUUID32();
+                claimBillDiagnose.setClaimBillDiagnoseId(claimBillDiagnoseId);
+                claimBillDiagnose.setClaimInfoId(claimInfo.getClaimInfoId());
+                claimBillDiagnose.setClaimNo(record.getId());
+                claimBillDiagnose.setClaimBillId(claimBill.getClaimBillId());
+                claimBillDiagnose.setClaimBillNo(claimBill.getClaimBillNo());
+                claimBillDiagnose.setDocTypeParent("待加");
+                claimBillDiagnose.setCreatedBy("SystemTest");
+                claimBillDiagnose.setCreatedTime(date);
+                claimBillDiagnose.setUpdatedBy("SystemTest");
+                claimBillDiagnose.setUpdatedTime(date);
+                claimBillDiagnoseMapper.insert(claimBillDiagnose);
+            } catch (Exception e) {
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("ClaimBillDiagnose success");
     }
 }

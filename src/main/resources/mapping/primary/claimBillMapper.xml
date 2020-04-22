@@ -52,7 +52,7 @@
     where claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
   </select>
-  <select id="selectByClaimInfoId" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.String" >
+  <select id="selectByClaimInfoId" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
     from claim_bill

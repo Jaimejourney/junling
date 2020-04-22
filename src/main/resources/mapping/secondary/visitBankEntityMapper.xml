@@ -26,7 +26,7 @@
     from visit_bank
     where id = #{id,jdbcType=DECIMAL}
   </select>
-  <select id="selectByOpenId" resultMap="BaseResultMap" parameterType="java.math.String" >
+  <select id="selectByOpenId" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
     from visit_bank

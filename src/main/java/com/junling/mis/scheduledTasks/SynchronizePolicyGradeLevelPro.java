@@ -26,12 +26,6 @@ public class SynchronizePolicyGradeLevelPro {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    TpaClientEntityMapper tpaClientEntityMapper;
-
-    @Autowired
-    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
-
-    @Autowired
     TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
 
     @Autowired
@@ -46,6 +40,7 @@ public class SynchronizePolicyGradeLevelPro {
     @Autowired
     PolicyGradeLevelProMapper policyGradeLeveProlMapper;
 
+
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
@@ -53,30 +48,32 @@ public class SynchronizePolicyGradeLevelPro {
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByMainInsuredId(String.valueOf(record.getPersonId()));
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
-            TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+            try {
+                LOG.info("保存保单计划产品表");
+                TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
 
-            PolicyGradeLevelPro policyGradeLevelPro = new PolicyGradeLevelPro();
-            String policyGradeLevelProId = GetUUID32.getUUID32();
-            policyGradeLevelPro.setPglProductId(policyGradeLevelProId);
-            policyGradeLevelPro.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
-            policyGradeLevelPro.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-            policyGradeLevelPro.setProductId(tpaClientPolInfoEntity.getProductCode());
-            //待定
-            policyGradeLevelPro.setPglProductBaseCoverage(1);
+                PolicyGradeLevelPro policyGradeLevelPro = new PolicyGradeLevelPro();
+                String policyGradeLevelProId = GetUUID32.getUUID32();
+                policyGradeLevelPro.setPglProductId(policyGradeLevelProId);
+                policyGradeLevelPro.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
+                policyGradeLevelPro.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
+                policyGradeLevelPro.setProductId(tpaClientPolInfoEntity.getProductCode());
+                //待定
+                policyGradeLevelPro.setPglProductTotalPrem(1);
+                policyGradeLevelPro.setPglProductBaseCoverage(1);
 
-
-
-            policyGradeLevelPro.setCreatedBy("SystemTest");
-            policyGradeLevelPro.setCreatedTime(date);
-            policyGradeLevelPro.setUpdatedBy("SystemTest");
-            policyGradeLevelPro.setUpdatedTime(date);
-            policyGradeLeveProlMapper.insert(policyGradeLevelPro);
-            System.out.println("PolicyGradeLevelPro success");
-        }
+                policyGradeLevelPro.setCreatedBy("SystemTest");
+                policyGradeLevelPro.setCreatedTime(date);
+                policyGradeLevelPro.setUpdatedBy("SystemTest");
+                policyGradeLevelPro.setUpdatedTime(date);
+                policyGradeLeveProlMapper.insert(policyGradeLevelPro);
+            } catch (Exception e) {
+                LOG.info("保存数据库失败");
+            }
+    }
+        System.out.println("PolicyGradeLevelPro success");
     }
 
 }

@@ -12,6 +12,16 @@
     <result column="age_from" property="ageFrom" jdbcType="VARCHAR" />
     <result column="age_to" property="ageTo" jdbcType="VARCHAR" />
   </resultMap>
+  <sql id="Base_Column_List" >
+    product_code, product_name, plan_code, plan_name,
+    risk_code, risk_name, prem, age_from, age_to
+  </sql>
+  <select id="selectByPlanCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from plan_prem
+    where plan_code = #{planCode,jdbcType=VARCHAR}
+  </select>
   <insert id="insert" parameterType="com.junling.mis.model.secondary.PlanPremEntity" >
     insert into plan_prem (product_code, product_name, plan_code, 
       plan_name, risk_code, risk_name, 

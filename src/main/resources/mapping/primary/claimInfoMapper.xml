@@ -48,7 +48,7 @@
   and report_no = #{reportNo,jdbcType=VARCHAR}
   and registration_no = #{registrationNo,jdbcType=VARCHAR}
 </select>
-  <select id="selectByClaimNo" resultMap="BaseResultMap" parameterType="com.junling.mis.model.primary.String" >
+  <select id="selectByClaimNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
     from claim_info

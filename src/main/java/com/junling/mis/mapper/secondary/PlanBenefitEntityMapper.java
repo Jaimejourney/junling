@@ -11,6 +11,8 @@ public interface PlanBenefitEntityMapper {
 
     PlanBenefitEntity selectByPrimaryKey(String id);
 
+    PlanBenefitEntity selectByGradeLevel(String gradeLevel);
+
     int updateByPrimaryKeySelective(PlanBenefitEntity record);
 
     int updateByPrimaryKey(PlanBenefitEntity record);

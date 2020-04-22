@@ -1,4 +1,5 @@
 package com.junling.mis.scheduledTasks;
+
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.ClaimAccountInfoMapper;
@@ -33,6 +34,7 @@ public class SynchronizeClaimAccountInfo {
     @Autowired
     ClaimAccountInfoMapper claimAccountInfoMapper;
 
+
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
@@ -41,19 +43,24 @@ public class SynchronizeClaimAccountInfo {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            ClaimAccountInfo claimAccountInfo = new ClaimAccountInfo();
-            String accountId = GetUUID32.getUUID32();
-            claimAccountInfo.setAccountId(accountId);
-            claimAccountInfo.setClaimInfoId(record.getId());
-            claimAccountInfo.setAccountName(record.getDocuno());
+            try {
+                LOG.info("保存理赔账户信息表");
+                ClaimAccountInfo claimAccountInfo = new ClaimAccountInfo();
+                String accountId = GetUUID32.getUUID32();
+                claimAccountInfo.setAccountId(accountId);
+                claimAccountInfo.setClaimInfoId(record.getId());
+                claimAccountInfo.setAccountName(record.getDocuno());
 
-            claimAccountInfo.setCreatedBy("SystemTest");
-            claimAccountInfo.setCreatedTime(date);
-            claimAccountInfo.setUpdatedBy("SystemTest");
-            claimAccountInfo.setUpdatedTime(date);
-            claimAccountInfoMapper.insert(claimAccountInfo);
-            System.out.println("ClaimAccountInfo success");
+                claimAccountInfo.setCreatedBy("SystemTest");
+                claimAccountInfo.setCreatedTime(date);
+                claimAccountInfo.setUpdatedBy("SystemTest");
+                claimAccountInfo.setUpdatedTime(date);
+                claimAccountInfoMapper.insert(claimAccountInfo);
+            } catch (Exception e) {
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("ClaimAccountInfo success");
     }
 
 }

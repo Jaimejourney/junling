@@ -26,9 +26,10 @@ public class SynchronizeCustomerRelationship {
     @Autowired
     CustomerRelationMapper customerRelationEntityMapper;
 
+
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-//        String str="2020-03-08 19:08:10";
+//        String str="2020-04-08 19:08:10";
 //        Date date =  DatetimeHelper.dateHelper(str);
         Date date = DatetimeHelper.scheduledDate();
 
@@ -36,21 +37,27 @@ public class SynchronizeCustomerRelationship {
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             CustomerRelation customerRelationEntity = new CustomerRelation();
-            String customerRelationId = GetUUID32.getUUID32();
-            customerRelationEntity.setCustomerRelationId(customerRelationId);
-            customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());
-            customerRelationEntity.setRelationType(record.getRelationshipId());
-            customerRelationEntity.setRelationCustomer(String.valueOf(record.getPersonId()));
-            customerRelationEntity.setRelationStartTime(DatetimeHelper.dateTransferHelper(record.getApplyTime()));
-            customerRelationEntity.setRelationEndTime(DatetimeHelper.dateTransferHelper(record.getFinishTime()));
-            //待加
-            customerRelationEntity.setRelationStatus("1");
-            customerRelationEntity.setCreatedBy("sysetem test");
-            customerRelationEntity.setCreatedTime(date);
-            customerRelationEntity.setUpdatedBy("system test");
-            customerRelationEntity.setUpdatedTime(date);
-            customerRelationEntityMapper.insert(customerRelationEntity);
-            System.out.println("customerRelationship success");
+
+            try {
+                LOG.info("开始保存个人关系");
+                String customerRelationId = GetUUID32.getUUID32();
+                customerRelationEntity.setCustomerRelationId(customerRelationId);
+                customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());
+                customerRelationEntity.setRelationType(record.getRelationshipId());
+                customerRelationEntity.setRelationCustomer(String.valueOf(record.getPersonId()));
+                customerRelationEntity.setRelationStartTime(DatetimeHelper.dateHelper2(record.getApplyTime()));
+                customerRelationEntity.setRelationEndTime(DatetimeHelper.dateHelper2(record.getFinishTime()));
+                //待加
+                customerRelationEntity.setRelationStatus("1");
+                customerRelationEntity.setCreatedBy("sysetem test");
+                customerRelationEntity.setCreatedTime(date);
+                customerRelationEntity.setUpdatedBy("system test");
+                customerRelationEntity.setUpdatedTime(date);
+                customerRelationEntityMapper.insert(customerRelationEntity);
+            }catch (Exception e){
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("customerRelationship success");
     }
 }

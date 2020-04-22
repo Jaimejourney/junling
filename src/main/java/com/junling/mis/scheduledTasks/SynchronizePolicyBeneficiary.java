@@ -26,12 +26,6 @@ public class SynchronizePolicyBeneficiary {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    TpaClientEntityMapper tpaClientEntityMapper;
-
-    @Autowired
-    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
-
-    @Autowired
     PolicyInfoMapper policyInfoMapper;
 
     @Autowired
@@ -49,6 +43,7 @@ public class SynchronizePolicyBeneficiary {
     @Autowired
     PolicyBeneficiaryMapper policyBeneficiaryMapper;
 
+
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
@@ -56,42 +51,47 @@ public class SynchronizePolicyBeneficiary {
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByMainInsuredId(String.valueOf(record.getPersonId()));
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
-            TpaPolPlanBenefitEntity tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+            try {
+                LOG.info("保存受益人表");
+                List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
 
-            PolicyBeneficiary policyBeneficiary = new PolicyBeneficiary();
-            String policyBeneficiaryId = GetUUID32.getUUID32();
-            policyBeneficiary.setPolicyBeneficiaryId(policyBeneficiaryId);
-            policyBeneficiary.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
-            policyBeneficiary.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
-            //待加
-            policyBeneficiary.setBrNo(0);
+                for (int j = 0; j < tpaPolPlanBenefitEntity.size(); j++) {
+                    PolicyBeneficiary policyBeneficiary = new PolicyBeneficiary();
+                    String policyBeneficiaryId = GetUUID32.getUUID32();
+                    policyBeneficiary.setPolicyBeneficiaryId(policyBeneficiaryId);
+                    policyBeneficiary.setPolicyNo(record.getClientPolIds());
+                    policyBeneficiary.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
+                    //待加
+                    policyBeneficiary.setBrNo(0);
 
-            policyBeneficiary.setInsureId(tpaPolBeneficiaryEntity.getInsuredId());
-            policyBeneficiary.setGradeLevelId(tpaPolPlanEntity.getGradeLevel());
-            policyBeneficiary.setProductId(tpaPolPlanEntity.getProductCode());
-            policyBeneficiary.setDutyId(String.valueOf(tpaPolPlanBenefitEntity.getBenefitCode()));
-            policyBeneficiary.setPolicyBeneficiaryType(tpaPolBeneficiaryEntity.getBeneficiaryType());
-            policyBeneficiary.setPolicyBeneficiaryRate(Integer.valueOf(tpaPolBeneficiaryEntity.getBeneficiaryRate()));
+                    policyBeneficiary.setInsureId(tpaPolBeneficiaryEntity.getInsuredId());
+                    policyBeneficiary.setGradeLevelId(tpaPolPlanEntity.getGradeLevel());
+                    policyBeneficiary.setProductId(tpaPolPlanEntity.getProductCode());
+                    policyBeneficiary.setDutyId(String.valueOf(tpaPolPlanBenefitEntity.get(i).getBenefitCode()));
+                    policyBeneficiary.setPolicyBeneficiaryType(tpaPolBeneficiaryEntity.getBeneficiaryType());
+                    policyBeneficiary.setPolicyBeneficiaryRate(Integer.valueOf(tpaPolBeneficiaryEntity.getBeneficiaryRate()));
 
-            //待定
-            policyBeneficiary.setPolicyBeneficiaryOrder(tpaPolBeneficiaryEntity.getIsLegalBeneficiary());
+                    //待定
+                    policyBeneficiary.setPolicyBeneficiaryOrder(tpaPolBeneficiaryEntity.getIsLegalBeneficiary());
 
-            policyBeneficiary.setInsureRelation(tpaPolBeneficiaryEntity.getPolRelation());
-            policyBeneficiary.setCustomerId(tpaPolBeneficiaryEntity.getInsuredId());
+                    policyBeneficiary.setInsureRelation(tpaPolBeneficiaryEntity.getPolRelation());
+                    policyBeneficiary.setCustomerId(tpaPolBeneficiaryEntity.getInsuredId());
 
 
-            policyBeneficiary.setCreatedBy("SystemTest");
-            policyBeneficiary.setCreatedTime(date);
-            policyBeneficiary.setUpdatedBy("SystemTest");
-            policyBeneficiary.setUpdatedTime(date);
-            policyBeneficiaryMapper.insert(policyBeneficiary);
-            System.out.println("policyBeneficiary success");
+                    policyBeneficiary.setCreatedBy("SystemTest");
+                    policyBeneficiary.setCreatedTime(date);
+                    policyBeneficiary.setUpdatedBy("SystemTest");
+                    policyBeneficiary.setUpdatedTime(date);
+                    policyBeneficiaryMapper.insert(policyBeneficiary);
+                }
+            } catch (Exception e) {
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("policyBeneficiary success");
     }
 
 

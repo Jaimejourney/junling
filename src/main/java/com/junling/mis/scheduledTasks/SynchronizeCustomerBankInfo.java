@@ -40,21 +40,26 @@ public class SynchronizeCustomerBankInfo {
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             VisitBankEntity visitBankEntity = visitBankEntityMapper.selectByOpenId(record.getOpenid());
-            CustomerBankInfo customerBankInfo = new CustomerBankInfo();
+            try {
+                LOG.info("保存客户银行信息表");
+                CustomerBankInfo customerBankInfo = new CustomerBankInfo();
 
-            customerBankInfo.setAccountId(String.valueOf(visitBankEntity.getId()));
-            customerBankInfo.setCustomerNo(record.getApplyPersonId());
-            customerBankInfo.setAccountName(visitBankEntity.getName());
-            customerBankInfo.setAccountNo(visitBankEntity.getAccount());
-            customerBankInfo.setBankNo(visitBankEntity.getBank());
+                customerBankInfo.setAccountId(String.valueOf(visitBankEntity.getId()));
+                customerBankInfo.setCustomerNo(record.getApplyPersonId());
+                customerBankInfo.setAccountName(visitBankEntity.getName());
+                customerBankInfo.setAccountNo(visitBankEntity.getAccount());
+                customerBankInfo.setBankNo(visitBankEntity.getBank());
 
-            customerBankInfo.setCreatedBy("SystemTest");
-            customerBankInfo.setCreatedTime(date);
-            customerBankInfo.setUpdatedBy("SystemTest");
-            customerBankInfo.setUpdatedTime(date);
-            customerBankInfoMapper.insert(customerBankInfo);
-            System.out.println("customerBankInfo success");
+                customerBankInfo.setCreatedBy("SystemTest");
+                customerBankInfo.setCreatedTime(date);
+                customerBankInfo.setUpdatedBy("SystemTest");
+                customerBankInfo.setUpdatedTime(date);
+                customerBankInfoMapper.insert(customerBankInfo);
+            }catch (Exception e){
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("customerBankInfo success");
     }
 
 }

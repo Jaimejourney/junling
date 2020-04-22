@@ -6,7 +6,6 @@ import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.ClaimInfoMapper;
 import com.junling.mis.mapper.primary.ClaimOtherCostMapper;
 import com.junling.mis.mapper.secondary.VisitRecordEntityMapper;
-import com.junling.mis.model.primary.ClaimInfo;
 import com.junling.mis.model.primary.ClaimOtherCost;
 import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;

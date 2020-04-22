@@ -19,7 +19,7 @@ import java.util.List;
 
 @Component
 public class SynchronizeClaimInvestigatoinInfo {
-    private final static Logger LOG = LoggerFactory.getLogger(SynchronizeClaimAccountInfo.class);
+    private final static Logger LOG = LoggerFactory.getLogger(SynchronizeClaimInvestigatoinInfo.class);
 
     @Autowired
     VisitRecordEntityMapper visitRecordEntityMapper;
@@ -30,28 +30,35 @@ public class SynchronizeClaimInvestigatoinInfo {
     @Autowired
     ClaimInvestigationInfoMapper claimInvestigationInfoMapper;
 
+
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
+
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            ClaimInvestigationInfo claimInvestigationInfo = new ClaimInvestigationInfo();
+            try {
+                LOG.info("保存调查表");
+                ClaimInvestigationInfo claimInvestigationInfo = new ClaimInvestigationInfo();
 
-            String claimInvestigationInfoId = GetUUID32.getUUID32();
-            claimInvestigationInfo.setClaimInvestigationInfoId(claimInvestigationInfoId);
-            claimInvestigationInfo.setClaimNo(record.getId());
-            claimInvestigationInfo.setReplyTime("待加");
+                String claimInvestigationInfoId = GetUUID32.getUUID32();
+                claimInvestigationInfo.setClaimInvestigationInfoId(claimInvestigationInfoId);
+                claimInvestigationInfo.setClaimNo(record.getId());
+                claimInvestigationInfo.setReplyTime("待加");
 
-            claimInvestigationInfo.setCreatedBy("SystemTest");
-            claimInvestigationInfo.setCreatedTime(date);
-            claimInvestigationInfo.setUpdatedBy("SystemTest");
-            claimInvestigationInfo.setUpdatedTime(date);
-            claimInvestigationInfoMapper.insert(claimInvestigationInfo);
-            System.out.println("claimInvestigationInfo success");
+                claimInvestigationInfo.setCreatedBy("SystemTest");
+                claimInvestigationInfo.setCreatedTime(date);
+                claimInvestigationInfo.setUpdatedBy("SystemTest");
+                claimInvestigationInfo.setUpdatedTime(date);
+                claimInvestigationInfoMapper.insert(claimInvestigationInfo);
+            } catch (Exception e) {
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("claimInvestigationInfo success");
     }
 
 }

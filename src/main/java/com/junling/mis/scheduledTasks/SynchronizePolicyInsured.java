@@ -25,19 +25,13 @@ public class SynchronizePolicyInsured {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    TpaClientEntityMapper tpaClientEntityMapper;
-
-    @Autowired
-    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
-
-    @Autowired
     TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
     TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
 
     @Autowired
-    PolicyInsuredMapper policyInfoMapper;
+    PolicyInsuredMapper policyInsuredMapper;
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
@@ -46,26 +40,27 @@ public class SynchronizePolicyInsured {
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByMainInsuredId(String.valueOf(record.getPersonId()));
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
-            TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            PolicyInsured policyInsured = new PolicyInsured();
-            String policyInsuredId = GetUUID32.getUUID32();
-            policyInsured.setPolicyInsuredId(policyInsuredId);
-            policyInsured.setPolicyNo(tpaClientPolInfoEntity.getPolno());
-            policyInsured.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
-            policyInsured.setProductId(tpaClientPolInfoEntity.getProductCode());
-            policyInsured.setInsureId(tpaClientPolInfoEntity.getInsuredId());
+            try {
+                LOG.info("保存被保人表");
+                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
+                PolicyInsured policyInsured = new PolicyInsured();
+                String policyInsuredId = GetUUID32.getUUID32();
+                policyInsured.setPolicyInsuredId(policyInsuredId);
+                policyInsured.setPolicyNo(tpaClientPolInfoEntity.getPolno());
+                policyInsured.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
+                policyInsured.setProductId(tpaClientPolInfoEntity.getProductCode());
+                policyInsured.setInsureId(tpaClientPolInfoEntity.getInsuredId());
 
-
-            policyInsured.setCreatedBy("SystemTest");
-            policyInsured.setCreatedTime(date);
-            policyInsured.setUpdatedBy("SystemTest");
-            policyInsured.setUpdatedTime(date);
-
-
-            System.out.println("PolicyInsured success");
+                policyInsured.setCreatedBy("SystemTest");
+                policyInsured.setCreatedTime(date);
+                policyInsured.setUpdatedBy("SystemTest");
+                policyInsured.setUpdatedTime(date);
+                policyInsuredMapper.insert(policyInsured);
+            }catch (Exception e){
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("PolicyInsured success");
     }
 
 }

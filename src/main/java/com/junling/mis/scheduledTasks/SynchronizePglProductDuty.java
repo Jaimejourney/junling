@@ -26,12 +26,6 @@ public class SynchronizePglProductDuty {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    TpaClientEntityMapper tpaClientEntityMapper;
-
-    @Autowired
-    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
-
-    @Autowired
     TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
 
     @Autowired
@@ -46,6 +40,7 @@ public class SynchronizePglProductDuty {
     @Autowired
     PglProductDutyMapper pglProductDutyMapper;
 
+
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
@@ -53,30 +48,32 @@ public class SynchronizePglProductDuty {
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByMainInsuredId(String.valueOf(record.getPersonId()));
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
-            TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-            TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+            try {
+                LOG.info("保存保单计划产品责任表");
+                TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
 
-            PglProductDuty pglProductDuty = new PglProductDuty();
-            String pglProductDutyId = GetUUID32.getUUID32();
-            pglProductDuty.setPglProductDutyId(pglProductDutyId);
-            pglProductDuty.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
-            pglProductDuty.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-            pglProductDuty.setProductId(tpaClientPolInfoEntity.getProductCode());
-            //待定
-            pglProductDuty.setPglpDutySpecialContract("待加");
+                PglProductDuty pglProductDuty = new PglProductDuty();
+                String pglProductDutyId = GetUUID32.getUUID32();
+                pglProductDuty.setPglProductDutyId(pglProductDutyId);
+                pglProductDuty.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
+                pglProductDuty.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
+                pglProductDuty.setProductId(tpaClientPolInfoEntity.getProductCode());
+                //待定
+                pglProductDuty.setPglpDutySpecialContract("待加");
 
 
-
-            pglProductDuty.setCreatedBy("SystemTest");
-            pglProductDuty.setCreatedTime(date);
-            pglProductDuty.setUpdatedBy("SystemTest");
-            pglProductDuty.setUpdatedTime(date);
-            pglProductDutyMapper.insert(pglProductDuty);
-            System.out.println("pglProductDuty success");
+                pglProductDuty.setCreatedBy("SystemTest");
+                pglProductDuty.setCreatedTime(date);
+                pglProductDuty.setUpdatedBy("SystemTest");
+                pglProductDuty.setUpdatedTime(date);
+                pglProductDutyMapper.insert(pglProductDuty);
+            } catch (Exception e) {
+                LOG.info("保存数据库失败");
+            }
         }
+        System.out.println("pglProductDuty success");
     }
 
 }

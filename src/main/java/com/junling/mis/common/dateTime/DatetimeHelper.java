@@ -34,7 +34,7 @@ public class DatetimeHelper {
         return date;
     }
 
-    public static Date dateTransferHelper(String str) throws ParseException {
+    public static Date dateHelper2(String str) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = (Date) sdf.parse(str);
         return date;
