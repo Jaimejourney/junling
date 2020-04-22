@@ -12,6 +12,8 @@ public interface ClaimBillDiagnoseMapper {
 
     ClaimBillDiagnose selectByPrimaryKey(ClaimBillDiagnoseKey key);
 
+    ClaimBillDiagnose selectByClaimNo(String claimNo);
+
     int updateByPrimaryKeySelective(ClaimBillDiagnose record);
 
     int updateByPrimaryKey(ClaimBillDiagnose record);

@@ -11,6 +11,8 @@ public interface PolicyGradeLevelProMapper {
 
     PolicyGradeLevelPro selectByPrimaryKey(String pglProductId);
 
+    PolicyGradeLevelPro selectByPolNo(String polNo);
+
     int updateByPrimaryKeySelective(PolicyGradeLevelPro record);
 
     int updateByPrimaryKey(PolicyGradeLevelPro record);

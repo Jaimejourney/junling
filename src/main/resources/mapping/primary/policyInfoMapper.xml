@@ -50,6 +50,12 @@
     from policy_info
     where policy_info_id = #{policyInfoId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByPolNo" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from policy_info
+    where policy_info = #{polNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from policy_info
     where policy_info_id = #{policyInfoId,jdbcType=VARCHAR}

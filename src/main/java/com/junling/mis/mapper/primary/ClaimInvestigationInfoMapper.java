@@ -11,6 +11,8 @@ public interface ClaimInvestigationInfoMapper {
 
     ClaimInvestigationInfo selectByPrimaryKey(String claimInvestigationInfoId);
 
+    ClaimInvestigationInfo selectByClaimNo(String claimNo);
+
     int updateByPrimaryKeySelective(ClaimInvestigationInfo record);
 
     int updateByPrimaryKey(ClaimInvestigationInfo record);

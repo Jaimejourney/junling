@@ -26,7 +26,7 @@ public class SynchronizeCustomerAction {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    CustomerActionMapper customerActionEntityMapper;
+    CustomerActionMapper customerActionMapper;
 
     @Autowired
     HospitalEntityMapper hospitalEntityMapper;
@@ -44,22 +44,26 @@ public class SynchronizeCustomerAction {
             VisitRecordEntity record = list.get(i);
             try {
                 LOG.info("开始保存个人行为");
-                CustomerAction customerActionEntity = new CustomerAction();
-                String customerActionId = GetUUID32.getUUID32();
-                customerActionEntity.setCustomerActionId(customerActionId);
-                customerActionEntity.setCustomerId(record.getApplyPersonId());
-                customerActionEntity.setActionType("apply");
-                customerActionEntity.setActionObject(String.valueOf(record.getPersonId()));
-                customerActionEntity.setActionStartTime(DatetimeHelper.dateHelper2(record.getApplyTime()));
-                customerActionEntity.setActionEndTime(DatetimeHelper.dateHelper2(record.getFinishTime()));
-                customerActionEntity.setActionPlace(record.getAcciPlace());
-                customerActionEntity.setActionDes(record.getAcciDesci());
+                if(customerActionMapper.selectByCustomerId(record.getApplyPersonId()) != null){
+                    LOG.info("数据已存在");
+                }else{
+                    CustomerAction customerAction = new CustomerAction();
+                    String customerActionId = GetUUID32.getUUID32();
+                    customerAction.setCustomerActionId(customerActionId);
+                    customerAction.setCustomerId(record.getApplyPersonId());
+                    customerAction.setActionType("apply");
+                    customerAction.setActionObject(String.valueOf(record.getPersonId()));
+                    customerAction.setActionStartTime(DatetimeHelper.dateHelper2(record.getApplyTime()));
+                    customerAction.setActionEndTime(DatetimeHelper.dateHelper2(record.getFinishTime()));
+                    customerAction.setActionPlace(record.getAcciPlace());
+                    customerAction.setActionDes(record.getAcciDesci());
 
-                customerActionEntity.setCreatedBy("system test");
-                customerActionEntity.setCreatedTime(date);
-                customerActionEntity.setUpdatedBy("system test");
-                customerActionEntity.setUpdatedTime(date);
-                customerActionEntityMapper.insert(customerActionEntity);
+                    customerAction.setCreatedBy("system test");
+                    customerAction.setCreatedTime(date);
+                    customerAction.setUpdatedBy("system test");
+                    customerAction.setUpdatedTime(date);
+                    customerActionMapper.insert(customerAction);
+                }
             }catch (Exception e){
                 LOG.info("保存数据库异常");
             }

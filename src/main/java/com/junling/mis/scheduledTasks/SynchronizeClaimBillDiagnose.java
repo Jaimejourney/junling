@@ -51,19 +51,23 @@ public class SynchronizeClaimBillDiagnose {
                 LOG.info("保存账单疾病表");
                 ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
                 ClaimBill claimBill = claimBillMapper.selectByClaimInfoId(claimInfo.getClaimInfoId());
-                ClaimBillDiagnose claimBillDiagnose = new ClaimBillDiagnose();
-                String claimBillDiagnoseId = GetUUID32.getUUID32();
-                claimBillDiagnose.setClaimBillDiagnoseId(claimBillDiagnoseId);
-                claimBillDiagnose.setClaimInfoId(claimInfo.getClaimInfoId());
-                claimBillDiagnose.setClaimNo(record.getId());
-                claimBillDiagnose.setClaimBillId(claimBill.getClaimBillId());
-                claimBillDiagnose.setClaimBillNo(claimBill.getClaimBillNo());
-                claimBillDiagnose.setDocTypeParent("待加");
-                claimBillDiagnose.setCreatedBy("SystemTest");
-                claimBillDiagnose.setCreatedTime(date);
-                claimBillDiagnose.setUpdatedBy("SystemTest");
-                claimBillDiagnose.setUpdatedTime(date);
-                claimBillDiagnoseMapper.insert(claimBillDiagnose);
+                if (claimBillDiagnoseMapper.selectByClaimNo(claimInfo.getClaimNo()) != null) {
+                    LOG.info("数据已存在");
+                }else{
+                    ClaimBillDiagnose claimBillDiagnose = new ClaimBillDiagnose();
+                    String claimBillDiagnoseId = GetUUID32.getUUID32();
+                    claimBillDiagnose.setClaimBillDiagnoseId(claimBillDiagnoseId);
+                    claimBillDiagnose.setClaimInfoId(claimInfo.getClaimInfoId());
+                    claimBillDiagnose.setClaimNo(record.getId());
+                    claimBillDiagnose.setClaimBillId(claimBill.getClaimBillId());
+                    claimBillDiagnose.setClaimBillNo(claimBill.getClaimBillNo());
+                    claimBillDiagnose.setDocTypeParent("待加");
+                    claimBillDiagnose.setCreatedBy("SystemTest");
+                    claimBillDiagnose.setCreatedTime(date);
+                    claimBillDiagnose.setUpdatedBy("SystemTest");
+                    claimBillDiagnose.setUpdatedTime(date);
+                    claimBillDiagnoseMapper.insert(claimBillDiagnose);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

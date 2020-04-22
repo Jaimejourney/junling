@@ -25,6 +25,12 @@
     from customer_action
     where customer_action_id = #{customerActionId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByCustomerId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from customer_action
+    where customer_id = #{customerId,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from customer_action
     where customer_action_id = #{customerActionId,jdbcType=VARCHAR}

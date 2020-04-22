@@ -58,30 +58,35 @@ public class SynchronizeClaimBill {
                 ClaimBillEntity claimBillEntity = claimBillEntityMapper.selectByDocuno(record.getDocuno());
                 ClaimMainEntity claimMainEntity = claimMainEntityMapper.selectByPrimaryKey(record.getDocuno());
                 ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
-                ClaimBill claimBill = new ClaimBill();
-                String claimBillId = GetUUID32.getUUID32();
-                claimBill.setClaimBillId(claimBillId);
-                claimBill.setClaimInfoId(claimInfo.getClaimInfoId());
-                claimBill.setClaimBillNo(claimBillEntity.getReceiptno());
-                claimBill.setClaimResult("待加");
-                claimBill.setClaimStatus(String.valueOf(record.getStatus()));
-                //金额是int类型？
-                claimBill.setClaimAmount(Math.toIntExact(Math.round(record.getAmount())));
-                claimBill.setClaimSoucreType(record.getClaimType());
-                claimBill.setClaimType(claimBillEntity.getBillType());
-                claimBill.setRejectCauseCode("待加");
-                claimBill.setRejectCause(claimMainEntity.getRejectCause());
-                //金额是int类型？
-                claimBill.setBesideinsuranceMoney(Math.toIntExact(claimBillEntity.getBesideinsuranceMoney()));
-                claimBill.setTotalIndividualPayment(Math.toIntExact(claimBillEntity.getTotalIndividualPayment()));
-                claimBill.setCreatedTime(date);
-                claimBill.setCreatedBy("SystemTest");
-                claimBill.setUpdatedTime(date);
-                claimBill.setUpdatedBy("SystemTest");
 
-                claimBillMapper.insert(claimBill);
-                synchronizeClaimBillDetail.myTask(claimBillId);
-                synchronizeClaimBillDiagnose.myTask();
+                if (claimInfoMapper.selectByClaimNo(claimInfo.getClaimNo()) != null) {
+                    LOG.info("数据已存在");
+                }else{
+                    ClaimBill claimBill = new ClaimBill();
+                    String claimBillId = GetUUID32.getUUID32();
+                    claimBill.setClaimBillId(claimBillId);
+                    claimBill.setClaimInfoId(claimInfo.getClaimInfoId());
+                    claimBill.setClaimBillNo(claimBillEntity.getReceiptno());
+                    claimBill.setClaimResult("待加");
+                    claimBill.setClaimStatus(String.valueOf(record.getStatus()));
+                    //金额是int类型？
+                    claimBill.setClaimAmount(Math.toIntExact(Math.round(record.getAmount())));
+                    claimBill.setClaimSoucreType(record.getClaimType());
+                    claimBill.setClaimType(claimBillEntity.getBillType());
+                    claimBill.setRejectCauseCode("待加");
+                    claimBill.setRejectCause(claimMainEntity.getRejectCause());
+                    //金额是int类型？
+                    claimBill.setBesideinsuranceMoney(Math.toIntExact(claimBillEntity.getBesideinsuranceMoney()));
+                    claimBill.setTotalIndividualPayment(Math.toIntExact(claimBillEntity.getTotalIndividualPayment()));
+                    claimBill.setCreatedTime(date);
+                    claimBill.setCreatedBy("SystemTest");
+                    claimBill.setUpdatedTime(date);
+                    claimBill.setUpdatedBy("SystemTest");
+
+                    claimBillMapper.insert(claimBill);
+                    synchronizeClaimBillDetail.myTask(claimBillId);
+                    synchronizeClaimBillDiagnose.myTask();
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

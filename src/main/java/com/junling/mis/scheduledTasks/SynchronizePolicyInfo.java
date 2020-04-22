@@ -42,33 +42,37 @@ public class SynchronizePolicyInfo {
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             try {
-            TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(record.getClientPolIds());
-            TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
+                if (policyInfoMapper.selectByPolNo(record.getClientPolIds()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(record.getClientPolIds());
+                    TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
 
-                LOG.info("报单表");
-                PolicyInfo policyInfo = new PolicyInfo();
-                String policyInfoId = GetUUID32.getUUID32();
-                policyInfo.setPolicyInfoId(policyInfoId);
-                policyInfo.setPolicyNo(record.getClientPolIds());
-                policyInfo.setProductId(tpaPolPlanEntity.getProductCode());
-                policyInfo.setPolicyOrganization(record.getPartner());
-                if(tpaPolMainEntity.getOldPolno() != null){
-                    //是续保
-                    policyInfo.setIsRenew("1");
-                    policyInfo.setRenewPolicyNo(tpaPolMainEntity.getOldPolno());
-                }else{
-                    //不是续保
-                    policyInfo.setIsRenew("0");
-                    policyInfo.setRenewPolicyNo("无");
+                    LOG.info("报单表");
+                    PolicyInfo policyInfo = new PolicyInfo();
+                    String policyInfoId = GetUUID32.getUUID32();
+                    policyInfo.setPolicyInfoId(policyInfoId);
+                    policyInfo.setPolicyNo(record.getClientPolIds());
+                    policyInfo.setProductId(tpaPolPlanEntity.getProductCode());
+                    policyInfo.setPolicyOrganization(record.getPartner());
+                    if (tpaPolMainEntity.getOldPolno() != null) {
+                        //是续保
+                        policyInfo.setIsRenew("1");
+                        policyInfo.setRenewPolicyNo(tpaPolMainEntity.getOldPolno());
+                    } else {
+                        //不是续保
+                        policyInfo.setIsRenew("0");
+                        policyInfo.setRenewPolicyNo("无");
+                    }
+
+                    policyInfo.setPolicyPayType("待加");
+                    policyInfo.setCreatedBy("SystemTest");
+                    policyInfo.setCreatedTime(date);
+                    policyInfo.setUpdatedBy("SystemTest");
+                    policyInfo.setUpdatedTime(date);
+                    policyInfoMapper.insert(policyInfo);
                 }
-
-                policyInfo.setPolicyPayType("待加");
-                policyInfo.setCreatedBy("SystemTest");
-                policyInfo.setCreatedTime(date);
-                policyInfo.setUpdatedBy("SystemTest");
-                policyInfo.setUpdatedTime(date);
-                policyInfoMapper.insert(policyInfo);
-            }catch (Exception e){
+            } catch (Exception e) {
                 LOG.info("保存数据库异常");
             }
         }

@@ -50,29 +50,33 @@ public class SynchronizePolicyGradeLevelPro {
             VisitRecordEntity record = list.get(i);
             try {
                 LOG.info("保存保单计划产品表");
-                TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
-                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(record.getClientPolIds());
-                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
+                if (policyGradeLeveProlMapper.selectByPolNo(record.getClientPolIds()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
+                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(record.getClientPolIds());
+                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
 
-                PolicyGradeLevelPro policyGradeLevelPro = new PolicyGradeLevelPro();
-                String policyGradeLevelProId = GetUUID32.getUUID32();
-                policyGradeLevelPro.setPglProductId(policyGradeLevelProId);
-                policyGradeLevelPro.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
-                policyGradeLevelPro.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-                policyGradeLevelPro.setProductId(tpaClientPolInfoEntity.getProductCode());
-                //待定
-                policyGradeLevelPro.setPglProductTotalPrem(1);
-                policyGradeLevelPro.setPglProductBaseCoverage(1);
+                    PolicyGradeLevelPro policyGradeLevelPro = new PolicyGradeLevelPro();
+                    String policyGradeLevelProId = GetUUID32.getUUID32();
+                    policyGradeLevelPro.setPglProductId(policyGradeLevelProId);
+                    policyGradeLevelPro.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
+                    policyGradeLevelPro.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
+                    policyGradeLevelPro.setProductId(tpaClientPolInfoEntity.getProductCode());
+                    //待定
+                    policyGradeLevelPro.setPglProductTotalPrem(1);
+                    policyGradeLevelPro.setPglProductBaseCoverage(1);
 
-                policyGradeLevelPro.setCreatedBy("SystemTest");
-                policyGradeLevelPro.setCreatedTime(date);
-                policyGradeLevelPro.setUpdatedBy("SystemTest");
-                policyGradeLevelPro.setUpdatedTime(date);
-                policyGradeLeveProlMapper.insert(policyGradeLevelPro);
+                    policyGradeLevelPro.setCreatedBy("SystemTest");
+                    policyGradeLevelPro.setCreatedTime(date);
+                    policyGradeLevelPro.setUpdatedBy("SystemTest");
+                    policyGradeLevelPro.setUpdatedTime(date);
+                    policyGradeLeveProlMapper.insert(policyGradeLevelPro);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }
-    }
+        }
         System.out.println("PolicyGradeLevelPro success");
     }
 

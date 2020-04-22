@@ -11,6 +11,8 @@ public interface CustomerInfoMapper {
 
     CustomerInfo selectByPrimaryKey(String customerNo);
 
+    CustomerInfo selectByIdNo(String idNo);
+
     int updateByPrimaryKeySelective(CustomerInfo record);
 
     int updateByPrimaryKey(CustomerInfo record);

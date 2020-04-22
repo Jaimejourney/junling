@@ -11,6 +11,8 @@ public interface PolicyInsuredMapper {
 
     PolicyInsured selectByPrimaryKey(String policyInsuredId);
 
+    PolicyInsured selectByPolNo(String polNo);
+
     int updateByPrimaryKeySelective(PolicyInsured record);
 
     int updateByPrimaryKey(PolicyInsured record);

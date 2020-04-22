@@ -62,23 +62,27 @@ public class SynchronizeClaimInfo {
             try {
                 LOG.info("保存理赔报案和报案信息表");
                 VisitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity = visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());
-                ClaimInfo claimInfo = new ClaimInfo();
-                String claimInfoId = GetUUID32.getUUID32();
-                claimInfo.setClaimInfoId(claimInfoId);
-                claimInfo.setClaimNo(record.getId());
-                claimInfo.setRegistrationNo(record.getDocuno());
-                claimInfo.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());
-                claimInfo.setClaimReportId(String.valueOf(record.getPersonId()));
-                claimInfo.setInsureId(record.getApplyPersonId());
-                claimInfo.setAccidentType(visitRecordRenbaojianDetailEntity.getAccidentType());
-                claimInfo.setReportTime(DatetimeHelper.dateHelper(record.getApplyTime()));
-                claimInfo.setClaimStatus(String.valueOf(record.getStatus()));
-                claimInfo.setClaimSoucreType(record.getClaimType());
-                claimInfo.setCreatedBy("SystemTest");
-                claimInfo.setCreatedTime(date);
-                claimInfo.setUpdatedBy("SystemTest");
-                claimInfo.setUpdatedTime(date);
-                claimInfoMapper.insert(claimInfo);
+                if (claimInfoMapper.selectByClaimNo(record.getId()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    ClaimInfo claimInfo = new ClaimInfo();
+                    String claimInfoId = GetUUID32.getUUID32();
+                    claimInfo.setClaimInfoId(claimInfoId);
+                    claimInfo.setClaimNo(record.getId());
+                    claimInfo.setRegistrationNo(record.getDocuno());
+                    claimInfo.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());
+                    claimInfo.setClaimReportId(String.valueOf(record.getPersonId()));
+                    claimInfo.setInsureId(record.getApplyPersonId());
+                    claimInfo.setAccidentType(visitRecordRenbaojianDetailEntity.getAccidentType());
+                    claimInfo.setReportTime(DatetimeHelper.dateHelper(record.getApplyTime()));
+                    claimInfo.setClaimStatus(String.valueOf(record.getStatus()));
+                    claimInfo.setClaimSoucreType(record.getClaimType());
+                    claimInfo.setCreatedBy("SystemTest");
+                    claimInfo.setCreatedTime(date);
+                    claimInfo.setUpdatedBy("SystemTest");
+                    claimInfo.setUpdatedTime(date);
+                    claimInfoMapper.insert(claimInfo);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

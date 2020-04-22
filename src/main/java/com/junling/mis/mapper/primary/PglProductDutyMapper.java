@@ -11,6 +11,8 @@ public interface PglProductDutyMapper {
 
     PglProductDuty selectByPrimaryKey(String pglProductDutyId);
 
+    PglProductDuty selectByPolNo(String polNo);
+
     int updateByPrimaryKeySelective(PglProductDuty record);
 
     int updateByPrimaryKey(PglProductDuty record);

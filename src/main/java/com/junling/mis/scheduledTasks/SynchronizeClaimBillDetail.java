@@ -58,35 +58,39 @@ public class SynchronizeClaimBillDetail {
                 ClaimBillFeeEntity claimBillFeeEntity = claimBillFeeEntityMapper.selectByDocuno(record.getDocuno());
                 ClaimLiabCalEntity claimLiabCalEntity = claimLiabCalEntityMapper.selectByDocuno(record.getDocuno());
 
-                ClaimBillDetail claimBillDetail = new ClaimBillDetail();
-                String claimBillDetailId = GetUUID32.getUUID32();
-                claimBillDetail.setClaimBillDetailId(claimBillDetailId);
-                claimBillDetail.setClaimBillId(claimBillId);
-                claimBillDetail.setClaimBillNo(claimBillEntity.getReceiptno());
-                //待定
-                claimBillDetail.setPaymentItemCode(claimBillFeeEntity.getReceiptno());
-                claimBillDetail.setPaymentItemName(claimBillFeeEntity.getFeeitemname());
-                claimBillDetail.setPaymentItemType(claimBillFeeEntity.getFeeitemtype());
+                if (claimBillDetailMapper.selectByPolicyNo(record.getClientPolIds()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    ClaimBillDetail claimBillDetail = new ClaimBillDetail();
+                    String claimBillDetailId = GetUUID32.getUUID32();
+                    claimBillDetail.setClaimBillDetailId(claimBillDetailId);
+                    claimBillDetail.setClaimBillId(claimBillId);
+                    claimBillDetail.setClaimBillNo(claimBillEntity.getReceiptno());
+                    //待定
+                    claimBillDetail.setPaymentItemCode(claimBillFeeEntity.getReceiptno());
+                    claimBillDetail.setPaymentItemName(claimBillFeeEntity.getFeeitemname());
+                    claimBillDetail.setPaymentItemType(claimBillFeeEntity.getFeeitemtype());
 
-                claimBillDetail.setPolicyNo(record.getClientPolIds());
-                claimBillDetail.setPolicyReinsuranceNo("待加");
+                    claimBillDetail.setPolicyNo(record.getClientPolIds());
+                    claimBillDetail.setPolicyReinsuranceNo("待加");
 
-                claimBillDetail.setProductId("待加");
-                claimBillDetail.setDutyId(claimBillFeeEntity.getBenefitCode());
-                claimBillDetail.setClaimItemOption(claimLiabCalEntity.getExamcomment());
-                claimBillDetail.setClaimItemResult(claimLiabCalEntity.getPayResult());
-                //金额是int类型？
-                claimBillDetail.setClaimItemAmount(Math.toIntExact(claimLiabCalEntity.getExamAmt()));
-                claimBillDetail.setClaimItemRate(Math.toIntExact((claimLiabCalEntity.getExamAmt() / claimLiabCalEntity.getBillAmt())));
-                claimBillDetail.setRejectCauseCode("待加");
-                claimBillDetail.setRejectCause(claimLiabCalEntity.getRefusePayReason());
+                    claimBillDetail.setProductId("待加");
+                    claimBillDetail.setDutyId(claimBillFeeEntity.getBenefitCode());
+                    claimBillDetail.setClaimItemOption(claimLiabCalEntity.getExamcomment());
+                    claimBillDetail.setClaimItemResult(claimLiabCalEntity.getPayResult());
+                    //金额是int类型？
+                    claimBillDetail.setClaimItemAmount(Math.toIntExact(claimLiabCalEntity.getExamAmt()));
+                    claimBillDetail.setClaimItemRate(Math.toIntExact((claimLiabCalEntity.getExamAmt() / claimLiabCalEntity.getBillAmt())));
+                    claimBillDetail.setRejectCauseCode("待加");
+                    claimBillDetail.setRejectCause(claimLiabCalEntity.getRefusePayReason());
 
-                claimBillDetail.setCreatedTime(date);
-                claimBillDetail.setCreatedBy("SystemTest");
-                claimBillDetail.setUpdatedTime(date);
-                claimBillDetail.setUpdatedBy("SystemTest");
+                    claimBillDetail.setCreatedTime(date);
+                    claimBillDetail.setCreatedBy("SystemTest");
+                    claimBillDetail.setUpdatedTime(date);
+                    claimBillDetail.setUpdatedBy("SystemTest");
 
-                claimBillDetailMapper.insert(claimBillDetail);
+                    claimBillDetailMapper.insert(claimBillDetail);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

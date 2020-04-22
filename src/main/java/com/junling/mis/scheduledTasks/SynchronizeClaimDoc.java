@@ -46,15 +46,19 @@ public class SynchronizeClaimDoc {
             try {
                 LOG.info("保存理赔影像信息表");
                 ClaimInfo claimInfo = claimInfoEntityMapper.selectByClaimNo(record.getId());
-                ClaimDoc claimDoc = new ClaimDoc();
-                claimDoc.setClaimInfoId(claimInfo.getClaimInfoId());
-                claimDoc.setClaimNo(claimInfo.getClaimNo());
+                if (claimDocMapper.selectByClaimNo(claimInfo.getClaimNo()) != null) {
+                    LOG.info("数据已存在");
+                }else{
+                    ClaimDoc claimDoc = new ClaimDoc();
+                    claimDoc.setClaimInfoId(claimInfo.getClaimInfoId());
+                    claimDoc.setClaimNo(claimInfo.getClaimNo());
 
-                claimDoc.setCreatedBy("SystemTest");
-                claimDoc.setCreatedTime(date);
-                claimDoc.setUpdatedBy("SystemTest");
-                claimDoc.setUpdatedTime(date);
-                claimDocMapper.insert(claimDoc);
+                    claimDoc.setCreatedBy("SystemTest");
+                    claimDoc.setCreatedTime(date);
+                    claimDoc.setUpdatedBy("SystemTest");
+                    claimDoc.setUpdatedTime(date);
+                    claimDocMapper.insert(claimDoc);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

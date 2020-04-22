@@ -42,21 +42,25 @@ public class SynchronizePolicyInsured {
             VisitRecordEntity record = list.get(i);
             try {
                 LOG.info("保存被保人表");
-                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
-                PolicyInsured policyInsured = new PolicyInsured();
-                String policyInsuredId = GetUUID32.getUUID32();
-                policyInsured.setPolicyInsuredId(policyInsuredId);
-                policyInsured.setPolicyNo(tpaClientPolInfoEntity.getPolno());
-                policyInsured.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
-                policyInsured.setProductId(tpaClientPolInfoEntity.getProductCode());
-                policyInsured.setInsureId(tpaClientPolInfoEntity.getInsuredId());
+                if (policyInsuredMapper.selectByPolNo(record.getClientPolIds()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
+                    PolicyInsured policyInsured = new PolicyInsured();
+                    String policyInsuredId = GetUUID32.getUUID32();
+                    policyInsured.setPolicyInsuredId(policyInsuredId);
+                    policyInsured.setPolicyNo(tpaClientPolInfoEntity.getPolno());
+                    policyInsured.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
+                    policyInsured.setProductId(tpaClientPolInfoEntity.getProductCode());
+                    policyInsured.setInsureId(tpaClientPolInfoEntity.getInsuredId());
 
-                policyInsured.setCreatedBy("SystemTest");
-                policyInsured.setCreatedTime(date);
-                policyInsured.setUpdatedBy("SystemTest");
-                policyInsured.setUpdatedTime(date);
-                policyInsuredMapper.insert(policyInsured);
-            }catch (Exception e){
+                    policyInsured.setCreatedBy("SystemTest");
+                    policyInsured.setCreatedTime(date);
+                    policyInsured.setUpdatedBy("SystemTest");
+                    policyInsured.setUpdatedTime(date);
+                    policyInsuredMapper.insert(policyInsured);
+                }
+            } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }
         }

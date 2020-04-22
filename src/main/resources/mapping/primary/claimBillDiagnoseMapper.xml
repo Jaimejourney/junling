@@ -26,6 +26,12 @@
     where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}
       and claim_bill_id = #{claimBillId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByClaimNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_bill_diagnose
+    where claim_no = #{claimNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimBillDiagnoseKey" >
     delete from claim_bill_diagnose
     where claim_bill_diagnose_id = #{claimBillDiagnoseId,jdbcType=VARCHAR}

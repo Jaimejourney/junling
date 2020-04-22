@@ -11,6 +11,8 @@ public interface PolicyInfoMapper {
 
     PolicyInfo selectByPrimaryKey(String policyInfoId);
 
+    PolicyInfo selectByPolNo(String polNo);
+
     int updateByPrimaryKeySelective(PolicyInfo record);
 
     int updateByPrimaryKeyWithBLOBs(PolicyInfo record);

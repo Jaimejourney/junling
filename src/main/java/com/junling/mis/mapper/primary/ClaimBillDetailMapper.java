@@ -12,6 +12,8 @@ public interface ClaimBillDetailMapper {
 
     ClaimBillDetail selectByPrimaryKey(ClaimBillDetailKey key);
 
+    ClaimBillDetail selectByPolicyNo(String policyNo);
+
     int updateByPrimaryKeySelective(ClaimBillDetail record);
 
     int updateByPrimaryKey(ClaimBillDetail record);

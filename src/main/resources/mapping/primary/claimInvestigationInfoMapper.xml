@@ -28,6 +28,12 @@
     from claim_investigation_info
     where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByClaimNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_investigation_info
+    where claim_no = #{claimNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from claim_investigation_info
     where claim_investigation_info_id = #{claimInvestigationInfoId,jdbcType=VARCHAR}

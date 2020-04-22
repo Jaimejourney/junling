@@ -12,6 +12,8 @@ public interface ClaimAccountInfoMapper {
 
     ClaimAccountInfo selectByPrimaryKey(ClaimAccountInfoKey key);
 
+    ClaimAccountInfo selectBy(ClaimAccountInfoKey key);
+
     int updateByPrimaryKeySelective(ClaimAccountInfo record);
 
     int updateByPrimaryKey(ClaimAccountInfo record);

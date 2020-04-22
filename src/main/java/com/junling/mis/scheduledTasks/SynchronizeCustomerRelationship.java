@@ -40,20 +40,24 @@ public class SynchronizeCustomerRelationship {
 
             try {
                 LOG.info("开始保存个人关系");
-                String customerRelationId = GetUUID32.getUUID32();
-                customerRelationEntity.setCustomerRelationId(customerRelationId);
-                customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());
-                customerRelationEntity.setRelationType(record.getRelationshipId());
-                customerRelationEntity.setRelationCustomer(String.valueOf(record.getPersonId()));
-                customerRelationEntity.setRelationStartTime(DatetimeHelper.dateHelper2(record.getApplyTime()));
-                customerRelationEntity.setRelationEndTime(DatetimeHelper.dateHelper2(record.getFinishTime()));
-                //待加
-                customerRelationEntity.setRelationStatus("1");
-                customerRelationEntity.setCreatedBy("sysetem test");
-                customerRelationEntity.setCreatedTime(date);
-                customerRelationEntity.setUpdatedBy("system test");
-                customerRelationEntity.setUpdatedTime(date);
-                customerRelationEntityMapper.insert(customerRelationEntity);
+                if(customerRelationEntityMapper.selectByOrganizationId(record.getApplyPersonId()) != null){
+                    LOG.info("数据已存在");
+                }else{
+                    String customerRelationId = GetUUID32.getUUID32();
+                    customerRelationEntity.setCustomerRelationId(customerRelationId);
+                    customerRelationEntity.setCustomerOrganizationId(record.getApplyPersonId());
+                    customerRelationEntity.setRelationType(record.getRelationshipId());
+                    customerRelationEntity.setRelationCustomer(String.valueOf(record.getPersonId()));
+                    customerRelationEntity.setRelationStartTime(DatetimeHelper.dateHelper2(record.getApplyTime()));
+                    customerRelationEntity.setRelationEndTime(DatetimeHelper.dateHelper2(record.getFinishTime()));
+                    //待加
+                    customerRelationEntity.setRelationStatus("1");
+                    customerRelationEntity.setCreatedBy("sysetem test");
+                    customerRelationEntity.setCreatedTime(date);
+                    customerRelationEntity.setUpdatedBy("system test");
+                    customerRelationEntity.setUpdatedTime(date);
+                    customerRelationEntityMapper.insert(customerRelationEntity);
+                }
             }catch (Exception e){
                 LOG.info("保存数据库失败");
             }

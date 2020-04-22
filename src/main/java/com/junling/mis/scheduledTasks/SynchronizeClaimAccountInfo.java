@@ -7,6 +7,7 @@ import com.junling.mis.mapper.primary.ClaimInfoMapper;
 import com.junling.mis.mapper.secondary.ClaimAccountInfoEntity1Mapper;
 import com.junling.mis.mapper.secondary.VisitRecordEntityMapper;
 import com.junling.mis.model.primary.ClaimAccountInfo;
+import com.junling.mis.model.primary.ClaimInfo;
 import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,9 @@ public class SynchronizeClaimAccountInfo {
     @Autowired
     ClaimAccountInfoMapper claimAccountInfoMapper;
 
+    @Autowired
+    ClaimInfoMapper claimInfoMapper;
+
 
     @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
@@ -45,17 +49,22 @@ public class SynchronizeClaimAccountInfo {
             VisitRecordEntity record = list.get(i);
             try {
                 LOG.info("保存理赔账户信息表");
-                ClaimAccountInfo claimAccountInfo = new ClaimAccountInfo();
-                String accountId = GetUUID32.getUUID32();
-                claimAccountInfo.setAccountId(accountId);
-                claimAccountInfo.setClaimInfoId(record.getId());
-                claimAccountInfo.setAccountName(record.getDocuno());
+                ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
+                if (claimInfoMapper.selectByClaimNo(claimInfo.getClaimNo()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    ClaimAccountInfo claimAccountInfo = new ClaimAccountInfo();
+                    String accountId = GetUUID32.getUUID32();
+                    claimAccountInfo.setAccountId(accountId);
+                    claimAccountInfo.setClaimInfoId(claimInfo.getClaimInfoId());
+                    claimAccountInfo.setAccountName(record.getDocuno());
 
-                claimAccountInfo.setCreatedBy("SystemTest");
-                claimAccountInfo.setCreatedTime(date);
-                claimAccountInfo.setUpdatedBy("SystemTest");
-                claimAccountInfo.setUpdatedTime(date);
-                claimAccountInfoMapper.insert(claimAccountInfo);
+                    claimAccountInfo.setCreatedBy("SystemTest");
+                    claimAccountInfo.setCreatedTime(date);
+                    claimAccountInfo.setUpdatedBy("SystemTest");
+                    claimAccountInfo.setUpdatedTime(date);
+                    claimAccountInfoMapper.insert(claimAccountInfo);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

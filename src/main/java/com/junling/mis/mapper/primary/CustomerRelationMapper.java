@@ -11,6 +11,8 @@ public interface CustomerRelationMapper {
 
     CustomerRelation selectByPrimaryKey(String customerRelationId);
 
+    CustomerRelation selectByOrganizationId(String organizationId);
+
     int updateByPrimaryKeySelective(CustomerRelation record);
 
     int updateByPrimaryKey(CustomerRelation record);

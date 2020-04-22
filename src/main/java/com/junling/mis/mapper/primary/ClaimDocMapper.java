@@ -12,6 +12,8 @@ public interface ClaimDocMapper {
 
     ClaimDoc selectByPrimaryKey(ClaimDocKey key);
 
+    ClaimDoc selectByClaimNo(String claimNo);
+
     int updateByPrimaryKeySelective(ClaimDoc record);
 
     int updateByPrimaryKey(ClaimDoc record);

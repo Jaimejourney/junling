@@ -42,6 +42,12 @@
     where claim_bill_detail_id = #{claimBillDetailId,jdbcType=VARCHAR}
       and payment_item_code = #{paymentItemCode,jdbcType=VARCHAR}
   </select>
+  <select id="selectByPolicyNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_bill_detail
+    where policy_no = #{policyNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimBillDetailKey" >
     delete from claim_bill_detail
     where claim_bill_detail_id = #{claimBillDetailId,jdbcType=VARCHAR}

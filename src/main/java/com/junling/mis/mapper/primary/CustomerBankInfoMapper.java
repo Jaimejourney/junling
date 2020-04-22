@@ -11,6 +11,7 @@ public interface CustomerBankInfoMapper {
 
     CustomerBankInfo selectByPrimaryKey(String accountId);
 
+    CustomerBankInfo selectByCustomerNo(String customerNo);
 
     int updateByPrimaryKeySelective(CustomerBankInfo record);
 

@@ -42,18 +42,22 @@ public class SynchronizeClaimInvestigatoinInfo {
             VisitRecordEntity record = list.get(i);
             try {
                 LOG.info("保存调查表");
-                ClaimInvestigationInfo claimInvestigationInfo = new ClaimInvestigationInfo();
+                if (claimInvestigationInfoMapper.selectByClaimNo(record.getId()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    ClaimInvestigationInfo claimInvestigationInfo = new ClaimInvestigationInfo();
 
-                String claimInvestigationInfoId = GetUUID32.getUUID32();
-                claimInvestigationInfo.setClaimInvestigationInfoId(claimInvestigationInfoId);
-                claimInvestigationInfo.setClaimNo(record.getId());
-                claimInvestigationInfo.setReplyTime("待加");
+                    String claimInvestigationInfoId = GetUUID32.getUUID32();
+                    claimInvestigationInfo.setClaimInvestigationInfoId(claimInvestigationInfoId);
+                    claimInvestigationInfo.setClaimNo(record.getId());
+                    claimInvestigationInfo.setReplyTime("待加");
 
-                claimInvestigationInfo.setCreatedBy("SystemTest");
-                claimInvestigationInfo.setCreatedTime(date);
-                claimInvestigationInfo.setUpdatedBy("SystemTest");
-                claimInvestigationInfo.setUpdatedTime(date);
-                claimInvestigationInfoMapper.insert(claimInvestigationInfo);
+                    claimInvestigationInfo.setCreatedBy("SystemTest");
+                    claimInvestigationInfo.setCreatedTime(date);
+                    claimInvestigationInfo.setUpdatedBy("SystemTest");
+                    claimInvestigationInfo.setUpdatedTime(date);
+                    claimInvestigationInfoMapper.insert(claimInvestigationInfo);
+                }
             } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }

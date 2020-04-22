@@ -42,20 +42,24 @@ public class SynchronizeCustomerBankInfo {
             VisitBankEntity visitBankEntity = visitBankEntityMapper.selectByOpenId(record.getOpenid());
             try {
                 LOG.info("保存客户银行信息表");
-                CustomerBankInfo customerBankInfo = new CustomerBankInfo();
+                if (customerBankInfoMapper.selectByCustomerNo(record.getApplyPersonId()) != null) {
+                    LOG.info("数据已存在");
+                } else {
+                    CustomerBankInfo customerBankInfo = new CustomerBankInfo();
 
-                customerBankInfo.setAccountId(String.valueOf(visitBankEntity.getId()));
-                customerBankInfo.setCustomerNo(record.getApplyPersonId());
-                customerBankInfo.setAccountName(visitBankEntity.getName());
-                customerBankInfo.setAccountNo(visitBankEntity.getAccount());
-                customerBankInfo.setBankNo(visitBankEntity.getBank());
+                    customerBankInfo.setAccountId(String.valueOf(visitBankEntity.getId()));
+                    customerBankInfo.setCustomerNo(record.getApplyPersonId());
+                    customerBankInfo.setAccountName(visitBankEntity.getName());
+                    customerBankInfo.setAccountNo(visitBankEntity.getAccount());
+                    customerBankInfo.setBankNo(visitBankEntity.getBank());
 
-                customerBankInfo.setCreatedBy("SystemTest");
-                customerBankInfo.setCreatedTime(date);
-                customerBankInfo.setUpdatedBy("SystemTest");
-                customerBankInfo.setUpdatedTime(date);
-                customerBankInfoMapper.insert(customerBankInfo);
-            }catch (Exception e){
+                    customerBankInfo.setCreatedBy("SystemTest");
+                    customerBankInfo.setCreatedTime(date);
+                    customerBankInfo.setUpdatedBy("SystemTest");
+                    customerBankInfo.setUpdatedTime(date);
+                    customerBankInfoMapper.insert(customerBankInfo);
+                }
+            } catch (Exception e) {
                 LOG.info("保存数据库失败");
             }
         }

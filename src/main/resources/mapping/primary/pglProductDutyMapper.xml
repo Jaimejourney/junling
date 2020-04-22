@@ -39,6 +39,12 @@
     from pgl_product_duty
     where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}
   </select>
+  <select id="selectByPolNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from pgl_product_duty
+    where policy_no = #{polNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from pgl_product_duty
     where pgl_product_duty_id = #{pglProductDutyId,jdbcType=VARCHAR}

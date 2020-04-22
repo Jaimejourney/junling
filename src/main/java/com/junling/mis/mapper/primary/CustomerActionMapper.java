@@ -11,6 +11,8 @@ public interface CustomerActionMapper {
 
     CustomerAction selectByPrimaryKey(String customerActionId);
 
+    CustomerAction selectByCustomerId(String customerId);
+
     int updateByPrimaryKeySelective(CustomerAction record);
 
     int updateByPrimaryKey(CustomerAction record);
