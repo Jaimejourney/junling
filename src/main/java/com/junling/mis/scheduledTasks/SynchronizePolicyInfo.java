@@ -33,7 +33,7 @@ public class SynchronizePolicyInfo {
     @Autowired
     TpaPolPlanEntityMapper tpaPolPlanEntityMapper;
 
-    @Scheduled(cron = "0 0 */24 * * *")
+//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
 
         Date date = DatetimeHelper.scheduledDate();

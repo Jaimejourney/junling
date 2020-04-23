@@ -3,6 +3,7 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
+import com.junling.mis.mapper.primary.ClaimAccountInfoMapper;
 import com.junling.mis.mapper.primary.ClaimInfoMapper;
 import com.junling.mis.mapper.secondary.*;
 import com.junling.mis.model.primary.ClaimInfo;
@@ -47,9 +48,12 @@ public class SynchronizeClaimInfo {
     @Autowired
     SynchronizeClaimBill synchronizeClaimBill;
 
+    @Autowired
+    SynchronizeClaimAccountInfo synchronizeClaimAccountInfo;
+
 //0/5 * * * * *
 
-    @Scheduled(cron = "0/10 * * * * *")
+//    @Scheduled(cron = "0/10 * * * * *")
     public void myTask() throws ParseException {
         String str = "2020-04-08 19:08:10";
         Date date = DatetimeHelper.dateHelper(str);
@@ -90,6 +94,7 @@ public class SynchronizeClaimInfo {
 
         synchronizeClaimDoc.myTask();
         synchronizeClaimBill.myTask();
+        synchronizeClaimAccountInfo.myTask();
         System.out.println("claimInfo success");
     }
 }

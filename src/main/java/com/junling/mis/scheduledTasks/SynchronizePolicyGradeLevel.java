@@ -26,12 +26,6 @@ public class SynchronizePolicyGradeLevel {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
-
-    @Autowired
-    TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
-
-    @Autowired
     PolicyBeneficiaryMapper policyBeneficiaryMapper;
 
     @Autowired
@@ -46,7 +40,7 @@ public class SynchronizePolicyGradeLevel {
     @Autowired
     PlanBenefitEntityMapper planBenefitEntityMapper;
 
-    @Scheduled(cron = "0 0 */24 * * *")
+//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
 
         Date date = DatetimeHelper.scheduledDate();

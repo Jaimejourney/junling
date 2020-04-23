@@ -37,7 +37,7 @@ public class SynchronizeCustomerInfo {
     @Autowired
     CustomerInfoMapper customerInfoEntityMapper;
 
-    @Scheduled(cron = "0 0 */24 * * *")
+//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
 //        String str="2020-04-08 19:08:10";
 //        Date date =  DatetimeHelper.dateHelper(str);

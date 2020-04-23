@@ -3,11 +3,8 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.PolicyGradeLevelMapper;
 import com.junling.mis.mapper.primary.PolicyInsuredMapper;
 import com.junling.mis.mapper.secondary.*;
-import com.junling.mis.model.primary.PolicyGradeLevel;
-import com.junling.mis.model.primary.PolicyInsured;
 import com.junling.mis.model.primary.PolicyInsuredService;
 import com.junling.mis.model.secondary.*;
 import org.slf4j.Logger;
@@ -46,7 +43,7 @@ public class SynchronizePolicyInsuredService {
     @Autowired
     TpaPolGradeLevelEntityMapper tpaPolGradeLevelEntityMapper;
 
-    @Scheduled(cron = "0 0 */24 * * *")
+//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
 

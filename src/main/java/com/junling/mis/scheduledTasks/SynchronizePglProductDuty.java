@@ -41,7 +41,7 @@ public class SynchronizePglProductDuty {
     PglProductDutyMapper pglProductDutyMapper;
 
 
-    @Scheduled(cron = "0 0 */24 * * *")
+//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
 

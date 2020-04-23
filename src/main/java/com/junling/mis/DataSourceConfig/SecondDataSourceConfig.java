@@ -1,4 +1,4 @@
-package com.junling.mis;
+package com.junling.mis.DataSourceConfig;
 
 
 import org.apache.ibatis.session.SqlSessionFactory;
