@@ -12,7 +12,7 @@ public interface ClaimAccountInfoMapper {
 
     ClaimAccountInfo selectByPrimaryKey(ClaimAccountInfoKey key);
 
-    ClaimAccountInfo selectBy(ClaimAccountInfoKey key);
+    ClaimAccountInfo selectByClaimInfoId(String claimInfoId);
 
     int updateByPrimaryKeySelective(ClaimAccountInfo record);
 

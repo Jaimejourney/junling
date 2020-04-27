@@ -11,7 +11,6 @@ import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -32,20 +31,21 @@ public class SynchronizeCustomerAction {
     HospitalEntityMapper hospitalEntityMapper;
 
 
-//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-        String str="2020-04-08 19:08:10";
-        Date date =  DatetimeHelper.dateHelper(str);
-//        Date date = DatetimeHelper.scheduledDate();
-
-
+//        String str="2020-04-08 19:08:10";
+//        Date date =  DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        list.add(visitRecordEntity);
+
+
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             try {
                 LOG.info("开始保存个人行为");
                 if(customerActionMapper.selectByCustomerId(record.getApplyPersonId()) != null){
-                    LOG.info("数据已存在");
+                    LOG.info("数据" + record.getApplyPersonId() + "已存在");
                 }else{
                     CustomerAction customerAction = new CustomerAction();
                     String customerActionId = GetUUID32.getUUID32();
@@ -68,6 +68,6 @@ public class SynchronizeCustomerAction {
                 LOG.info("保存数据库异常");
             }
         }
-        System.out.println("customerAction success");
+        LOG.info("customerAction success");
     }
 }

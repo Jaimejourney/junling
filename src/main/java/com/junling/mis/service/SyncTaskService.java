@@ -53,8 +53,8 @@ public class SyncTaskService {
     //    @Scheduled(cron = "0/5 * * * * *")
     @Scheduled(cron = "0 0 */24 * * *")
     public String myTask() throws ParseException {
-        String str = "2019-03-08 19:08:10";
-        Date date = DatetimeHelper.dateHelper(str);
+//        String str = "2019-03-08 19:08:10";
+//        Date date = DatetimeHelper.dateHelper(str);
 
         //1.客户模块
         synchronizeCustomerInfo.myTask();

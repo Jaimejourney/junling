@@ -3,7 +3,6 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.ClaimAccountInfoMapper;
 import com.junling.mis.mapper.primary.ClaimInfoMapper;
 import com.junling.mis.mapper.secondary.*;
 import com.junling.mis.model.primary.ClaimInfo;
@@ -12,7 +11,6 @@ import com.junling.mis.model.secondary.VisitRecordRenbaojianDetailEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -53,13 +51,15 @@ public class SynchronizeClaimInfo {
 
 //0/5 * * * * *
 
-//    @Scheduled(cron = "0/10 * * * * *")
     public void myTask() throws ParseException {
-        String str = "2020-04-08 19:08:10";
-        Date date = DatetimeHelper.dateHelper(str);
-//        Date date = DatetimeHelper.scheduledDate();
+//        String str = "2020-04-08 19:08:10";
+//        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        list.add(visitRecordEntity);
+
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
@@ -67,7 +67,7 @@ public class SynchronizeClaimInfo {
                 LOG.info("保存理赔报案和报案信息表");
                 VisitRecordRenbaojianDetailEntity visitRecordRenbaojianDetailEntity = visitRecordRenbaojianDetailEntityMapper.selectByPrimaryKey(record.getId());
                 if (claimInfoMapper.selectByClaimNo(record.getId()) != null) {
-                    LOG.info("数据已存在");
+                    LOG.info("数据" + record.getId() + "已存在");
                 } else {
                     ClaimInfo claimInfo = new ClaimInfo();
                     String claimInfoId = GetUUID32.getUUID32();
@@ -95,6 +95,6 @@ public class SynchronizeClaimInfo {
         synchronizeClaimDoc.myTask();
         synchronizeClaimBill.myTask();
         synchronizeClaimAccountInfo.myTask();
-        System.out.println("claimInfo success");
+        LOG.info("claimInfo success");
     }
 }

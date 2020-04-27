@@ -14,7 +14,6 @@ import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -37,13 +36,14 @@ public class SynchronizeClaimBillDiagnose {
     @Autowired
     ClaimBillMapper claimBillMapper;
 
-    //    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-        String str = "2020-04-08 19:08:10";
-        Date date = DatetimeHelper.dateHelper(str);
-//        Date date = DatetimeHelper.scheduledDate();
+//        String str = "2020-04-08 19:08:10";
+//        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
@@ -52,7 +52,7 @@ public class SynchronizeClaimBillDiagnose {
                 ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
                 ClaimBill claimBill = claimBillMapper.selectByClaimInfoId(claimInfo.getClaimInfoId());
                 if (claimBillDiagnoseMapper.selectByClaimNo(claimInfo.getClaimNo()) != null) {
-                    LOG.info("数据已存在");
+                    LOG.info("数据" + claimInfo.getClaimNo() + "已存在");
                 }else{
                     ClaimBillDiagnose claimBillDiagnose = new ClaimBillDiagnose();
                     String claimBillDiagnoseId = GetUUID32.getUUID32();
@@ -72,6 +72,6 @@ public class SynchronizeClaimBillDiagnose {
                 LOG.info("保存数据库失败");
             }
         }
-        System.out.println("ClaimBillDiagnose success");
+        LOG.info("ClaimBillDiagnose success");
     }
 }

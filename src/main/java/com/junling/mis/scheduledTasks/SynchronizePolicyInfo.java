@@ -10,7 +10,6 @@ import com.junling.mis.model.secondary.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -33,17 +32,18 @@ public class SynchronizePolicyInfo {
     @Autowired
     TpaPolPlanEntityMapper tpaPolPlanEntityMapper;
 
-//    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
 
         Date date = DatetimeHelper.scheduledDate();
-
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        list.add(visitRecordEntity);
+
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             try {
                 if (policyInfoMapper.selectByPolNo(record.getClientPolIds()) != null) {
-                    LOG.info("数据已存在");
+                    LOG.info("数据" + record.getClientPolIds() + "已存在");
                 } else {
                     TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(record.getClientPolIds());
                     TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
@@ -76,7 +76,7 @@ public class SynchronizePolicyInfo {
                 LOG.info("保存数据库异常");
             }
         }
-        System.out.println("policyInfo success");
+        LOG.info("policyInfo success");
     }
 
 }

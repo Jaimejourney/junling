@@ -26,6 +26,12 @@
       and claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
       and account_name = #{accountName,jdbcType=VARCHAR}
   </select>
+  <select id="selectByClaimInfoId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from claim_account_info
+    where claim_info_id = #{claimInfoId,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="com.junling.mis.model.primary.ClaimAccountInfoKey" >
     delete from claim_account_info
     where account_id = #{accountId,jdbcType=VARCHAR}

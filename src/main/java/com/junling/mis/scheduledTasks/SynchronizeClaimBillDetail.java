@@ -42,13 +42,14 @@ public class SynchronizeClaimBillDetail {
     ClaimBillFeeEntityMapper claimBillFeeEntityMapper;
 
 
-    //    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask(String claimBillId) throws ParseException {
-        String str = "2020-04-08 19:08:10";
-        Date date = DatetimeHelper.dateHelper(str);
-//        Date date = DatetimeHelper.scheduledDate();
+//        String str = "2020-04-08 19:08:10";
+//        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
@@ -59,7 +60,7 @@ public class SynchronizeClaimBillDetail {
                 ClaimLiabCalEntity claimLiabCalEntity = claimLiabCalEntityMapper.selectByDocuno(record.getDocuno());
 
                 if (claimBillDetailMapper.selectByPolicyNo(record.getClientPolIds()) != null) {
-                    LOG.info("数据已存在");
+                    LOG.info("数据" + record.getClientPolIds() + "已存在");
                 } else {
                     ClaimBillDetail claimBillDetail = new ClaimBillDetail();
                     String claimBillDetailId = GetUUID32.getUUID32();
@@ -95,7 +96,7 @@ public class SynchronizeClaimBillDetail {
                 LOG.info("保存数据库失败");
             }
         }
-        System.out.println("claimBillDetail success");
+        LOG.info("claimBillDetail success");
     }
 
 }

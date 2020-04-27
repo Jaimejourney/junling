@@ -43,13 +43,14 @@ public class SynchronizeClaimBill {
     @Autowired
     SynchronizeClaimBillDiagnose synchronizeClaimBillDiagnose;
 
-    //    @Scheduled(cron = "0 0 */24 * * *")
     public void myTask() throws ParseException {
-        String str = "2020-04-08 19:08:10";
-        Date date = DatetimeHelper.dateHelper(str);
-//        Date date = DatetimeHelper.scheduledDate();
+//        String str = "2020-04-08 19:08:10";
+//        Date date = DatetimeHelper.dateHelper(str);
+        Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
@@ -59,8 +60,8 @@ public class SynchronizeClaimBill {
                 ClaimMainEntity claimMainEntity = claimMainEntityMapper.selectByPrimaryKey(record.getDocuno());
                 ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
 
-                if (claimInfoMapper.selectByClaimNo(claimInfo.getClaimNo()) != null) {
-                    LOG.info("数据已存在");
+                if (claimBillMapper.selectByClaimInfoId(claimInfo.getClaimInfoId()) != null) {
+                    LOG.info("数据" + claimInfo.getClaimInfoId() + "已存在");
                 }else{
                     ClaimBill claimBill = new ClaimBill();
                     String claimBillId = GetUUID32.getUUID32();
@@ -92,7 +93,7 @@ public class SynchronizeClaimBill {
             }
 
         }
-        System.out.println("claimBill success");
+        LOG.info("claimBill success");
     }
 
 }

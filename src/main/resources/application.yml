@@ -45,3 +45,9 @@ mybatis-plus:
 #  reasonable: true
 #  supportMethodsArguments: true
 #  params: count=countSql
+
+logging:
+  config: classpath:logback.xml
+  level:
+      com.junling.mis: info
+      org.springframework.web: debug

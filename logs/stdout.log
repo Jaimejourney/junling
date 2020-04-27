@@ -1,0 +1,711 @@
+14:55:43.148 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 48775 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+14:55:43.150 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+14:55:44.068 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+14:55:44.069 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+14:55:44.554 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+14:55:44.562 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+14:55:44.562 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+14:55:44.625 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+14:55:44.625 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1420 ms 
+14:55:46.268 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+14:55:46.306 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+14:55:46.437 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+14:55:46.552 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+14:55:46.640 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+14:55:46.645 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 3.77 seconds (JVM running for 4.469) 
+14:56:08.650 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+14:56:08.653 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+14:59:21.017 [main] ERROR o.s.boot.SpringApplication - Application run failed 
+java.lang.IllegalStateException: java.io.FileNotFoundException: /Users/yikaizhu/Downloads/projects/testMis/logback.xml (No such file or directory)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:324)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:288)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.junling.mis.MisApplication.main(MisApplication.java:18)
+Caused by: java.io.FileNotFoundException: /Users/yikaizhu/Downloads/projects/testMis/logback.xml (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:86)
+	at java.base/sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:184)
+	at java.base/java.net.URL.openStream(URL.java:1129)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:317)
+	... 14 common frames omitted
+14:59:51.798 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 48898 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+14:59:51.799 [main] DEBUG com.junling.mis.MisApplication - Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE 
+14:59:51.800 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+14:59:52.536 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+14:59:52.537 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+14:59:52.976 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+14:59:52.983 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+14:59:52.983 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+14:59:53.037 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+14:59:53.037 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+14:59:53.037 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1204 ms 
+14:59:54.630 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+14:59:54.668 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+14:59:54.679 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+14:59:54.740 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+14:59:54.763 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+14:59:54.770 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+14:59:54.789 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+14:59:54.916 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+14:59:55.021 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+14:59:55.026 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 3.475 seconds (JVM running for 4.171) 
+15:00:14.821 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:00:14.824 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:00:14.824 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+15:00:14.834 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+15:00:14.834 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms 
+15:00:14.841 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+15:00:14.844 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+15:00:14.884 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:00:17.879 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:00:17.887 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:17.906 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:14.851(Timestamp) 
+15:00:18.318 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:18.322 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:18.322 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:18.647 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:18.647 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, name, phone, email, create_time, last_time, card_id, update_by, update_time, is_delete, postcode, contact_address, contact_certType from visit_apply_person where id = ?  
+15:00:18.647 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: 3093336818435076(BigDecimal) 
+15:00:18.820 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:18.820 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+15:00:18.827 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+15:00:18.827 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByIdNo - ==>  Preparing: select customer_no, customer_name, nick_name, customer_level_code, customer_score, customer_phone_no, birth_district_code, district_code, id_no, id_type, email, address, birthday, gender, education_code, education_school, married, beared, name_family, nation, job_type_code, resume, salary, has_social_security, created_by, created_time, updated_by, updated_time from customer_info where id_no = ?  
+15:00:18.828 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByIdNo - ==> Parameters: 440684199010086921(String) 
+15:00:18.830 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByIdNo - <==      Total: 1 
+15:00:18.830 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:00:18.830 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+15:00:18.830 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, name, phone, email, create_time, last_time, card_id, update_poson, update_time, is_delete, user_type_remark, calculate_channel, risk_detail, risk_name, risk_result from visit_person where id = ?  
+15:00:18.831 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: 3093336818435075(BigDecimal) 
+15:00:19.037 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:19.037 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByIdNo - ==>  Preparing: select customer_no, customer_name, nick_name, customer_level_code, customer_score, customer_phone_no, birth_district_code, district_code, id_no, id_type, email, address, birthday, gender, education_code, education_school, married, beared, name_family, nation, job_type_code, resume, salary, has_social_security, created_by, created_time, updated_by, updated_time from customer_info where id_no = ?  
+15:00:19.037 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByIdNo - ==> Parameters: 441422196412230532(String) 
+15:00:19.039 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByIdNo - <==      Total: 1 
+15:00:19.039 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:00:19.039 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:19.040 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:19.039(Timestamp) 
+15:00:19.390 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:19.390 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:19.390 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:19.807 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:19.808 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+15:00:19.809 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByCustomerId - ==>  Preparing: select customer_action_id, customer_id, action_type, action_object, action_start_time, action_end_time, action_place, action_des, created_by, created_time, updated_by, updated_time from customer_action where customer_id = ?  
+15:00:19.809 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByCustomerId - ==> Parameters: 3093336818435076(String) 
+15:00:19.811 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByCustomerId - <==      Total: 1 
+15:00:19.812 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 数据已存在 
+15:00:19.813 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:19.814 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:19.812(Timestamp) 
+15:00:20.174 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:20.174 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:20.175 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:20.339 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:20.339 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+15:00:20.340 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByOrganizationId - ==>  Preparing: select customer_relation_id, customer_organization_id, relation_type, relation_customer, relation_start_time, relation_end_time, relation_status, created_by, created_time, updated_by, updated_time from customer_relation where customer_organization_id = ?  
+15:00:20.340 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByOrganizationId - ==> Parameters: 3093336818435076(String) 
+15:00:20.341 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByOrganizationId - <==      Total: 1 
+15:00:20.342 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 数据已存在 
+15:00:20.342 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:20.342 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:20.342(Timestamp) 
+15:00:20.717 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:20.717 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:20.717 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:20.887 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:20.887 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByOpenId - ==>  Preparing: select id, openid, name, account, city, bank, create_time, last_time, update_poson, update_time, is_delete, accident_detail_address, account_type from visit_bank where openid = ?  
+15:00:20.888 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByOpenId - ==> Parameters: ohUgUwqhdDGcVvX8q6Dxk5og6zeE(String) 
+15:00:21.075 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByOpenId - <==      Total: 1 
+15:00:21.076 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+15:00:21.076 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByCustomerNo - ==>  Preparing: select account_id, customer_no, account_name, account_no, bank_no, created_by, created_time, updated_by, updated_time from customer_bank_info where customer_no = ?  
+15:00:21.079 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByCustomerNo - ==> Parameters: 3093336818435076(String) 
+15:00:21.080 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByCustomerNo - <==      Total: 1 
+15:00:21.081 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 数据已存在 
+15:00:21.082 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:21.082 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:21.081(Timestamp) 
+15:00:21.427 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:21.428 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:21.429 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:21.615 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:21.615 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==>  Preparing: select policy_info_id, policy_no, product_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_status, policy_holder, policy_type, contact_person, contact_address, contact_phone_no, contact_email, total_prem, total_insured_count, effect_insured_count, policy_organization, is_renew, renew_policy_no, policy_pay_type, created_by, created_time, updated_by, updated_time from policy_info where policy_no = ?  
+15:00:21.616 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:21.617 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - <==      Total: 1 
+15:00:21.617 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInfo - 数据已存在 
+15:00:21.618 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:21.618 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:21.617(Timestamp) 
+15:00:21.941 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:21.943 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:21.944 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:22.116 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:22.116 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+15:00:22.116 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==>  Preparing: select policy_insured_id, policy_no, policy_reinsurance_no, br_no, product_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_insured_status, pr_main_person, raltion_main_person, insure_age, insure_id, has_social_security, created_by, created_time, updated_by, updated_time from policy_insured where policy_no = ?  
+15:00:22.117 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:22.118 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - <==      Total: 1 
+15:00:22.118 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 数据已存在 
+15:00:22.118 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:22.119 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:22.118(Timestamp) 
+15:00:22.457 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:22.458 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:22.458 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:22.632 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:22.633 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==>  Preparing: select policy_grade_level_id, policy_no, policy_grade_level_no, policy_grade_level_name, pgl_total_prem, pgl_base_coverage, pgl_covered_area, pgl_des, pgl_special_contract, created_by, created_time, updated_by, updated_time from policy_grade_level where policy_no = ?  
+15:00:22.633 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:22.634 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - <==      Total: 1 
+15:00:22.634 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevel - 数据已存在 
+15:00:22.635 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:22.635 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:22.635(Timestamp) 
+15:00:22.971 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:22.971 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:22.972 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:23.283 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:23.283 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+15:00:23.284 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==>  Preparing: select pgl_product_id, policy_no, policy_grade_level_no, product_id, pgl_product_total_prem, pgl_product_base_coverage, pgl_product_des, pgl_product_special_contract, created_by, created_time, updated_by, updated_time from policy_grade_level_pro where policy_no = ?  
+15:00:23.284 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:23.285 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - <==      Total: 1 
+15:00:23.285 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 数据已存在 
+15:00:23.286 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:23.286 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:23.285(Timestamp) 
+15:00:23.632 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:23.633 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:23.633 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:23.816 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:23.816 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+15:00:23.816 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==>  Preparing: select id, polno, grade_level, plan_code, benefit_code, description, max_amount, subsidy_amount, waiting_period, accident_waiting_period, deductible_days, deductible_type, deductible_amount, pay_rate, punish_pay_rate, limit_type, limit_amount, limit_days, limit_times, created_by, created_date, updated_by, updated_date, product_code, risk_code, prem, amnt, plan_name, get_duty_code, get_duty_name, get_duty_kind, get_duty_kind_name, duty_amnt, risk_name, product_name from tpa_pol_plan_benefit where polno = ?  
+15:00:23.817 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:24.030 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - <==      Total: 6 
+15:00:24.030 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==>  Preparing: select id, polno, certno, insured_id, source, source_desc, product_code, plancode, riskcode, created_by, created_date, updated_by, updated_date from tpa_client_pol_info where polno = ?  
+15:00:24.030 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:24.330 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - <==      Total: 1 
+15:00:24.330 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time , pb_special_contract from policy_benefit where policy_benefit_id = ?  
+15:00:24.331 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 8(String) 
+15:00:24.331 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:24.332 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time, pb_special_contract) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+15:00:24.332 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 8(String), S100000007P002181003728630(String), 1(String), null, null, null, (String), 9031(String), null, null, null, null, null, null, SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), null 
+15:00:24.391 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:24.392 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time , pb_special_contract from policy_benefit where policy_benefit_id = ?  
+15:00:24.392 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 9(String) 
+15:00:24.393 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:24.393 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time, pb_special_contract) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+15:00:24.395 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 9(String), S100000007P002181003728630(String), 1(String), null, null, null, (String), 9031(String), null, null, null, null, null, null, SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), null 
+15:00:24.397 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:24.397 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time , pb_special_contract from policy_benefit where policy_benefit_id = ?  
+15:00:24.398 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 10(String) 
+15:00:24.398 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:24.398 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time, pb_special_contract) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+15:00:24.399 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 10(String), S100000007P002181003728630(String), 1(String), null, null, null, (String), 9031(String), null, null, null, null, null, null, SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), null 
+15:00:24.401 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:24.401 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time , pb_special_contract from policy_benefit where policy_benefit_id = ?  
+15:00:24.401 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 11(String) 
+15:00:24.401 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:24.402 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time, pb_special_contract) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+15:00:24.403 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 11(String), S100000007P002181003728630(String), 1(String), null, null, null, (String), 9031(String), null, null, null, null, null, null, SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), null 
+15:00:24.404 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:24.404 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time , pb_special_contract from policy_benefit where policy_benefit_id = ?  
+15:00:24.404 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 12(String) 
+15:00:24.405 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:24.405 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time, pb_special_contract) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+15:00:24.405 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 12(String), S100000007P002181003728630(String), 1(String), null, null, null, (String), 9031(String), null, null, null, null, null, null, SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), null 
+15:00:24.407 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:24.407 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time , pb_special_contract from policy_benefit where policy_benefit_id = ?  
+15:00:24.407 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 13(String) 
+15:00:24.408 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:24.408 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_benefit (policy_benefit_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, underwriting_time, pay_time, accept_insurance_time, effect_time, maturity_time, policy_benefit_status, created_by, created_time, updated_by, updated_time, pb_special_contract) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+15:00:24.409 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 13(String), S100000007P002181003728630(String), 1(String), null, null, null, (String), 9031(String), null, null, null, null, null, null, SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), SystemTest(String), 2020-04-25 15:00:23.285(Timestamp), null 
+15:00:24.411 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:24.412 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:24.412 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:24.412(Timestamp) 
+15:00:24.761 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:24.762 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:24.762 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:24.933 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:24.933 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+15:00:24.933 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==>  Preparing: select id, polno, grade_level, plan_code, benefit_code, description, max_amount, subsidy_amount, waiting_period, accident_waiting_period, deductible_days, deductible_type, deductible_amount, pay_rate, punish_pay_rate, limit_type, limit_amount, limit_days, limit_times, created_by, created_date, updated_by, updated_date, product_code, risk_code, prem, amnt, plan_name, get_duty_code, get_duty_name, get_duty_kind, get_duty_kind_name, duty_amnt, risk_name, product_name from tpa_pol_plan_benefit where polno = ?  
+15:00:24.934 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:25.119 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - <==      Total: 6 
+15:00:25.119 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==>  Preparing: select id, polno, certno, insured_id, source, source_desc, product_code, plancode, riskcode, created_by, created_date, updated_by, updated_date from tpa_client_pol_info where polno = ?  
+15:00:25.120 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:25.284 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - <==      Total: 1 
+15:00:25.285 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==>  Preparing: select id, polno, insured_id, pol_relation, name, id_type, idno, gender, address, open_bank_code, payno, mobile, email, beneficiary_type, beneficiary_rate, is_legal_beneficiary, created_by, created_date, updated_by, updated_date from tpa_pol_beneficiary where polno = ?  
+15:00:25.285 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:25.506 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - <==      Total: 1 
+15:00:25.506 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==>  Preparing: select id, polno, grade_level, plan_code, description, sum_ins, single_disease_ins, all_life_ins, plan_status, created_by, created_date, updated_by, updated_date, product_code, product_name, risk_code, risk_name from tpa_pol_plan where polno = ?  
+15:00:25.506 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:25.673 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.T.selectByPolNo - <==      Total: 1 
+15:00:25.673 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time from policy_beneficiary where policy_beneficiary_id = ?  
+15:00:25.674 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 8(String) 
+15:00:25.674 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:25.675 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )  
+15:00:25.676 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 8(String), S100000007P002181003728630(String), 1(String), 0(Integer), 3452324(String), 1(String), (String), 9031(String), 1(String), 1(String), 1(Integer), 1(String), 3452324(String), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp) 
+15:00:25.734 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:25.734 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time from policy_beneficiary where policy_beneficiary_id = ?  
+15:00:25.734 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 9(String) 
+15:00:25.735 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:25.735 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )  
+15:00:25.736 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 9(String), S100000007P002181003728630(String), 1(String), 0(Integer), 3452324(String), 1(String), (String), 9031(String), 1(String), 1(String), 1(Integer), 1(String), 3452324(String), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp) 
+15:00:25.738 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:25.738 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time from policy_beneficiary where policy_beneficiary_id = ?  
+15:00:25.739 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 10(String) 
+15:00:25.739 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:25.739 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )  
+15:00:25.740 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 10(String), S100000007P002181003728630(String), 1(String), 0(Integer), 3452324(String), 1(String), (String), 9031(String), 1(String), 1(String), 1(Integer), 1(String), 3452324(String), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp) 
+15:00:25.741 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:25.741 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time from policy_beneficiary where policy_beneficiary_id = ?  
+15:00:25.741 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 11(String) 
+15:00:25.742 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:25.742 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )  
+15:00:25.743 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 11(String), S100000007P002181003728630(String), 1(String), 0(Integer), 3452324(String), 1(String), (String), 9031(String), 1(String), 1(String), 1(Integer), 1(String), 3452324(String), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp) 
+15:00:25.745 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:25.745 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time from policy_beneficiary where policy_beneficiary_id = ?  
+15:00:25.746 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 12(String) 
+15:00:25.746 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:25.747 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )  
+15:00:25.748 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 12(String), S100000007P002181003728630(String), 1(String), 0(Integer), 3452324(String), 1(String), (String), 9031(String), 1(String), 1(String), 1(Integer), 1(String), 3452324(String), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp) 
+15:00:25.752 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:25.753 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==>  Preparing: select policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time from policy_beneficiary where policy_beneficiary_id = ?  
+15:00:25.753 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - ==> Parameters: 13(String) 
+15:00:25.753 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPrimaryKey - <==      Total: 0 
+15:00:25.754 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==>  Preparing: insert into policy_beneficiary (policy_beneficiary_id, policy_no, policy_reinsurance_no, br_no, insure_id, grade_level_id, product_id, duty_id, policy_beneficiary_type, policy_beneficiary_order, policy_beneficiary_rate, insure_relation, customer_id, created_by, created_time, updated_by, updated_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )  
+15:00:25.755 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - ==> Parameters: 13(String), S100000007P002181003728630(String), 1(String), 0(Integer), 3452324(String), 1(String), (String), 9031(String), 1(String), 1(String), 1(Integer), 1(String), 3452324(String), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp), SystemTest(String), 2020-04-25 15:00:24.412(Timestamp) 
+15:00:25.756 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.insert - <==    Updates: 1 
+15:00:25.757 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:25.757 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:25.756(Timestamp) 
+15:00:26.118 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:26.119 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:26.119 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:26.297 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:26.297 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 保存保单计划产品责任表 
+15:00:26.298 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==>  Preparing: select pgl_product_duty_id, policy_no, policy_grade_level_no, product_id, duty_id, pglp_duty_prem, pglp_duty_covrage, subsidy_amount, deductible_days, pglp_duty_waiting_period, pglp_duty_deductibles, pglp_duty_times_deductibles, pglp_duty_lifelong_deductibles, pglp_duty_times_type, pglp_duty_times, pglp_duty_times_day, pglp_duty_total_days, pglp_duty_special_contract, pglp_duty_times_amonut, created_by, created_time, updated_by, updated_time from pgl_product_duty where policy_no = ?  
+15:00:26.298 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - ==> Parameters: S100000007P002181003728630(String) 
+15:00:26.299 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.P.selectByPolNo - <==      Total: 1 
+15:00:26.299 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 数据已存在 
+15:00:26.299 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:26.299 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:26.299(Timestamp) 
+15:00:26.649 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:26.649 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:26.650 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:26.876 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:26.877 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 保存理赔报案和报案信息表 
+15:00:26.877 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select visit_id, channel_case_no, report_organization, policy_no, accident_type, insure_organization, apply_amnt, pic_count, invoice_num, hospital, pathogeny, batch_id, see_doctor_type, created_date, updated_date, isSupplement, supplementRemark, attach, threatened_type, transctionNum, ma_yi_case_no, express_no, received, prepaidAmt, userType, handlePriority, handleRemark, conclusion_basis_type, reOpenType, isError, send_express_no_time , picInfos from visit_record_renbaojian_detail where visit_id = ?  
+15:00:26.877 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:27.054 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:27.055 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==>  Preparing: select claim_info_id, claim_no, report_no, registration_no, policy_organization, claim_report_id, insure_id, exam_time, district_code, accident_type, accident_des, report_time, report_type, exam_estimate_amount, exam_amount, end_date, filing_time, claim_option, claim_result, claim_status, claim_amount, claim_soucre_type, reject_cause_code, reject_cause, operation_flr, created_by, created_time, updated_by, updated_time from claim_info where claim_no = ?  
+15:00:27.055 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==> Parameters: B3093336818435072(String) 
+15:00:27.056 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - <==      Total: 1 
+15:00:27.056 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 数据已存在 
+15:00:27.057 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:27.057 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:27.057(Timestamp) 
+15:00:27.396 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:27.397 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:27.398 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:27.573 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:27.574 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 保存理赔影像信息表 
+15:00:27.574 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==>  Preparing: select claim_info_id, claim_no, report_no, registration_no, policy_organization, claim_report_id, insure_id, exam_time, district_code, accident_type, accident_des, report_time, report_type, exam_estimate_amount, exam_amount, end_date, filing_time, claim_option, claim_result, claim_status, claim_amount, claim_soucre_type, reject_cause_code, reject_cause, operation_flr, created_by, created_time, updated_by, updated_time from claim_info where claim_no = ?  
+15:00:27.574 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==> Parameters: B3093336818435072(String) 
+15:00:27.575 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - <==      Total: 1 
+15:00:27.576 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==>  Preparing: select claim_info_id, claim_no, doc_type_code, doc_sub_type_code, doc_url, doc_no, created_by, created_time, updated_by, updated_time from claim_doc where claim_no = ?  
+15:00:27.576 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==> Parameters: B3093336818435072(String) 
+15:00:27.577 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - <==      Total: 1 
+15:00:27.577 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 数据已存在 
+15:00:27.578 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:27.578 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:27.577(Timestamp) 
+15:00:27.917 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:27.917 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:27.918 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:28.114 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:28.114 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 保存账单信息表 
+15:00:28.114 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.C.selectByDocuno - ==>  Preparing: select seqno, docuno, billId, hospital_code, bill_amt, bill_type, admission_date, discharge_date, hospital_days, hospital_department, all_own_amt, sub_own_amt, yb_look_up_amt, flow_id, doctor_name, settle_id, adjustment_date, is_yb_bill, institutional_id, partner_id, update_poson, update_time, is_delete, receipt_type, receiptno, clinic_date, special_payment, hospital_money, fee_mmount, fee_deductible, wipeout_amount, cash_payment, account_payment, account_balance, medical_payment, total_medical_payment, besideinsurance_money, totalAnnual_payment, insyrance_payment, co_odtnfd, clinicLarge_payment, retirement_payment, disabilitysoldier_payment, civilservants_payment, hospital_mutual_payment, clinic_mutual_payment, total_clinic_mutual_payment, annual_Balance, annual_co_odtnfd, annual_mutual_payment, individual_payment, paymentA, paymentB, payment_from, payment_cap, own_expense, total_individual_payment, receipt_clain_amount, operation_flr, clinic_money, yb_type, feeattic, hospital_name, accno, create_time, pay_rate, deductible_amount, refuseAmt from claim_bill where docuno = ?  
+15:00:28.115 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.C.selectByDocuno - ==> Parameters: 9601000000000001(String) 
+15:00:28.391 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.C.selectByDocuno - <==      Total: 1 
+15:00:28.392 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.C.selectByPrimaryKey - ==>  Preparing: select docuno, insured_id, docu_status, docu_date, exam_date, end_date, is_direct_bill, exam_amt, exam_result, reject_cause, update_poson, update_time, is_delete, accdnt_result, idno, name, id_type, partner_id, reasonCode, sign_date, approve_date, need_material, new_opinion, prepaidPayAmt, autoCheck, pause_mark, terminate, zeron_deductible, caseFormula, death, signAutoCheck, deathProblem , reply_opin, remark from claim_main where docuno = ?  
+15:00:28.392 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.C.selectByPrimaryKey - ==> Parameters: 9601000000000001(String) 
+15:00:28.684 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.C.selectByPrimaryKey - <==      Total: 1 
+15:00:28.684 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==>  Preparing: select claim_info_id, claim_no, report_no, registration_no, policy_organization, claim_report_id, insure_id, exam_time, district_code, accident_type, accident_des, report_time, report_type, exam_estimate_amount, exam_amount, end_date, filing_time, claim_option, claim_result, claim_status, claim_amount, claim_soucre_type, reject_cause_code, reject_cause, operation_flr, created_by, created_time, updated_by, updated_time from claim_info where claim_no = ?  
+15:00:28.685 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==> Parameters: B3093336818435072(String) 
+15:00:28.685 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - <==      Total: 1 
+15:00:28.686 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimInfoId - ==>  Preparing: select claim_bill_id, claim_info_id, claim_bill_no, hospital_code, clinic_date, flow_id, admission_date, discharge_date, hospital_days, hospital_department, medical_insurance_type, claim_result, claim_status, claim_amount, claim_soucre_type, claim_type, reject_cause_code, reject_cause, besideinsurance_money, total_individual_payment, created_by, created_time, updated_by, updated_time, medical_card_number, bill_amt, account_payment, medical_payment, third_party_payment_amount, personal_amount, individual_payment, personal_payment_amount, cash_paid_amount from claim_bill where claim_info_id = ?  
+15:00:28.686 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimInfoId - ==> Parameters: JLaecb55cedd(String) 
+15:00:28.687 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimInfoId - <==      Total: 1 
+15:00:28.687 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 数据已存在 
+15:00:28.687 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:28.688 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:28.687(Timestamp) 
+15:00:29.062 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:29.062 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:29.063 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:29.258 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:29.259 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 保存理赔账户信息表 
+15:00:29.259 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==>  Preparing: select claim_info_id, claim_no, report_no, registration_no, policy_organization, claim_report_id, insure_id, exam_time, district_code, accident_type, accident_des, report_time, report_type, exam_estimate_amount, exam_amount, end_date, filing_time, claim_option, claim_result, claim_status, claim_amount, claim_soucre_type, reject_cause_code, reject_cause, operation_flr, created_by, created_time, updated_by, updated_time from claim_info where claim_no = ?  
+15:00:29.259 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==> Parameters: B3093336818435072(String) 
+15:00:29.260 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - <==      Total: 1 
+15:00:29.261 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimInfoId - ==>  Preparing: select account_id, claim_info_id, account_name, account_no, bank_no, pay_amonut, pay_time, created_by, created_time, updated_by, updated_time from claim_account_info where claim_info_id = ?  
+15:00:29.262 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimInfoId - ==> Parameters: JLaecb55cedd(String) 
+15:00:29.263 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimInfoId - <==      Total: 1 
+15:00:29.263 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 数据已存在 
+15:00:29.263 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record WHERE finish_time >= ?  
+15:00:29.263 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - ==> Parameters: 2020-04-25 15:00:29.263(Timestamp) 
+15:00:29.612 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.search - <==      Total: 0 
+15:00:29.613 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==>  Preparing: select id, openid, apply_type, claim_type, visit_time, accident_time, person_id, image_id, bank_id, status, amount, pay_time, pay_type, card_id, claim_time, apply_time, update_time, reply_time, finish_time, opt_status, remark, zip_path, update_by, hospital_code, docuno, client_pol_ids, CPayResult, comment, relationship_id, process_type, apply_person_id, source, case_type, acci_desci, acci_place, to_anxin, partner, initialReviewTime, create_time, initial_review_end_time, apply_by, review_by, pushStatus, pdfUrl, pause_mark, calFailType, calculate_channel, excessExamineFlag, deathExamineFlag, problem, is_artificial, artificial_by, hang_flag, handleStatus, needPushDeathRemarkFlag, approve_by, is_sync_case_attr from visit_record where id = ?  
+15:00:29.613 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - ==> Parameters: B3093336818435072(String) 
+15:00:29.802 [http-nio-8080-exec-1] DEBUG c.j.m.m.s.V.selectByPrimaryKey - <==      Total: 1 
+15:00:29.802 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 保存调查表 
+15:00:29.803 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==>  Preparing: select claim_investigation_info_id, claim_no, apply_time, description, user_id, reply, reply_time, investigation_conclusion, investigation_unit, investigation_scope, created_by, created_time, updated_by, updated_time from claim_investigation_info where claim_no = ?  
+15:00:29.803 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - ==> Parameters: B3093336818435072(String) 
+15:00:29.804 [http-nio-8080-exec-1] DEBUG c.j.m.m.p.C.selectByClaimNo - <==      Total: 1 
+15:00:29.804 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 数据已存在 
+15:00:29.863 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+15:00:29.877 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{"code":200,"msg":"","count":1,"total":0,"pages":0,"page_size":0,"current_page":0,"map":{},"results" (truncated)...] 
+15:00:29.900 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK 
+15:00:34.574 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+15:00:34.575 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+15:00:34.580 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+15:00:35.325 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+15:00:35.329 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+15:00:35.332 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
+15:02:15.960 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 48922 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+15:02:15.962 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+15:02:16.892 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+15:02:16.893 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+15:02:17.424 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+15:02:17.431 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+15:02:17.431 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+15:02:17.489 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+15:02:17.490 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+15:02:17.490 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1485 ms 
+15:02:19.166 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+15:02:19.207 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+15:02:19.221 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+15:02:19.291 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+15:02:19.314 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+15:02:19.322 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+15:02:19.350 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+15:02:19.490 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+15:02:19.578 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+15:02:19.582 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 3.89 seconds (JVM running for 4.58) 
+15:04:33.469 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:04:33.470 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:04:33.470 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+15:04:33.484 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+15:04:33.484 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 14 ms 
+15:04:33.490 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+15:04:33.494 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+15:04:33.536 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:04:36.298 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:04:37.123 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+15:04:37.128 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+15:04:37.129 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:04:37.129 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+15:04:37.334 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:04:37.848 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+15:04:37.850 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 数据已存在 
+15:04:38.411 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+15:04:38.413 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 数据已存在 
+15:04:39.164 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+15:04:39.166 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 数据已存在 
+15:04:39.712 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInfo - 数据已存在 
+15:04:40.263 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+15:04:40.265 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 数据已存在 
+15:04:40.845 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevel - 数据已存在 
+15:04:41.387 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+15:04:41.390 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 数据已存在 
+15:04:41.902 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+15:04:42.277 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:04:42.278 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:04:42.278 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:04:42.279 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:04:42.280 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:04:42.281 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:04:42.810 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+15:04:43.501 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:04:43.503 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:04:43.504 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:04:43.506 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:04:43.506 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:04:43.507 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:04:44.043 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 保存保单计划产品责任表 
+15:04:44.044 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 数据已存在 
+15:04:44.697 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 保存理赔报案和报案信息表 
+15:04:44.906 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 数据已存在 
+15:04:45.501 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 保存理赔影像信息表 
+15:04:45.504 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 数据已存在 
+15:04:46.089 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 保存账单信息表 
+15:04:46.458 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 数据已存在 
+15:04:47.022 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 保存理赔账户信息表 
+15:04:47.024 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 数据已存在 
+15:04:47.554 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 保存调查表 
+15:04:47.556 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 数据已存在 
+15:04:47.611 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+15:04:47.621 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{"code":200,"msg":"","count":1,"total":0,"pages":0,"page_size":0,"current_page":0,"map":{},"results" (truncated)...] 
+15:04:47.642 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK 
+15:25:00.216 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+15:25:00.217 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+15:25:00.222 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+15:25:00.228 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+15:25:00.230 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+15:25:00.233 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
+15:25:07.242 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 49085 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+15:25:07.244 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+15:25:07.987 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+15:25:07.988 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+15:25:08.450 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+15:25:08.463 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+15:25:08.463 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+15:25:08.567 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+15:25:08.567 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+15:25:08.567 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1285 ms 
+15:25:10.229 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+15:25:10.267 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+15:25:10.277 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+15:25:10.352 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+15:25:10.374 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+15:25:10.384 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+15:25:10.412 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+15:25:10.543 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+15:25:10.622 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+15:25:10.625 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 3.652 seconds (JVM running for 4.341) 
+15:25:39.638 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:25:39.639 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:25:39.639 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+15:25:39.647 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+15:25:39.648 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms 
+15:25:39.658 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+15:25:39.662 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+15:25:39.703 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:25:42.449 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:25:43.243 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+15:25:43.268 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+15:25:43.273 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:25:43.274 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+15:25:43.473 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:25:44.039 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+15:25:44.041 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 数据已存在 
+15:25:44.595 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+15:25:44.596 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 数据已存在 
+15:25:45.377 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+15:25:45.380 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 数据已存在 
+15:25:45.909 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInfo - 数据已存在 
+15:25:46.529 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+15:25:46.532 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 数据已存在 
+15:25:47.120 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevel - 数据已存在 
+15:25:47.683 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+15:25:47.685 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 数据已存在 
+15:25:48.263 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+15:25:48.610 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:25:48.611 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:25:48.612 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:25:48.614 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:25:48.615 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:25:48.617 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:25:49.261 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+15:25:50.124 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:25:50.125 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:25:50.126 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:25:50.127 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:25:50.128 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:25:50.128 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:25:50.705 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 保存保单计划产品责任表 
+15:25:50.707 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 数据已存在 
+15:25:51.297 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 保存理赔报案和报案信息表 
+15:25:51.532 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 数据已存在 
+15:25:52.243 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 保存理赔影像信息表 
+15:25:52.245 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 数据已存在 
+15:25:52.842 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 保存账单信息表 
+15:25:53.175 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 数据已存在 
+15:25:53.669 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 保存理赔账户信息表 
+15:25:54.206 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 保存调查表 
+15:25:54.207 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 数据已存在 
+15:25:54.258 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+15:25:54.268 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{"code":200,"msg":"","count":1,"total":0,"pages":0,"page_size":0,"current_page":0,"map":{},"results" (truncated)...] 
+15:25:54.287 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK 
+15:25:58.933 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+15:25:58.934 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+15:25:58.939 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+15:25:58.993 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+15:25:58.996 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+15:25:59.001 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
+15:27:17.928 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 49105 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+15:27:17.930 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+15:27:18.580 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+15:27:18.581 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+15:27:18.967 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+15:27:18.973 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+15:27:18.973 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+15:27:19.023 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+15:27:19.023 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+15:27:19.023 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1061 ms 
+15:27:20.515 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+15:27:20.543 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+15:27:20.553 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+15:27:20.611 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+15:27:20.637 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+15:27:20.645 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+15:27:20.663 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+15:27:20.749 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+15:27:20.856 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+15:27:20.860 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 3.15 seconds (JVM running for 3.751) 
+15:27:56.618 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:27:56.619 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:27:56.619 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+15:27:56.631 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+15:27:56.631 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 12 ms 
+15:27:56.637 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+15:27:56.642 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+15:27:56.680 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:27:59.722 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:28:00.831 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+15:28:00.836 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+15:28:00.838 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:28:00.838 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+15:28:01.020 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:28:01.562 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+15:28:01.564 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 数据已存在 
+15:28:02.139 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+15:28:02.141 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 数据已存在 
+15:28:02.978 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+15:28:02.981 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 数据已存在 
+15:28:03.567 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInfo - 数据已存在 
+15:28:04.120 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+15:28:04.121 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 数据已存在 
+15:28:04.648 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevel - 数据已存在 
+15:28:05.243 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+15:28:05.246 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 数据已存在 
+15:28:05.788 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+15:28:06.215 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:28:06.217 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:28:06.218 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:28:06.219 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:28:06.220 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:28:06.221 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:28:06.846 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+15:28:07.718 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:28:07.719 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:28:07.720 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:28:07.721 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:28:07.722 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:28:07.722 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:28:08.339 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 保存保单计划产品责任表 
+15:28:08.341 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 数据已存在 
+15:28:08.945 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 保存理赔报案和报案信息表 
+15:28:09.187 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 数据已存在 
+15:28:09.726 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 保存理赔影像信息表 
+15:28:09.732 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 数据已存在 
+15:28:10.302 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 保存账单信息表 
+15:28:10.644 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 数据已存在 
+15:28:11.266 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 保存理赔账户信息表 
+15:28:11.879 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 保存调查表 
+15:28:11.881 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 数据已存在 
+15:28:11.928 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+15:28:11.935 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{"code":200,"msg":"","count":1,"total":0,"pages":0,"page_size":0,"current_page":0,"map":{},"results" (truncated)...] 
+15:28:11.951 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK 
+15:30:07.384 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+15:30:07.385 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+15:30:07.393 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+15:30:07.401 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+15:30:07.407 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+15:30:07.417 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
+15:30:13.273 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 49134 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+15:30:13.275 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+15:30:13.924 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+15:30:13.925 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+15:30:14.294 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+15:30:14.300 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+15:30:14.300 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+15:30:14.350 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+15:30:14.350 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+15:30:14.350 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1043 ms 
+15:30:15.868 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+15:30:15.895 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+15:30:15.906 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+15:30:15.974 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+15:30:15.995 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+15:30:16.002 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+15:30:16.020 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+15:30:16.113 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+15:30:16.209 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+15:30:16.214 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 3.168 seconds (JVM running for 3.808) 
+15:30:30.621 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:30:30.622 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:30:30.622 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+15:30:30.632 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+15:30:30.632 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms 
+15:30:30.638 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+15:30:30.641 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+15:30:30.674 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:30:34.052 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:30:35.498 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+15:30:35.503 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+15:30:35.506 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:30:35.507 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+15:30:35.797 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+15:30:36.962 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+15:30:36.963 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerAction - 数据已存在 
+15:30:37.561 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+15:30:37.563 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerRelationship - 数据已存在 
+15:30:38.796 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+15:30:38.798 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 数据已存在 
+15:30:39.361 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInfo - 数据已存在 
+15:30:39.960 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+15:30:39.963 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInsured - 数据已存在 
+15:30:40.497 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevel - 数据已存在 
+15:30:41.334 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+15:30:41.336 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 数据已存在 
+15:30:41.897 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+15:30:42.277 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:30:42.278 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:30:42.279 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:30:42.280 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:30:42.280 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:30:42.281 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据已存在 
+15:30:42.975 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+15:30:43.841 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:30:43.844 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:30:43.845 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:30:43.846 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:30:43.847 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:30:43.848 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 数据库已存在 
+15:30:44.426 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePglProductDuty - 保存保单计划产品责任表 
+15:30:44.427 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePglProductDuty - 数据已存在 
+15:30:44.998 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimInfo - 保存理赔报案和报案信息表 
+15:30:45.183 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimInfo - 数据已存在 
+15:30:45.693 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimDoc - 保存理赔影像信息表 
+15:30:45.695 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimDoc - 数据已存在 
+15:30:46.317 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimBill - 保存账单信息表 
+15:30:46.677 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimBill - 数据已存在 
+15:30:47.281 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 保存理赔账户信息表 
+15:30:47.900 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 保存调查表 
+15:30:47.902 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 数据已存在 
+15:30:47.945 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+15:30:47.952 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{"code":200,"msg":"","count":1,"total":0,"pages":0,"page_size":0,"current_page":0,"map":{},"results" (truncated)...] 
+15:30:47.968 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK 
+16:07:04.426 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m56s774ms). 
+16:07:05.888 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=21m56s779ms). 
+16:15:00.191 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m52s192ms). 
+16:15:01.654 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=6m52s190ms). 
+16:37:28.180 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m48s405ms). 
+16:37:29.643 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=20m48s404ms). 
+16:38:51.486 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s294ms). 
+16:38:52.943 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=53s291ms). 
+16:40:06.512 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s26ms). 
+16:40:07.971 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=45s24ms). 
+16:52:15.842 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m9s330ms). 
+16:52:17.298 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=12m9s327ms). 
+16:53:39.537 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s684ms). 
+16:53:40.995 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=53s691ms). 
+16:57:55.194 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m38s480ms). 
+16:57:56.650 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=2m38s476ms). 
+17:27:12.463 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m47s262ms). 
+17:27:13.911 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=28m47s257ms). 
+17:27:37.096 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+17:27:37.098 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+17:27:37.105 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+17:27:37.113 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+17:27:37.116 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+17:27:37.123 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
