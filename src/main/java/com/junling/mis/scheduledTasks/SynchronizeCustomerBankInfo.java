@@ -1,12 +1,11 @@
 package com.junling.mis.scheduledTasks;
 
-
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.mapper.primary.CustomerBankInfoMapper;
-import com.junling.mis.mapper.secondary.VisitBankEntityMapper;
+import com.junling.mis.mapper.secondary.ClaimAccountInfoEntity1Mapper;
 import com.junling.mis.mapper.secondary.VisitRecordEntityMapper;
 import com.junling.mis.model.primary.CustomerBankInfo;
-import com.junling.mis.model.secondary.VisitBankEntity;
+import com.junling.mis.model.secondary.ClaimAccountInfoEntity;
 import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +24,7 @@ public class SynchronizeCustomerBankInfo {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
-    VisitBankEntityMapper visitBankEntityMapper;
+    ClaimAccountInfoEntity1Mapper claimAccountInfoEntity1Mapper;
 
     @Autowired
     CustomerBankInfoMapper customerBankInfoMapper;
@@ -39,7 +38,7 @@ public class SynchronizeCustomerBankInfo {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            VisitBankEntity visitBankEntity = visitBankEntityMapper.selectByOpenId(record.getOpenid());
+            ClaimAccountInfoEntity claimAccountInfoEntity = claimAccountInfoEntity1Mapper.selectByDocuno(record.getId());
             try {
                 LOG.info("保存客户银行信息表");
                 if (customerBankInfoMapper.selectByCustomerNo(record.getApplyPersonId()) != null) {
@@ -47,11 +46,11 @@ public class SynchronizeCustomerBankInfo {
                 } else {
                     CustomerBankInfo customerBankInfo = new CustomerBankInfo();
 
-                    customerBankInfo.setAccountId(String.valueOf(visitBankEntity.getId()));
+                    customerBankInfo.setAccountId(claimAccountInfoEntity.getId());
                     customerBankInfo.setCustomerNo(record.getApplyPersonId());
-                    customerBankInfo.setAccountName(visitBankEntity.getName());
-                    customerBankInfo.setAccountNo(visitBankEntity.getAccount());
-                    customerBankInfo.setBankNo(visitBankEntity.getBank());
+                    customerBankInfo.setAccountName(claimAccountInfoEntity.getAccountName());
+                    customerBankInfo.setAccountNo(claimAccountInfoEntity.getAccountNo());
+                    customerBankInfo.setBankNo(claimAccountInfoEntity.getBankno());
 
                     customerBankInfo.setCreatedBy("SystemTest");
                     customerBankInfo.setCreatedTime(date);

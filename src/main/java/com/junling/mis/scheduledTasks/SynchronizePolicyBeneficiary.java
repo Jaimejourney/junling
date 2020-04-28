@@ -24,6 +24,15 @@ public class SynchronizePolicyBeneficiary {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
+    VisitPersonEntityMapper visitPersonEntityMapper;
+
+    @Autowired
+    TpaClientEntityMapper tpaClientEntityMapper;
+
+    @Autowired
+    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
+
+    @Autowired
     PolicyInfoMapper policyInfoMapper;
 
     @Autowired
@@ -49,14 +58,20 @@ public class SynchronizePolicyBeneficiary {
         VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
         list.add(visitRecordEntity);
 
+
+
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+
             try {
                 LOG.info("保存受益人表");
-                List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(record.getClientPolIds());
-                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
-                TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
-                TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
+                List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                 for (int j = 0; j < tpaPolPlanBenefitEntity.size(); j++) {
                     if(policyBeneficiaryMapper.selectByPrimaryKey(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId())) != null){
@@ -65,7 +80,7 @@ public class SynchronizePolicyBeneficiary {
                         PolicyBeneficiary policyBeneficiary = new PolicyBeneficiary();
 //                    String policyBeneficiaryId = GetUUID32.getUUID32();
                         policyBeneficiary.setPolicyBeneficiaryId(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId()));
-                        policyBeneficiary.setPolicyNo(record.getClientPolIds());
+                        policyBeneficiary.setPolicyNo(tpaPolClientRelationEntity.getPolno());
                         policyBeneficiary.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
                         //待加
                         policyBeneficiary.setBrNo(0);

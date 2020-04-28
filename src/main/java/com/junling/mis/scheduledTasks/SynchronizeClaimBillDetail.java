@@ -24,6 +24,15 @@ public class SynchronizeClaimBillDetail {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
+    VisitPersonEntityMapper visitPersonEntityMapper;
+
+    @Autowired
+    TpaClientEntityMapper tpaClientEntityMapper;
+
+    @Autowired
+    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
+
+    @Autowired
     ClaimBillEntityMapper claimBillEntityMapper;
 
     @Autowired
@@ -53,14 +62,17 @@ public class SynchronizeClaimBillDetail {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
             try {
                 LOG.info("保存账单明细信息表");
                 ClaimBillEntity claimBillEntity = claimBillEntityMapper.selectByDocuno(record.getDocuno());
                 ClaimBillFeeEntity claimBillFeeEntity = claimBillFeeEntityMapper.selectByDocuno(record.getDocuno());
                 ClaimLiabCalEntity claimLiabCalEntity = claimLiabCalEntityMapper.selectByDocuno(record.getDocuno());
 
-                if (claimBillDetailMapper.selectByPolicyNo(record.getClientPolIds()) != null) {
-                    LOG.info("数据" + record.getClientPolIds() + "已存在");
+                if (claimBillDetailMapper.selectByPolicyNo(tpaPolClientRelationEntity.getPolno()) != null) {
+                    LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
                     ClaimBillDetail claimBillDetail = new ClaimBillDetail();
                     String claimBillDetailId = GetUUID32.getUUID32();
@@ -72,7 +84,7 @@ public class SynchronizeClaimBillDetail {
                     claimBillDetail.setPaymentItemName(claimBillFeeEntity.getFeeitemname());
                     claimBillDetail.setPaymentItemType(claimBillFeeEntity.getFeeitemtype());
 
-                    claimBillDetail.setPolicyNo(record.getClientPolIds());
+                    claimBillDetail.setPolicyNo(tpaPolClientRelationEntity.getPolno());
                     claimBillDetail.setPolicyReinsuranceNo("待加");
 
                     claimBillDetail.setProductId("待加");

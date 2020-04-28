@@ -25,6 +25,15 @@ public class SynchronizePolicyGradeLevel {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
+    VisitPersonEntityMapper visitPersonEntityMapper;
+
+    @Autowired
+    TpaClientEntityMapper tpaClientEntityMapper;
+
+    @Autowired
+    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
+
+    @Autowired
     PolicyBeneficiaryMapper policyBeneficiaryMapper;
 
     @Autowired
@@ -49,17 +58,20 @@ public class SynchronizePolicyGradeLevel {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
-            if (policyGradeLevelMapper.selectByPolNo(record.getClientPolIds()) != null) {
-                LOG.info("数据" + record.getClientPolIds() + "已存在");
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+            if (policyGradeLevelMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
+                LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
             } else {
-                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(record.getClientPolIds());
+                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
                 PlanBenefitEntity planBenefitEntity = planBenefitEntityMapper.selectByGradeLevel(tpaPolGradeLevelEntity.getGradeLevel());
                 PlanPremEntity planPremEntity = planPremEntityMapper.selectByPlanCode(planBenefitEntity.getPlanCode());
 
                 PolicyGradeLevel policyGradeLevel = new PolicyGradeLevel();
                 String policyGradeLevelId = GetUUID32.getUUID32();
                 policyGradeLevel.setPolicyGradeLevelId(policyGradeLevelId);
-                policyGradeLevel.setPolicyNo(record.getClientPolIds());
+                policyGradeLevel.setPolicyNo(tpaPolClientRelationEntity.getPolno());
                 policyGradeLevel.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
                 policyGradeLevel.setPolicyGradeLevelName(tpaPolGradeLevelEntity.getDescription());
                 policyGradeLevel.setPglCoveredArea(tpaPolGradeLevelEntity.getCoveredArea());

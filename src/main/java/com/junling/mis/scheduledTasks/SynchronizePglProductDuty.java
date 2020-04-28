@@ -25,6 +25,15 @@ public class SynchronizePglProductDuty {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
+    VisitPersonEntityMapper visitPersonEntityMapper;
+
+    @Autowired
+    TpaClientEntityMapper tpaClientEntityMapper;
+
+    @Autowired
+    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
+
+    @Autowired
     TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
 
     @Autowired
@@ -49,14 +58,18 @@ public class SynchronizePglProductDuty {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+
             try {
                 LOG.info("保存保单计划产品责任表");
-                if (pglProductDutyMapper.selectByPolNo(record.getClientPolIds()) != null) {
-                    LOG.info("数据" + record.getClientPolIds() + "已存在");
+                if (pglProductDutyMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
+                    LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-                    TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(record.getClientPolIds());
-                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(record.getClientPolIds());
-                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
+                    TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                     PglProductDuty pglProductDuty = new PglProductDuty();
                     String pglProductDutyId = GetUUID32.getUUID32();

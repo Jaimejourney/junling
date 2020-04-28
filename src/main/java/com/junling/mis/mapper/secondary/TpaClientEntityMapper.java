@@ -13,6 +13,8 @@ public interface TpaClientEntityMapper {
 
     TpaClientEntity selectByMainInsuredId(String mainInsuredId);
 
+    TpaClientEntity selectByIdNo(String idNo);
+
     int updateByPrimaryKeySelective(TpaClientEntity record);
 
     int updateByPrimaryKey(TpaClientEntity record);

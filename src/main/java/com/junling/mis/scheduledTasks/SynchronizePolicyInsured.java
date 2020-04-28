@@ -24,6 +24,15 @@ public class SynchronizePolicyInsured {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
+    VisitPersonEntityMapper visitPersonEntityMapper;
+
+    @Autowired
+    TpaClientEntityMapper tpaClientEntityMapper;
+
+    @Autowired
+    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
+
+    @Autowired
     TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
@@ -41,12 +50,16 @@ public class SynchronizePolicyInsured {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
             try {
                 LOG.info("保存被保人表");
-                if (policyInsuredMapper.selectByPolNo(record.getClientPolIds()) != null) {
-                    LOG.info("数据" + record.getClientPolIds() + "已存在");
+                if (policyInsuredMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
+                    LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(record.getClientPolIds());
+
+                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
                     PolicyInsured policyInsured = new PolicyInsured();
                     String policyInsuredId = GetUUID32.getUUID32();
                     policyInsured.setPolicyInsuredId(policyInsuredId);

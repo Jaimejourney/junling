@@ -24,6 +24,15 @@ public class SynchronizePolicyInfo {
     VisitRecordEntityMapper visitRecordEntityMapper;
 
     @Autowired
+    VisitPersonEntityMapper visitPersonEntityMapper;
+
+    @Autowired
+    TpaClientEntityMapper tpaClientEntityMapper;
+
+    @Autowired
+    TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
+
+    @Autowired
     TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
@@ -41,18 +50,21 @@ public class SynchronizePolicyInfo {
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
+            VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
+            TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
             try {
-                if (policyInfoMapper.selectByPolNo(record.getClientPolIds()) != null) {
-                    LOG.info("数据" + record.getClientPolIds() + "已存在");
+                if (policyInfoMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
+                    LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-                    TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(record.getClientPolIds());
-                    TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(record.getClientPolIds());
+                    TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                     LOG.info("报单表");
                     PolicyInfo policyInfo = new PolicyInfo();
                     String policyInfoId = GetUUID32.getUUID32();
                     policyInfo.setPolicyInfoId(policyInfoId);
-                    policyInfo.setPolicyNo(record.getClientPolIds());
+                    policyInfo.setPolicyNo(tpaPolClientRelationEntity.getPolno());
                     policyInfo.setProductId(tpaPolPlanEntity.getProductCode());
                     policyInfo.setPolicyOrganization(record.getPartner());
                     if (tpaPolMainEntity.getOldPolno() != null) {
