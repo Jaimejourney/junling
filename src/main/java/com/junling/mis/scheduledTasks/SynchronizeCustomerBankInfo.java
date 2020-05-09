@@ -33,7 +33,7 @@ public class SynchronizeCustomerBankInfo {
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {

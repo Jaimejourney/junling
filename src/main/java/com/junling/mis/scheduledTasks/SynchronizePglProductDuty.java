@@ -53,29 +53,29 @@ public class SynchronizePglProductDuty {
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(tpaClientEntity.getId());
 
             try {
                 LOG.info("保存保单计划产品责任表");
                 if (pglProductDutyMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-                    TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+//                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
                     TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                     PglProductDuty pglProductDuty = new PglProductDuty();
                     String pglProductDutyId = GetUUID32.getUUID32();
                     pglProductDuty.setPglProductDutyId(pglProductDutyId);
-                    pglProductDuty.setPolicyNo(tpaPolBeneficiaryEntity.getPolno());
-                    pglProductDuty.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
+                    pglProductDuty.setPolicyNo(tpaPolClientRelationEntity.getPolno());
+//                    pglProductDuty.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
+                    pglProductDuty.setPolicyGradeLevelNo(0);
                     pglProductDuty.setProductId(tpaClientPolInfoEntity.getProductCode());
                     //待定
                     pglProductDuty.setPglpDutySpecialContract("待加");

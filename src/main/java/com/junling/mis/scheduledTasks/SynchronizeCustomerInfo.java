@@ -44,7 +44,7 @@ public class SynchronizeCustomerInfo {
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
 
 
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
@@ -57,14 +57,18 @@ public class SynchronizeCustomerInfo {
                     LOG.info("开始保存申请人");
                     String applyCustomerNo = GetUUID32.getUUID32();
                     customerVisitApplyPersonEntity.setCustomerNo(applyCustomerNo);
-                    //姓名
                     customerVisitApplyPersonEntity.setCustomerName(visitApplyPersonEntity.getName());
-                    //手机号
+                    customerVisitApplyPersonEntity.setNickName("待定");
+                    customerVisitApplyPersonEntity.setCustomerLevelCode("待定");
+                    customerVisitApplyPersonEntity.setCustomerScore("0");
                     customerVisitApplyPersonEntity.setCustomerPhoneNo(visitApplyPersonEntity.getPhone());
-                    //邮箱
-                    customerVisitApplyPersonEntity.setEmail(visitApplyPersonEntity.getEmail());
-                    //证件号
+                    customerVisitApplyPersonEntity.setBirthDistrictCode("待定");
+                    customerVisitApplyPersonEntity.setDistrictCode("待定");
+
                     customerVisitApplyPersonEntity.setIdNo(visitApplyPersonEntity.getCardId());
+                    customerVisitApplyPersonEntity.setIdType("待定");
+                    customerVisitApplyPersonEntity.setEmail(visitApplyPersonEntity.getEmail());
+                    customerVisitApplyPersonEntity.setAddress("待定");
                     customerVisitApplyPersonEntity.setCreatedBy("system test");
                     customerVisitApplyPersonEntity.setCreatedTime(date);
                     customerVisitApplyPersonEntity.setUpdatedBy("system test");
@@ -85,14 +89,18 @@ public class SynchronizeCustomerInfo {
                 } else {
                     String customerNo = GetUUID32.getUUID32();
                     customerVisitPersonEntity.setCustomerNo(customerNo);
-                    //姓名
                     customerVisitPersonEntity.setCustomerName(visitPersonEntity.getName());
-                    //手机号
+                    customerVisitPersonEntity.setNickName("待定");
+                    customerVisitPersonEntity.setCustomerLevelCode("待定");
+                    customerVisitPersonEntity.setCustomerScore("0");
                     customerVisitPersonEntity.setCustomerPhoneNo(visitPersonEntity.getPhone());
-                    //邮箱
-                    customerVisitPersonEntity.setEmail(visitPersonEntity.getEmail());
-                    //证件号
+                    customerVisitPersonEntity.setBirthDistrictCode("待定");
+                    customerVisitPersonEntity.setDistrictCode("待定");
+
                     customerVisitPersonEntity.setIdNo(visitPersonEntity.getCardId());
+                    customerVisitPersonEntity.setIdType("待定");
+                    customerVisitPersonEntity.setEmail(visitPersonEntity.getEmail());
+                    customerVisitPersonEntity.setAddress("待定");
                     customerVisitPersonEntity.setCreatedBy("system test");
                     customerVisitPersonEntity.setCreatedTime(date);
                     customerVisitPersonEntity.setUpdatedBy("system test");

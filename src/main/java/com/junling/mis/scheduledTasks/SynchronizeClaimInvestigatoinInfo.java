@@ -33,7 +33,7 @@ public class SynchronizeClaimInvestigatoinInfo {
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
 

@@ -12,7 +12,7 @@ public interface ClaimBillDetailMapper {
 
     ClaimBillDetail selectByPrimaryKey(ClaimBillDetailKey key);
 
-    ClaimBillDetail selectByPolicyNo(String policyNo);
+    ClaimBillDetail selectByClaimBillDetailId(String claimBillDetailId);
 
     int updateByPrimaryKeySelective(ClaimBillDetail record);
 

@@ -53,34 +53,38 @@ public class SynchronizePolicyGradeLevel {
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(tpaClientEntity.getId());
             if (policyGradeLevelMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                 LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
             } else {
-                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                PlanBenefitEntity planBenefitEntity = planBenefitEntityMapper.selectByGradeLevel(tpaPolGradeLevelEntity.getGradeLevel());
-                PlanPremEntity planPremEntity = planPremEntityMapper.selectByPlanCode(planBenefitEntity.getPlanCode());
+//                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+//                PlanBenefitEntity planBenefitEntity = planBenefitEntityMapper.selectByGradeLevel(tpaPolGradeLevelEntity.getGradeLevel());
+//                PlanPremEntity planPremEntity = planPremEntityMapper.selectByPlanCode(planBenefitEntity.getPlanCode());
 
                 PolicyGradeLevel policyGradeLevel = new PolicyGradeLevel();
                 String policyGradeLevelId = GetUUID32.getUUID32();
                 policyGradeLevel.setPolicyGradeLevelId(policyGradeLevelId);
                 policyGradeLevel.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                policyGradeLevel.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-                policyGradeLevel.setPolicyGradeLevelName(tpaPolGradeLevelEntity.getDescription());
-                policyGradeLevel.setPglCoveredArea(tpaPolGradeLevelEntity.getCoveredArea());
+//                policyGradeLevel.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
+//                policyGradeLevel.setPolicyGradeLevelName(tpaPolGradeLevelEntity.getDescription());
+//                policyGradeLevel.setPglCoveredArea(tpaPolGradeLevelEntity.getCoveredArea());
+                policyGradeLevel.setPolicyGradeLevelNo(0);
+                policyGradeLevel.setPolicyGradeLevelName("待加");
+                policyGradeLevel.setPglCoveredArea("待加");
 
 
                 //待定
 //                policyGradeLevel.setPglTotalPrem(Integer.valueOf(planPremEntity.getPrem()));
                 policyGradeLevel.setPglTotalPrem(1);
-                policyGradeLevel.setPglBaseCoverage(Math.toIntExact(planBenefitEntity.getDeductibleAmout()));
+//                policyGradeLevel.setPglBaseCoverage(Math.toIntExact(planBenefitEntity.getDeductibleAmout()));
+                policyGradeLevel.setPglBaseCoverage(1);
 
                 policyGradeLevel.setCreatedBy("SystemTest");
                 policyGradeLevel.setCreatedTime(date);

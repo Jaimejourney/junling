@@ -45,28 +45,28 @@ public class SynchronizePolicyInsured {
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(tpaClientEntity.getId());
             try {
                 LOG.info("保存被保人表");
                 if (policyInsuredMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-
                     TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+
                     PolicyInsured policyInsured = new PolicyInsured();
                     String policyInsuredId = GetUUID32.getUUID32();
                     policyInsured.setPolicyInsuredId(policyInsuredId);
-                    policyInsured.setPolicyNo(tpaClientPolInfoEntity.getPolno());
+                    policyInsured.setPolicyNo(tpaPolClientRelationEntity.getPolno());
                     policyInsured.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
                     policyInsured.setProductId(tpaClientPolInfoEntity.getProductCode());
-                    policyInsured.setInsureId(tpaClientPolInfoEntity.getInsuredId());
+                    policyInsured.setInsureId(String.valueOf(record.getPersonId()));
 
                     policyInsured.setCreatedBy("SystemTest");
                     policyInsured.setCreatedTime(date);

@@ -8,6 +8,7 @@ import com.junling.mis.mapper.secondary.ClaimAccountInfoEntity1Mapper;
 import com.junling.mis.mapper.secondary.VisitRecordEntityMapper;
 import com.junling.mis.model.primary.ClaimAccountInfo;
 import com.junling.mis.model.primary.ClaimInfo;
+import com.junling.mis.model.secondary.ClaimAccountInfoEntity;
 import com.junling.mis.model.secondary.VisitRecordEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,11 +42,13 @@ public class SynchronizeClaimAccountInfo {
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
+
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
+            ClaimAccountInfoEntity claimAccountInfoEntity = claimAccountInfoEntity1Mapper.selectByDocuno(record.getId());
             try {
                 LOG.info("保存理赔账户信息表");
                 ClaimInfo claimInfo = claimInfoMapper.selectByClaimNo(record.getId());
@@ -56,7 +59,10 @@ public class SynchronizeClaimAccountInfo {
                     String accountId = GetUUID32.getUUID32();
                     claimAccountInfo.setAccountId(accountId);
                     claimAccountInfo.setClaimInfoId(claimInfo.getClaimInfoId());
-                    claimAccountInfo.setAccountName(record.getDocuno());
+                    claimAccountInfo.setAccountName(claimAccountInfoEntity.getAccountName());
+                    claimAccountInfo.setAccountNo(claimAccountInfoEntity.getAccountNo());
+                    claimAccountInfo.setBankNo(claimAccountInfoEntity.getBankno());
+                    //支付金额和支付时间
 
                     claimAccountInfo.setCreatedBy("SystemTest");
                     claimAccountInfo.setCreatedTime(date);

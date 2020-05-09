@@ -11,7 +11,7 @@ public interface TpaPolClientRelationEntityMapper {
 
     TpaPolClientRelationEntity selectByPrimaryKey(Integer id);
 
-    TpaPolClientRelationEntity selectByInsuredId(Integer insuredId);
+    TpaPolClientRelationEntity selectByInsuredId(Long insuredId);
 
     int updateByPrimaryKeySelective(TpaPolClientRelationEntity record);
 

@@ -21,10 +21,10 @@ public class DatetimeHelper {
     public static Date scheduledDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        date = calendar.getTime();
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(date);
+//        calendar.add(Calendar.DAY_OF_MONTH, -1);
+//        date = calendar.getTime();
         return date;
     }
 

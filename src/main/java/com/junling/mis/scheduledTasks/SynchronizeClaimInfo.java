@@ -57,7 +57,7 @@ public class SynchronizeClaimInfo {
         Date date = DatetimeHelper.scheduledDate();
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
 
@@ -73,8 +73,9 @@ public class SynchronizeClaimInfo {
                     String claimInfoId = GetUUID32.getUUID32();
                     claimInfo.setClaimInfoId(claimInfoId);
                     claimInfo.setClaimNo(record.getId());
-                    claimInfo.setRegistrationNo(record.getDocuno());
                     claimInfo.setReportNo(visitRecordRenbaojianDetailEntity.getMaYiCaseNo());
+                    claimInfo.setRegistrationNo(record.getDocuno());
+
                     claimInfo.setClaimReportId(String.valueOf(record.getPersonId()));
                     claimInfo.setInsureId(record.getApplyPersonId());
                     claimInfo.setAccidentType(visitRecordRenbaojianDetailEntity.getAccidentType());

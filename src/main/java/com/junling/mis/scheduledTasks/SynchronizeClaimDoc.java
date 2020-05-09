@@ -32,13 +32,11 @@ public class SynchronizeClaimDoc {
 
 
     public void myTask() throws ParseException {
-//        String str = "2020-04-08 19:08:10";
-//        Date date = DatetimeHelper.dateHelper(str);
         Date date = DatetimeHelper.scheduledDate();
 
 
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {

@@ -2,6 +2,8 @@ package com.junling.mis.mapper.secondary;
 
 import com.junling.mis.model.secondary.ClaimLiabCalEntity;
 
+import java.util.List;
+
 public interface ClaimLiabCalEntityMapper {
     int deleteByPrimaryKey(String id);
 
@@ -11,7 +13,7 @@ public interface ClaimLiabCalEntityMapper {
 
     ClaimLiabCalEntity selectByPrimaryKey(String id);
 
-    ClaimLiabCalEntity selectByDocuno(String docuno);
+    List<ClaimLiabCalEntity> selectByDocuno(String docuno);
 
     int updateByPrimaryKeySelective(ClaimLiabCalEntity record);
 

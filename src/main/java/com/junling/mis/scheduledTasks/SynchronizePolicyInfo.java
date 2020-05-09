@@ -45,14 +45,14 @@ public class SynchronizePolicyInfo {
 
         Date date = DatetimeHelper.scheduledDate();
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
             TpaClientEntity tpaClientEntity = tpaClientEntityMapper.selectByIdNo(visitPersonEntity.getCardId());
-            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(Math.toIntExact(tpaClientEntity.getId()));
+            TpaPolClientRelationEntity tpaPolClientRelationEntity = tpaPolClientRelationEntityMapper.selectByInsuredId(tpaClientEntity.getId());
             try {
                 if (policyInfoMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
@@ -65,7 +65,7 @@ public class SynchronizePolicyInfo {
                     String policyInfoId = GetUUID32.getUUID32();
                     policyInfo.setPolicyInfoId(policyInfoId);
                     policyInfo.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                    policyInfo.setProductId(tpaPolPlanEntity.getProductCode());
+                    policyInfo.setProductId("待定");
                     policyInfo.setPolicyOrganization(record.getPartner());
                     if (tpaPolMainEntity.getOldPolno() != null) {
                         //是续保

@@ -32,11 +32,9 @@ public class SynchronizeCustomerAction {
 
 
     public void myTask() throws ParseException {
-//        String str="2020-04-08 19:08:10";
-//        Date date =  DatetimeHelper.dateHelper(str);
         Date date = DatetimeHelper.scheduledDate();
         List<VisitRecordEntity> list = visitRecordEntityMapper.search((date));
-        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3093336818435072");
+        VisitRecordEntity visitRecordEntity = visitRecordEntityMapper.selectByPrimaryKey("B3693879301211136");
         list.add(visitRecordEntity);
 
 
@@ -55,8 +53,8 @@ public class SynchronizeCustomerAction {
                     customerAction.setActionObject(String.valueOf(record.getPersonId()));
                     customerAction.setActionStartTime(DatetimeHelper.dateHelper2(record.getApplyTime()));
                     customerAction.setActionEndTime(DatetimeHelper.dateHelper2(record.getFinishTime()));
-                    customerAction.setActionPlace(record.getAcciPlace());
-                    customerAction.setActionDes(record.getAcciDesci());
+                    customerAction.setActionPlace("待定");
+                    customerAction.setActionDes("待定");
 
                     customerAction.setCreatedBy("system test");
                     customerAction.setCreatedTime(date);

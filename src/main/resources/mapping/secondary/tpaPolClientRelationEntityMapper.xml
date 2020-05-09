@@ -22,11 +22,11 @@
     from tpa_pol_client_relation
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectByInsuredId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByInsuredId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select
     <include refid="Base_Column_List" />
     from tpa_pol_client_relation
-    where insured_id = #{insuredId,jdbcType=INTEGER}
+    where insured_id = #{insuredId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tpa_pol_client_relation

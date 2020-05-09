@@ -2,6 +2,8 @@ package com.junling.mis.mapper.secondary;
 
 import com.junling.mis.model.secondary.ClaimBillFeeEntity;
 
+import java.util.List;
+
 public interface ClaimBillFeeEntityMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -11,7 +13,7 @@ public interface ClaimBillFeeEntityMapper {
 
     ClaimBillFeeEntity selectByPrimaryKey(Integer id);
 
-    ClaimBillFeeEntity selectByDocuno(String docuno);
+    List<ClaimBillFeeEntity> selectByDocuno(String docuno);
 
     int updateByPrimaryKeySelective(ClaimBillFeeEntity record);
 
