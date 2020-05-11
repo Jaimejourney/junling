@@ -6529,3 +6529,186 @@ The last packet successfully received from the server was 80 milliseconds ago.  
 20:06:58.674 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
 20:06:58.680 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
 20:06:58.684 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
+14:45:31.218 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 15257 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+14:45:31.221 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+14:45:32.182 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+14:45:32.183 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+14:45:32.751 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+14:45:32.760 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+14:45:32.760 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+14:45:32.833 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+14:45:32.833 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+14:45:32.833 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1550 ms 
+14:45:32.840 [main] INFO  c.j.m.D.DruidConfiguration - init Druid Servlet Configuration  
+14:45:34.892 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+14:45:35.018 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+14:45:35.073 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+14:45:35.219 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+14:45:35.266 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+14:45:35.276 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+14:45:35.304 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+14:45:35.420 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+14:45:35.535 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+14:45:35.540 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 4.855 seconds (JVM running for 5.828) 
+14:45:38.819 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+14:45:38.819 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+14:45:38.819 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+14:45:38.829 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+14:45:38.832 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 13 ms 
+14:45:38.846 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+14:45:38.852 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+14:45:44.216 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+14:45:49.208 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+14:45:50.457 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+14:45:50.514 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+14:45:50.527 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存申请人 
+14:45:50.702 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+14:45:50.981 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerInfo - customerInfo success 
+14:45:54.272 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+14:45:54.348 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerAction - customerAction success 
+14:45:56.539 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+14:45:56.677 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerRelationship - customerRelationship success 
+14:45:58.797 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+14:45:58.829 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeCustomerBankInfo - customerBankInfo success 
+14:46:02.023 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInfo - 保存保单表 
+14:46:02.094 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInfo - policyInfo success 
+14:46:04.516 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+14:46:05.248 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyInsured - PolicyInsured success 
+14:46:07.793 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevel - PolicyGradeLevel success 
+14:46:10.303 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+14:46:10.773 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - PolicyGradeLevelPro success 
+14:46:13.806 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+14:46:14.874 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBenefit - policyBenefit success 
+14:46:41.509 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=50s891ms). 
+14:46:41.509 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52s198ms). 
+14:46:43.021 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+14:46:43.732 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存数据库失败 
+14:46:43.734 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePolicyBeneficiary - policyBeneficiary success 
+14:46:51.683 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - 保存保单计划产品责任表 
+14:46:52.115 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizePglProductDuty - pglProductDuty success 
+14:46:56.491 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - 保存理赔报案和报案信息表 
+14:46:57.482 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - 保存理赔影像信息表 
+14:46:57.617 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimDoc - claimDoc success 
+14:46:58.294 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - 保存账单信息表 
+14:47:01.537 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 保存账单明细信息表 
+14:47:03.467 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - claimBillDetail success 
+14:47:04.760 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDiagnose - 保存账单疾病表 
+14:47:05.189 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDiagnose - ClaimBillDiagnose success 
+14:47:06.964 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 保存账单明细信息表 
+14:47:07.949 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789227已存在 
+14:47:07.981 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789228已存在 
+14:47:08.017 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789229已存在 
+14:47:08.051 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789230已存在 
+14:47:08.084 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789231已存在 
+14:47:08.117 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789232已存在 
+14:47:08.149 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789233已存在 
+14:47:08.182 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789234已存在 
+14:47:08.218 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789235已存在 
+14:47:08.258 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789236已存在 
+14:47:08.298 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789237已存在 
+14:47:08.341 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789238已存在 
+14:47:08.380 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - 数据2789239已存在 
+14:47:08.382 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDetail - claimBillDetail success 
+14:47:09.521 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDiagnose - 保存账单疾病表 
+14:47:10.175 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBillDiagnose - ClaimBillDiagnose success 
+14:47:10.176 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimBill - claimBill success 
+14:47:11.131 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - 保存理赔账户信息表 
+14:47:11.281 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimAccountInfo - ClaimAccountInfo success 
+14:47:11.282 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInfo - claimInfo success 
+14:47:13.998 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - 保存调查表 
+14:47:14.138 [http-nio-8080-exec-1] INFO  c.j.m.s.SynchronizeClaimInvestigatoinInfo - claimInvestigationInfo success 
+14:47:21.469 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+14:47:21.478 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+14:47:21.481 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+14:47:21.486 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{"code":200,"msg":"","count":1,"total":0,"pages":0,"page_size":0,"current_page":0,"map":{},"results" (truncated)...] 
+14:47:21.499 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+14:47:21.512 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+14:47:21.516 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+14:47:21.527 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 
+14:47:21.538 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK 
+14:47:58.421 [main] INFO  com.junling.mis.MisApplication - Starting MisApplication on localhost with PID 15299 (/Users/yikaizhu/Downloads/projects/testMis/target/classes started by yikaizhu in /Users/yikaizhu/Downloads/projects/testMis) 
+14:47:58.423 [main] INFO  com.junling.mis.MisApplication - No active profile set, falling back to default profiles: default 
+14:47:59.368 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.primary]' package. Please check your configuration. 
+14:47:59.369 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.xh.iot.repositories.mapper.secondary]' package. Please check your configuration. 
+14:47:59.893 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+14:47:59.902 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+14:47:59.902 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31] 
+14:47:59.974 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+14:47:59.974 [main] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+14:47:59.974 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1485 ms 
+14:47:59.981 [main] INFO  c.j.m.D.DruidConfiguration - init Druid Servlet Configuration  
+14:48:01.701 [main] WARN  o.s.b.a.j.JacksonAutoConfiguration$JodaDateTimeJacksonConfiguration - Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310). 
+14:48:01.738 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+14:48:01.747 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+14:48:01.821 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 223 mappings in 'requestMappingHandlerMapping' 
+14:48:01.846 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+14:48:01.854 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+14:48:01.881 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration) 
+14:48:02.032 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler' 
+14:48:02.109 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+14:48:02.113 [main] INFO  com.junling.mis.MisApplication - Started MisApplication in 4.0 seconds (JVM running for 4.847) 
+14:48:06.164 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+14:48:06.165 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+14:48:06.165 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver 
+14:48:06.176 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+14:48:06.176 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 11 ms 
+14:48:06.186 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/syncTask/run", parameters={} 
+14:48:06.190 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.junling.mis.controller.SyncTaskController#runSyncTask() 
+14:48:13.545 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+14:48:17.890 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+14:48:19.046 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting... 
+14:48:19.093 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed. 
+14:48:19.132 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据已存在 
+14:48:19.133 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - 开始保存就诊人 
+14:48:19.397 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - 数据342425197409020543已存在 
+14:48:19.398 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerInfo - customerInfo success 
+14:48:20.104 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerAction - 开始保存个人行为 
+14:48:20.124 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerAction - 数据3693879301227521已存在 
+14:48:20.126 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerAction - customerAction success 
+14:48:20.913 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerRelationship - 开始保存个人关系 
+14:48:20.937 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerRelationship - 数据3693879301227521已存在 
+14:48:20.938 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerRelationship - customerRelationship success 
+14:48:21.936 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 保存客户银行信息表 
+14:48:21.961 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerBankInfo - 数据3693879301227521已存在 
+14:48:21.963 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizeCustomerBankInfo - customerBankInfo success 
+14:48:23.358 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInfo - 数据20190524004047E已存在 
+14:48:23.360 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInfo - policyInfo success 
+14:48:24.748 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInsured - 保存被保人表 
+14:48:24.781 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInsured - 数据20190524004047E已存在 
+14:48:24.782 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyInsured - PolicyInsured success 
+14:48:26.090 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevel - 数据20190524004047E已存在 
+14:48:26.092 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevel - PolicyGradeLevel success 
+14:48:27.493 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 保存保单计划产品表 
+14:48:27.515 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - 数据20190524004047E已存在 
+14:48:27.517 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyGradeLevelPro - PolicyGradeLevelPro success 
+14:48:28.798 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 保存保益表 
+14:48:29.363 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857808已存在 
+14:48:29.386 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857809已存在 
+14:48:29.410 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857810已存在 
+14:48:29.433 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857811已存在 
+14:48:29.455 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857812已存在 
+14:48:29.479 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857813已存在 
+14:48:29.500 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857814已存在 
+14:48:29.522 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857815已存在 
+14:48:29.545 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - 数据2857816已存在 
+14:48:29.547 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBenefit - policyBenefit success 
+14:48:53.234 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存受益人表 
+14:49:09.148 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - 保存数据库失败 
+14:49:09.149 [http-nio-8080-exec-2] INFO  c.j.m.s.SynchronizePolicyBeneficiary - policyBeneficiary success 
+14:49:09.183 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler' 
+14:49:09.189 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+14:49:09.204 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+14:49:09.761 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Failed to complete request: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+### The error may exist in file [/Users/yikaizhu/Downloads/projects/testMis/target/classes/mapping/secondary/visitRecordEntityMapper.xml]
+### The error may involve com.junling.mis.mapper.secondary.VisitRecordEntityMapper.selectByPrimaryKey
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed. 
+14:49:09.769 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={} 
+14:49:09.770 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest) 
+14:49:09.789 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json] 
+14:49:09.789 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Mon May 11 14:49:09 PDT 2020, status=500, error=Internal Server Error, message=nested exc (truncated)...] 
+14:49:09.823 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 500 
+14:49:09.941 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+14:49:09.945 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+14:49:09.950 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed. 

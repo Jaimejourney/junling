@@ -57,6 +57,7 @@ public class SynchronizePolicyGradeLevel {
             if (policyGradeLevelMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                 LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
             } else {
+                LOG.info("保存计划表");
 
                 PolicyGradeLevel policyGradeLevel = new PolicyGradeLevel();
                 String policyGradeLevelId = GetUUID32.getUUID32();
