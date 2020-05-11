@@ -4,7 +4,6 @@ package com.junling.mis.scheduledTasks;
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
 import com.junling.mis.mapper.primary.PglProductDutyMapper;
-import com.junling.mis.mapper.primary.PolicyBeneficiaryMapper;
 import com.junling.mis.mapper.secondary.*;
 import com.junling.mis.model.primary.PglProductDuty;
 import com.junling.mis.model.secondary.*;
@@ -17,6 +16,10 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePglProductDuty {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePglProductDuty.class);
@@ -34,19 +37,10 @@ public class SynchronizePglProductDuty {
     TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
 
     @Autowired
-    TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
-
-    @Autowired
-    TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
-
-    @Autowired
-    PolicyBeneficiaryMapper policyBeneficiaryMapper;
-
-    @Autowired
-    TpaPolGradeLevelEntityMapper tpaPolGradeLevelEntityMapper;
-
-    @Autowired
     PglProductDutyMapper pglProductDutyMapper;
+
+    @Autowired
+    TpaPolPlanBenefitEntityMapper tpaPolPlanBenefitEntityMapper;
 
 
     public void myTask() throws ParseException {
@@ -67,16 +61,15 @@ public class SynchronizePglProductDuty {
                 if (pglProductDutyMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-//                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                     PglProductDuty pglProductDuty = new PglProductDuty();
                     String pglProductDutyId = GetUUID32.getUUID32();
                     pglProductDuty.setPglProductDutyId(pglProductDutyId);
                     pglProductDuty.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-//                    pglProductDuty.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-                    pglProductDuty.setPolicyGradeLevelNo(0);
-                    pglProductDuty.setProductId(tpaClientPolInfoEntity.getProductCode());
+
+                    pglProductDuty.setPolicyGradeLevelNo(Integer.valueOf(tpaPolClientRelationEntity.getGradeLevel()));
+                    pglProductDuty.setProductId(tpaPolPlanBenefitEntity.get(0).getProductCode());
                     //待定
                     pglProductDuty.setPglpDutySpecialContract("待加");
 

@@ -3,7 +3,6 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.common.utils.GetUUID32;
-import com.junling.mis.mapper.primary.PolicyBeneficiaryMapper;
 import com.junling.mis.mapper.primary.PolicyGradeLevelMapper;
 import com.junling.mis.mapper.secondary.*;
 import com.junling.mis.model.primary.PolicyGradeLevel;
@@ -17,6 +16,9 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePolicyGradeLevel {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePolicyGradeLevel.class);
@@ -34,16 +36,7 @@ public class SynchronizePolicyGradeLevel {
     TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
 
     @Autowired
-    PolicyBeneficiaryMapper policyBeneficiaryMapper;
-
-    @Autowired
-    TpaPolGradeLevelEntityMapper tpaPolGradeLevelEntityMapper;
-
-    @Autowired
     PolicyGradeLevelMapper policyGradeLevelMapper;
-
-    @Autowired
-    PlanPremEntityMapper planPremEntityMapper;
 
     @Autowired
     PlanBenefitEntityMapper planBenefitEntityMapper;
@@ -64,26 +57,18 @@ public class SynchronizePolicyGradeLevel {
             if (policyGradeLevelMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                 LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
             } else {
-//                TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-//                PlanBenefitEntity planBenefitEntity = planBenefitEntityMapper.selectByGradeLevel(tpaPolGradeLevelEntity.getGradeLevel());
-//                PlanPremEntity planPremEntity = planPremEntityMapper.selectByPlanCode(planBenefitEntity.getPlanCode());
 
                 PolicyGradeLevel policyGradeLevel = new PolicyGradeLevel();
                 String policyGradeLevelId = GetUUID32.getUUID32();
                 policyGradeLevel.setPolicyGradeLevelId(policyGradeLevelId);
                 policyGradeLevel.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-//                policyGradeLevel.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-//                policyGradeLevel.setPolicyGradeLevelName(tpaPolGradeLevelEntity.getDescription());
-//                policyGradeLevel.setPglCoveredArea(tpaPolGradeLevelEntity.getCoveredArea());
-                policyGradeLevel.setPolicyGradeLevelNo(0);
+                policyGradeLevel.setPolicyGradeLevelNo(Integer.valueOf(tpaPolClientRelationEntity.getGradeLevel()));
                 policyGradeLevel.setPolicyGradeLevelName("待加");
                 policyGradeLevel.setPglCoveredArea("待加");
 
 
                 //待定
-//                policyGradeLevel.setPglTotalPrem(Integer.valueOf(planPremEntity.getPrem()));
                 policyGradeLevel.setPglTotalPrem(1);
-//                policyGradeLevel.setPglBaseCoverage(Math.toIntExact(planBenefitEntity.getDeductibleAmout()));
                 policyGradeLevel.setPglBaseCoverage(1);
 
                 policyGradeLevel.setCreatedBy("SystemTest");

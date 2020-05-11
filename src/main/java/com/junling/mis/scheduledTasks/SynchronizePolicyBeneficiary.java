@@ -3,7 +3,6 @@ package com.junling.mis.scheduledTasks;
 
 import com.junling.mis.common.dateTime.DatetimeHelper;
 import com.junling.mis.mapper.primary.PolicyBeneficiaryMapper;
-import com.junling.mis.mapper.primary.PolicyInfoMapper;
 import com.junling.mis.mapper.secondary.*;
 import com.junling.mis.model.primary.PolicyBeneficiary;
 import com.junling.mis.model.secondary.*;
@@ -16,6 +15,10 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePolicyBeneficiary {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePolicyBeneficiary.class);
@@ -33,19 +36,13 @@ public class SynchronizePolicyBeneficiary {
     TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
 
     @Autowired
-    PolicyInfoMapper policyInfoMapper;
-
-    @Autowired
     TpaPolPlanBenefitEntityMapper tpaPolPlanBenefitEntityMapper;
 
     @Autowired
     TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
 
     @Autowired
-    TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
-
-    @Autowired
-    TpaPolPlanEntityMapper tpaPolPlanEntityMapper;
+    TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
     PolicyBeneficiaryMapper policyBeneficiaryMapper;
@@ -59,7 +56,6 @@ public class SynchronizePolicyBeneficiary {
         list.add(visitRecordEntity);
 
 
-
         for (int i = 0; i < list.size(); i++) {
             VisitRecordEntity record = list.get(i);
             VisitPersonEntity visitPersonEntity = visitPersonEntityMapper.selectByPrimaryKey(record.getPersonId());
@@ -69,25 +65,25 @@ public class SynchronizePolicyBeneficiary {
             try {
                 LOG.info("保存受益人表");
                 List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
                 TpaPolBeneficiaryEntity tpaPolBeneficiaryEntity = tpaPolBeneficiaryEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                 for (int j = 0; j < tpaPolPlanBenefitEntity.size(); j++) {
-                    if(policyBeneficiaryMapper.selectByPrimaryKey(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId())) != null){
+                    if (policyBeneficiaryMapper.selectByPrimaryKey(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId())) != null) {
                         LOG.info("数据" + tpaPolPlanBenefitEntity.get(j).getId() + "已存在");
-                    }else{
+                    } else {
                         PolicyBeneficiary policyBeneficiary = new PolicyBeneficiary();
 //                    String policyBeneficiaryId = GetUUID32.getUUID32();
                         policyBeneficiary.setPolicyBeneficiaryId(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId()));
                         policyBeneficiary.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                        policyBeneficiary.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
+
                         //待加
+                        policyBeneficiary.setPolicyReinsuranceNo(tpaPolMainEntity.getCertno());
                         policyBeneficiary.setBrNo(0);
 
                         policyBeneficiary.setInsureId(tpaPolBeneficiaryEntity.getInsuredId());
-                        policyBeneficiary.setGradeLevelId(tpaPolPlanEntity.getGradeLevel());
-                        policyBeneficiary.setProductId(tpaPolPlanEntity.getProductCode());
+                        policyBeneficiary.setGradeLevelId(tpaPolClientRelationEntity.getGradeLevel());
+                        policyBeneficiary.setProductId(tpaPolPlanBenefitEntity.get(i).getProductCode());
                         policyBeneficiary.setDutyId(String.valueOf(tpaPolPlanBenefitEntity.get(i).getBenefitCode()));
                         policyBeneficiary.setPolicyBeneficiaryType(tpaPolBeneficiaryEntity.getBeneficiaryType());
                         policyBeneficiary.setPolicyBeneficiaryRate(Integer.valueOf(tpaPolBeneficiaryEntity.getBeneficiaryRate()));

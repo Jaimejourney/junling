@@ -15,6 +15,10 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePolicyBenefit {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePolicyBenefit.class);
@@ -32,13 +36,10 @@ public class SynchronizePolicyBenefit {
     TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
 
     @Autowired
-    PolicyInfoMapper policyInfoMapper;
-
-    @Autowired
     TpaPolPlanBenefitEntityMapper tpaPolPlanBenefitEntityMapper;
 
     @Autowired
-    TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
+    TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
     PolicyBenefitMapper policyBenefitMapper;
@@ -58,7 +59,7 @@ public class SynchronizePolicyBenefit {
             try {
                 LOG.info("保存保益表");
                 List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                 for (int j = 0; j < tpaPolPlanBenefitEntity.size(); j++) {
                     if (policyBenefitMapper.selectByPrimaryKey(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId())) != null) {
@@ -68,7 +69,7 @@ public class SynchronizePolicyBenefit {
 //                        String policyBenefitId = GetUUID32.getUUID32();
                         policyBenefit.setPolicyBenefitId(String.valueOf(tpaPolPlanBenefitEntity.get(j).getId()));
                         policyBenefit.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                        policyBenefit.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
+                        policyBenefit.setPolicyReinsuranceNo(tpaPolMainEntity.getCertno());
                         policyBenefit.setProductId(tpaPolPlanBenefitEntity.get(i).getProductCode());
                         policyBenefit.setDutyId(String.valueOf(tpaPolPlanBenefitEntity.get(i).getBenefitCode()));
 

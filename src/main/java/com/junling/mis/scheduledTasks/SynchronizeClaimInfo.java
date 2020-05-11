@@ -17,6 +17,9 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizeClaimInfo {
 

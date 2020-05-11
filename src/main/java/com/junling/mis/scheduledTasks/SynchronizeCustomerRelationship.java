@@ -15,6 +15,9 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizeCustomerRelationship {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizeCustomerRelationship.class);

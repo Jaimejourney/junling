@@ -17,6 +17,10 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePolicyGradeLevelPro {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePolicyGradeLevelPro.class);
@@ -34,19 +38,10 @@ public class SynchronizePolicyGradeLevelPro {
     TpaPolClientRelationEntityMapper tpaPolClientRelationEntityMapper;
 
     @Autowired
-    TpaPolBeneficiaryEntityMapper tpaPolBeneficiaryEntityMapper;
-
-    @Autowired
-    TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
-
-    @Autowired
-    PolicyBeneficiaryMapper policyBeneficiaryMapper;
-
-    @Autowired
-    TpaPolGradeLevelEntityMapper tpaPolGradeLevelEntityMapper;
-
-    @Autowired
     PolicyGradeLevelProMapper policyGradeLeveProlMapper;
+
+    @Autowired
+    TpaPolPlanBenefitEntityMapper tpaPolPlanBenefitEntityMapper;
 
 
     public void myTask() throws ParseException {
@@ -67,17 +62,16 @@ public class SynchronizePolicyGradeLevelPro {
                 if (policyGradeLeveProlMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-//                    TpaPolGradeLevelEntity tpaPolGradeLevelEntity = tpaPolGradeLevelEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                     PolicyGradeLevelPro policyGradeLevelPro = new PolicyGradeLevelPro();
                     String policyGradeLevelProId = GetUUID32.getUUID32();
                     policyGradeLevelPro.setPglProductId(policyGradeLevelProId);
                     policyGradeLevelPro.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                    policyGradeLevelPro.setPolicyGradeLevelNo(0);
-//                    policyGradeLevelPro.setPolicyGradeLevelNo(Integer.valueOf(tpaPolGradeLevelEntity.getGradeLevel()));
-                    policyGradeLevelPro.setProductId(tpaClientPolInfoEntity.getProductCode());
+                    policyGradeLevelPro.setPolicyGradeLevelNo(Integer.valueOf(tpaPolClientRelationEntity.getGradeLevel()));
+
                     //待定
+                    policyGradeLevelPro.setProductId(tpaPolPlanBenefitEntity.get(0).getProductCode());
                     policyGradeLevelPro.setPglProductTotalPrem(1);
                     policyGradeLevelPro.setPglProductBaseCoverage(1);
 

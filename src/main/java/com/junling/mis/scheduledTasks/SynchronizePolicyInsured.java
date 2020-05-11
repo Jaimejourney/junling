@@ -16,6 +16,9 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePolicyInsured {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePolicyInsured.class);
@@ -36,10 +39,10 @@ public class SynchronizePolicyInsured {
     TpaPolMainEntityMapper tpaPolMainEntityMapper;
 
     @Autowired
-    TpaClientPolInfoEntityMapper tpaClientPolInfoEntityMapper;
+    PolicyInsuredMapper policyInsuredMapper;
 
     @Autowired
-    PolicyInsuredMapper policyInsuredMapper;
+    TpaPolPlanBenefitEntityMapper tpaPolPlanBenefitEntityMapper;
 
     public void myTask() throws ParseException {
         Date date = DatetimeHelper.scheduledDate();
@@ -58,14 +61,15 @@ public class SynchronizePolicyInsured {
                 if (policyInsuredMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno()) != null) {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
-                    TpaClientPolInfoEntity tpaClientPolInfoEntity = tpaClientPolInfoEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
                     PolicyInsured policyInsured = new PolicyInsured();
                     String policyInsuredId = GetUUID32.getUUID32();
                     policyInsured.setPolicyInsuredId(policyInsuredId);
                     policyInsured.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                    policyInsured.setPolicyReinsuranceNo(tpaClientPolInfoEntity.getCertno());
-                    policyInsured.setProductId(tpaClientPolInfoEntity.getProductCode());
+                    policyInsured.setPolicyReinsuranceNo(tpaPolMainEntity.getCertno());
+                    policyInsured.setProductId(tpaPolPlanBenefitEntity.get(0).getProductCode());
                     policyInsured.setInsureId(String.valueOf(record.getPersonId()));
 
                     policyInsured.setCreatedBy("SystemTest");

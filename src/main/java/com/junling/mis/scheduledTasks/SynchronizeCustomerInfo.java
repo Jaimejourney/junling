@@ -20,6 +20,8 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+
+
 @Component
 public class SynchronizeCustomerInfo {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizeCustomerInfo.class);

@@ -56,6 +56,7 @@ public class SyncTaskService {
 //        String str = "2019-03-08 19:08:10";
 //        Date date = DatetimeHelper.dateHelper(str);
 
+
         //1.客户模块
         synchronizeCustomerInfo.myTask();
         synchronizeCustomerAction.myTask();

@@ -16,6 +16,9 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author yikaizhu
+ */
 @Component
 public class SynchronizePolicyInfo {
     private final static Logger LOG = LoggerFactory.getLogger(SynchronizePolicyInfo.class);
@@ -39,7 +42,7 @@ public class SynchronizePolicyInfo {
     PolicyInfoMapper policyInfoMapper;
 
     @Autowired
-    TpaPolPlanEntityMapper tpaPolPlanEntityMapper;
+    TpaPolPlanBenefitEntityMapper tpaPolPlanBenefitEntityMapper;
 
     public void myTask() throws ParseException {
 
@@ -58,14 +61,15 @@ public class SynchronizePolicyInfo {
                     LOG.info("数据" + tpaPolClientRelationEntity.getPolno() + "已存在");
                 } else {
                     TpaPolMainEntity tpaPolMainEntity = tpaPolMainEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
-                    TpaPolPlanEntity tpaPolPlanEntity = tpaPolPlanEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
+                    List<TpaPolPlanBenefitEntity> tpaPolPlanBenefitEntity = tpaPolPlanBenefitEntityMapper.selectByPolNo(tpaPolClientRelationEntity.getPolno());
 
-                    LOG.info("报单表");
+
+                    LOG.info("保存保单表");
                     PolicyInfo policyInfo = new PolicyInfo();
                     String policyInfoId = GetUUID32.getUUID32();
                     policyInfo.setPolicyInfoId(policyInfoId);
                     policyInfo.setPolicyNo(tpaPolClientRelationEntity.getPolno());
-                    policyInfo.setProductId("待定");
+                    policyInfo.setProductId(tpaPolPlanBenefitEntity.get(0).getProductCode());
                     policyInfo.setPolicyOrganization(record.getPartner());
                     if (tpaPolMainEntity.getOldPolno() != null) {
                         //是续保
